@@ -4,13 +4,14 @@
 
 ## Download
 
-Afleveringsfilerne findes i [GitHub-prerelease v0.1-design-draft](https://github.com/kristian61/SWM-PORWER-SUP/releases/tag/v0.1-design-draft):
+Afleveringsfilerne ligger direkte i dette repository:
 
-- [Dansk PDF-manual, 134 sider](https://github.com/kristian61/SWM-PORWER-SUP/releases/download/v0.1-design-draft/SWM-POWER-SUP-manual-dansk.pdf)
-- [Komplet projekt-ZIP med fabrikantdatablade, cirka 61 MB](https://github.com/kristian61/SWM-PORWER-SUP/releases/download/v0.1-design-draft/SWM-POWER-SUP-komplet-projekt.zip)
-- [Mindre projekt-ZIP uden fabrikantdatablade, cirka 15 MB](https://github.com/kristian61/SWM-PORWER-SUP/releases/download/v0.1-design-draft/SWM-POWER-SUP-projekt-uden-datablade.zip)
+- [Dansk PDF-manual, 134 sider](https://github.com/kristian61/SWM-PORWER-SUP/raw/refs/heads/main/exports/manual_da.pdf)
+- [Komplet projekt-ZIP med fabrikantdatablade, cirka 61 MB](https://github.com/kristian61/SWM-PORWER-SUP/raw/refs/heads/main/exports/psu_design_draft.zip)
+- [Mindre projekt-ZIP uden fabrikantdatablade, cirka 15 MB](https://github.com/kristian61/SWM-PORWER-SUP/raw/refs/heads/main/exports/psu_design_compact.zip)
+- [SHA-256-kontrolsummer](exports/download_SHA256SUMS.txt)
 
-PDF, ZIP og kontrolrapporter er den kontrollerede CAD-aflevering fra 10. oktober 2026, før GitHub-upload. Deres bemærkninger om endnu ikke udført GitHub-publicering beskriver dette tidligere tidspunkt. Kildefilerne på main indeholder samme CAD og beregningsarbejde samt disse downloadhenvisninger. Prerelease betyder ingen frigivelse til fremstilling eller net-/effekttest. Nogle scripts i den mindre ZIP kræver originalerne fra den komplette pakke.
+PDF, ZIP og kontrolrapporter er den kontrollerede CAD-aflevering fra 10. oktober 2026, før GitHub-upload. Deres bemærkninger om endnu ikke udført GitHub-publicering beskriver dette tidligere tidspunkt. Kildefilerne på main indeholder samme CAD og beregningsarbejde samt disse downloadhenvisninger. Upload betyder ingen frigivelse til fremstilling eller net-/effekttest. Nogle scripts i den mindre ZIP kræver originalerne fra den komplette pakke.
 
 Krav: 230 V AC på en dedikeret 32 A kreds, isoleret og flydende 0–100 V udgang, op til 40 A og justerbar strømbegrænsning til små prøveprint.
 
