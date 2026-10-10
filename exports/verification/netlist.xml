@@ -1,0 +1,731 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="E">
+  <design>
+    <source>/workspace/SWM-PORWER-SUP/design/measurement/measurement.kicad_sch</source>
+    <date>2026-10-09T19:09:05+0000</date>
+    <tool>Eeschema 9.0.2+dfsg-1</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title>MÅLEKORT UDKAST - IKKE 4 kW EFFEKTTRIN</title>
+        <company/>
+        <rev/>
+        <date/>
+        <source>measurement.kicad_sch</source>
+        <comment number="1" value="Floating DC secondary; NONISOLATED to secondary AGND"/>
+        <comment number="2" value="0..120 V relative AGND; divider 1/40; 100 V gives 2.5 V"/>
+        <comment number="3" value="External four-terminal 1 mohm shunt; 40 A gives 40 mV"/>
+        <comment number="4" value="No ADC or clamps; input &gt;=10 Mohm; powered frontend only"/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="C1">
+      <value>10nF C0G 50V</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <description>10nF ±5%,C0G/NP0,50V,0603. Combined with divider Thevenin9.75k and1k filter gives nominal~1.48kHz pole.</description>
+      <fields>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">10nF ±5%,C0G/NP0,50V,0603. Combined with divider Thevenin9.75k and1k filter gives nominal~1.48kHz pole.</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="measurement.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>5f5588d1-2d92-4c03-a144-86523406c338</tstamps>
+    </comp>
+    <comp ref="C2">
+      <value>10nF C0G 50V</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <description>10nF ±5%,C0G/NP0,50V,0603. Same filtering asC1.</description>
+      <fields>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">10nF ±5%,C0G/NP0,50V,0603. Same filtering asC1.</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="measurement.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>3f532a53-28fd-4559-b20a-5ecd42ee2e9d</tstamps>
+    </comp>
+    <comp ref="C3">
+      <value>10nF C0G 50V</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <description>10nF ±5%,C0G/NP0,50V,0603. Differential shunt filter;2k total seriesresistance gives nominal7.96kHzpole.</description>
+      <fields>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">10nF ±5%,C0G/NP0,50V,0603. Differential shunt filter;2k total seriesresistance gives nominal7.96kHzpole.</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="measurement.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>f5c0034b-d420-4391-bfd3-59e720f9b46e</tstamps>
+    </comp>
+    <comp ref="J1">
+      <value>VOLTAGE SENSE 0..120V</value>
+      <footprint>TerminalBlock_RND:TerminalBlock_RND_205-00241_1x02_P10.16mm_Horizontal</footprint>
+      <description>RND 205-00241 footprint candidate; mechanical and voltage rating require manufacturer verification. Pin1 positive sense; pin2 negative sense. No load current.</description>
+      <fields>
+        <field name="Footprint">TerminalBlock_RND:TerminalBlock_RND_205-00241_1x02_P10.16mm_Horizontal</field>
+        <field name="Datasheet"/>
+        <field name="Description">RND 205-00241 footprint candidate; mechanical and voltage rating require manufacturer verification. Pin1 positive sense; pin2 negative sense. No load current.</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x02" description="Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="measurement.kicad_sch"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_1x??_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>025057d5-0fdf-46ed-83a7-7b6a2c57f856</tstamps>
+    </comp>
+    <comp ref="J2">
+      <value>EXTERNAL SHUNT KELVIN</value>
+      <footprint>TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-3-5.08_1x03_P5.08mm_Horizontal</footprint>
+      <description>Phoenix MKDS1.5 3pos5.08mm footprint candidate; pin1 externalshunt high Kelvin,pin2lowKelvin,pin3analogground. Shunt1mohm &gt;=10W outsidePCB; no40A current throughPCB.</description>
+      <fields>
+        <field name="Footprint">TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-3-5.08_1x03_P5.08mm_Horizontal</field>
+        <field name="Datasheet"/>
+        <field name="Description">Phoenix MKDS1.5 3pos5.08mm footprint candidate; pin1 externalshunt high Kelvin,pin2lowKelvin,pin3analogground. Shunt1mohm &gt;=10W outsidePCB; no40A current throughPCB.</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x03" description="Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="measurement.kicad_sch"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_1x??_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>101255b9-b7e6-4751-adb6-4fda4c993510</tstamps>
+    </comp>
+    <comp ref="J3">
+      <value>MONITOR OUTPUT - NO ADC</value>
+      <footprint>Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical</footprint>
+      <description>Low current analog output. High input impedance &gt;=10Mohm required for voltage monitors. No clamps,isolation,ADC,orcurrentgainprovided; external frontend must be powered and rated beforeconnection.</description>
+      <fields>
+        <field name="Footprint">Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical</field>
+        <field name="Datasheet"/>
+        <field name="Description">Low current analog output. High input impedance &gt;=10Mohm required for voltage monitors. No clamps,isolation,ADC,orcurrentgainprovided; external frontend must be powered and rated beforeconnection.</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x06" description="Generic connector, single row, 01x06, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="measurement.kicad_sch"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_1x??_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>be6b82d5-0940-4a66-b84c-d30e6aa0e19a</tstamps>
+    </comp>
+    <comp ref="R1">
+      <value>130k 0.1%</value>
+      <footprint>Resistor_SMD:R_1206_3216Metric</footprint>
+      <description>130 kohm ±0.1%; &gt;=0.25W; &gt;=100V working voltage; 1206. Maximum ~39V drop and12mW at120V input. Final MPN pending datasheet verification.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_1206_3216Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">130 kohm ±0.1%; &gt;=0.25W; &gt;=100V working voltage; 1206. Maximum ~39V drop and12mW at120V input. Final MPN pending datasheet verification.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="measurement.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>5d0b30f8-d8f1-4401-9497-27883494a01f</tstamps>
+    </comp>
+    <comp ref="R2">
+      <value>130k 0.1%</value>
+      <footprint>Resistor_SMD:R_1206_3216Metric</footprint>
+      <description>130 kohm ±0.1%; &gt;=0.25W; &gt;=100V working voltage; 1206. Maximum ~39V drop and12mW at120V input. Final MPN pending datasheet verification.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_1206_3216Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">130 kohm ±0.1%; &gt;=0.25W; &gt;=100V working voltage; 1206. Maximum ~39V drop and12mW at120V input. Final MPN pending datasheet verification.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="measurement.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>771d9581-5236-405c-b297-fae4862f43f5</tstamps>
+    </comp>
+    <comp ref="R3">
+      <value>130k 0.1%</value>
+      <footprint>Resistor_SMD:R_1206_3216Metric</footprint>
+      <description>130 kohm ±0.1%; &gt;=0.25W; &gt;=100V working voltage; 1206. Maximum ~39V drop and12mW at120V input. Final MPN pending datasheet verification.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_1206_3216Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">130 kohm ±0.1%; &gt;=0.25W; &gt;=100V working voltage; 1206. Maximum ~39V drop and12mW at120V input. Final MPN pending datasheet verification.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="measurement.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>d1ba890d-1e4e-4e3b-b036-2b0888deabf6</tstamps>
+    </comp>
+    <comp ref="R4">
+      <value>10k 0.1%</value>
+      <footprint>Resistor_SMD:R_1206_3216Metric</footprint>
+      <description>10 kohm ±0.1%; &gt;=0.125W; 1206. Divider lower leg; total nominal ratio1/40.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_1206_3216Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">10 kohm ±0.1%; &gt;=0.125W; 1206. Divider lower leg; total nominal ratio1/40.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="measurement.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>66a49c3f-59d5-496a-8069-e49873de8096</tstamps>
+    </comp>
+    <comp ref="R5">
+      <value>130k 0.1%</value>
+      <footprint>Resistor_SMD:R_1206_3216Metric</footprint>
+      <description>130 kohm ±0.1%; &gt;=0.25W; &gt;=100V working voltage; 1206. Maximum ~39V drop and12mW at120V input. Final MPN pending datasheet verification.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_1206_3216Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">130 kohm ±0.1%; &gt;=0.25W; &gt;=100V working voltage; 1206. Maximum ~39V drop and12mW at120V input. Final MPN pending datasheet verification.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="measurement.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>0c7b2c0f-03c4-436d-bd5e-459dddb6a362</tstamps>
+    </comp>
+    <comp ref="R6">
+      <value>130k 0.1%</value>
+      <footprint>Resistor_SMD:R_1206_3216Metric</footprint>
+      <description>130 kohm ±0.1%; &gt;=0.25W; &gt;=100V working voltage; 1206. Maximum ~39V drop and12mW at120V input. Final MPN pending datasheet verification.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_1206_3216Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">130 kohm ±0.1%; &gt;=0.25W; &gt;=100V working voltage; 1206. Maximum ~39V drop and12mW at120V input. Final MPN pending datasheet verification.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="measurement.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>fe8d7634-e818-46af-a89c-93300409b56d</tstamps>
+    </comp>
+    <comp ref="R7">
+      <value>130k 0.1%</value>
+      <footprint>Resistor_SMD:R_1206_3216Metric</footprint>
+      <description>130 kohm ±0.1%; &gt;=0.25W; &gt;=100V working voltage; 1206. Maximum ~39V drop and12mW at120V input. Final MPN pending datasheet verification.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_1206_3216Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">130 kohm ±0.1%; &gt;=0.25W; &gt;=100V working voltage; 1206. Maximum ~39V drop and12mW at120V input. Final MPN pending datasheet verification.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="measurement.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>a192ab92-a210-434f-a3c3-a948475451af</tstamps>
+    </comp>
+    <comp ref="R8">
+      <value>10k 0.1%</value>
+      <footprint>Resistor_SMD:R_1206_3216Metric</footprint>
+      <description>10 kohm ±0.1%; &gt;=0.125W; 1206. Divider lower leg; total nominal ratio1/40.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_1206_3216Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">10 kohm ±0.1%; &gt;=0.125W; 1206. Divider lower leg; total nominal ratio1/40.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="measurement.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>5ad53392-f202-4794-87c9-85b237350e45</tstamps>
+    </comp>
+    <comp ref="R9">
+      <value>1k 1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <description>Voltage monitor series filter resistor; 1 kohm ±1%,0603.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">Voltage monitor series filter resistor; 1 kohm ±1%,0603.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="measurement.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>8f1e0a19-fe26-43ab-a422-5777b03a5d66</tstamps>
+    </comp>
+    <comp ref="R10">
+      <value>1k 1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <description>Voltage monitor series filter resistor;1 kohm ±1%,0603.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">Voltage monitor series filter resistor;1 kohm ±1%,0603.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="measurement.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b10b5fde-d66f-4776-9ede-86b6b98eea99</tstamps>
+    </comp>
+    <comp ref="R11">
+      <value>1k 1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <description>Kelvin shunt monitor series resistor;1 kohm ±1%,0603.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">Kelvin shunt monitor series resistor;1 kohm ±1%,0603.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="measurement.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>eb3b090f-8fd4-4855-913f-2783c32b9cc1</tstamps>
+    </comp>
+    <comp ref="R12">
+      <value>1k 1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <description>Kelvin shunt monitor series resistor;1 kohm ±1%,0603.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">Kelvin shunt monitor series resistor;1 kohm ±1%,0603.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="measurement.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b65f1dcf-3f66-439f-93eb-4cb9ebbd8544</tstamps>
+    </comp>
+    <comp ref="TP1">
+      <value>POS_SENSE</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <description>HV optional test location; guarded fixture only, no hand probing energized.</description>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description">HV optional test location; guarded fixture only, no hand probing energized.</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="measurement.kicad_sch"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>d1b56103-d6fa-401a-8c48-5131f480cc74</tstamps>
+    </comp>
+    <comp ref="TP2">
+      <value>NEG_SENSE</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <description>HV optional test location; guarded fixture only, no hand probing energized.</description>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description">HV optional test location; guarded fixture only, no hand probing energized.</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="measurement.kicad_sch"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>d8471682-1fd1-428f-a5b9-fb0dcc3b2128</tstamps>
+    </comp>
+    <comp ref="TP3">
+      <value>AGND</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <description>Analog measurement/test point; reference to floating secondaryAGND.</description>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description">Analog measurement/test point; reference to floating secondaryAGND.</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="measurement.kicad_sch"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>cf8d0c36-8b8c-4835-80d1-fc705154ca58</tstamps>
+    </comp>
+    <comp ref="TP4">
+      <value>VS_PLUS</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <description>Analog measurement/test point; reference to floating secondaryAGND.</description>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description">Analog measurement/test point; reference to floating secondaryAGND.</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="measurement.kicad_sch"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>f1b70fbd-9301-433e-b650-9a11004e1d0e</tstamps>
+    </comp>
+    <comp ref="TP5">
+      <value>VS_MINUS</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <description>Analog measurement/test point; reference to floating secondaryAGND.</description>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description">Analog measurement/test point; reference to floating secondaryAGND.</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="measurement.kicad_sch"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>c5f1076e-2b97-4287-95d5-f1459b2967c0</tstamps>
+    </comp>
+    <comp ref="TP6">
+      <value>VMON_PLUS</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <description>Analog measurement/test point; reference to floating secondaryAGND.</description>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description">Analog measurement/test point; reference to floating secondaryAGND.</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="measurement.kicad_sch"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>0f19c8e9-27b6-4ae6-838e-aa0b345a7f95</tstamps>
+    </comp>
+    <comp ref="TP7">
+      <value>VMON_MINUS</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <description>Analog measurement/test point; reference to floating secondaryAGND.</description>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description">Analog measurement/test point; reference to floating secondaryAGND.</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="measurement.kicad_sch"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>eff0013e-aae0-47c7-950d-be2730f1ef31</tstamps>
+    </comp>
+    <comp ref="TP8">
+      <value>KELVIN_PLUS</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <description>Analog measurement/test point; reference to floating secondaryAGND.</description>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description">Analog measurement/test point; reference to floating secondaryAGND.</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="measurement.kicad_sch"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>bf40d51c-b1d6-4f96-9927-57e122d5c468</tstamps>
+    </comp>
+    <comp ref="TP9">
+      <value>KELVIN_MINUS</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <description>Analog measurement/test point; reference to floating secondaryAGND.</description>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description">Analog measurement/test point; reference to floating secondaryAGND.</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="measurement.kicad_sch"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>a5f5c3b3-27c6-4da0-9d6b-f837f2db3116</tstamps>
+    </comp>
+    <comp ref="TP10">
+      <value>IMON_PLUS</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <description>Analog measurement/test point; reference to floating secondaryAGND.</description>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description">Analog measurement/test point; reference to floating secondaryAGND.</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="measurement.kicad_sch"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>79a1b985-cc0d-4658-9d4e-5910c5502ad0</tstamps>
+    </comp>
+    <comp ref="TP11">
+      <value>IMON_MINUS</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <description>Analog measurement/test point; reference to floating secondaryAGND.</description>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description">Analog measurement/test point; reference to floating secondaryAGND.</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="measurement.kicad_sch"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>5ac04ccc-9e80-4027-967b-db9b86e90d8d</tstamps>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="Connector" part="TestPoint">
+      <description>test point</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Pin*</fp>
+        <fp>Test*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">TP</field>
+        <field name="Value">TestPoint</field>
+        <field name="Footprint"/>
+        <field name="Datasheet">~</field>
+        <field name="Description">test point</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Connector_Generic" part="Conn_01x02">
+      <description>Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Connector*:*_1x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_01x02</field>
+        <field name="Footprint"/>
+        <field name="Datasheet">~</field>
+        <field name="Description">Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Connector_Generic" part="Conn_01x03">
+      <description>Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Connector*:*_1x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_01x03</field>
+        <field name="Footprint"/>
+        <field name="Datasheet">~</field>
+        <field name="Description">Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+        <pin num="3" name="Pin_3" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Connector_Generic" part="Conn_01x06">
+      <description>Generic connector, single row, 01x06, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Connector*:*_1x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_01x06</field>
+        <field name="Footprint"/>
+        <field name="Datasheet">~</field>
+        <field name="Description">Generic connector, single row, 01x06, script generated (kicad-library-utils/schlib/autogen/connector/)</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+        <pin num="3" name="Pin_3" type="passive"/>
+        <pin num="4" name="Pin_4" type="passive"/>
+        <pin num="5" name="Pin_5" type="passive"/>
+        <pin num="6" name="Pin_6" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="C">
+      <description>Unpolarized capacitor</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>C_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">C</field>
+        <field name="Footprint"/>
+        <field name="Datasheet">~</field>
+        <field name="Description">Unpolarized capacitor</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="R">
+      <description>Resistor</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>R_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">R</field>
+        <field name="Footprint"/>
+        <field name="Datasheet">~</field>
+        <field name="Description">Resistor</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="Connector">
+      <uri>/usr/share/kicad/symbols//Connector.kicad_sym</uri>
+    </library>
+    <library logical="Connector_Generic">
+      <uri>/usr/share/kicad/symbols//Connector_Generic.kicad_sym</uri>
+    </library>
+    <library logical="Device">
+      <uri>/usr/share/kicad/symbols//Device.kicad_sym</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="AGND" class="Default">
+      <node ref="C1" pin="2" pintype="passive"/>
+      <node ref="C2" pin="2" pintype="passive"/>
+      <node ref="J2" pin="3" pinfunction="Pin_3" pintype="passive"/>
+      <node ref="J3" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="J3" pin="6" pinfunction="Pin_6" pintype="passive"/>
+      <node ref="R4" pin="2" pintype="passive"/>
+      <node ref="R8" pin="2" pintype="passive"/>
+      <node ref="TP3" pin="1" pinfunction="1" pintype="passive"/>
+    </net>
+    <net code="2" name="IMON_MINUS" class="Default">
+      <node ref="C3" pin="2" pintype="passive"/>
+      <node ref="J3" pin="5" pinfunction="Pin_5" pintype="passive"/>
+      <node ref="R12" pin="2" pintype="passive"/>
+      <node ref="TP11" pin="1" pinfunction="1" pintype="passive"/>
+    </net>
+    <net code="3" name="IMON_PLUS" class="Default">
+      <node ref="C3" pin="1" pintype="passive"/>
+      <node ref="J3" pin="4" pinfunction="Pin_4" pintype="passive"/>
+      <node ref="R11" pin="2" pintype="passive"/>
+      <node ref="TP10" pin="1" pinfunction="1" pintype="passive"/>
+    </net>
+    <net code="4" name="KELVIN_MINUS" class="Default">
+      <node ref="J2" pin="2" pinfunction="Pin_2" pintype="passive"/>
+      <node ref="R12" pin="1" pintype="passive"/>
+      <node ref="TP9" pin="1" pinfunction="1" pintype="passive"/>
+    </net>
+    <net code="5" name="KELVIN_PLUS" class="Default">
+      <node ref="J2" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="R11" pin="1" pintype="passive"/>
+      <node ref="TP8" pin="1" pinfunction="1" pintype="passive"/>
+    </net>
+    <net code="6" name="NEG_SENSE" class="HV">
+      <node ref="J1" pin="2" pinfunction="Pin_2" pintype="passive"/>
+      <node ref="R5" pin="1" pintype="passive"/>
+      <node ref="TP2" pin="1" pinfunction="1" pintype="passive"/>
+    </net>
+    <net code="7" name="POS_SENSE" class="HV">
+      <node ref="J1" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="R1" pin="1" pintype="passive"/>
+      <node ref="TP1" pin="1" pinfunction="1" pintype="passive"/>
+    </net>
+    <net code="8" name="VMON_MINUS" class="Default">
+      <node ref="C2" pin="1" pintype="passive"/>
+      <node ref="J3" pin="3" pinfunction="Pin_3" pintype="passive"/>
+      <node ref="R10" pin="2" pintype="passive"/>
+      <node ref="TP7" pin="1" pinfunction="1" pintype="passive"/>
+    </net>
+    <net code="9" name="VMON_PLUS" class="Default">
+      <node ref="C1" pin="1" pintype="passive"/>
+      <node ref="J3" pin="2" pinfunction="Pin_2" pintype="passive"/>
+      <node ref="R9" pin="2" pintype="passive"/>
+      <node ref="TP6" pin="1" pinfunction="1" pintype="passive"/>
+    </net>
+    <net code="10" name="VN1" class="HV">
+      <node ref="R5" pin="2" pintype="passive"/>
+      <node ref="R6" pin="1" pintype="passive"/>
+    </net>
+    <net code="11" name="VN2" class="HV">
+      <node ref="R6" pin="2" pintype="passive"/>
+      <node ref="R7" pin="1" pintype="passive"/>
+    </net>
+    <net code="12" name="VP1" class="HV">
+      <node ref="R1" pin="2" pintype="passive"/>
+      <node ref="R2" pin="1" pintype="passive"/>
+    </net>
+    <net code="13" name="VP2" class="HV">
+      <node ref="R2" pin="2" pintype="passive"/>
+      <node ref="R3" pin="1" pintype="passive"/>
+    </net>
+    <net code="14" name="VS_MINUS" class="Default">
+      <node ref="R10" pin="1" pintype="passive"/>
+      <node ref="R7" pin="2" pintype="passive"/>
+      <node ref="R8" pin="1" pintype="passive"/>
+      <node ref="TP5" pin="1" pinfunction="1" pintype="passive"/>
+    </net>
+    <net code="15" name="VS_PLUS" class="Default">
+      <node ref="R3" pin="2" pintype="passive"/>
+      <node ref="R4" pin="1" pintype="passive"/>
+      <node ref="R9" pin="1" pintype="passive"/>
+      <node ref="TP4" pin="1" pinfunction="1" pintype="passive"/>
+    </net>
+  </nets>
+</export>

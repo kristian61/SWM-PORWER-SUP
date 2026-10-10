@@ -1,0 +1,513 @@
+Linea r Mo de Ope rat ion a nd
+Saf e Ope r ating Di ag ra m o f
+Po wer - MO SF ETs
+
+J. Schoiswohl
+
+
+
+
+Applic atio n N ote
+V1.1 May 2017
+
+
+
+
+IFN A I MM S MD P M D
+Published by
+Infineon Technologies AG
+81726 Munich, Germany
+© 2017 Infineon Technologies AG
+All Rights Reserved.
+
+LEGAL DISCLAIMER
+THE INFORMATION GIVEN IN THIS APPLICATION NOTE IS GIVEN AS A HINT FOR THE
+IMPLEMENTATION OF THE INFINEON TECHNOLOGIES COMPONENT ONLY AND SHALL NOT BE
+REGARDED AS ANY DESCRIPTION OR WARRANTY OF A CERTAIN FUNCTIONALITY, CONDITION OR
+QUALITY OF THE INFINEON TECHNOLOGIES COMPONENT. THE RECIPIENT OF THIS APPLICATION
+NOTE MUST VERIFY ANY FUNCTION DESCRIBED HEREIN IN THE REAL APPLICATION. INFINEON
+TECHNOLOGIES HEREBY DISCLAIMS ANY AND ALL WARRANTIES AND LIABILITIES OF ANY KIND
+(INCLUDING WITHOUT LIMITATION WARRANTIES OF NON-INFRINGEMENT OF INTELLECTUAL
+PROPERTY RIGHTS OF ANY THIRD PARTY) WITH RESPECT TO ANY AND ALL INFORMATION GIVEN IN
+THIS APPLICATION NOTE.
+Information
+For further information on technology, delivery terms and conditions and prices, please contact the nearest
+Infineon Technologies Office (www.infineon.com).
+Warnings
+Due to technical requirements, components may contain dangerous substances. For information on the types in
+question, please contact the nearest Infineon Technologies Office.
+Infineon Technologies components may be used in life-support devices or systems only with the express written
+approval of Infineon Technologies, if a failure of such components can reasonably be expected to cause the
+failure of that life-support device or system or to affect the safety or effectiveness of that device or system. Life
+support devices or systems are intended to be implanted in the human body or to support and/or maintain and
+sustain and/or protect human life. If they fail, it is reasonable to assume that the health of the user or other
+persons may be endangered.
+                                                                                  AP99007
+                                                           Description of Application Note
+
+                                                                            Table of Contents
+
+
+Table of Contents
+1          Introduction ………………………………………………………………………………………..p. 4
+
+1.1         Applications driving MOSFETs in linear mode operation ……………………………….. p. 4 - 6
+2          The safe operating area digram ………………………………………………………………..p. 6
+2.1        Safe operating area diagram limit lines ………………………………………………………p. 7 - 12
+3          Choosing the right MOSFET for linear mode operation……………………………………p. 12
+
+4           Summary …………………………………………………………………………………………..p. 12
+
+
+
+
+Application Note                              3                                      5/2/2017
+1            Introduction
+The development of modern Power-MOSFETs has focused on ultra-fast switching and ultra-low ohmic devices
+leading to continuously decreasing area specific on-resistances. Consequently, compared to Power-MOSFETs from
+10 years ago today’s state of the art Power-MOSFETs utilize a much smaller silicon die area for any given RDS(on).
+Thus the power handling capabilities of devices for a specific RDS(on) generally have decreased. Especially in linear
+operation mode when MOSFETs handling high power dissipation due to the simultaneous occurrence of voltage at
+the pins and current in the MOSFET this is of importance. The Safe Operating Area diagram (SOA diagram) defines
+the allowed maximum current-voltage range. It must be considered during the design-in phase of the
+Power-MOSFETs especially in cases with linear mode operation.
+Many applications exist with the Power-MOSFET being operated primarily in linear mode [2]. Linear mode operation
+refers to the current saturation region in the output characteristics. The drain current (IDS) is nearly independent of
+the drain to source voltage (VDS) for a given gate to source (VGS) voltage. It depends then directly on the VGS-
+voltage of the MOSFET. In Fig. 1 the area of linear mode operation is indicated as red shaded area.
+Contrary to the region of linear mode operation is the so called ohmic region (indicated as blue shaded area in
+Fig. 1). The relationship between VDS and IDS follows Ohm’s law.
+As shown in Fig. 1 MOSFET operating at low VGS voltage (e.g. 2.9V) and high VDS (e.g. VDS=4V) voltage is able to
+carry considerable currents (e.g. ~200A). Here, the MOSFET operates in linear mode. The power dissipation is very
+high (e.g. 800W) which bares the potential for MOSFET destruction as being discussed later. The SOA diagram is a
+tool to check for a given parameter set of VDS, IDS and stress time whether or not the Power-MOSFET operates
+within specification. This is important as operation outside the specification can deteriorate the device and
+decreases its reliability. In severe cases of specification violation a catastrophic failure can occur. To verify that the
+MOSFET stays within the SOA it is necessary to understand the application and the time dependent voltage and
+current functions (VDS=f(t), IDS=f(t)).
+
+
+
+
+Fig. 1: Output characteristics of a Power-MOSFET (OptiMOS™ 25V, BSC010NE2LS [1]). The blue shaded area
+indicates the operation in the ohmic region, the red shaded region represents linear mode operation.
+
+1.1          Applications driving MOSFETs in linear mode operation
+Many applications exist where the MOSFET enters linear mode operation. It will be shown that even fast switching
+MOSFETs operate briefly and repetitively in linear mode. Consequently, when the switching speed of a MOSFET is
+
+
+Application Note                                          4                                                 5/2/2017
+being slowed down by adding an external gate resistor R g the MOSFET will operate in linear mode for a longer time
+and could violate by SOA limitations.
+
+Traditional linear mode operation – battery charger, fan controller
+A fan controller arrangement where the MOSFET is used as current source is shown in Fig. 2. The fan speed (or in
+case of a battery charger the charging current) is controlled by the current flow through the fan. The current is
+exclusively controlled by the MOSFET. This means that the MOSFET must be operated in linear mode. Changing
+the VGS voltage will change the current flowing through the motor and thus the fan speed. On the right hand side of
+Fig. 2 the output characteristics of the MOSFET is shown. The point where the MOSFET is being operated is shown
+as red dot. According to the diagram the voltage across the MOSFET will be the input voltage minus the voltage
+drop across the fan and might be as high as VDS=7.5V, for example. The current flowing through the MOSFET could
+be ~15A depending on fan speed. Therefore the power dissipation in the MOSFET can be as big as 112.5W. The
+choice of a thermally good performing package (low RthJC and RthJA values) and an adequate thermal management
+(cooling with airflow and/or heatsink) are obviously necessary to ensure safe operation of the MOSFET. When the
+MOSFET is used as a fan speed controller the linear mode operation could last forever and the current (fan speed)
+is only controlled via the VGS voltage. As the MOSFET is operated exclusively in linear mode, the RDS(on) of the
+MOSFET is completely irrelevant when calculating the power dissipation. The power dissipation in the MOSFET
+depends only on the voltage drop across the MOSFET and the current flow: Pdiss=VDS  IDS.
+
+
+                                         100
+                Vdd
+                                          90                                                              Vgs=4.0 V
+                                          80       operation point
+                                          70
+                                          60                                                              Vgs=3.6 V
+                fan
+                               Ids (A)
+
+
+
+
+                                          50
+                                          40                                                              Vgs=3.3 V
+                                          30                                                              Vgs=3.1 V
+                                                                                                          Vgs=3.0 V
+                                          20                                                              Vgs=2.9 V
+                                          10
+ gate                                      0
+                                               0        5       10     15       20         25        30
+                                                                     Vds (V)
+               gnd
+
+Fig. 2: MOSFET used as constant current source. The current flow through the fan is controlled exclusively by the
+VGS voltage at the MOSFET gate.The red point in the output characteristics diagram on the right hand side indicates
+a potential operation point of the MOSFET in the saturation region.
+
+Partial linear mode operation – e-fuse, load-switch
+In e-fuse applications or load-switches the MOSFET can be used to maintain slow turn on avoiding high inrush
+currents. For e-fuse applications an e-fuse controller senses the current and controls the current flow by varying the
+MOSFET VGS voltage. In doing so the MOSFET briefly operates in linear mode. The VGS voltage is being increased
+only slowly until the full current flows and finally the MOSFET is being operated in the ohmic region. The diagram on
+the right part of Fig. 3 illustrates the three operation states of the MOSFET in the output characterstics diagram.
+At first the MOSFET is off and the entire voltage drops across the MOSFET. Then the VGS voltage is being
+increased continiously and drain current starts to flow. At this point the MOSFET operates in linear mode which is
+shown as 2nd operational state in the diagram. Here the SOA becomes relevant. Finally the MOSFET is fully
+enhanced (turned on) and it is being operated in the ohmic region. The same three operational states occur when
+the MOSFET is used as a load switch. Critical for the MOSFET is the time in linear mode which depends on the
+load-switch controller (or the e-fuse controller) timing. Typical timings are in the range of µ-seconds and may even
+
+
+Application Note                                            5                                             5/2/2017
+reach milli-seconds. It is vital to understand this timing in detail so that time dependent voltage and current stress on
+the MOSFET can be derived to check for potential violation of the SOA.
+
+                         12V bus
+                                                  100
+                                                   90                                                          Vgs=4.0 V
+
+               gate                                80
+                                                   70
+   e-fuse
+  controller                                       60
+                                                            on                                                 Vgs=3.6 V
+                                        Ids (A)
+                                      Ids(A)       50
+               current                             40
+                                                                              linear mode
+                                                                                                               Vgs=3.3 V
+               sense                               30                                                          Vgs=3.1 V
+       gnd                                                                                                     Vgs=3.0 V
+                                                   20                                                          Vgs=2.9 V
+                                                   10                            off
+                                                    0
+                         CPU
+                                                        0        5       10     15      20      25        30
+
+                           gnd
+                                                                              Vds(V)
+                                                                              Vds (V)
+
+
+
+Fig. 3. MOSFET used in e-fuse application (left). In e-fuse application (during turn-on) the MOSFET passes the
+linear mode operation region for a significant period of time. The SOA must be checked to verify the MOSFET can
+withstand the thermal stress.
+
+
+
+Short linear mode operation – buck converter, general switching
+When the MOSFET is used as high-side switch in a buck converter for example it also enters linear mode operation
+for a very short period of time [2]. Linear mode operation starts exactly when the MOSFET’s VGS voltage is at the
+threshold voltage (VGS(th)) and ends with the drain-source voltage reaching zero. This corresponds to the end of the
+Miller plateau. In other words: during the switching event the MOSFET is in linear mode operation. Modern power
+MOSFETS, however, demonstrate dramatically short switching times. State of the art 25V-250V MOSFETs are
+capable of switching thourgh the saturation region within a few nano-seconds (<10ns), depending on the specific
+product. The period of linear mode operation is usually as short as a few ns for MOSFETs utilized as high-side
+switches in high-performance buck converters. The example also demonstrates that any reduction of switching
+speeds by introducing external gate resistance (Rg) or utilizing a slow driving concept (e.g. MOSFET gate is
+charged from a constant current source with low current rating) the SOA diagram could become relevant. Therefore,
+whenever soft-turn on or reduction of ringing by slowing down the switching speed is implemented the SOA diagram
+should be considered.
+
+
+
+
+2.0              The Safe Operation Area diagram
+
+In section 1 the SOA diagram has been introduced as crucial diagram for designs with MOSFETs in linear mode
+operation. Now the SOA will be explained in detail. The origin of the limit-lines in the SOA diagram will be
+discussed. Furthermore, it will be shown that one must pay attention to the conditions the SOA diagram is given in
+the datasheet versus the application conditions.
+
+
+
+
+Application Note                                                     6                                     5/2/2017
+2.1               SOA limit-lines
+
+In Fig. 4 the SOA diagram of an Infineon power MOSFET (BSC010NE2LS) is shown. The five limit-lines defining
+the SOA diagram are the RDS(on) limit-line (blue line), the current limit-line (red line), the maximum power limit-line
+(dark green line), the thermal instability limit-line (light green line) and the breakdown voltage limit-line (yellow line).
+Within these limit-lines the green shaded area gives the area where the MOSFET can be safely operated. In this
+example the SOA diagram is calculated for a constant case temperature of Tc=25°C and a single pulse with
+duration 100µs. The datasheet provides additional limit-lines for various pulse lengths up to continuous operation
+(DC operation). To calculate limit-lines for other case temperatures and/or continuous pulsed operation the origins
+of the limit-lines must be understood. The following paragraphs give insight to the derivation of the SOA diagram
+limit-lines.
+
+
+
+
+Fig. 4 Safe operating area diagram of a 25V Power MOSFET (BSC010NE2LS). The SOA is shown for 100µs pulse
+time and the limiting lines are indicated.
+
+RDS(on)-limit-line (blue line)
+
+As seen in Fig. 4 the RDS(on) limit-line gives a linear dependency between VDS and IDS. The slope of the line is simply
+the maximum RDS(on) of the MOSFET at Tj=150°C and VGS=10V. Therefore the RDS(on)-limit-line is given as
+                                                                𝑉𝐷𝑆
+                                            𝐼𝐷𝑆 =                                   eq.1
+                                                    𝑅𝐷𝑆(𝑜𝑛) (@𝑉𝐺𝑆 =10𝑉,𝑇𝑗 =150°𝐶)
+
+
+This means
+     For lower VGS voltages the RDS(on)-limit-line will be lower since the RDS(on) value increases with lower VGS
+       voltages. The dependency of RDS(on) vs VGS voltage can be found in the MOSFET datasheet.
+     In case Tj is known to be lower than 150°C the RDS(on)-limit-line will move up again since the RDS(on) value
+       decreases with lowering Tj.
+
+
+Application Note                                              7                                                5/2/2017
+Therefore the RDS(on) limit-line can easily be recalculated using equation 1 and datasheet parameters for RDS(on) and
+the relevant Tj.
+
+Package-limit-line (red line)
+
+When following the RDS(on) limit-line towards higher currents and voltages the current-limit-line is found. This
+limit-line is typically defined by the maximum current the package can handle. Therefore the amount of this current
+will be strongly package dependent. Packages with bond wires (DPAK) will show different maximum current
+handling capabilities compared to packages with clip bonding technology (SuperSO8). Also the die size will impact
+the current handling capability of the package since it determines the bonding scheme (number of bond wires, bond
+wire diameter, clip dimension). The package limit-line will not change in case application conditions such as ambient
+temperature vary.
+
+Maximum-power-limit-line
+
+After the package limit-line the maximum power limit-line follows. It is calculated from the maximum power the
+system is allowed to generate to reach a stable junction temperature Tj of 150°C in thermal equilibrium and
+Tc=25°C. It is obvious that the cooling concept of the system and therefore thermal variables like case temperature
+(Tc) and thermal impedance (ZthJC) will strongly impact this limit-line. The limit-line can be calculated by assuming
+thermal equilibrium:
+
+                                                 𝑃𝑑𝑖𝑠𝑠𝑖𝑝𝑎𝑡𝑒𝑑 = 𝑃𝑔𝑒𝑛𝑒𝑟𝑎𝑡𝑒𝑑
+
+
+The equation for Tj in a simple thermal model:
+
+                                              𝑇𝑗 = 𝑇𝑐 + 𝑍𝑡ℎ𝐽𝐶 ∙ 𝑃𝑑𝑖𝑠𝑠𝑖𝑝𝑎𝑡𝑒𝑑
+
+
+the IDS as function of VDS is given by
+                                                            ∆𝑇𝑚𝑎𝑥
+                                              𝐼𝐷𝑆 =                         eq. 2
+                                                      𝑍𝑡ℎ𝐽𝐶 (𝑡𝑝𝑢𝑙𝑠𝑒 )∙𝑉𝐷𝑆
+
+
+
+This equation illustrates some important dependencies:
+       The IDS depends on the maximum allowable temperature rise for T j. The maximum allowable temperature
+        rise Tmax will depend on Tc and the maximum Tj the device is permitted to sustain.
+       The IDS value is influenced by the value of the thermal impedance Z thJC. For short pulses the value of ZthJC
+        depends on the pulse length and its duty cycle. ZthJC can be taken from the corresponding diagram in the
+        datasheet. The SOA diagram visualizes that an increase of pulse length shifts the maximum thermal limit-
+        line downwards. It reflects the higher thermal impedance at longer pulse times and/or higher duty cycle.
+       Due to the increased power dissipation with increasing VDS the IDS also depends with indirect proportionality
+        on the applied VDS voltage.
+
+
+
+
+Application Note                                           8                                             5/2/2017
+The SOA diagram shown in Fig. 4 has been calculated for the BSC010NE2LS MOSFET:
+         tpulse=100µs  ZthJC=0.102 K/W from datasheet
+         Tc=25°C and Tjmax=150°C  Tmax=125°C
+
+                                                                 125
+                                                    𝐼𝐷𝑆 =               eq.3
+                                                            0.102∙𝑉𝐷𝑆
+
+
+
+For an application where T c is greater than 25°C and/or the maximum allowed T j is less than 150°C the maximum
+power limit-line will naturally be lower and can be calculated with the help of equation 3. The SOA diagram in the
+datasheet is given at dutycycle D=0 for various pulse lengths. Exposing the MOSFET to repetitive pulses results in
+D≠0. In that case the thermal impedance diagram ZthJC=f(tp, D) has to be used to get the correct ZthJC value.
+Then, the maximum power limit-line can be calculated by equation 2 according to the needs of the engineer.
+
+Thermal (in-)stability limit-line
+
+Following the maximum-power limit-line reveals a point at which the slope of the limit-line changes. This point
+indicates the on-set of the thermal-instability limit-line. To understand the origin of this limitation it is necessary to
+consider the criterium for thermal instability. A MOSFET (or generally a system) is considered to be thermally un-
+stable in case the power generation (Pgenerated) rises faster than the power dissipation (Pdissipated) over temperature.
+That means
+                                                𝜕𝑃𝑔𝑒𝑛𝑒𝑟𝑎𝑡𝑒𝑑 𝜕𝑃𝑑𝑖𝑠𝑠𝑖𝑝𝑎𝑡𝑒𝑑
+                                                             >
+                                                     𝜕𝑇           𝜕𝑇
+
+In such a condition the temperature of the system is not stable and the system is not in thermal equilibrium unlike
+for the maximum-power limit-line. With the help of
+
+                                                  𝑃𝑔𝑒𝑛𝑒𝑟𝑎𝑡𝑒𝑑 = 𝑉𝐷𝑆 ∙ 𝐼𝐷𝑆
+
+
+and
+                                                                   𝑇𝑗 − 𝑇𝑎𝑚𝑏
+                                                 𝑃𝑑𝑖𝑠𝑠𝑖𝑝𝑎𝑡𝑒𝑑 =
+                                                                      𝑍𝑡ℎ𝐽𝐶
+
+
+the inequality can be rearranged to
+
+                                                        𝜕𝐼𝐷𝑆          1
+                                                𝑉𝐷𝑆 ∙        >
+                                                         𝜕𝑇    𝑍𝑡ℎ𝐽𝐶 (𝑡𝑝𝑢𝑙𝑠𝑒 )
+
+
+For further elaboration here it will be assumed that VDS is being constant over temperature.
+                                                                                                             𝜕𝐼𝐷𝑆
+The equation above defines the range where the MOSFET may encounter thermal instability. The term                   is called
+                                                                                                              𝜕𝑇
+                                                        1
+Temperature Coefficient. Since VDS>0 and                         >0 thermal instability can occur only if the temperature
+                                                𝑍𝑡ℎ𝐽𝐶 (𝑡𝑝𝑢𝑙𝑠𝑒)
+coefficient of the drain to source current is positive. The question under what conditions such a positive temperature
+coefficient can be found is answered by the transfer-funtion graph in the MOSFET datasheet showing IDS over VGS
+for various temperatures. An example for such a graph is given in Fig. 5. Comparing the currents at VGS=2V for
+Tj=25°C and Tj=150°C indicate that in case of VGS=2V the current will rise over temperature. This means the
+temperature coefficient for VGS=2V is positive. At VGS=3.5V the current will decrease over temperature and the
+corresponding temperature coefficient is negative. In between is a crossover for the transconductance curves of
+
+
+Application Note                                             9                                               5/2/2017
+Tj=25°C and Tj=150°C. This crossover point is being referred to as Zero Temperature Coefficient (ZTC) point.
+Clearly, thermal instability can occur only for VGS below the VGS of the ZTC point.
+
+
+
+
+Fig. 5 Transfer characteristic of a Power-MOSFET for Tj=25°C (blue line) and Tj=150°C (red line).
+
+The change of temperature coefficient from positive to negative over VGS is caused by two competing effects. On
+one hand the resistance of a MOSFET increases over temperature due to lower electron mobility in the crystal
+lattice. On the other hand the threshold voltage of the MOSFET decreases over temperature since more electrons
+have been excited into the conduction band of the MOSFET. At low temperatures the effect of decreasing threshold
+voltage over increasing temperature dominates and currents increase over temperature. At higher temperatures the
+increase of RDS(on) over temperature dominates and currents decrease over temperature.
+As shown above thermal instability will occur for VGS being below the ZTC point. Thus, MOSFETs with a ZTC at
+high currents and high VGS voltages will be more prone to thermal instability. The ZTC point is in direct relationship
+to the MOSFET transconductance. With increasing transconductance the ZTC point will move towards higher VGS.
+Modern power MOSFETs exhibit ever increasing transconductances and therefore also ZTC-points at higher VGS .
+When comparing comparing the transconductance curves in datasheets for 25V and 150V MOSFETs (eg 30V
+OptiMOS™ vs 150V OptiMOS™ 3) one will realize that for the 150V technology the ZTC point is located at lower
+currents and VGS voltages. This is because for higher voltage class MOSFETs (e.g. 150V) the increase of RDS(on)
+over temperature will dominate the transconductance behavior over temperature as they have thicker EPI layers,
+lower cell pitch and generally a lower doping level compared to lower voltage class MOSFETs (25V).
+
+
+
+Having discussed the origins of thermal instability the destruction mechanism in case of thermal instability can be
+explained as follows: Generally, it is assumed that the temperature distribution over the MOSFET is uniform so that
+Tj is the same over the entire chip. In reality this is not the case. Small inhomoginities of, for example, solder
+thickness between die and package exist. They will lead to minimal higher local temperatures. This local
+temperature differences will develop in dependence on the operation point of the MOSFET with respect to the ZTC
+point:
+       For operation above ZTC the temperature coefficient is negative. Hotter spots will draw less current and the
+        spot cools down. The chip stabilizes itself and initial temperature variations become irrelevant.
+        For operation below ZTC the temperature coefficient is positive. In this case the local hot spots will draw
+         more current as they heat up. This will lead to increased local power dissipation and further heating.
+         Ultimately this results in thermal runaway and local destruction of the chip.
+Finally, the question of how to adjust the thermal instability line for application conditions different from the
+datasheet must be answered. The on-set of the thermal instability line is given by
+
+
+Application Note                                       10                                                5/2/2017
+                                                                          𝜕𝐼𝐷𝑆
+                                                𝑉𝐷𝑆 ∙ 𝑍𝑡ℎ𝐽𝐶 (𝑡𝑝𝑢𝑙𝑠𝑒 ) ∙        =1
+                                                                           𝜕𝑇
+
+This means that the temperature coefficient must be known. The latter cannot be easily calculated. The most
+straight forward approach to de-rate the thermal-instabiliy limit line is to displace the line vertically according to the
+following procedure:
+First, the RDS(on) limit-line, package limit-line and maximum power consumption limit-line can be calculated and
+plotted in a SOA diagram for any given Tc, maximum Tj and pulse lengths as explained above. The formula for the
+thermal-instability limit line in the form:
+                                                 𝑙𝑜𝑔(𝐼𝐷𝑆 ) = 𝛼 ∙ log(𝑉𝐷𝑆 ) + 𝛽
+can be derived by utilizing two points (point A, point B) on the limit line as indicated in Fig.6. In Fig. 6: point A is at:
+IDS=105A and VDS=8V; point B: IDS=12A and VDS=25V. The two equations
+                                                  log(105) = 𝛼 ∙ log(8) + 𝛽
+                                                  log(12) = 𝛼 ∙ log(25) + 𝛽
+give the parameters α and β of the thermal-instability-limit-line (here: α = −1.904, β = 3.740).
+Now the formula for the de-rated limit line can be found by simply determining a new β as the slope α does not
+change upon de-rating. This is done by using point C on the derated power limit-line at the VDS of the connection
+point of power limit-line and thermal instability limit-line as given in the datasheet. In Fig. 6: point C: IDS=65A and
+VDS=8V.
+
+
+
+
+Fig. 6 Method for derating of the thermal instability limit-line.
+
+Therefore
+                                       βderated = log(65) + 0.585 ∙ log(8) = 3.532
+This finally provides the de-rated thermal-instability limit line for Fig. 6:
+                              log(I) = α ∙ log(Vds) + βderated = −1.904 + log(𝑉𝑑𝑠) + 3.532
+
+Breakdown voltage limit-line
+On the right hand-side the limit of the SOA is given by the MOSFETs maximum applicable VDS voltage. This is
+generally the breakdown voltage Vbr(DSS) of the device and will depend on the T j. The relationship between Vbr(DSS)
+
+Application Note                                             11                                               5/2/2017
+and Tj is given in a separate graph in the MOSFET datasheet. It can be seen that the BVDSS voltage might be
+significantly reduced at low temperatures. Therefore care must be taken in case the application is located in an
+environment of low ambient temperatures. For example, this could be the case for Telecom Base station
+equipment.
+Violating the maximum applicable VDS voltage will lead to MOSFET junction breakdown and without any current or
+power limiting scheme the MOSFET will face thermal destruction.
+
+So far the various limit-lines in the SOA diagram have been discussed. The datasheet typically provides the SOA
+diagram for Tc=25°C, Tjmax=150°C and various single pulse lengths. Now recalculation of the SOA diagram is
+possible to adapt to application conditions different from datasheet conditions.
+
+
+3.0             Choosing the right MOSFET for linear mode operation
+
+As discussed in section 1 linear mode operation will operate the MOSFET at high VDS and IDS simultaneously.
+Consequently, power dissipation will be high. The SOA diagram is a tool to evaluate the suitability of the MOSFET
+operation in linear mode. In section 2 the various limit-lines of the SOA have been discussed and formulas have
+been presented that allow for recalculation of the SOA diagram for various application conditions. These equations
+also enable the deduction of some general rules for selecting the best suited MOSFET for linear mode operation.
+At first it is important to understand whether the MOSFET will be operated continuously in linear mode (e.g. current
+source) or the MOSFET passes the linear mode operation region for a period of time before it is fully turned on.
+
+       Continuous operation in linear mode
+        In case of continuous operation in linear mode the MOSFET’s RDS(on) and dynamic parameters are
+        irrelevant to judge power dissipation but the SOA is the key design criterium to the power engineer.
+        Thermal design is most important and therefore MOSFETS with low ZthJC are most suitable. To remove the
+        generated heat an appropriate package and cooling concept must be applied. Thermal instability can be
+        avoided by utilizing MOSFETs with low ZTC point. This means that MOSFETs of previous technology
+        generations and/or higher voltage classes will be more suitable for this kind of application.
+
+       Limited operation time in linear mode
+        The MOSFET will pass the linear mode operation region for a given period of time. The applied VDS voltage,
+        the IDS current and the pulse length must be known to understand if the MOSFET can handle the generated
+        power. It has to be verified that the MOSFET is being operated within the SOA. If the application conditions
+        differ from the SOA datasheet conditions (T c temperature, VGS voltage, duty cycle …) the SOA diagram
+        needs to be recalculated according to the formulas given in section 2. Generally, a MOSFET with low ZthJC
+        and very low RDS(on) will be a suitable product in cases where linear mode operation ruggedness is needed.
+
+4.0             Summary
+The application note has shown that the safe operation area (SOA) of MOSFETs is an important design criterion.
+Especially, when the MOSFET is in linear mode operation the SOA diagram has to be considered. This can be
+either in applications where the MOSFET is being operated continuously in linear mode (e.g. MOSFET as current
+source) or in applications where the MOSFET passes through linear mode operation for a certain time (e.g. e-fuse).
+The SOA diagram in datasheets is only valid for the given conditions. For different application conditions a derating
+to the SOA has to be performed as discussed here.
+
+References
+
+[1] BSC010NE2LS OptiMOS™ PowerMOSFET data sheet; www.infineon.com
+[2] Infineon Technologies AG: Application of OptiMOS™ Linear FET as protection switch in battery powered
+motor drive applications, Application Note (V 1.0); 2022-08; www.infineon.com
+
+
+Application Note                                       12                                               5/2/2017
+w w w . i n f i n e o n . c o m
+
+
+
+
+Published by Infineon Technologies AG
+

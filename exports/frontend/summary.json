@@ -1,0 +1,12 @@
+{
+  "scope": "Unqualified chassis wiring draft, purchased isolated modules only",
+  "components": 14,
+  "terminal_connections": 63,
+  "erc": "passed; passive functional module pins, not module internal validation",
+  "terminal_netlist_comparison": "passed",
+  "pcb": "not applicable; no mains PCB",
+  "nominal_bus_V": 110,
+  "module_OVP_sum_upper_V": 134.4,
+  "hardware_tests": "not performed",
+  "fabrication_release": false
+}

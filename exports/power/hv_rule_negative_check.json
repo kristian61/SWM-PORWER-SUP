@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "purpose": "Prove custom HV clearance providers are active; this does not qualify hardware or fabrication performance.",
+  "isolated_rule_min_mm": 5,
+  "caught_clearance_violations": 499,
+  "negative_DRC_exit": 5,
+  "source_CAD_hashes_unchanged": true,
+  "original_hashes_sha256": {
+    "/workspace/SWM-PORWER-SUP/design/power/power_phase.kicad_pcb": "c5d31c5a7548d6c99ff0cc91551d68afe9a5ac6ff7d355384abc6721fb22e30a",
+    "/workspace/SWM-PORWER-SUP/design/power/power_phase.kicad_pro": "9f114c19c3929c1f2da0af1b8051beecfb6b0d07c52eef891b388098184e60d7",
+    "/workspace/SWM-PORWER-SUP/design/power/power_phase.kicad_dru": "a2e5c2ae3051fb64f9b8007d0beb286641f095a530d0a1f52c94b587e23f94f3"
+  }
+}

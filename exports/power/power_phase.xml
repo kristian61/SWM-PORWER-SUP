@@ -1,0 +1,1850 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="E">
+  <design>
+    <source>/tmp/power_regen_review/design/power/power_phase.kicad_sch</source>
+    <date>2026-10-10T06:46:49+0000</date>
+    <tool>Eeschema 9.0.2+dfsg-1</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title>RESEARCH PHASE - FIXED99.6V / 10A TARGET - NOT4kW</title>
+        <company/>
+        <rev/>
+        <date/>
+        <source>power_phase.kicad_sch</source>
+        <comment number="1" value="CAD routing complete; see layout report; no hardware/fabrication qualification"/>
+        <comment number="2" value="External isolatedDC,&lt;=120V;12VauxmustprecedeHV"/>
+        <comment number="3" value="No0Vregulation;noadjustableCC;no4-phasecurrent-sharing"/>
+        <comment number="4" value="Allpowercomponentsthermal/integrityreviewpending"/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+    <sheet number="2" name="/Controller and sensing/" tstamps="/057b26b2-3ed1-42ef-b681-40201458ad2f/">
+      <title_block>
+        <title>LTC3779 CONTROL - FIXED SETPOINT RESEARCH ONLY</title>
+        <company/>
+        <rev/>
+        <date/>
+        <source>control.kicad_sch</source>
+        <comment number="1" value="PinoutverifiedagainstLTC3779RevA pp2/11/12"/>
+        <comment number="2" value="ManufacturerdatasheetsforMOSFETandothercriticalpartsrequired"/>
+        <comment number="3" value="Loopcompensationinitialonly;notverifiedatnewL/C/VOUT"/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="C1">
+      <value>47uF 200V</value>
+      <footprint>Capacitor_THT:CP_Radial_D12.5mm_P5.00mm</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>Bulkcapacitorrequirement;&gt;=105C. Inputcombinedratedripple&gt;=5Aatoperatingtemperature/frequency;outputESRandripplepending. GenericD12.5P5footprintisprovisional. Exactmanufacturerpartnotselected.</description>
+      <fields>
+        <field name="Footprint">Capacitor_THT:CP_Radial_D12.5mm_P5.00mm</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">Bulkcapacitorrequirement;&gt;=105C. Inputcombinedratedripple&gt;=5Aatoperatingtemperature/frequency;outputESRandripplepending. GenericD12.5P5footprintisprovisional. Exactmanufacturerpartnotselected.</field>
+      </fields>
+      <libsource lib="Device" part="C_Polarized" description="Polarized capacitor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="power_phase.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="CP_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>03baad3b-9d9a-4db3-8120-3500a4789355</tstamps>
+    </comp>
+    <comp ref="C2">
+      <value>47uF 200V</value>
+      <footprint>Capacitor_THT:CP_Radial_D12.5mm_P5.00mm</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>Bulkcapacitorrequirement;&gt;=105C. Inputcombinedratedripple&gt;=5Aatoperatingtemperature/frequency;outputESRandripplepending. GenericD12.5P5footprintisprovisional. Exactmanufacturerpartnotselected.</description>
+      <fields>
+        <field name="Footprint">Capacitor_THT:CP_Radial_D12.5mm_P5.00mm</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">Bulkcapacitorrequirement;&gt;=105C. Inputcombinedratedripple&gt;=5Aatoperatingtemperature/frequency;outputESRandripplepending. GenericD12.5P5footprintisprovisional. Exactmanufacturerpartnotselected.</field>
+      </fields>
+      <libsource lib="Device" part="C_Polarized" description="Polarized capacitor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="power_phase.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="CP_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>db459b5a-6ebd-4673-90f9-fd442934f440</tstamps>
+    </comp>
+    <comp ref="C3">
+      <value>47uF 200V</value>
+      <footprint>Capacitor_THT:CP_Radial_D12.5mm_P5.00mm</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>Bulkcapacitorrequirement;&gt;=105C. Inputcombinedratedripple&gt;=5Aatoperatingtemperature/frequency;outputESRandripplepending. GenericD12.5P5footprintisprovisional. Exactmanufacturerpartnotselected.</description>
+      <fields>
+        <field name="Footprint">Capacitor_THT:CP_Radial_D12.5mm_P5.00mm</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">Bulkcapacitorrequirement;&gt;=105C. Inputcombinedratedripple&gt;=5Aatoperatingtemperature/frequency;outputESRandripplepending. GenericD12.5P5footprintisprovisional. Exactmanufacturerpartnotselected.</field>
+      </fields>
+      <libsource lib="Device" part="C_Polarized" description="Polarized capacitor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="power_phase.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="CP_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>bfecd89a-3556-4389-be2d-6698b87ef331</tstamps>
+    </comp>
+    <comp ref="C4">
+      <value>47uF 200V</value>
+      <footprint>Capacitor_THT:CP_Radial_D12.5mm_P5.00mm</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>Bulkcapacitorrequirement;&gt;=105C. Inputcombinedratedripple&gt;=5Aatoperatingtemperature/frequency;outputESRandripplepending. GenericD12.5P5footprintisprovisional. Exactmanufacturerpartnotselected.</description>
+      <fields>
+        <field name="Footprint">Capacitor_THT:CP_Radial_D12.5mm_P5.00mm</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">Bulkcapacitorrequirement;&gt;=105C. Inputcombinedratedripple&gt;=5Aatoperatingtemperature/frequency;outputESRandripplepending. GenericD12.5P5footprintisprovisional. Exactmanufacturerpartnotselected.</field>
+      </fields>
+      <libsource lib="Device" part="C_Polarized" description="Polarized capacitor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="power_phase.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="CP_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>8ac5fc1f-9396-47f0-bb18-502894741263</tstamps>
+    </comp>
+    <comp ref="C5">
+      <value>1uF 250V X7R</value>
+      <footprint>Capacitor_SMD:C_2220_5750Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/user-guides/DC2456AF.PDF</datasheet>
+      <description>MurataGRM55DR72E105KW01L fromADI-demolist. DCbiasdecreasescapacitance;layout/RMSreviewpending.</description>
+      <fields>
+        <field name="Footprint">Capacitor_SMD:C_2220_5750Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/user-guides/DC2456AF.PDF</field>
+        <field name="Description">MurataGRM55DR72E105KW01L fromADI-demolist. DCbiasdecreasescapacitance;layout/RMSreviewpending.</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="power_phase.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>fc0ed6b7-b15b-4687-861f-b4ba17cab1dc</tstamps>
+    </comp>
+    <comp ref="C6">
+      <value>1uF 250V X7R</value>
+      <footprint>Capacitor_SMD:C_2220_5750Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/user-guides/DC2456AF.PDF</datasheet>
+      <description>MurataGRM55DR72E105KW01L fromADI-demolist. DCbiasdecreasescapacitance;layout/RMSreviewpending.</description>
+      <fields>
+        <field name="Footprint">Capacitor_SMD:C_2220_5750Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/user-guides/DC2456AF.PDF</field>
+        <field name="Description">MurataGRM55DR72E105KW01L fromADI-demolist. DCbiasdecreasescapacitance;layout/RMSreviewpending.</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="power_phase.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>fc12bcdd-345d-461b-ab63-b27790af2d70</tstamps>
+    </comp>
+    <comp ref="C7">
+      <value>1uF 250V X7R</value>
+      <footprint>Capacitor_SMD:C_2220_5750Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/user-guides/DC2456AF.PDF</datasheet>
+      <description>MurataGRM55DR72E105KW01L fromADI-demolist. DCbiasdecreasescapacitance;layout/RMSreviewpending.</description>
+      <fields>
+        <field name="Footprint">Capacitor_SMD:C_2220_5750Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/user-guides/DC2456AF.PDF</field>
+        <field name="Description">MurataGRM55DR72E105KW01L fromADI-demolist. DCbiasdecreasescapacitance;layout/RMSreviewpending.</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="power_phase.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>6b91349f-20ac-45dc-9f22-6de5649e571d</tstamps>
+    </comp>
+    <comp ref="C8">
+      <value>1uF 250V X7R</value>
+      <footprint>Capacitor_SMD:C_2220_5750Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/user-guides/DC2456AF.PDF</datasheet>
+      <description>MurataGRM55DR72E105KW01L fromADI-demolist. DCbiasdecreasescapacitance;layout/RMSreviewpending.</description>
+      <fields>
+        <field name="Footprint">Capacitor_SMD:C_2220_5750Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/user-guides/DC2456AF.PDF</field>
+        <field name="Description">MurataGRM55DR72E105KW01L fromADI-demolist. DCbiasdecreasescapacitance;layout/RMSreviewpending.</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="power_phase.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>3b146786-f1b4-4aca-a708-49fa8d001b06</tstamps>
+    </comp>
+    <comp ref="J1">
+      <value>ISOLATED DC INPUT &lt;=120V</value>
+      <footprint>TerminalBlock_RND:TerminalBlock_RND_205-00241_1x02_P10.16mm_Horizontal</footprint>
+      <description>External isolated source; researchfixture110..115Vnominal,120Vmaximum. No230VACorPE. Connectorvoltage/currentMPNunverified.</description>
+      <fields>
+        <field name="Footprint">TerminalBlock_RND:TerminalBlock_RND_205-00241_1x02_P10.16mm_Horizontal</field>
+        <field name="Datasheet"/>
+        <field name="Description">External isolated source; researchfixture110..115Vnominal,120Vmaximum. No230VACorPE. Connectorvoltage/currentMPNunverified.</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x02" description="Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="power_phase.kicad_sch"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_1x??_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>cce52d40-e7c0-41d9-a5b0-089b8e2ef9c7</tstamps>
+    </comp>
+    <comp ref="J2">
+      <value>99.6V FIXED OUTPUT / 10A TARGET</value>
+      <footprint>TerminalBlock_RND:TerminalBlock_RND_205-00241_1x02_P10.16mm_Horizontal</footprint>
+      <description>10Aengineeringtarget only; currentthermalperformanceunvalidated. NativeCCceiling~12.5A,notadjustable. ConnectorMPNpending.</description>
+      <fields>
+        <field name="Footprint">TerminalBlock_RND:TerminalBlock_RND_205-00241_1x02_P10.16mm_Horizontal</field>
+        <field name="Datasheet"/>
+        <field name="Description">10Aengineeringtarget only; currentthermalperformanceunvalidated. NativeCCceiling~12.5A,notadjustable. ConnectorMPNpending.</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x02" description="Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="power_phase.kicad_sch"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_1x??_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>cefdf6b6-65f2-432a-9b97-289a104c3be8</tstamps>
+    </comp>
+    <comp ref="L1">
+      <value>150uH EXTERNAL</value>
+      <footprint>TerminalBlock_RND:TerminalBlock_RND_205-00241_1x02_P10.16mm_Horizontal</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>Calculated150uHdesignrequirement at~102kHz;Irms&gt;=15A;hotIsat&gt;=25A. Externalinductor; terminalfootprintisplaceholder,notawindinglayout. Vendor,coreloss,DCR,warmIsatandconnectorpending.</description>
+      <fields>
+        <field name="Footprint">TerminalBlock_RND:TerminalBlock_RND_205-00241_1x02_P10.16mm_Horizontal</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">Calculated150uHdesignrequirement at~102kHz;Irms&gt;=15A;hotIsat&gt;=25A. Externalinductor; terminalfootprintisplaceholder,notawindinglayout. Vendor,coreloss,DCR,warmIsatandconnectorpending.</field>
+      </fields>
+      <libsource lib="Device" part="L" description="Inductor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="power_phase.kicad_sch"/>
+      <property name="ki_keywords" value="inductor choke coil reactor magnetic"/>
+      <property name="ki_fp_filters" value="Choke_* *Coil* Inductor_* L_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>ba3fe09e-50fd-4f1d-a505-8a11ca7680ea</tstamps>
+    </comp>
+    <comp ref="Q1">
+      <value>BSC110N15NS5</value>
+      <footprint>Package_SON:Infineon_PG-TDSON-8_6.15x5.15mm</footprint>
+      <datasheet>https://www.infineon.com/assets/row/public/documents/24/49/infineon-bsc110n15ns5-datasheet-en.pdf</datasheet>
+      <description>Infineon Rev2.6 verified:150V,VGS+/-20V,Rdsmax11mohm at10V/25C/38A,Tjmax150C. Source1/2/3,gate4,common drain5..8 represented by footprintpad5. SOA,ringing,layout and thermal review still pending.</description>
+      <fields>
+        <field name="Footprint">Package_SON:Infineon_PG-TDSON-8_6.15x5.15mm</field>
+        <field name="Datasheet">https://www.infineon.com/assets/row/public/documents/24/49/infineon-bsc110n15ns5-datasheet-en.pdf</field>
+        <field name="Description">Infineon Rev2.6 verified:150V,VGS+/-20V,Rdsmax11mohm at10V/25C/38A,Tjmax150C. Source1/2/3,gate4,common drain5..8 represented by footprintpad5. SOA,ringing,layout and thermal review still pending.</field>
+      </fields>
+      <libsource lib="PowerPhase" part="BSC110N15NS5_REFERENCE" description="N-MOSFET transistor, gate/drain/source"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="power_phase.kicad_sch"/>
+      <property name="ki_keywords" value="transistor NMOS N-MOS N-MOSFET"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>8712a440-6943-4733-9e52-1eb4c75f7e1d</tstamps>
+    </comp>
+    <comp ref="Q2">
+      <value>BSC110N15NS5</value>
+      <footprint>Package_SON:Infineon_PG-TDSON-8_6.15x5.15mm</footprint>
+      <datasheet>https://www.infineon.com/assets/row/public/documents/24/49/infineon-bsc110n15ns5-datasheet-en.pdf</datasheet>
+      <description>Infineon Rev2.6 verified:150V,VGS+/-20V,Rdsmax11mohm at10V/25C/38A,Tjmax150C. Source1/2/3,gate4,common drain5..8 represented by footprintpad5. SOA,ringing,layout and thermal review still pending.</description>
+      <fields>
+        <field name="Footprint">Package_SON:Infineon_PG-TDSON-8_6.15x5.15mm</field>
+        <field name="Datasheet">https://www.infineon.com/assets/row/public/documents/24/49/infineon-bsc110n15ns5-datasheet-en.pdf</field>
+        <field name="Description">Infineon Rev2.6 verified:150V,VGS+/-20V,Rdsmax11mohm at10V/25C/38A,Tjmax150C. Source1/2/3,gate4,common drain5..8 represented by footprintpad5. SOA,ringing,layout and thermal review still pending.</field>
+      </fields>
+      <libsource lib="PowerPhase" part="BSC110N15NS5_REFERENCE" description="N-MOSFET transistor, gate/drain/source"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="power_phase.kicad_sch"/>
+      <property name="ki_keywords" value="transistor NMOS N-MOS N-MOSFET"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>134a7ec4-56f7-4883-bd58-21c5a1ee23ef</tstamps>
+    </comp>
+    <comp ref="Q3">
+      <value>BSC110N15NS5</value>
+      <footprint>Package_SON:Infineon_PG-TDSON-8_6.15x5.15mm</footprint>
+      <datasheet>https://www.infineon.com/assets/row/public/documents/24/49/infineon-bsc110n15ns5-datasheet-en.pdf</datasheet>
+      <description>Infineon Rev2.6 verified:150V,VGS+/-20V,Rdsmax11mohm at10V/25C/38A,Tjmax150C. Source1/2/3,gate4,common drain5..8 represented by footprintpad5. SOA,ringing,layout and thermal review still pending.</description>
+      <fields>
+        <field name="Footprint">Package_SON:Infineon_PG-TDSON-8_6.15x5.15mm</field>
+        <field name="Datasheet">https://www.infineon.com/assets/row/public/documents/24/49/infineon-bsc110n15ns5-datasheet-en.pdf</field>
+        <field name="Description">Infineon Rev2.6 verified:150V,VGS+/-20V,Rdsmax11mohm at10V/25C/38A,Tjmax150C. Source1/2/3,gate4,common drain5..8 represented by footprintpad5. SOA,ringing,layout and thermal review still pending.</field>
+      </fields>
+      <libsource lib="PowerPhase" part="BSC110N15NS5_REFERENCE" description="N-MOSFET transistor, gate/drain/source"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="power_phase.kicad_sch"/>
+      <property name="ki_keywords" value="transistor NMOS N-MOS N-MOSFET"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>335bfe21-4ce4-4cd8-a6bb-82fa74e6cca0</tstamps>
+    </comp>
+    <comp ref="Q4">
+      <value>BSC110N15NS5</value>
+      <footprint>Package_SON:Infineon_PG-TDSON-8_6.15x5.15mm</footprint>
+      <datasheet>https://www.infineon.com/assets/row/public/documents/24/49/infineon-bsc110n15ns5-datasheet-en.pdf</datasheet>
+      <description>Infineon Rev2.6 verified:150V,VGS+/-20V,Rdsmax11mohm at10V/25C/38A,Tjmax150C. Source1/2/3,gate4,common drain5..8 represented by footprintpad5. SOA,ringing,layout and thermal review still pending.</description>
+      <fields>
+        <field name="Footprint">Package_SON:Infineon_PG-TDSON-8_6.15x5.15mm</field>
+        <field name="Datasheet">https://www.infineon.com/assets/row/public/documents/24/49/infineon-bsc110n15ns5-datasheet-en.pdf</field>
+        <field name="Description">Infineon Rev2.6 verified:150V,VGS+/-20V,Rdsmax11mohm at10V/25C/38A,Tjmax150C. Source1/2/3,gate4,common drain5..8 represented by footprintpad5. SOA,ringing,layout and thermal review still pending.</field>
+      </fields>
+      <libsource lib="PowerPhase" part="BSC110N15NS5_REFERENCE" description="N-MOSFET transistor, gate/drain/source"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="power_phase.kicad_sch"/>
+      <property name="ki_keywords" value="transistor NMOS N-MOS N-MOSFET"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>01cb84ed-ea35-42c7-8748-709ae997dfe7</tstamps>
+    </comp>
+    <comp ref="R1">
+      <value>12m 1% &gt;=2W</value>
+      <footprint>Resistor_SMD:R_2512_6332Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>Two12mohmparallel create6mohmlow-sidesharedcurrentshunt. 10Arms-&gt;0.30Wperresistor; cyclelimitmayreach~20.5Apeak,so25Ahotinductorrequirement. MPNpending.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_2512_6332Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">Two12mohmparallel create6mohmlow-sidesharedcurrentshunt. 10Arms-&gt;0.30Wperresistor; cyclelimitmayreach~20.5Apeak,so25Ahotinductorrequirement. MPNpending.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="power_phase.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>794fd3e6-993a-4679-a8c9-0814de12a642</tstamps>
+    </comp>
+    <comp ref="R2">
+      <value>12m 1% &gt;=2W</value>
+      <footprint>Resistor_SMD:R_2512_6332Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>Two12mohmparallel create6mohmlow-sidesharedcurrentshunt. 10Arms-&gt;0.30Wperresistor; cyclelimitmayreach~20.5Apeak,so25Ahotinductorrequirement. MPNpending.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_2512_6332Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">Two12mohmparallel create6mohmlow-sidesharedcurrentshunt. 10Arms-&gt;0.30Wperresistor; cyclelimitmayreach~20.5Apeak,so25Ahotinductorrequirement. MPNpending.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="power_phase.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>92efa81a-7af2-4489-ad7a-f7495cda616f</tstamps>
+    </comp>
+    <comp ref="R3">
+      <value>8m 1% &gt;=2W</value>
+      <footprint>Resistor_SMD:R_2512_6332Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>Two8mohmparallel create4mohmoutputaverageshunt. Native50mVCC-&gt;12.5Anominal;47.5..52.5mVand1%shunttolerance-&gt;11.76..13.26A. Notuser-adjustable.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_2512_6332Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">Two8mohmparallel create4mohmoutputaverageshunt. Native50mVCC-&gt;12.5Anominal;47.5..52.5mVand1%shunttolerance-&gt;11.76..13.26A. Notuser-adjustable.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="power_phase.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>745c1001-d99f-4603-9612-a036f15e8cf1</tstamps>
+    </comp>
+    <comp ref="R4">
+      <value>8m 1% &gt;=2W</value>
+      <footprint>Resistor_SMD:R_2512_6332Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>Two8mohmparallel create4mohmoutputaverageshunt. Native50mVCC-&gt;12.5Anominal;47.5..52.5mVand1%shunttolerance-&gt;11.76..13.26A. Notuser-adjustable.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_2512_6332Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">Two8mohmparallel create4mohmoutputaverageshunt. Native50mVCC-&gt;12.5Anominal;47.5..52.5mVand1%shunttolerance-&gt;11.76..13.26A. Notuser-adjustable.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="power_phase.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>0f5c8a53-d553-4a1b-8446-f7ecc67a1bdc</tstamps>
+    </comp>
+    <comp ref="TP1">
+      <value>VIN</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <description>Differential/guardedtestpoint;scopegroundcanremovefloatingoutput. Gateprobealwaysgate-to-ownsource. CAD routing complete; no hardware/fabrication qualification; see layout report.</description>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description">Differential/guardedtestpoint;scopegroundcanremovefloatingoutput. Gateprobealwaysgate-to-ownsource. CAD routing complete; no hardware/fabrication qualification; see layout report.</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="power_phase.kicad_sch"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>6f726a13-5f1d-4795-ac5d-00d663db1769</tstamps>
+    </comp>
+    <comp ref="TP2">
+      <value>VOUT</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <description>Differential/guardedtestpoint;scopegroundcanremovefloatingoutput. Gateprobealwaysgate-to-ownsource. CAD routing complete; no hardware/fabrication qualification; see layout report.</description>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description">Differential/guardedtestpoint;scopegroundcanremovefloatingoutput. Gateprobealwaysgate-to-ownsource. CAD routing complete; no hardware/fabrication qualification; see layout report.</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="power_phase.kicad_sch"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>0fcb5539-a3cf-40ee-8e1d-ce112d4a24c9</tstamps>
+    </comp>
+    <comp ref="TP3">
+      <value>PGND</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <description>Differential/guardedtestpoint;scopegroundcanremovefloatingoutput. Gateprobealwaysgate-to-ownsource. CAD routing complete; no hardware/fabrication qualification; see layout report.</description>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description">Differential/guardedtestpoint;scopegroundcanremovefloatingoutput. Gateprobealwaysgate-to-ownsource. CAD routing complete; no hardware/fabrication qualification; see layout report.</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="power_phase.kicad_sch"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>d6341fe3-43cf-49aa-9d3d-160529e52002</tstamps>
+    </comp>
+    <comp ref="TP4">
+      <value>SWA</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <description>Differential/guardedtestpoint;scopegroundcanremovefloatingoutput. Gateprobealwaysgate-to-ownsource. CAD routing complete; no hardware/fabrication qualification; see layout report.</description>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description">Differential/guardedtestpoint;scopegroundcanremovefloatingoutput. Gateprobealwaysgate-to-ownsource. CAD routing complete; no hardware/fabrication qualification; see layout report.</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="power_phase.kicad_sch"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>3781ba01-28da-4ac3-98e7-14ea0a6dd11c</tstamps>
+    </comp>
+    <comp ref="TP5">
+      <value>SWB</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <description>Differential/guardedtestpoint;scopegroundcanremovefloatingoutput. Gateprobealwaysgate-to-ownsource. CAD routing complete; no hardware/fabrication qualification; see layout report.</description>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description">Differential/guardedtestpoint;scopegroundcanremovefloatingoutput. Gateprobealwaysgate-to-ownsource. CAD routing complete; no hardware/fabrication qualification; see layout report.</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="power_phase.kicad_sch"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>647676c8-2d40-40e3-abfe-3d360ac632e5</tstamps>
+    </comp>
+    <comp ref="TP6">
+      <value>DRVCC</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <description>Differential/guardedtestpoint;scopegroundcanremovefloatingoutput. Gateprobealwaysgate-to-ownsource. CAD routing complete; no hardware/fabrication qualification; see layout report.</description>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description">Differential/guardedtestpoint;scopegroundcanremovefloatingoutput. Gateprobealwaysgate-to-ownsource. CAD routing complete; no hardware/fabrication qualification; see layout report.</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="power_phase.kicad_sch"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>6c45b671-3dbc-4a00-be20-bdcceae8e17b</tstamps>
+    </comp>
+    <comp ref="TP7">
+      <value>V5</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <description>Differential/guardedtestpoint;scopegroundcanremovefloatingoutput. Gateprobealwaysgate-to-ownsource. CAD routing complete; no hardware/fabrication qualification; see layout report.</description>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description">Differential/guardedtestpoint;scopegroundcanremovefloatingoutput. Gateprobealwaysgate-to-ownsource. CAD routing complete; no hardware/fabrication qualification; see layout report.</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="power_phase.kicad_sch"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>82ff9954-1175-42d0-bf47-d151830477ce</tstamps>
+    </comp>
+    <comp ref="TP8">
+      <value>SS</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <description>Differential/guardedtestpoint;scopegroundcanremovefloatingoutput. Gateprobealwaysgate-to-ownsource. CAD routing complete; no hardware/fabrication qualification; see layout report.</description>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description">Differential/guardedtestpoint;scopegroundcanremovefloatingoutput. Gateprobealwaysgate-to-ownsource. CAD routing complete; no hardware/fabrication qualification; see layout report.</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="power_phase.kicad_sch"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>339aecec-179a-451a-b734-337d6332fd72</tstamps>
+    </comp>
+    <comp ref="TP9">
+      <value>VFB</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <description>Differential/guardedtestpoint;scopegroundcanremovefloatingoutput. Gateprobealwaysgate-to-ownsource. CAD routing complete; no hardware/fabrication qualification; see layout report.</description>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description">Differential/guardedtestpoint;scopegroundcanremovefloatingoutput. Gateprobealwaysgate-to-ownsource. CAD routing complete; no hardware/fabrication qualification; see layout report.</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="power_phase.kicad_sch"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>5f02e4c3-2edf-478f-be8e-24e2b04c5fea</tstamps>
+    </comp>
+    <comp ref="TP10">
+      <value>ITH</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <description>Differential/guardedtestpoint;scopegroundcanremovefloatingoutput. Gateprobealwaysgate-to-ownsource. CAD routing complete; no hardware/fabrication qualification; see layout report.</description>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description">Differential/guardedtestpoint;scopegroundcanremovefloatingoutput. Gateprobealwaysgate-to-ownsource. CAD routing complete; no hardware/fabrication qualification; see layout report.</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="power_phase.kicad_sch"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>a1afe435-cf22-4ad9-9500-1929aac433ac</tstamps>
+    </comp>
+    <comp ref="TP11">
+      <value>CS</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <description>Differential/guardedtestpoint;scopegroundcanremovefloatingoutput. Gateprobealwaysgate-to-ownsource. CAD routing complete; no hardware/fabrication qualification; see layout report.</description>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description">Differential/guardedtestpoint;scopegroundcanremovefloatingoutput. Gateprobealwaysgate-to-ownsource. CAD routing complete; no hardware/fabrication qualification; see layout report.</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="power_phase.kicad_sch"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>3c72ea40-4cc7-4be4-b15b-4f88be719d31</tstamps>
+    </comp>
+    <comp ref="TP12">
+      <value>IAVGP</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <description>Differential/guardedtestpoint;scopegroundcanremovefloatingoutput. Gateprobealwaysgate-to-ownsource. CAD routing complete; no hardware/fabrication qualification; see layout report.</description>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description">Differential/guardedtestpoint;scopegroundcanremovefloatingoutput. Gateprobealwaysgate-to-ownsource. CAD routing complete; no hardware/fabrication qualification; see layout report.</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="power_phase.kicad_sch"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b0b584bc-8897-47a6-b01f-d8ff0a6e4a90</tstamps>
+    </comp>
+    <comp ref="TP13">
+      <value>IAVGN</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <description>Differential/guardedtestpoint;scopegroundcanremovefloatingoutput. Gateprobealwaysgate-to-ownsource. CAD routing complete; no hardware/fabrication qualification; see layout report.</description>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description">Differential/guardedtestpoint;scopegroundcanremovefloatingoutput. Gateprobealwaysgate-to-ownsource. CAD routing complete; no hardware/fabrication qualification; see layout report.</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="power_phase.kicad_sch"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>2d1f4b45-e10b-4161-b5b0-5e14083a9760</tstamps>
+    </comp>
+    <comp ref="TP14">
+      <value>RUN</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <description>Differential/guardedtestpoint;scopegroundcanremovefloatingoutput. Gateprobealwaysgate-to-ownsource. CAD routing complete; no hardware/fabrication qualification; see layout report.</description>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description">Differential/guardedtestpoint;scopegroundcanremovefloatingoutput. Gateprobealwaysgate-to-ownsource. CAD routing complete; no hardware/fabrication qualification; see layout report.</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="power_phase.kicad_sch"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>fbfcab55-d9c7-408e-9264-9ff5ec265035</tstamps>
+    </comp>
+    <comp ref="TP15">
+      <value>PGOOD</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <description>Differential/guardedtestpoint;scopegroundcanremovefloatingoutput. Gateprobealwaysgate-to-ownsource. CAD routing complete; no hardware/fabrication qualification; see layout report.</description>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description">Differential/guardedtestpoint;scopegroundcanremovefloatingoutput. Gateprobealwaysgate-to-ownsource. CAD routing complete; no hardware/fabrication qualification; see layout report.</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="power_phase.kicad_sch"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>25a648ee-3a6b-4ddc-9906-f47787ad3973</tstamps>
+    </comp>
+    <comp ref="TP16">
+      <value>GA</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <description>Differential/guardedtestpoint;scopegroundcanremovefloatingoutput. Gateprobealwaysgate-to-ownsource. CAD routing complete; no hardware/fabrication qualification; see layout report.</description>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description">Differential/guardedtestpoint;scopegroundcanremovefloatingoutput. Gateprobealwaysgate-to-ownsource. CAD routing complete; no hardware/fabrication qualification; see layout report.</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="power_phase.kicad_sch"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>fe245a1b-b19d-47f8-aa5b-b28988d72f51</tstamps>
+    </comp>
+    <comp ref="TP17">
+      <value>GB</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <description>Differential/guardedtestpoint;scopegroundcanremovefloatingoutput. Gateprobealwaysgate-to-ownsource. CAD routing complete; no hardware/fabrication qualification; see layout report.</description>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description">Differential/guardedtestpoint;scopegroundcanremovefloatingoutput. Gateprobealwaysgate-to-ownsource. CAD routing complete; no hardware/fabrication qualification; see layout report.</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="power_phase.kicad_sch"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>e00c0fed-5194-487f-bfd7-4d1aa3525905</tstamps>
+    </comp>
+    <comp ref="TP18">
+      <value>GC</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <description>Differential/guardedtestpoint;scopegroundcanremovefloatingoutput. Gateprobealwaysgate-to-ownsource. CAD routing complete; no hardware/fabrication qualification; see layout report.</description>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description">Differential/guardedtestpoint;scopegroundcanremovefloatingoutput. Gateprobealwaysgate-to-ownsource. CAD routing complete; no hardware/fabrication qualification; see layout report.</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="power_phase.kicad_sch"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>7d500824-e193-4109-9089-5ffc20b1defe</tstamps>
+    </comp>
+    <comp ref="TP19">
+      <value>GD</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <description>Differential/guardedtestpoint;scopegroundcanremovefloatingoutput. Gateprobealwaysgate-to-ownsource. CAD routing complete; no hardware/fabrication qualification; see layout report.</description>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description">Differential/guardedtestpoint;scopegroundcanremovefloatingoutput. Gateprobealwaysgate-to-ownsource. CAD routing complete; no hardware/fabrication qualification; see layout report.</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="power_phase.kicad_sch"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>46b630b2-107f-4e7a-a574-e83e76c3f863</tstamps>
+    </comp>
+    <comp ref="C9">
+      <value>4.7uF 16V X5R</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>Gate-driversupplydecoupling,p11.</description>
+      <fields>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">Gate-driversupplydecoupling,p11.</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value="Controller and sensing"/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/Controller and sensing/" tstamps="/057b26b2-3ed1-42ef-b681-40201458ad2f/"/>
+      <tstamps>ac788416-1ee8-4c7a-a690-58c315c59fdd</tstamps>
+    </comp>
+    <comp ref="C10">
+      <value>4.7uF 10V X5R</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>V5minimum4.7uFdecoupling,p11.</description>
+      <fields>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">V5minimum4.7uFdecoupling,p11.</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value="Controller and sensing"/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/Controller and sensing/" tstamps="/057b26b2-3ed1-42ef-b681-40201458ad2f/"/>
+      <tstamps>4d75e491-5d6c-49e9-b817-a3c5c1651876</tstamps>
+    </comp>
+    <comp ref="C11">
+      <value>1uF 50V X7R</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>External12Vinputdecoupling.</description>
+      <fields>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">External12Vinputdecoupling.</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value="Controller and sensing"/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/Controller and sensing/" tstamps="/057b26b2-3ed1-42ef-b681-40201458ad2f/"/>
+      <tstamps>11231190-4aea-461b-bbf0-008b05bbc3e8</tstamps>
+    </comp>
+    <comp ref="C12">
+      <value>100nF 50V X7R</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>SS5uAcharge:nominal24ms to1.2V. Softstartonly;notuserprogrammable0Vclaim.</description>
+      <fields>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">SS5uAcharge:nominal24ms to1.2V. Softstartonly;notuserprogrammable0Vclaim.</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value="Controller and sensing"/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/Controller and sensing/" tstamps="/057b26b2-3ed1-42ef-b681-40201458ad2f/"/>
+      <tstamps>7946d683-99ba-4156-a981-9fc43b43c9cb</tstamps>
+    </comp>
+    <comp ref="C13">
+      <value>220nF 16V X7R</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>InputsidebootstrapcapacitorfromADIdemo.</description>
+      <fields>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">InputsidebootstrapcapacitorfromADIdemo.</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value="Controller and sensing"/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/Controller and sensing/" tstamps="/057b26b2-3ed1-42ef-b681-40201458ad2f/"/>
+      <tstamps>130e38a0-66fe-48a0-bda5-edfdcb42737b</tstamps>
+    </comp>
+    <comp ref="C14">
+      <value>220nF 16V X7R</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>OutputsidebootstrapcapacitorfromADIdemo.</description>
+      <fields>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">OutputsidebootstrapcapacitorfromADIdemo.</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value="Controller and sensing"/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/Controller and sensing/" tstamps="/057b26b2-3ed1-42ef-b681-40201458ad2f/"/>
+      <tstamps>c229a711-9048-4e2e-bb52-4f7890047caa</tstamps>
+    </comp>
+    <comp ref="C15">
+      <value>220pF 100V C0G</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>Cycle-sensedifferentialfilterfromADIdemo.</description>
+      <fields>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">Cycle-sensedifferentialfilterfromADIdemo.</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value="Controller and sensing"/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/Controller and sensing/" tstamps="/057b26b2-3ed1-42ef-b681-40201458ad2f/"/>
+      <tstamps>a7fb7218-3e5b-4474-88e4-060243133309</tstamps>
+    </comp>
+    <comp ref="C16">
+      <value>1uF 250V X7R</value>
+      <footprint>Capacitor_SMD:C_2220_5750Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>Differentialaveragecurrentfilterwithin1..4.7uF recommendationp21. Highcommonmodemakesto-groundratingimportant.</description>
+      <fields>
+        <field name="Footprint">Capacitor_SMD:C_2220_5750Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">Differentialaveragecurrentfilterwithin1..4.7uF recommendationp21. Highcommonmodemakesto-groundratingimportant.</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value="Controller and sensing"/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/Controller and sensing/" tstamps="/057b26b2-3ed1-42ef-b681-40201458ad2f/"/>
+      <tstamps>250e145a-c60a-4570-bddf-fa6a70008b76</tstamps>
+    </comp>
+    <comp ref="C17">
+      <value>10nF 50V X7R</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>Initialseries10k/10nFITHcompensation;retuningrequired.</description>
+      <fields>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">Initialseries10k/10nFITHcompensation;retuningrequired.</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value="Controller and sensing"/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/Controller and sensing/" tstamps="/057b26b2-3ed1-42ef-b681-40201458ad2f/"/>
+      <tstamps>612c2348-07e5-47be-aca2-1430893462c8</tstamps>
+    </comp>
+    <comp ref="C18">
+      <value>100pF 50V C0G</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>Initialhighfrequencypole;retuningrequired.</description>
+      <fields>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">Initialhighfrequencypole;retuningrequired.</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value="Controller and sensing"/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/Controller and sensing/" tstamps="/057b26b2-3ed1-42ef-b681-40201458ad2f/"/>
+      <tstamps>5fccf755-161b-4915-9335-de577f15c3ad</tstamps>
+    </comp>
+    <comp ref="D1">
+      <value>DFLS1200-7 / 1A 200V</value>
+      <footprint>Diode_SMD:D_PowerDI-123</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/user-guides/DC2456AF.PDF</datasheet>
+      <description>BootstrapSchottkydiodefromADIdemo:1K,2A. Exactmanufacturerfootprintreviewstillrequired.</description>
+      <fields>
+        <field name="Footprint">Diode_SMD:D_PowerDI-123</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/user-guides/DC2456AF.PDF</field>
+        <field name="Description">BootstrapSchottkydiodefromADIdemo:1K,2A. Exactmanufacturerfootprintreviewstillrequired.</field>
+      </fields>
+      <libsource lib="Device" part="D_Schottky" description="Schottky diode"/>
+      <property name="Sheetname" value="Controller and sensing"/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="diode Schottky"/>
+      <property name="ki_fp_filters" value="TO-???* *_Diode_* *SingleDiode* D_*"/>
+      <sheetpath names="/Controller and sensing/" tstamps="/057b26b2-3ed1-42ef-b681-40201458ad2f/"/>
+      <tstamps>eaef4dc9-1df6-4dc0-bb5f-b3487a3d751d</tstamps>
+    </comp>
+    <comp ref="D2">
+      <value>DFLS1200-7 / 1A 200V</value>
+      <footprint>Diode_SMD:D_PowerDI-123</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/user-guides/DC2456AF.PDF</datasheet>
+      <description>BootstrapSchottkydiodefromADIdemo:1K,2A. Exactmanufacturerfootprintreviewstillrequired.</description>
+      <fields>
+        <field name="Footprint">Diode_SMD:D_PowerDI-123</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/user-guides/DC2456AF.PDF</field>
+        <field name="Description">BootstrapSchottkydiodefromADIdemo:1K,2A. Exactmanufacturerfootprintreviewstillrequired.</field>
+      </fields>
+      <libsource lib="Device" part="D_Schottky" description="Schottky diode"/>
+      <property name="Sheetname" value="Controller and sensing"/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="diode Schottky"/>
+      <property name="ki_fp_filters" value="TO-???* *_Diode_* *SingleDiode* D_*"/>
+      <sheetpath names="/Controller and sensing/" tstamps="/057b26b2-3ed1-42ef-b681-40201458ad2f/"/>
+      <tstamps>d3e8823e-056e-4912-8f83-8212fe1762f0</tstamps>
+    </comp>
+    <comp ref="J3">
+      <value>AUX12 / PGND - BEFORE HV</value>
+      <footprint>Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical</footprint>
+      <description>Externalisolated12Vaux mustbepresentbeforeHV/enableandmaintaineduntilHVremoved. Drawfromsamefloatingsecondary. Loss-of-auxhardwareinterlocknotyetdesigned.</description>
+      <fields>
+        <field name="Footprint">Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical</field>
+        <field name="Datasheet"/>
+        <field name="Description">Externalisolated12Vaux mustbepresentbeforeHV/enableandmaintaineduntilHVremoved. Drawfromsamefloatingsecondary. Loss-of-auxhardwareinterlocknotyetdesigned.</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x02" description="Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="Sheetname" value="Controller and sensing"/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_1x??_*"/>
+      <sheetpath names="/Controller and sensing/" tstamps="/057b26b2-3ed1-42ef-b681-40201458ad2f/"/>
+      <tstamps>747735e8-404e-4f9a-a0a4-127cd394a6f0</tstamps>
+    </comp>
+    <comp ref="J4">
+      <value>ENABLE 3.3V / SYNC / PGOOD / PGND</value>
+      <footprint>Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>Floating-secondaryfixtureinterface. Defaultshutdownby100kRUNpulldown. PGOODopen-drainpulledtoV5~5.5V,not3.3Vsafe. SYNCexternalsignal&lt;=V5. NoDAC/programmableCVCCinterface.</description>
+      <fields>
+        <field name="Footprint">Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">Floating-secondaryfixtureinterface. Defaultshutdownby100kRUNpulldown. PGOODopen-drainpulledtoV5~5.5V,not3.3Vsafe. SYNCexternalsignal&lt;=V5. NoDAC/programmableCVCCinterface.</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x04" description="Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="Sheetname" value="Controller and sensing"/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_1x??_*"/>
+      <sheetpath names="/Controller and sensing/" tstamps="/057b26b2-3ed1-42ef-b681-40201458ad2f/"/>
+      <tstamps>51c71b58-9590-4a61-b33c-e86aae3ff199</tstamps>
+    </comp>
+    <comp ref="R5">
+      <value>0</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>DisableexternalNDRVpassFETbytieNDRVtoDRVCCperdatasheetp11.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">DisableexternalNDRVpassFETbytieNDRVtoDRVCCperdatasheetp11.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value="Controller and sensing"/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/Controller and sensing/" tstamps="/057b26b2-3ed1-42ef-b681-40201458ad2f/"/>
+      <tstamps>55118171-c4ba-483a-afad-06f7ad23ce5c</tstamps>
+    </comp>
+    <comp ref="R6">
+      <value>100k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>DefaultRUN~0.25Vwith2.5uApullup;below1.1Vshutdown. FixturemustholdENABLElowuntilAUXvalid.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">DefaultRUN~0.25Vwith2.5uApullup;below1.1Vshutdown. FixturemustholdENABLElowuntilAUXvalid.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value="Controller and sensing"/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/Controller and sensing/" tstamps="/057b26b2-3ed1-42ef-b681-40201458ad2f/"/>
+      <tstamps>bf93400e-2b3c-4296-b0e6-94109dc8348d</tstamps>
+    </comp>
+    <comp ref="R7">
+      <value>100</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>Enableinterfaceresistance;3.3Vlogicexternalfixture.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">Enableinterfaceresistance;3.3Vlogicexternalfixture.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value="Controller and sensing"/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/Controller and sensing/" tstamps="/057b26b2-3ed1-42ef-b681-40201458ad2f/"/>
+      <tstamps>d1067002-2de3-40ed-8f19-b4289ae90506</tstamps>
+    </comp>
+    <comp ref="R8">
+      <value>100k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>KeepunusedPLLINlow;externalsyncsupportedbutnophasesharing.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">KeepunusedPLLINlow;externalsyncsupportedbutnophasesharing.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value="Controller and sensing"/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/Controller and sensing/" tstamps="/057b26b2-3ed1-42ef-b681-40201458ad2f/"/>
+      <tstamps>d88dba53-ea24-4dd8-8c70-a9a2c26d53ef</tstamps>
+    </comp>
+    <comp ref="R9">
+      <value>37.4k 1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>Datasheetp22RFREQequationgivesapproximately101.8kHz;measureactualfrequency.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">Datasheetp22RFREQequationgivesapproximately101.8kHz;measureactualfrequency.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value="Controller and sensing"/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/Controller and sensing/" tstamps="/057b26b2-3ed1-42ef-b681-40201458ad2f/"/>
+      <tstamps>aac94df5-5858-4324-b08a-0c073077caeb</tstamps>
+    </comp>
+    <comp ref="R10">
+      <value>10k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>PGOODopen-drainpullupto5.5Vrail;indicationonly,notindependentprotection.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">PGOODopen-drainpullupto5.5Vrail;indicationonly,notindependentprotection.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value="Controller and sensing"/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/Controller and sensing/" tstamps="/057b26b2-3ed1-42ef-b681-40201458ad2f/"/>
+      <tstamps>85b34b3e-e2eb-4d8a-acb6-079e77811989</tstamps>
+    </comp>
+    <comp ref="R11">
+      <value>0</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>Prototypegatejumper;gateedge/ringingmustdeterminefinalvalue.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">Prototypegatejumper;gateedge/ringingmustdeterminefinalvalue.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value="Controller and sensing"/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/Controller and sensing/" tstamps="/057b26b2-3ed1-42ef-b681-40201458ad2f/"/>
+      <tstamps>07bea306-791c-4e61-89ee-c55d22d18f14</tstamps>
+    </comp>
+    <comp ref="R12">
+      <value>0</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>Prototypegatejumper;gateedge/ringingmustdeterminefinalvalue.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">Prototypegatejumper;gateedge/ringingmustdeterminefinalvalue.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value="Controller and sensing"/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/Controller and sensing/" tstamps="/057b26b2-3ed1-42ef-b681-40201458ad2f/"/>
+      <tstamps>ebff09e1-04b8-452b-a6b8-1b8ec6c100a4</tstamps>
+    </comp>
+    <comp ref="R13">
+      <value>0</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>Prototypegatejumper;gateedge/ringingmustdeterminefinalvalue.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">Prototypegatejumper;gateedge/ringingmustdeterminefinalvalue.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value="Controller and sensing"/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/Controller and sensing/" tstamps="/057b26b2-3ed1-42ef-b681-40201458ad2f/"/>
+      <tstamps>e8205a1d-6ba7-4a10-9936-4689787c2b43</tstamps>
+    </comp>
+    <comp ref="R14">
+      <value>0</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>Prototypegatejumper;gateedge/ringingmustdeterminefinalvalue.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">Prototypegatejumper;gateedge/ringingmustdeterminefinalvalue.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value="Controller and sensing"/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/Controller and sensing/" tstamps="/057b26b2-3ed1-42ef-b681-40201458ad2f/"/>
+      <tstamps>a7396452-6771-49a9-890a-53397e26f4ad</tstamps>
+    </comp>
+    <comp ref="R15">
+      <value>100</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>Cyclecurrentsensepositivefilter;220pFdifferentialcapacitor.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">Cyclecurrentsensepositivefilter;220pFdifferentialcapacitor.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value="Controller and sensing"/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/Controller and sensing/" tstamps="/057b26b2-3ed1-42ef-b681-40201458ad2f/"/>
+      <tstamps>349b0267-8796-4a9a-bd27-4fd7ec908e01</tstamps>
+    </comp>
+    <comp ref="R16">
+      <value>100</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>Cyclecurrentsensenegativefilter;separateKelvintracesmandatory.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">Cyclecurrentsensenegativefilter;separateKelvintracesmandatory.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value="Controller and sensing"/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/Controller and sensing/" tstamps="/057b26b2-3ed1-42ef-b681-40201458ad2f/"/>
+      <tstamps>0ce39f62-8fdb-4d18-9f8d-dd050cdaeb2e</tstamps>
+    </comp>
+    <comp ref="R17">
+      <value>100</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>Averagecurrentpositivefilter;15uAcommon-modebiasat&gt;=4V.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">Averagecurrentpositivefilter;15uAcommon-modebiasat&gt;=4V.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value="Controller and sensing"/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/Controller and sensing/" tstamps="/057b26b2-3ed1-42ef-b681-40201458ad2f/"/>
+      <tstamps>b61cd0cd-a503-44c9-bfc2-750657cd0488</tstamps>
+    </comp>
+    <comp ref="R18">
+      <value>150</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>Averagecurrentnegativefilter;10uAbias,150ohmcompensates15uA*100ohmfirstorder.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">Averagecurrentnegativefilter;10uAbias,150ohmcompensates15uA*100ohmfirstorder.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value="Controller and sensing"/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/Controller and sensing/" tstamps="/057b26b2-3ed1-42ef-b681-40201458ad2f/"/>
+      <tstamps>76078670-1c83-46f9-aa30-bf9942002144</tstamps>
+    </comp>
+    <comp ref="R19">
+      <value>1k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>VOUTSNSmustconnecttodrainofoutputhighsideQ4through1kohm,p12.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">VOUTSNSmustconnecttodrainofoutputhighsideQ4through1kohm,p12.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value="Controller and sensing"/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/Controller and sensing/" tstamps="/057b26b2-3ed1-42ef-b681-40201458ad2f/"/>
+      <tstamps>49ba77ea-5852-4c36-8309-464dde3bccdb</tstamps>
+    </comp>
+    <comp ref="R20">
+      <value>410k 0.1%</value>
+      <footprint>Resistor_SMD:R_1206_3216Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>Feedbackupperleg1;100Vratingminimum;topology1.2*(1+820k/10k)=99.6V.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_1206_3216Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">Feedbackupperleg1;100Vratingminimum;topology1.2*(1+820k/10k)=99.6V.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value="Controller and sensing"/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/Controller and sensing/" tstamps="/057b26b2-3ed1-42ef-b681-40201458ad2f/"/>
+      <tstamps>3f2e9992-a786-4ea0-83e4-7edac635ee52</tstamps>
+    </comp>
+    <comp ref="R21">
+      <value>410k 0.1%</value>
+      <footprint>Resistor_SMD:R_1206_3216Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>Feedbackupperleg2;~49.2Vdrop,~5.9mWnominal.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_1206_3216Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">Feedbackupperleg2;~49.2Vdrop,~5.9mWnominal.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value="Controller and sensing"/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/Controller and sensing/" tstamps="/057b26b2-3ed1-42ef-b681-40201458ad2f/"/>
+      <tstamps>eb06fbc1-aa59-4cc9-bfcb-8b0c5b1ccacd</tstamps>
+    </comp>
+    <comp ref="R22">
+      <value>10k 0.1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>Feedbacklowerleg;VFB1.2Vtypical±1%. ThisisfixedCV99.6V,not0..100V.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">Feedbacklowerleg;VFB1.2Vtypical±1%. ThisisfixedCV99.6V,not0..100V.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value="Controller and sensing"/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/Controller and sensing/" tstamps="/057b26b2-3ed1-42ef-b681-40201458ad2f/"/>
+      <tstamps>62e365fe-824f-47a9-86aa-e31604952ab0</tstamps>
+    </comp>
+    <comp ref="R23">
+      <value>499k 0.1%</value>
+      <footprint>Resistor_SMD:R_1206_3216Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>VINOVupperleg1;two499k+10kdividergives129.024Vnominaltrip.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_1206_3216Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">VINOVupperleg1;two499k+10kdividergives129.024Vnominaltrip.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value="Controller and sensing"/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/Controller and sensing/" tstamps="/057b26b2-3ed1-42ef-b681-40201458ad2f/"/>
+      <tstamps>8cd21ff2-f97a-4533-9bd2-a39df3a9374f</tstamps>
+    </comp>
+    <comp ref="R24">
+      <value>499k 0.1%</value>
+      <footprint>Resistor_SMD:R_1206_3216Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>VINOVupperleg2;thresholdtolerancegives118.944..139.104Vtripbeforedividererrors;notpreciseOVP.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_1206_3216Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">VINOVupperleg2;thresholdtolerancegives118.944..139.104Vtripbeforedividererrors;notpreciseOVP.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value="Controller and sensing"/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/Controller and sensing/" tstamps="/057b26b2-3ed1-42ef-b681-40201458ad2f/"/>
+      <tstamps>ef047d04-2f8f-4b00-9ce2-897956887d50</tstamps>
+    </comp>
+    <comp ref="R25">
+      <value>10k 0.1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>ControllerinputOVLOdividerbottom. IndependentOVPstillmissing.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">ControllerinputOVLOdividerbottom. IndependentOVPstillmissing.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value="Controller and sensing"/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/Controller and sensing/" tstamps="/057b26b2-3ed1-42ef-b681-40201458ad2f/"/>
+      <tstamps>2def49e2-039c-42e8-a653-31dbd33bbf50</tstamps>
+    </comp>
+    <comp ref="R26">
+      <value>10k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>Initialvoltageloopcompensation copiedfromADI demo;notvalidatedfornewL,CandCV.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">Initialvoltageloopcompensation copiedfromADI demo;notvalidatedfornewL,CandCV.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value="Controller and sensing"/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/Controller and sensing/" tstamps="/057b26b2-3ed1-42ef-b681-40201458ad2f/"/>
+      <tstamps>e491db2d-bdf2-43c2-be9f-b9380ca21fad</tstamps>
+    </comp>
+    <comp ref="U1">
+      <value>LTC3779EFE#PBF</value>
+      <footprint>PowerPhase:LTC3779_FE38_31_EP</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>150VinputANDoutput4-switchcontroller. FE38(31),0.5mmpitch,4.4x9.7body,EP2.74x4.75pad39PGND. Positions23/25/27/29/31/33/35removed. FixedCV99.6V;nativeCCceilingnotprecisionprogrammable.</description>
+      <fields>
+        <field name="Footprint">PowerPhase:LTC3779_FE38_31_EP</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">150VinputANDoutput4-switchcontroller. FE38(31),0.5mmpitch,4.4x9.7body,EP2.74x4.75pad39PGND. Positions23/25/27/29/31/33/35removed. FixedCV99.6V;nativeCCceilingnotprecisionprogrammable.</field>
+      </fields>
+      <libsource lib="PowerPhase" part="LTC3779EFE" description=""/>
+      <property name="Sheetname" value="Controller and sensing"/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <sheetpath names="/Controller and sensing/" tstamps="/057b26b2-3ed1-42ef-b681-40201458ad2f/"/>
+      <tstamps>74ffec18-4467-41dc-b343-25f3796211e2</tstamps>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="Connector" part="TestPoint">
+      <description>test point</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Pin*</fp>
+        <fp>Test*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">TP</field>
+        <field name="Value">TestPoint</field>
+        <field name="Footprint"/>
+        <field name="Datasheet">~</field>
+        <field name="Description">test point</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Connector_Generic" part="Conn_01x02">
+      <description>Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Connector*:*_1x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_01x02</field>
+        <field name="Footprint"/>
+        <field name="Datasheet">~</field>
+        <field name="Description">Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Connector_Generic" part="Conn_01x04">
+      <description>Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Connector*:*_1x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_01x04</field>
+        <field name="Footprint"/>
+        <field name="Datasheet">~</field>
+        <field name="Description">Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+        <pin num="3" name="Pin_3" type="passive"/>
+        <pin num="4" name="Pin_4" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="C">
+      <description>Unpolarized capacitor</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>C_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">C</field>
+        <field name="Footprint"/>
+        <field name="Datasheet">~</field>
+        <field name="Description">Unpolarized capacitor</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="C_Polarized">
+      <description>Polarized capacitor</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>CP_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">C_Polarized</field>
+        <field name="Footprint"/>
+        <field name="Datasheet">~</field>
+        <field name="Description">Polarized capacitor</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="D_Schottky">
+      <description>Schottky diode</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>TO-???*</fp>
+        <fp>*_Diode_*</fp>
+        <fp>*SingleDiode*</fp>
+        <fp>D_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">D_Schottky</field>
+        <field name="Footprint"/>
+        <field name="Datasheet">~</field>
+        <field name="Description">Schottky diode</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="L">
+      <description>Inductor</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Choke_*</fp>
+        <fp>*Coil*</fp>
+        <fp>Inductor_*</fp>
+        <fp>L_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">L</field>
+        <field name="Value">L</field>
+        <field name="Footprint"/>
+        <field name="Datasheet">~</field>
+        <field name="Description">Inductor</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="R">
+      <description>Resistor</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>R_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">R</field>
+        <field name="Footprint"/>
+        <field name="Datasheet">~</field>
+        <field name="Description">Resistor</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="PowerPhase" part="BSC110N15NS5_REFERENCE">
+      <description>N-MOSFET transistor, gate/drain/source</description>
+      <docs>~</docs>
+      <fields>
+        <field name="Reference">Q</field>
+        <field name="Value">BSC110N15NS5</field>
+        <field name="Footprint"/>
+        <field name="Datasheet">~</field>
+        <field name="Description">N-MOSFET transistor, gate/drain/source</field>
+      </fields>
+      <pins>
+        <pin num="1" name="S" type="passive"/>
+        <pin num="2" name="S" type="passive"/>
+        <pin num="3" name="S" type="passive"/>
+        <pin num="4" name="G" type="input"/>
+        <pin num="5" name="D" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="PowerPhase" part="LTC3779EFE">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">LTC3779EFE</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="BG1" type="output"/>
+        <pin num="2" name="VINOV" type="input"/>
+        <pin num="3" name="DRVSET" type="input"/>
+        <pin num="4" name="SGND" type="power_in"/>
+        <pin num="5" name="EXTVCC" type="power_in"/>
+        <pin num="6" name="NDRV" type="output"/>
+        <pin num="7" name="DRVCC" type="power_out"/>
+        <pin num="8" name="V5" type="power_out"/>
+        <pin num="9" name="SS" type="input"/>
+        <pin num="10" name="VFB" type="input"/>
+        <pin num="11" name="SENSEP" type="input"/>
+        <pin num="12" name="SENSEN" type="input"/>
+        <pin num="13" name="ITH" type="passive"/>
+        <pin num="14" name="SGND" type="power_in"/>
+        <pin num="15" name="MODE" type="input"/>
+        <pin num="16" name="PLLIN" type="input"/>
+        <pin num="17" name="FREQ" type="input"/>
+        <pin num="18" name="PGOOD" type="open_collector"/>
+        <pin num="19" name="BG2" type="output"/>
+        <pin num="20" name="SW2" type="passive"/>
+        <pin num="21" name="TG2" type="output"/>
+        <pin num="22" name="BOOST2" type="passive"/>
+        <pin num="24" name="RUN" type="input"/>
+        <pin num="26" name="IAVGSNSP" type="input"/>
+        <pin num="28" name="IAVGSNSN" type="input"/>
+        <pin num="30" name="VOUTSNS" type="input"/>
+        <pin num="32" name="VINSNS" type="input"/>
+        <pin num="34" name="VIN" type="power_in"/>
+        <pin num="36" name="BOOST1" type="passive"/>
+        <pin num="37" name="TG1" type="output"/>
+        <pin num="38" name="SW1" type="passive"/>
+        <pin num="39" name="PGND_EP" type="power_in"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="Connector">
+      <uri>/usr/share/kicad/symbols//Connector.kicad_sym</uri>
+    </library>
+    <library logical="Connector_Generic">
+      <uri>/usr/share/kicad/symbols//Connector_Generic.kicad_sym</uri>
+    </library>
+    <library logical="Device">
+      <uri>/usr/share/kicad/symbols//Device.kicad_sym</uri>
+    </library>
+    <library logical="PowerPhase">
+      <uri>/tmp/power_regen_review/design/power/PowerPhase.kicad_sym</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="AUX12" class="Default">
+      <node ref="C11" pin="1" pintype="passive"/>
+      <node ref="J3" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="U1" pin="5" pinfunction="EXTVCC" pintype="power_in"/>
+    </net>
+    <net code="2" name="BG1" class="Default">
+      <node ref="R12" pin="1" pintype="passive"/>
+      <node ref="U1" pin="1" pinfunction="BG1" pintype="output"/>
+    </net>
+    <net code="3" name="BG2" class="Default">
+      <node ref="R13" pin="1" pintype="passive"/>
+      <node ref="U1" pin="19" pinfunction="BG2" pintype="output"/>
+    </net>
+    <net code="4" name="BST1" class="Default">
+      <node ref="C13" pin="1" pintype="passive"/>
+      <node ref="D1" pin="1" pinfunction="K" pintype="passive"/>
+      <node ref="U1" pin="36" pinfunction="BOOST1" pintype="passive"/>
+    </net>
+    <net code="5" name="BST2" class="Default">
+      <node ref="C14" pin="1" pintype="passive"/>
+      <node ref="D2" pin="1" pinfunction="K" pintype="passive"/>
+      <node ref="U1" pin="22" pinfunction="BOOST2" pintype="passive"/>
+    </net>
+    <net code="6" name="COMP" class="Default">
+      <node ref="C17" pin="1" pintype="passive"/>
+      <node ref="R26" pin="2" pintype="passive"/>
+    </net>
+    <net code="7" name="CS" class="PowerReturn,Default">
+      <node ref="Q2" pin="1" pinfunction="S" pintype="passive"/>
+      <node ref="Q2" pin="2" pinfunction="S" pintype="passive"/>
+      <node ref="Q2" pin="3" pinfunction="S" pintype="passive"/>
+      <node ref="Q3" pin="1" pinfunction="S" pintype="passive"/>
+      <node ref="Q3" pin="2" pinfunction="S" pintype="passive"/>
+      <node ref="Q3" pin="3" pinfunction="S" pintype="passive"/>
+      <node ref="R1" pin="1" pintype="passive"/>
+      <node ref="R15" pin="1" pintype="passive"/>
+      <node ref="R2" pin="1" pintype="passive"/>
+      <node ref="TP11" pin="1" pinfunction="1" pintype="passive"/>
+    </net>
+    <net code="8" name="DRVCC" class="Default">
+      <node ref="C9" pin="1" pintype="passive"/>
+      <node ref="D1" pin="2" pinfunction="A" pintype="passive"/>
+      <node ref="D2" pin="2" pinfunction="A" pintype="passive"/>
+      <node ref="R5" pin="2" pintype="passive"/>
+      <node ref="TP6" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U1" pin="7" pinfunction="DRVCC" pintype="power_out"/>
+    </net>
+    <net code="9" name="ENABLE" class="Default">
+      <node ref="J4" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="R7" pin="1" pintype="passive"/>
+    </net>
+    <net code="10" name="FBMID" class="Default">
+      <node ref="R20" pin="2" pintype="passive"/>
+      <node ref="R21" pin="1" pintype="passive"/>
+    </net>
+    <net code="11" name="FREQ" class="Default">
+      <node ref="R9" pin="1" pintype="passive"/>
+      <node ref="U1" pin="17" pinfunction="FREQ" pintype="input"/>
+    </net>
+    <net code="12" name="GA" class="HV,Default">
+      <node ref="Q1" pin="4" pinfunction="G" pintype="input"/>
+      <node ref="R11" pin="2" pintype="passive"/>
+      <node ref="TP16" pin="1" pinfunction="1" pintype="passive"/>
+    </net>
+    <net code="13" name="GB" class="Default">
+      <node ref="Q2" pin="4" pinfunction="G" pintype="input"/>
+      <node ref="R12" pin="2" pintype="passive"/>
+      <node ref="TP17" pin="1" pinfunction="1" pintype="passive"/>
+    </net>
+    <net code="14" name="GC" class="Default">
+      <node ref="Q3" pin="4" pinfunction="G" pintype="input"/>
+      <node ref="R13" pin="2" pintype="passive"/>
+      <node ref="TP18" pin="1" pinfunction="1" pintype="passive"/>
+    </net>
+    <net code="15" name="GD" class="HV,Default">
+      <node ref="Q4" pin="4" pinfunction="G" pintype="input"/>
+      <node ref="R14" pin="2" pintype="passive"/>
+      <node ref="TP19" pin="1" pinfunction="1" pintype="passive"/>
+    </net>
+    <net code="16" name="IAVGN" class="HV,Default">
+      <node ref="C16" pin="2" pintype="passive"/>
+      <node ref="R18" pin="2" pintype="passive"/>
+      <node ref="TP13" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U1" pin="28" pinfunction="IAVGSNSN" pintype="input"/>
+    </net>
+    <net code="17" name="IAVGP" class="HV,Default">
+      <node ref="C16" pin="1" pintype="passive"/>
+      <node ref="R17" pin="2" pintype="passive"/>
+      <node ref="TP12" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U1" pin="26" pinfunction="IAVGSNSP" pintype="input"/>
+    </net>
+    <net code="18" name="ITH" class="Default">
+      <node ref="C18" pin="1" pintype="passive"/>
+      <node ref="R26" pin="1" pintype="passive"/>
+      <node ref="TP10" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U1" pin="13" pinfunction="ITH" pintype="passive"/>
+    </net>
+    <net code="19" name="NDRV_TIE" class="Default">
+      <node ref="R5" pin="1" pintype="passive"/>
+      <node ref="U1" pin="6" pinfunction="NDRV" pintype="output"/>
+    </net>
+    <net code="20" name="OUTSNS" class="Default">
+      <node ref="R19" pin="2" pintype="passive"/>
+      <node ref="U1" pin="30" pinfunction="VOUTSNS" pintype="input"/>
+    </net>
+    <net code="21" name="OVMID" class="Default">
+      <node ref="R23" pin="2" pintype="passive"/>
+      <node ref="R24" pin="1" pintype="passive"/>
+    </net>
+    <net code="22" name="PGND" class="PowerReturn,Default">
+      <node ref="C1" pin="2" pintype="passive"/>
+      <node ref="C10" pin="2" pintype="passive"/>
+      <node ref="C11" pin="2" pintype="passive"/>
+      <node ref="C12" pin="2" pintype="passive"/>
+      <node ref="C17" pin="2" pintype="passive"/>
+      <node ref="C18" pin="2" pintype="passive"/>
+      <node ref="C2" pin="2" pintype="passive"/>
+      <node ref="C3" pin="2" pintype="passive"/>
+      <node ref="C4" pin="2" pintype="passive"/>
+      <node ref="C5" pin="2" pintype="passive"/>
+      <node ref="C6" pin="2" pintype="passive"/>
+      <node ref="C7" pin="2" pintype="passive"/>
+      <node ref="C8" pin="2" pintype="passive"/>
+      <node ref="C9" pin="2" pintype="passive"/>
+      <node ref="J1" pin="2" pinfunction="Pin_2" pintype="passive"/>
+      <node ref="J2" pin="2" pinfunction="Pin_2" pintype="passive"/>
+      <node ref="J3" pin="2" pinfunction="Pin_2" pintype="passive"/>
+      <node ref="J4" pin="4" pinfunction="Pin_4" pintype="passive"/>
+      <node ref="R1" pin="2" pintype="passive"/>
+      <node ref="R16" pin="1" pintype="passive"/>
+      <node ref="R2" pin="2" pintype="passive"/>
+      <node ref="R22" pin="2" pintype="passive"/>
+      <node ref="R25" pin="2" pintype="passive"/>
+      <node ref="R6" pin="2" pintype="passive"/>
+      <node ref="R8" pin="2" pintype="passive"/>
+      <node ref="R9" pin="2" pintype="passive"/>
+      <node ref="TP3" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U1" pin="14" pinfunction="SGND" pintype="power_in"/>
+      <node ref="U1" pin="39" pinfunction="PGND_EP" pintype="power_in"/>
+      <node ref="U1" pin="4" pinfunction="SGND" pintype="power_in"/>
+    </net>
+    <net code="23" name="PGOOD" class="Default">
+      <node ref="J4" pin="3" pinfunction="Pin_3" pintype="passive"/>
+      <node ref="R10" pin="2" pintype="passive"/>
+      <node ref="TP15" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U1" pin="18" pinfunction="PGOOD" pintype="open_collector"/>
+    </net>
+    <net code="24" name="PREOUT" class="Power,Default">
+      <node ref="Q4" pin="5" pinfunction="D" pintype="passive"/>
+      <node ref="R17" pin="1" pintype="passive"/>
+      <node ref="R19" pin="1" pintype="passive"/>
+      <node ref="R3" pin="1" pintype="passive"/>
+      <node ref="R4" pin="1" pintype="passive"/>
+    </net>
+    <net code="25" name="RUN" class="Default">
+      <node ref="R6" pin="1" pintype="passive"/>
+      <node ref="R7" pin="2" pintype="passive"/>
+      <node ref="TP14" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U1" pin="24" pinfunction="RUN" pintype="input"/>
+    </net>
+    <net code="26" name="SENSEN" class="Default">
+      <node ref="C15" pin="2" pintype="passive"/>
+      <node ref="R16" pin="2" pintype="passive"/>
+      <node ref="U1" pin="12" pinfunction="SENSEN" pintype="input"/>
+    </net>
+    <net code="27" name="SENSEP" class="Default">
+      <node ref="C15" pin="1" pintype="passive"/>
+      <node ref="R15" pin="2" pintype="passive"/>
+      <node ref="U1" pin="11" pinfunction="SENSEP" pintype="input"/>
+    </net>
+    <net code="28" name="SS" class="Default">
+      <node ref="C12" pin="1" pintype="passive"/>
+      <node ref="TP8" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U1" pin="9" pinfunction="SS" pintype="input"/>
+    </net>
+    <net code="29" name="SWA" class="Power,Default">
+      <node ref="C13" pin="2" pintype="passive"/>
+      <node ref="L1" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="Q1" pin="1" pinfunction="S" pintype="passive"/>
+      <node ref="Q1" pin="2" pinfunction="S" pintype="passive"/>
+      <node ref="Q1" pin="3" pinfunction="S" pintype="passive"/>
+      <node ref="Q2" pin="5" pinfunction="D" pintype="passive"/>
+      <node ref="TP4" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U1" pin="38" pinfunction="SW1" pintype="passive"/>
+    </net>
+    <net code="30" name="SWB" class="Power,Default">
+      <node ref="C14" pin="2" pintype="passive"/>
+      <node ref="L1" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="Q3" pin="5" pinfunction="D" pintype="passive"/>
+      <node ref="Q4" pin="1" pinfunction="S" pintype="passive"/>
+      <node ref="Q4" pin="2" pinfunction="S" pintype="passive"/>
+      <node ref="Q4" pin="3" pinfunction="S" pintype="passive"/>
+      <node ref="TP5" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U1" pin="20" pinfunction="SW2" pintype="passive"/>
+    </net>
+    <net code="31" name="SYNC" class="Default">
+      <node ref="J4" pin="2" pinfunction="Pin_2" pintype="passive"/>
+      <node ref="R8" pin="1" pintype="passive"/>
+      <node ref="U1" pin="16" pinfunction="PLLIN" pintype="input"/>
+    </net>
+    <net code="32" name="TG1" class="Default">
+      <node ref="R11" pin="1" pintype="passive"/>
+      <node ref="U1" pin="37" pinfunction="TG1" pintype="output"/>
+    </net>
+    <net code="33" name="TG2" class="Default">
+      <node ref="R14" pin="1" pintype="passive"/>
+      <node ref="U1" pin="21" pinfunction="TG2" pintype="output"/>
+    </net>
+    <net code="34" name="V5" class="Default">
+      <node ref="C10" pin="1" pintype="passive"/>
+      <node ref="R10" pin="1" pintype="passive"/>
+      <node ref="TP7" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U1" pin="15" pinfunction="MODE" pintype="input"/>
+      <node ref="U1" pin="3" pinfunction="DRVSET" pintype="input"/>
+      <node ref="U1" pin="8" pinfunction="V5" pintype="power_out"/>
+    </net>
+    <net code="35" name="VFB" class="Default">
+      <node ref="R21" pin="2" pintype="passive"/>
+      <node ref="R22" pin="1" pintype="passive"/>
+      <node ref="TP9" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U1" pin="10" pinfunction="VFB" pintype="input"/>
+    </net>
+    <net code="36" name="VIN" class="Power,Default">
+      <node ref="C1" pin="1" pintype="passive"/>
+      <node ref="C2" pin="1" pintype="passive"/>
+      <node ref="C5" pin="1" pintype="passive"/>
+      <node ref="C6" pin="1" pintype="passive"/>
+      <node ref="J1" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="Q1" pin="5" pinfunction="D" pintype="passive"/>
+      <node ref="R23" pin="1" pintype="passive"/>
+      <node ref="TP1" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U1" pin="32" pinfunction="VINSNS" pintype="input"/>
+      <node ref="U1" pin="34" pinfunction="VIN" pintype="power_in"/>
+    </net>
+    <net code="37" name="VINOV" class="Default">
+      <node ref="R24" pin="2" pintype="passive"/>
+      <node ref="R25" pin="1" pintype="passive"/>
+      <node ref="U1" pin="2" pinfunction="VINOV" pintype="input"/>
+    </net>
+    <net code="38" name="VOUT" class="Power,Default">
+      <node ref="C3" pin="1" pintype="passive"/>
+      <node ref="C4" pin="1" pintype="passive"/>
+      <node ref="C7" pin="1" pintype="passive"/>
+      <node ref="C8" pin="1" pintype="passive"/>
+      <node ref="J2" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="R18" pin="1" pintype="passive"/>
+      <node ref="R20" pin="1" pintype="passive"/>
+      <node ref="R3" pin="2" pintype="passive"/>
+      <node ref="R4" pin="2" pintype="passive"/>
+      <node ref="TP2" pin="1" pinfunction="1" pintype="passive"/>
+    </net>
+  </nets>
+</export>

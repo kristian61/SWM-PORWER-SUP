@@ -1,0 +1,2131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="E">
+  <design>
+    <source>/workspace/SWM-PORWER-SUP/design/control/control.kicad_sch</source>
+    <date>2026-10-10T06:21:34+0000</date>
+    <tool>Eeschema 9.0.2+dfsg-1</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title>EXPERIMENTAL CV/CC - SINGLE PHASE ONLY - NOT4kW</title>
+        <company/>
+        <rev/>
+        <date/>
+        <source>control.kicad_sch</source>
+        <comment number="1" value="Source-only VFB injection; sink-only ITH clamp"/>
+        <comment number="2" value="1.2..~100 V / 0..10 A commands; ~0.21 A active floor"/>
+        <comment number="3" value="PCB status: routing report; no hardware tests; not for fabrication"/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+    <sheet number="2" name="/Fault guard and output monitor/" tstamps="/45fdc5ef-abe5-49de-b8d0-7b2946c27faa/">
+      <title_block>
+        <title>EXPERIMENTAL FAULT GUARDS</title>
+        <company/>
+        <rev/>
+        <date/>
+        <source>faults.kicad_sch</source>
+        <comment number="1" value="Open-collector fault outputs; no latch/output switch"/>
+        <comment number="2" value="ENABLE default low; manual ARM is the pull-up source"/>
+        <comment number="3" value="OVP ~101.75 V nominal; no hard 100 V limit"/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="C1">
+      <value>100nF 50V X7R</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <description>Lokal forsyningsafkobling ved U1.</description>
+      <fields>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">Lokal forsyningsafkobling ved U1.</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>bcff5275-95a0-4917-bc54-9bd2d9fc91f3</tstamps>
+    </comp>
+    <comp ref="C2">
+      <value>100nF 50V X7R</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <description>Lokal forsyningsafkobling ved U2.</description>
+      <fields>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">Lokal forsyningsafkobling ved U2.</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>20d2b3cc-4bab-49ac-a232-6a0b3403107f</tstamps>
+    </comp>
+    <comp ref="C7">
+      <value>100nF 50V X7R</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <description>Afkobling af LM4040-referencen.</description>
+      <fields>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">Afkobling af LM4040-referencen.</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>76d50ea9-d268-4a68-8dfd-3f82c8a2ceaf</tstamps>
+    </comp>
+    <comp ref="C8">
+      <value>1nF 50V C0G</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <description>Foreløbig CC-seriekompensation; nulpunkt cirka 15,9 kHz. Ingen dokumenteret stabilitet.</description>
+      <fields>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">Foreløbig CC-seriekompensation; nulpunkt cirka 15,9 kHz. Ingen dokumenteret stabilitet.</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>dd69473b-28fc-468c-be30-2cfb80fc0f03</tstamps>
+    </comp>
+    <comp ref="D1">
+      <value>DFLS1200-7 - VF REVIEW PENDING</value>
+      <footprint>Diode_SMD:D_PowerDI-123</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/user-guides/DC2456AF.PDF</datasheet>
+      <description>DFLS1200-7, katode ved INJ_NODE. Tillader positiv CV-injektion og blokerer aktiv sinking. Fabrikantdata for lækstrøm/VF mangler; kortsluttet diode ophæver beskyttelsen.</description>
+      <fields>
+        <field name="Footprint">Diode_SMD:D_PowerDI-123</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/user-guides/DC2456AF.PDF</field>
+        <field name="Description">DFLS1200-7, katode ved INJ_NODE. Tillader positiv CV-injektion og blokerer aktiv sinking. Fabrikantdata for lækstrøm/VF mangler; kortsluttet diode ophæver beskyttelsen.</field>
+      </fields>
+      <libsource lib="Device" part="D_Schottky" description="Schottky diode"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="diode Schottky"/>
+      <property name="ki_fp_filters" value="TO-???* *_Diode_* *SingleDiode* D_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>78d11beb-1cb9-4692-a189-c76fa4bbf7f4</tstamps>
+    </comp>
+    <comp ref="D2">
+      <value>DFLS1200-7 - VF REVIEW PENDING</value>
+      <footprint>Diode_SMD:D_PowerDI-123</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/user-guides/DC2456AF.PDF</datasheet>
+      <description>DFLS1200-7, anode mod ITH gennem 470 Ω. Tillader kun at CC-kanalen trækker ITH ned; clampautoritet og diode-VF er ikke kvalificeret.</description>
+      <fields>
+        <field name="Footprint">Diode_SMD:D_PowerDI-123</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/user-guides/DC2456AF.PDF</field>
+        <field name="Description">DFLS1200-7, anode mod ITH gennem 470 Ω. Tillader kun at CC-kanalen trækker ITH ned; clampautoritet og diode-VF er ikke kvalificeret.</field>
+      </fields>
+      <libsource lib="Device" part="D_Schottky" description="Schottky diode"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="diode Schottky"/>
+      <property name="ki_fp_filters" value="TO-???* *_Diode_* *SingleDiode* D_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>180c5336-0ec9-4bbc-a3fb-a28b2743bfdb</tstamps>
+    </comp>
+    <comp ref="J1">
+      <value>FLOATING +5V AUX / PGND</value>
+      <footprint>Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical</footprint>
+      <description>Ekstern reguleret 5 V hjælpeforsyning på samme flydende sekundærside; krav 4,75–5,25 V. Ingen regulator på kortet.</description>
+      <fields>
+        <field name="Footprint">Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical</field>
+        <field name="Datasheet"/>
+        <field name="Description">Ekstern reguleret 5 V hjælpeforsyning på samme flydende sekundærside; krav 4,75–5,25 V. Ingen regulator på kortet.</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x02" description="Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_1x??_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>93552bab-65d7-446f-bf9e-17c9a4926bd1</tstamps>
+    </comp>
+    <comp ref="J2">
+      <value>VCMD / ISET / PGND</value>
+      <footprint>Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical</footprint>
+      <description>Eksterne lavimpedante setpunkter: VCMD 0–1,2 V giver høj til lav udgangsspænding; ISET 0,1–0,6 V svarer nominelt til 0–10 A. Under cirka 0,212 A gives shutdown.</description>
+      <fields>
+        <field name="Footprint">Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical</field>
+        <field name="Datasheet"/>
+        <field name="Description">Eksterne lavimpedante setpunkter: VCMD 0–1,2 V giver høj til lav udgangsspænding; ISET 0,1–0,6 V svarer nominelt til 0–10 A. Under cirka 0,212 A gives shutdown.</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x03" description="Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_1x??_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>705d7b19-6128-42c2-a225-96added64cb0</tstamps>
+    </comp>
+    <comp ref="J3">
+      <value>VFB / ITH / ENABLE / PGND</value>
+      <footprint>Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical</footprint>
+      <description>VFB, ITH og ENABLE til en senere programmerbar enkeltfasevariant. Den eksisterende faste effektfase er ikke ændret eller integreret.</description>
+      <fields>
+        <field name="Footprint">Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical</field>
+        <field name="Datasheet"/>
+        <field name="Description">VFB, ITH og ENABLE til en senere programmerbar enkeltfasevariant. Den eksisterende faste effektfase er ikke ændret eller integreret.</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x04" description="Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_1x??_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>798a3cb5-4742-4568-8c0f-24a53b338385</tstamps>
+    </comp>
+    <comp ref="J4">
+      <value>SHUNT KELVIN + / - / PGND</value>
+      <footprint>Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical</footprint>
+      <description>Direkte Kelvin-ledninger til ekstern 1 mΩ returshunt. IN+ på DUT-retur, IN− på fase-PGND; ingen belastningsstrøm gennem stikket.</description>
+      <fields>
+        <field name="Footprint">Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical</field>
+        <field name="Datasheet"/>
+        <field name="Description">Direkte Kelvin-ledninger til ekstern 1 mΩ returshunt. IN+ på DUT-retur, IN− på fase-PGND; ingen belastningsstrøm gennem stikket.</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x03" description="Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_1x??_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>8e75c349-5f16-4b08-a708-ab63a0aaef1d</tstamps>
+    </comp>
+    <comp ref="R1">
+      <value>1M 0.1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>CV-servo: VFB til ikke-inverterende gennemsnitsknude.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">CV-servo: VFB til ikke-inverterende gennemsnitsknude.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>2a68ab63-c214-46fd-a894-99d2d235aa21</tstamps>
+    </comp>
+    <comp ref="R2">
+      <value>1M 0.1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>CV-servo: VCMD til samme gennemsnitsknude.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">CV-servo: VCMD til samme gennemsnitsknude.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>3ede98a0-8d36-4c43-84d3-ee6820ba771e</tstamps>
+    </comp>
+    <comp ref="R3">
+      <value>1M 0.1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>CV-servoens INJ_NODE-feedback, øverste halvdel.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">CV-servoens INJ_NODE-feedback, øverste halvdel.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>3bbde0de-d13a-4483-8cad-700bf3b9b622</tstamps>
+    </comp>
+    <comp ref="R4">
+      <value>1M 0.1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>CV-servoens feedback til PGND, nederste halvdel; passiv feedbackbelastning består også ved strømtab.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">CV-servoens feedback til PGND, nederste halvdel; passiv feedbackbelastning består også ved strømtab.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>2e096966-9809-49e7-b900-b24c219c39a8</tstamps>
+    </comp>
+    <comp ref="R5">
+      <value>100k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>Trækker manglende VCMD mod 2,5 V, hvilket skal give kommandofejl.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">Trækker manglende VCMD mod 2,5 V, hvilket skal give kommandofejl.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>215585a1-0d8d-41db-89cd-742d4771067e</tstamps>
+    </comp>
+    <comp ref="R6">
+      <value>100k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>Trækker manglende ISET mod PGND, hvilket skal give shutdown.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">Trækker manglende ISET mod PGND, hvilket skal give shutdown.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>e39e58da-fe3f-4905-a4dd-fa16da6c1a4d</tstamps>
+    </comp>
+    <comp ref="R7">
+      <value>10k 0.1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>Positiv injektionsvej fra INJ_NODE til VFB; oprindelig 820 kΩ/10 kΩ fasefeedback bevares.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">Positiv injektionsvej fra INJ_NODE til VFB; oprindelig 820 kΩ/10 kΩ fasefeedback bevares.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b231eb54-0ee3-4efc-8df9-1185d87d3f4a</tstamps>
+    </comp>
+    <comp ref="R8">
+      <value>20k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>CC-fejlforstærkerens måleindgang fra IMON; startværdi til kompensation.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">CC-fejlforstærkerens måleindgang fra IMON; startværdi til kompensation.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>79549dab-fc2e-423d-9e9a-a730ef99d6bc</tstamps>
+    </comp>
+    <comp ref="R9">
+      <value>10k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>Seriemodstand i foreløbig CC-kompensation.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">Seriemodstand i foreløbig CC-kompensation.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>f7d1754c-ab12-4156-bbb4-034d8075fbc1</tstamps>
+    </comp>
+    <comp ref="R10">
+      <value>470</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>Begrænser strømmen fra ITH til CC-clamp; faktisk clampautoritet kræver måling.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">Begrænser strømmen fra ITH til CC-clamp; faktisk clampautoritet kræver måling.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>670b2112-a23c-46e2-b351-fe6a3443ab71</tstamps>
+    </comp>
+    <comp ref="R11">
+      <value>240k 0.1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>Strømreferencens øvre dividerben, 2,5 V/25.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">Strømreferencens øvre dividerben, 2,5 V/25.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>93aff1b2-4760-48c6-b8a0-4be58918e8a8</tstamps>
+    </comp>
+    <comp ref="R12">
+      <value>10k 0.1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>Strømreferencens nedre dividerben, nominelt 0,1 V.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">Strømreferencens nedre dividerben, nominelt 0,1 V.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>97f030c2-b491-4b3a-92f5-66310d2e419a</tstamps>
+    </comp>
+    <comp ref="R13">
+      <value>2.49k 1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>Bias til 2,5 V shuntreference; cirka 1,004 mA samlet ved 5 V før dividerbelastninger.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">Bias til 2,5 V shuntreference; cirka 1,004 mA samlet ved 5 V før dividerbelastninger.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b9ae36dd-8f0b-4dc4-8f82-851c61e45e94</tstamps>
+    </comp>
+    <comp ref="R14">
+      <value>10k 0.1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>Øvre ben til VMID, nominelt 1,25 V; belastning skal medregnes.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">Øvre ben til VMID, nominelt 1,25 V; belastning skal medregnes.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>bf533297-722c-42b2-90e2-f9472c46d3ed</tstamps>
+    </comp>
+    <comp ref="R15">
+      <value>10k 0.1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>Nedre ben til VMID.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">Nedre ben til VMID.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>828c1dfd-9221-45d0-ba21-c90caf367dde</tstamps>
+    </comp>
+    <comp ref="R16">
+      <value>1M 0.1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>Dynamisk injektionskontrol, INJ_NODE til positiv sumindgang.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">Dynamisk injektionskontrol, INJ_NODE til positiv sumindgang.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>53127c77-09ff-4f19-aac3-d9bc37e66ae8</tstamps>
+    </comp>
+    <comp ref="R17">
+      <value>1M 0.1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>Dynamisk injektionskontrol, VMID til positiv sumindgang.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">Dynamisk injektionskontrol, VMID til positiv sumindgang.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>4326e9eb-0a18-4192-8560-aa898e906db4</tstamps>
+    </comp>
+    <comp ref="R18">
+      <value>1M 0.1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>Dynamisk injektionskontrol, PGND til positiv sumindgang.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">Dynamisk injektionskontrol, PGND til positiv sumindgang.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>2c2f646f-6638-4d75-8661-c89881656f0f</tstamps>
+    </comp>
+    <comp ref="R19">
+      <value>1M 0.1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>Dynamisk injektionskontrol, VFB til negativ sumindgang.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">Dynamisk injektionskontrol, VFB til negativ sumindgang.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>8e52032e-df36-4b56-a292-678f57fad6eb</tstamps>
+    </comp>
+    <comp ref="R20">
+      <value>1M 0.1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>Dynamisk injektionskontrol, VCMD til negativ sumindgang.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">Dynamisk injektionskontrol, VCMD til negativ sumindgang.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>d7cf5d68-eb87-45c5-afc5-18f8a1ff5c86</tstamps>
+    </comp>
+    <comp ref="R21">
+      <value>1M 0.1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>Feedback til VDIFF = INJ_NODE − VFB − VCMD + VMID.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">Feedback til VDIFF = INJ_NODE − VFB − VCMD + VMID.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>75bf1919-25bb-4981-89ad-3bdf2df81391</tstamps>
+    </comp>
+    <comp ref="R22">
+      <value>0</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>0 Ω direkte Kelvin+ forbindelse til INA240; intet inputfilter i denne revision.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">0 Ω direkte Kelvin+ forbindelse til INA240; intet inputfilter i denne revision.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b234eb5b-b2e1-46bc-8162-7fefef4131b6</tstamps>
+    </comp>
+    <comp ref="R23">
+      <value>0</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>0 Ω direkte Kelvin− forbindelse til INA240.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">0 Ω direkte Kelvin− forbindelse til INA240.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>f06bd0b6-58c9-475a-9a7b-f3cd5c006f9f</tstamps>
+    </comp>
+    <comp ref="TP1">
+      <value>AUX5</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <description>Testpunkt AUX5 på flydende sekundærside; se manualens forventede værdier.</description>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description">Testpunkt AUX5 på flydende sekundærside; se manualens forventede værdier.</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>d5defa7f-7336-42bf-88b7-c43d136a2a2d</tstamps>
+    </comp>
+    <comp ref="TP2">
+      <value>PGND</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <description>Testpunkt PGND på flydende sekundærside; se manualens forventede værdier.</description>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description">Testpunkt PGND på flydende sekundærside; se manualens forventede værdier.</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>98bd24cf-d2e2-4092-a688-c89ff0dc763d</tstamps>
+    </comp>
+    <comp ref="TP3">
+      <value>REF25</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <description>Testpunkt REF25 på flydende sekundærside; se manualens forventede værdier.</description>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description">Testpunkt REF25 på flydende sekundærside; se manualens forventede værdier.</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>26cf61ce-f590-48a1-9dd4-aed921f30ad4</tstamps>
+    </comp>
+    <comp ref="TP4">
+      <value>VCMD</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <description>Testpunkt VCMD på flydende sekundærside; se manualens forventede værdier.</description>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description">Testpunkt VCMD på flydende sekundærside; se manualens forventede værdier.</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b8c4532a-1685-48e5-8859-b694bc21ac85</tstamps>
+    </comp>
+    <comp ref="TP5">
+      <value>INJ_NODE</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <description>Testpunkt INJ_NODE på flydende sekundærside; se manualens forventede værdier.</description>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description">Testpunkt INJ_NODE på flydende sekundærside; se manualens forventede værdier.</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>7ef5b5e7-c062-4084-8509-fa6c0d20fa89</tstamps>
+    </comp>
+    <comp ref="TP6">
+      <value>VFB</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <description>Testpunkt VFB på flydende sekundærside; se manualens forventede værdier.</description>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description">Testpunkt VFB på flydende sekundærside; se manualens forventede værdier.</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>5cb93bca-29e7-4f9d-973f-3b4285c860e9</tstamps>
+    </comp>
+    <comp ref="TP7">
+      <value>ISET</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <description>Testpunkt ISET på flydende sekundærside; se manualens forventede værdier.</description>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description">Testpunkt ISET på flydende sekundærside; se manualens forventede værdier.</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>fd119e7f-380a-4f77-b508-c0040bc96930</tstamps>
+    </comp>
+    <comp ref="TP8">
+      <value>IREF</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <description>Testpunkt IREF på flydende sekundærside; se manualens forventede værdier.</description>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description">Testpunkt IREF på flydende sekundærside; se manualens forventede værdier.</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>1b95adca-391e-4bb4-a7b3-baed2d2d4ad8</tstamps>
+    </comp>
+    <comp ref="TP9">
+      <value>IMON</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <description>Testpunkt IMON på flydende sekundærside; se manualens forventede værdier.</description>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description">Testpunkt IMON på flydende sekundærside; se manualens forventede værdier.</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>6cabb3ed-a580-431f-8300-1ba3713f944f</tstamps>
+    </comp>
+    <comp ref="TP10">
+      <value>CC_OUT</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <description>Testpunkt CC_OUT på flydende sekundærside; se manualens forventede værdier.</description>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description">Testpunkt CC_OUT på flydende sekundærside; se manualens forventede værdier.</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>68ea2068-6045-4133-b7c7-59150723a6f6</tstamps>
+    </comp>
+    <comp ref="TP11">
+      <value>ITH</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <description>Testpunkt ITH på flydende sekundærside; se manualens forventede værdier.</description>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description">Testpunkt ITH på flydende sekundærside; se manualens forventede værdier.</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>4f3e1787-89e2-40ca-909f-2e311ff79baf</tstamps>
+    </comp>
+    <comp ref="TP12">
+      <value>ENABLE</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <description>Testpunkt ENABLE på flydende sekundærside; se manualens forventede værdier.</description>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description">Testpunkt ENABLE på flydende sekundærside; se manualens forventede værdier.</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>f24f15c5-bec5-49f5-bd62-8fa4f693eb4d</tstamps>
+    </comp>
+    <comp ref="TP13">
+      <value>VDIFF</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <description>Testpunkt VDIFF på flydende sekundærside; se manualens forventede værdier.</description>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description">Testpunkt VDIFF på flydende sekundærside; se manualens forventede værdier.</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>e46534aa-270c-4f1a-81b9-b6af7ebfc65e</tstamps>
+    </comp>
+    <comp ref="TP14">
+      <value>VMON</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <description>Testpunkt VMON på flydende sekundærside; se manualens forventede værdier.</description>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description">Testpunkt VMON på flydende sekundærside; se manualens forventede værdier.</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>e973061c-7099-4701-bd7e-d98a9a4a0d63</tstamps>
+    </comp>
+    <comp ref="TP15">
+      <value>REF_UV</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <description>Testpunkt REF_UV på flydende sekundærside; se manualens forventede værdier.</description>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description">Testpunkt REF_UV på flydende sekundærside; se manualens forventede værdier.</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>26819a40-d673-4911-b3b2-4bd8c9d5d9d7</tstamps>
+    </comp>
+    <comp ref="TP16">
+      <value>REF_OV</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <description>Testpunkt REF_OV på flydende sekundærside; se manualens forventede værdier.</description>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description">Testpunkt REF_OV på flydende sekundærside; se manualens forventede værdier.</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>ff182fdf-2778-4100-b224-89c7344c0cc8</tstamps>
+    </comp>
+    <comp ref="U1">
+      <value>OPA4192IPW</value>
+      <footprint>Package_SO:TSSOP-14_4.4x5mm_P0.65mm</footprint>
+      <datasheet>https://www.ti.com/lit/ds/symlink/opa192.pdf</datasheet>
+      <description>OPA4192: fire kanaler til positiv CV-injektion, ITH-strømclamp, bufferet 0,1 V strømreference og dynamisk injektionskontrol. Stabilitet og fejlrespons er uverificeret.</description>
+      <fields>
+        <field name="Footprint">Package_SO:TSSOP-14_4.4x5mm_P0.65mm</field>
+        <field name="Datasheet">https://www.ti.com/lit/ds/symlink/opa192.pdf</field>
+        <field name="Description">OPA4192: fire kanaler til positiv CV-injektion, ITH-strømclamp, bufferet 0,1 V strømreference og dynamisk injektionskontrol. Stabilitet og fejlrespons er uverificeret.</field>
+      </fields>
+      <libsource lib="PSUControl" part="OPA4192" description="OPA4192 precision quad operational amplifier; TI OPA192 family datasheet"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <property name="ki_keywords" value="quad opamp"/>
+      <property name="ki_fp_filters" value="TSSOP*4.4x5mm*P0.65mm*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>d251d6b7-eba8-4282-b53a-cc1c8b774df5 cb85f5ad-baec-426d-904b-a7b47d2cc733 a13a0728-ad8b-4c71-8d6a-7bbb44dab1fd 64704686-1402-4a61-89df-da3a8745f28d 07874aa8-8d3e-4001-83ed-d12921c32e35</tstamps>
+    </comp>
+    <comp ref="U2">
+      <value>INA240A2D</value>
+      <footprint>Package_SO:SOIC-8_3.9x4.9mm_P1.27mm</footprint>
+      <datasheet>https://www.ti.com/lit/ds/symlink/ina240.pdf</datasheet>
+      <description>INA240A2 SOIC-8, gain 50. IMON = 0,1 V + 0,05 V/A. Maksimalt 25 µV inputoffset svarer til 25 mA på 1 mΩ. Common-mode −4–80 V; ikke til 100 V high-side.</description>
+      <fields>
+        <field name="Footprint">Package_SO:SOIC-8_3.9x4.9mm_P1.27mm</field>
+        <field name="Datasheet">https://www.ti.com/lit/ds/symlink/ina240.pdf</field>
+        <field name="Description">INA240A2 SOIC-8, gain 50. IMON = 0,1 V + 0,05 V/A. Maksimalt 25 µV inputoffset svarer til 25 mA på 1 mΩ. Common-mode −4–80 V; ikke til 100 V high-side.</field>
+      </fields>
+      <libsource lib="PSUControl" part="INA240A2_SOIC" description=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>765a1c70-1dda-449b-8378-0983a6c68178</tstamps>
+    </comp>
+    <comp ref="U3">
+      <value>LM4040AIM3-2.5/NOPB</value>
+      <footprint>Package_TO_SOT_SMD:SOT-23</footprint>
+      <datasheet>https://www.ti.com/lit/ds/symlink/lm4040-n.pdf</datasheet>
+      <description>LM4040A 2,5 V shuntreference, 0,1 % ved 25 °C; bias fra 2,49 kΩ. Pin 3 forbindes til anoden efter TI-databladets tilladelse.</description>
+      <fields>
+        <field name="Footprint">Package_TO_SOT_SMD:SOT-23</field>
+        <field name="Datasheet">https://www.ti.com/lit/ds/symlink/lm4040-n.pdf</field>
+        <field name="Description">LM4040A 2,5 V shuntreference, 0,1 % ved 25 °C; bias fra 2,49 kΩ. Pin 3 forbindes til anoden efter TI-databladets tilladelse.</field>
+      </fields>
+      <libsource lib="PSUControl" part="LM4040A25" description=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="control.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>41c01ad3-897b-42ad-aba9-2caffc5ea772</tstamps>
+    </comp>
+    <comp ref="C3">
+      <value>100nF 50V X7R</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <description>Lokal forsyningsafkobling ved U4.</description>
+      <fields>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">Lokal forsyningsafkobling ved U4.</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value="Fault guard and output monitor"/>
+      <property name="Sheetfile" value="faults.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/Fault guard and output monitor/" tstamps="/45fdc5ef-abe5-49de-b8d0-7b2946c27faa/"/>
+      <tstamps>17fe05d8-5922-45b8-9581-288c6526466b</tstamps>
+    </comp>
+    <comp ref="C4">
+      <value>100nF 50V X7R</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <description>Lokal forsyningsafkobling ved U5.</description>
+      <fields>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">Lokal forsyningsafkobling ved U5.</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value="Fault guard and output monitor"/>
+      <property name="Sheetfile" value="faults.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/Fault guard and output monitor/" tstamps="/45fdc5ef-abe5-49de-b8d0-7b2946c27faa/"/>
+      <tstamps>1d6259a3-9fe3-4607-a0ac-d68f0ad48053</tstamps>
+    </comp>
+    <comp ref="C5">
+      <value>100nF 50V X7R</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <description>Lokal forsyningsafkobling ved U6.</description>
+      <fields>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">Lokal forsyningsafkobling ved U6.</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value="Fault guard and output monitor"/>
+      <property name="Sheetfile" value="faults.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/Fault guard and output monitor/" tstamps="/45fdc5ef-abe5-49de-b8d0-7b2946c27faa/"/>
+      <tstamps>46e9feea-9e13-4d29-994e-340aa6beece7</tstamps>
+    </comp>
+    <comp ref="C6">
+      <value>100nF 50V X7R</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <description>Lokal forsyningsafkobling ved U7.</description>
+      <fields>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">Lokal forsyningsafkobling ved U7.</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value="Fault guard and output monitor"/>
+      <property name="Sheetfile" value="faults.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/Fault guard and output monitor/" tstamps="/45fdc5ef-abe5-49de-b8d0-7b2946c27faa/"/>
+      <tstamps>34299945-7e38-4e63-95b7-9f4abff838de</tstamps>
+    </comp>
+    <comp ref="C9">
+      <value>10nF 50V X7R</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <description>TPS3808-resetforsinkelse, cirka 57,6 ms nominelt.</description>
+      <fields>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">TPS3808-resetforsinkelse, cirka 57,6 ms nominelt.</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value="Fault guard and output monitor"/>
+      <property name="Sheetfile" value="faults.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/Fault guard and output monitor/" tstamps="/45fdc5ef-abe5-49de-b8d0-7b2946c27faa/"/>
+      <tstamps>e1f40484-e2e9-4228-b895-8736c2d31e03</tstamps>
+    </comp>
+    <comp ref="C10">
+      <value>100pF 50V C0G</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <description>100 pF støjfilter på OVP-divider; cirka 1 µs RC skal indgå i fejlrespons.</description>
+      <fields>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">100 pF støjfilter på OVP-divider; cirka 1 µs RC skal indgå i fejlrespons.</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value="Fault guard and output monitor"/>
+      <property name="Sheetfile" value="faults.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/Fault guard and output monitor/" tstamps="/45fdc5ef-abe5-49de-b8d0-7b2946c27faa/"/>
+      <tstamps>1e87bd73-41eb-47d2-a082-72c7add14c95</tstamps>
+    </comp>
+    <comp ref="J5">
+      <value>VOUT SENSE / PGND - HV</value>
+      <footprint>TerminalBlock_RND:TerminalBlock_RND_205-00241_1x02_P10.16mm_Horizontal</footprint>
+      <description>Separat 0–120 V udgangssense. Stikfabrikat og spændingsrating mangler. Ingen belastningsstrøm.</description>
+      <fields>
+        <field name="Footprint">TerminalBlock_RND:TerminalBlock_RND_205-00241_1x02_P10.16mm_Horizontal</field>
+        <field name="Datasheet"/>
+        <field name="Description">Separat 0–120 V udgangssense. Stikfabrikat og spændingsrating mangler. Ingen belastningsstrøm.</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x02" description="Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="Sheetname" value="Fault guard and output monitor"/>
+      <property name="Sheetfile" value="faults.kicad_sch"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_1x??_*"/>
+      <sheetpath names="/Fault guard and output monitor/" tstamps="/45fdc5ef-abe5-49de-b8d0-7b2946c27faa/"/>
+      <tstamps>76a2d5bb-f744-4d3d-a628-442dac9c97d7</tstamps>
+    </comp>
+    <comp ref="JP1">
+      <value>ARM - DEFAULT OPEN</value>
+      <footprint>Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical</footprint>
+      <description>ARM-jumper, normalt åben. Aktiverer kun ENABLE-pullup gennem 10 kΩ; ingen fejllås eller fysisk udgangsafbrydelse.</description>
+      <fields>
+        <field name="Footprint">Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical</field>
+        <field name="Datasheet"/>
+        <field name="Description">ARM-jumper, normalt åben. Aktiverer kun ENABLE-pullup gennem 10 kΩ; ingen fejllås eller fysisk udgangsafbrydelse.</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x02" description="Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="Sheetname" value="Fault guard and output monitor"/>
+      <property name="Sheetfile" value="faults.kicad_sch"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_1x??_*"/>
+      <sheetpath names="/Fault guard and output monitor/" tstamps="/45fdc5ef-abe5-49de-b8d0-7b2946c27faa/"/>
+      <tstamps>c6617c1d-84b1-46d9-a05c-076231a8d8b8</tstamps>
+    </comp>
+    <comp ref="R24">
+      <value>10k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>ENABLE-pullup efter fysisk ARM. Eneste tilsigtede enable-kilde.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">ENABLE-pullup efter fysisk ARM. Eneste tilsigtede enable-kilde.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value="Fault guard and output monitor"/>
+      <property name="Sheetfile" value="faults.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/Fault guard and output monitor/" tstamps="/45fdc5ef-abe5-49de-b8d0-7b2946c27faa/"/>
+      <tstamps>9cc6c7c5-a252-44cb-9463-e7f9b1bd926b</tstamps>
+    </comp>
+    <comp ref="R25">
+      <value>10k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>ENABLE-pulldown for normalt shutdown; parallelt med fasens 100 kΩ.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">ENABLE-pulldown for normalt shutdown; parallelt med fasens 100 kΩ.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value="Fault guard and output monitor"/>
+      <property name="Sheetfile" value="faults.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/Fault guard and output monitor/" tstamps="/45fdc5ef-abe5-49de-b8d0-7b2946c27faa/"/>
+      <tstamps>71ccbcf5-c5ed-4a29-af68-7a27c6a20221</tstamps>
+    </comp>
+    <comp ref="R26">
+      <value>10.3k 0.1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>Øvre ben til VCMD-høj grænse.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">Øvre ben til VCMD-høj grænse.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value="Fault guard and output monitor"/>
+      <property name="Sheetfile" value="faults.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/Fault guard and output monitor/" tstamps="/45fdc5ef-abe5-49de-b8d0-7b2946c27faa/"/>
+      <tstamps>f7a9fac3-e110-4dfb-9449-825f0f826441</tstamps>
+    </comp>
+    <comp ref="R27">
+      <value>10k 0.1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>Nedre ben, giver nominelt 1,2315 V VCMD-grænse.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">Nedre ben, giver nominelt 1,2315 V VCMD-grænse.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value="Fault guard and output monitor"/>
+      <property name="Sheetfile" value="faults.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/Fault guard and output monitor/" tstamps="/45fdc5ef-abe5-49de-b8d0-7b2946c27faa/"/>
+      <tstamps>2c764e5b-5cb8-41ae-bb6e-6681be408080</tstamps>
+    </comp>
+    <comp ref="R28">
+      <value>216k 0.1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>Øvre ben til ISET-lav grænse.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">Øvre ben til ISET-lav grænse.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value="Fault guard and output monitor"/>
+      <property name="Sheetfile" value="faults.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/Fault guard and output monitor/" tstamps="/45fdc5ef-abe5-49de-b8d0-7b2946c27faa/"/>
+      <tstamps>33f366ca-9e9e-4e7d-bcf6-1872ad70ee9b</tstamps>
+    </comp>
+    <comp ref="R29">
+      <value>10k 0.1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>Nedre ben, giver 0,11062 V, cirka 0,2124 A nominel slukgrænse.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">Nedre ben, giver 0,11062 V, cirka 0,2124 A nominel slukgrænse.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value="Fault guard and output monitor"/>
+      <property name="Sheetfile" value="faults.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/Fault guard and output monitor/" tstamps="/45fdc5ef-abe5-49de-b8d0-7b2946c27faa/"/>
+      <tstamps>448520dd-0083-470f-997d-7a2b843783f8</tstamps>
+    </comp>
+    <comp ref="R30">
+      <value>30k 0.1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>Øvre ben til ISET-høj grænse.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">Øvre ben til ISET-høj grænse.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value="Fault guard and output monitor"/>
+      <property name="Sheetfile" value="faults.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/Fault guard and output monitor/" tstamps="/45fdc5ef-abe5-49de-b8d0-7b2946c27faa/"/>
+      <tstamps>a20b6380-36d3-4b2e-815f-8c13bf097b68</tstamps>
+    </comp>
+    <comp ref="R31">
+      <value>10k 0.1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>Nedre ben, giver 0,625 V eller 10,5 A nominelt som kommandovindue.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">Nedre ben, giver 0,625 V eller 10,5 A nominelt som kommandovindue.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value="Fault guard and output monitor"/>
+      <property name="Sheetfile" value="faults.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/Fault guard and output monitor/" tstamps="/45fdc5ef-abe5-49de-b8d0-7b2946c27faa/"/>
+      <tstamps>a63a341c-6c33-4fa1-ac9a-68ce2b0fdef9</tstamps>
+    </comp>
+    <comp ref="R32">
+      <value>324k 0.1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>Øvre ben til IMON-lav plausibilitetsgrænse.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">Øvre ben til IMON-lav plausibilitetsgrænse.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value="Fault guard and output monitor"/>
+      <property name="Sheetfile" value="faults.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/Fault guard and output monitor/" tstamps="/45fdc5ef-abe5-49de-b8d0-7b2946c27faa/"/>
+      <tstamps>3a833c5d-480a-4a6f-9761-f8c86c1724d4</tstamps>
+    </comp>
+    <comp ref="R33">
+      <value>10k 0.1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>Nedre ben, giver 74,85 mV. Normal nulstrøm ved 100 mV passerer; åben sense er ikke dækket fuldstændigt.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">Nedre ben, giver 74,85 mV. Normal nulstrøm ved 100 mV passerer; åben sense er ikke dækket fuldstændigt.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value="Fault guard and output monitor"/>
+      <property name="Sheetfile" value="faults.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/Fault guard and output monitor/" tstamps="/45fdc5ef-abe5-49de-b8d0-7b2946c27faa/"/>
+      <tstamps>1686ba4f-4e7b-4041-a235-c587fb3ba81a</tstamps>
+    </comp>
+    <comp ref="R34">
+      <value>11.8k 0.1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>Øvre ben til VDIFF-lav grænse.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">Øvre ben til VDIFF-lav grænse.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value="Fault guard and output monitor"/>
+      <property name="Sheetfile" value="faults.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/Fault guard and output monitor/" tstamps="/45fdc5ef-abe5-49de-b8d0-7b2946c27faa/"/>
+      <tstamps>a923c1ca-5bbb-4275-af89-4e25dd16e0c9</tstamps>
+    </comp>
+    <comp ref="R35">
+      <value>10k 0.1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>Nedre ben, giver 1,14679 V nominelt.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">Nedre ben, giver 1,14679 V nominelt.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value="Fault guard and output monitor"/>
+      <property name="Sheetfile" value="faults.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/Fault guard and output monitor/" tstamps="/45fdc5ef-abe5-49de-b8d0-7b2946c27faa/"/>
+      <tstamps>83833bc5-ac2b-441f-8379-23a0db09bb30</tstamps>
+    </comp>
+    <comp ref="R36">
+      <value>8.45k 0.1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>Øvre ben til VDIFF-høj grænse.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">Øvre ben til VDIFF-høj grænse.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value="Fault guard and output monitor"/>
+      <property name="Sheetfile" value="faults.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/Fault guard and output monitor/" tstamps="/45fdc5ef-abe5-49de-b8d0-7b2946c27faa/"/>
+      <tstamps>206b833c-38d8-4b1f-a6bd-26741248fc0b</tstamps>
+    </comp>
+    <comp ref="R37">
+      <value>10k 0.1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>Nedre ben, giver 1,35501 V nominelt.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">Nedre ben, giver 1,35501 V nominelt.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value="Fault guard and output monitor"/>
+      <property name="Sheetfile" value="faults.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/Fault guard and output monitor/" tstamps="/45fdc5ef-abe5-49de-b8d0-7b2946c27faa/"/>
+      <tstamps>94ef8471-c086-4f49-99a1-c9fb20e36e10</tstamps>
+    </comp>
+    <comp ref="R38">
+      <value>49.9k 0.1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>Øvre ben til TPS3700 reference-undervolt.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">Øvre ben til TPS3700 reference-undervolt.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value="Fault guard and output monitor"/>
+      <property name="Sheetfile" value="faults.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/Fault guard and output monitor/" tstamps="/45fdc5ef-abe5-49de-b8d0-7b2946c27faa/"/>
+      <tstamps>d254565a-0c93-430b-b6a9-075b8a03a9c2</tstamps>
+    </comp>
+    <comp ref="R39">
+      <value>10k 0.1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>Nedre ben; 2,396 V nominel positiv tærskel.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">Nedre ben; 2,396 V nominel positiv tærskel.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value="Fault guard and output monitor"/>
+      <property name="Sheetfile" value="faults.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/Fault guard and output monitor/" tstamps="/45fdc5ef-abe5-49de-b8d0-7b2946c27faa/"/>
+      <tstamps>fd6f6a0a-d237-45e0-92cd-4253ee4ca818</tstamps>
+    </comp>
+    <comp ref="R40">
+      <value>56k 0.1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>Øvre ben til TPS3700 reference-overvolt.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">Øvre ben til TPS3700 reference-overvolt.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value="Fault guard and output monitor"/>
+      <property name="Sheetfile" value="faults.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/Fault guard and output monitor/" tstamps="/45fdc5ef-abe5-49de-b8d0-7b2946c27faa/"/>
+      <tstamps>31981ad3-fbdc-4f4a-b76b-889c00a76741</tstamps>
+    </comp>
+    <comp ref="R41">
+      <value>10k 0.1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>Nedre ben; 2,64 V nominel triptærskel.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">Nedre ben; 2,64 V nominel triptærskel.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value="Fault guard and output monitor"/>
+      <property name="Sheetfile" value="faults.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/Fault guard and output monitor/" tstamps="/45fdc5ef-abe5-49de-b8d0-7b2946c27faa/"/>
+      <tstamps>bbea5066-1359-458f-a972-c7e01094f462</tstamps>
+    </comp>
+    <comp ref="R42">
+      <value>130k 0.1%</value>
+      <footprint>Resistor_SMD:R_1206_3216Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>Separat udgangs-OVP-divider, højspændingstrin 1. Krav mindst 100 V arbejdsrating; fabrikant mangler.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_1206_3216Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">Separat udgangs-OVP-divider, højspændingstrin 1. Krav mindst 100 V arbejdsrating; fabrikant mangler.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value="Fault guard and output monitor"/>
+      <property name="Sheetfile" value="faults.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/Fault guard and output monitor/" tstamps="/45fdc5ef-abe5-49de-b8d0-7b2946c27faa/"/>
+      <tstamps>f66cabb3-dcb8-4c7b-be80-9f0d9dd2eb3f</tstamps>
+    </comp>
+    <comp ref="R43">
+      <value>130k 0.1%</value>
+      <footprint>Resistor_SMD:R_1206_3216Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>Separat udgangs-OVP-divider, højspændingstrin 2. Krav mindst 100 V arbejdsrating; fabrikant mangler.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_1206_3216Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">Separat udgangs-OVP-divider, højspændingstrin 2. Krav mindst 100 V arbejdsrating; fabrikant mangler.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value="Fault guard and output monitor"/>
+      <property name="Sheetfile" value="faults.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/Fault guard and output monitor/" tstamps="/45fdc5ef-abe5-49de-b8d0-7b2946c27faa/"/>
+      <tstamps>2c22050b-d297-4880-944f-e3cf12661779</tstamps>
+    </comp>
+    <comp ref="R44">
+      <value>137k 0.1%</value>
+      <footprint>Resistor_SMD:R_1206_3216Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>Separat udgangs-OVP-divider, højspændingstrin 3. Krav mindst 100 V arbejdsrating; fabrikant mangler.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_1206_3216Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">Separat udgangs-OVP-divider, højspændingstrin 3. Krav mindst 100 V arbejdsrating; fabrikant mangler.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value="Fault guard and output monitor"/>
+      <property name="Sheetfile" value="faults.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/Fault guard and output monitor/" tstamps="/45fdc5ef-abe5-49de-b8d0-7b2946c27faa/"/>
+      <tstamps>1adddfc9-75af-4d50-b831-d70c254a45c7</tstamps>
+    </comp>
+    <comp ref="R45">
+      <value>10k 0.1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</datasheet>
+      <description>OVP-dividerens bundben: VMON = VOUT/40,7; nominelt 101,75 V trip, ingen hård 100 V-grænse.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf</field>
+        <field name="Description">OVP-dividerens bundben: VMON = VOUT/40,7; nominelt 101,75 V trip, ingen hård 100 V-grænse.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value="Fault guard and output monitor"/>
+      <property name="Sheetfile" value="faults.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/Fault guard and output monitor/" tstamps="/45fdc5ef-abe5-49de-b8d0-7b2946c27faa/"/>
+      <tstamps>716ad62a-f6df-4d95-b610-8a499648dc53</tstamps>
+    </comp>
+    <comp ref="U4">
+      <value>TPS3808G50DBVR</value>
+      <footprint>Package_TO_SOT_SMD:SOT-23-6</footprint>
+      <datasheet>https://www.ti.com/lit/ds/symlink/tps3808.pdf</datasheet>
+      <description>TPS3808G50, open-drain RESET på ENABLE; nominelt 4,65 V hjælpeforsyningsgrænse og cirka 57,6 ms resetforsinkelse med 10 nF.</description>
+      <fields>
+        <field name="Footprint">Package_TO_SOT_SMD:SOT-23-6</field>
+        <field name="Datasheet">https://www.ti.com/lit/ds/symlink/tps3808.pdf</field>
+        <field name="Description">TPS3808G50, open-drain RESET på ENABLE; nominelt 4,65 V hjælpeforsyningsgrænse og cirka 57,6 ms resetforsinkelse med 10 nF.</field>
+      </fields>
+      <libsource lib="PSUControl" part="TPS3808G50" description="Low-Quiescent-Current, Programmable-Delay Supervisory Circuit, SOT-23-6"/>
+      <property name="Sheetname" value="Fault guard and output monitor"/>
+      <property name="Sheetfile" value="faults.kicad_sch"/>
+      <property name="ki_keywords" value="supply voltage supervisor"/>
+      <property name="ki_fp_filters" value="SOT?23*"/>
+      <sheetpath names="/Fault guard and output monitor/" tstamps="/45fdc5ef-abe5-49de-b8d0-7b2946c27faa/"/>
+      <tstamps>ccfd43e1-6a2f-4985-a1c3-d4fb2a722a58</tstamps>
+    </comp>
+    <comp ref="U5">
+      <value>TPS3700DDCR</value>
+      <footprint>Package_TO_SOT_SMD:SOT-23-6</footprint>
+      <datasheet>https://www.ti.com/lit/ds/symlink/tps3700.pdf</datasheet>
+      <description>TPS3700 med uafhængig intern 400 mV reference overvåger 2,5 V-referencen. Hysterese og tærskeltolerance indgår i review.</description>
+      <fields>
+        <field name="Footprint">Package_TO_SOT_SMD:SOT-23-6</field>
+        <field name="Datasheet">https://www.ti.com/lit/ds/symlink/tps3700.pdf</field>
+        <field name="Description">TPS3700 med uafhængig intern 400 mV reference overvåger 2,5 V-referencen. Hysterese og tærskeltolerance indgår i review.</field>
+      </fields>
+      <libsource lib="PSUControl" part="TPS3700DDC" description=""/>
+      <property name="Sheetname" value="Fault guard and output monitor"/>
+      <property name="Sheetfile" value="faults.kicad_sch"/>
+      <sheetpath names="/Fault guard and output monitor/" tstamps="/45fdc5ef-abe5-49de-b8d0-7b2946c27faa/"/>
+      <tstamps>150b7fa6-ae23-4f6b-908c-f29c43b8e08e</tstamps>
+    </comp>
+    <comp ref="U6">
+      <value>TLV1704IPW</value>
+      <footprint>Package_SO:TSSOP-14_4.4x5mm_P0.65mm</footprint>
+      <datasheet>https://www.ti.com/lit/ds/symlink/tlv1704.pdf</datasheet>
+      <description>TLV1704 med open-collector udgange: VCMD høj, INJ_NODE høj samt ISET lav og høj trækker ENABLE lavt.</description>
+      <fields>
+        <field name="Footprint">Package_SO:TSSOP-14_4.4x5mm_P0.65mm</field>
+        <field name="Datasheet">https://www.ti.com/lit/ds/symlink/tlv1704.pdf</field>
+        <field name="Description">TLV1704 med open-collector udgange: VCMD høj, INJ_NODE høj samt ISET lav og høj trækker ENABLE lavt.</field>
+      </fields>
+      <libsource lib="PSUControl" part="TLV1704" description="TLV1704 quad open-collector comparator; see TI datasheet"/>
+      <property name="Sheetname" value="Fault guard and output monitor"/>
+      <property name="Sheetfile" value="faults.kicad_sch"/>
+      <property name="ki_keywords" value="cmp open collector"/>
+      <property name="ki_fp_filters" value="TSSOP*4.4x5mm*P0.65mm*"/>
+      <sheetpath names="/Fault guard and output monitor/" tstamps="/45fdc5ef-abe5-49de-b8d0-7b2946c27faa/"/>
+      <tstamps>f17faac3-e0fc-435c-b69f-691763154651 a5ca5a9a-cbac-4245-aca2-b3be789892c2 dd049a9a-60ac-43bd-86bd-97fb9ed6af85 c38e8804-652d-4e3c-8c82-b0857cfa11c6 6b430e8f-c301-481c-babc-15d73d603e31</tstamps>
+    </comp>
+    <comp ref="U7">
+      <value>TLV1704IPW</value>
+      <footprint>Package_SO:TSSOP-14_4.4x5mm_P0.65mm</footprint>
+      <datasheet>https://www.ti.com/lit/ds/symlink/tlv1704.pdf</datasheet>
+      <description>TLV1704: IMON lav, VDIFF lav/høj og separat udgangs-OVP. IMON-low erstatter den startblokerende absolutte INJ-low kontrol.</description>
+      <fields>
+        <field name="Footprint">Package_SO:TSSOP-14_4.4x5mm_P0.65mm</field>
+        <field name="Datasheet">https://www.ti.com/lit/ds/symlink/tlv1704.pdf</field>
+        <field name="Description">TLV1704: IMON lav, VDIFF lav/høj og separat udgangs-OVP. IMON-low erstatter den startblokerende absolutte INJ-low kontrol.</field>
+      </fields>
+      <libsource lib="PSUControl" part="TLV1704" description="TLV1704 quad open-collector comparator; see TI datasheet"/>
+      <property name="Sheetname" value="Fault guard and output monitor"/>
+      <property name="Sheetfile" value="faults.kicad_sch"/>
+      <property name="ki_keywords" value="cmp open collector"/>
+      <property name="ki_fp_filters" value="TSSOP*4.4x5mm*P0.65mm*"/>
+      <sheetpath names="/Fault guard and output monitor/" tstamps="/45fdc5ef-abe5-49de-b8d0-7b2946c27faa/"/>
+      <tstamps>735d7132-788a-4f47-a4f4-71fd630a8638 c2e40329-4f23-4a72-9bb8-cce66428bc46 76db2a7f-2d14-4fcf-b071-f2078b7fc7bf d39d37bb-fbe6-48f8-a96f-7e3dd7e44f1f 5f9f7030-e553-43de-8c1f-1b678a68d62c</tstamps>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="Connector" part="TestPoint">
+      <description>test point</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Pin*</fp>
+        <fp>Test*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">TP</field>
+        <field name="Value">TestPoint</field>
+        <field name="Footprint"/>
+        <field name="Datasheet">~</field>
+        <field name="Description">test point</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Connector_Generic" part="Conn_01x02">
+      <description>Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Connector*:*_1x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_01x02</field>
+        <field name="Footprint"/>
+        <field name="Datasheet">~</field>
+        <field name="Description">Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Connector_Generic" part="Conn_01x03">
+      <description>Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Connector*:*_1x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_01x03</field>
+        <field name="Footprint"/>
+        <field name="Datasheet">~</field>
+        <field name="Description">Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+        <pin num="3" name="Pin_3" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Connector_Generic" part="Conn_01x04">
+      <description>Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Connector*:*_1x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_01x04</field>
+        <field name="Footprint"/>
+        <field name="Datasheet">~</field>
+        <field name="Description">Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+        <pin num="3" name="Pin_3" type="passive"/>
+        <pin num="4" name="Pin_4" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="C">
+      <description>Unpolarized capacitor</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>C_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">C</field>
+        <field name="Footprint"/>
+        <field name="Datasheet">~</field>
+        <field name="Description">Unpolarized capacitor</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="D_Schottky">
+      <description>Schottky diode</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>TO-???*</fp>
+        <fp>*_Diode_*</fp>
+        <fp>*SingleDiode*</fp>
+        <fp>D_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">D_Schottky</field>
+        <field name="Footprint"/>
+        <field name="Datasheet">~</field>
+        <field name="Description">Schottky diode</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="R">
+      <description>Resistor</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>R_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">R</field>
+        <field name="Footprint"/>
+        <field name="Datasheet">~</field>
+        <field name="Description">Resistor</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="PSUControl" part="INA240A2_SOIC">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">INA240A2_SOIC</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="IN-" type="input"/>
+        <pin num="2" name="GND" type="power_in"/>
+        <pin num="3" name="REF2" type="input"/>
+        <pin num="4" name="NC" type="passive"/>
+        <pin num="5" name="OUT" type="output"/>
+        <pin num="6" name="VS" type="power_in"/>
+        <pin num="7" name="REF1" type="input"/>
+        <pin num="8" name="IN+" type="input"/>
+      </pins>
+    </libpart>
+    <libpart lib="PSUControl" part="LM4040A25">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">LM4040A25</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+        <pin num="3" name="NC_/_A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="PSUControl" part="OPA4192">
+      <description>OPA4192 precision quad operational amplifier; TI OPA192 family datasheet</description>
+      <docs>https://www.ti.com/lit/ds/symlink/opa192.pdf</docs>
+      <footprints>
+        <fp>TSSOP*4.4x5mm*P0.65mm*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">OPA4192</field>
+        <field name="Footprint"/>
+        <field name="Datasheet">https://www.ti.com/lit/ds/symlink/opa192.pdf</field>
+        <field name="Description">OPA4192 precision quad operational amplifier; TI OPA192 family datasheet</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="output"/>
+        <pin num="2" name="-" type="input"/>
+        <pin num="3" name="+" type="input"/>
+        <pin num="4" name="V+" type="power_in"/>
+        <pin num="5" name="+" type="input"/>
+        <pin num="6" name="-" type="input"/>
+        <pin num="7" name="" type="output"/>
+        <pin num="8" name="" type="output"/>
+        <pin num="9" name="-" type="input"/>
+        <pin num="10" name="+" type="input"/>
+        <pin num="11" name="V-" type="power_in"/>
+        <pin num="12" name="+" type="input"/>
+        <pin num="13" name="-" type="input"/>
+        <pin num="14" name="" type="output"/>
+      </pins>
+    </libpart>
+    <libpart lib="PSUControl" part="TLV1704">
+      <description>TLV1704 quad open-collector comparator; see TI datasheet</description>
+      <docs>https://www.ti.com/lit/ds/symlink/tlv1704.pdf</docs>
+      <footprints>
+        <fp>TSSOP*4.4x5mm*P0.65mm*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">TLV1704</field>
+        <field name="Footprint"/>
+        <field name="Datasheet">https://www.ti.com/lit/ds/symlink/tlv1704.pdf</field>
+        <field name="Description">TLV1704 quad open-collector comparator; see TI datasheet</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="open_collector"/>
+        <pin num="2" name="" type="open_collector"/>
+        <pin num="3" name="V+" type="power_in"/>
+        <pin num="4" name="-" type="input"/>
+        <pin num="5" name="+" type="input"/>
+        <pin num="6" name="-" type="input"/>
+        <pin num="7" name="+" type="input"/>
+        <pin num="8" name="-" type="input"/>
+        <pin num="9" name="+" type="input"/>
+        <pin num="10" name="-" type="input"/>
+        <pin num="11" name="+" type="input"/>
+        <pin num="12" name="V-" type="power_in"/>
+        <pin num="13" name="" type="open_collector"/>
+        <pin num="14" name="" type="open_collector"/>
+      </pins>
+    </libpart>
+    <libpart lib="PSUControl" part="TPS3700DDC">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">TPS3700DDC</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="OUTA" type="open_collector"/>
+        <pin num="2" name="GND" type="power_in"/>
+        <pin num="3" name="INA+" type="input"/>
+        <pin num="4" name="INB-" type="input"/>
+        <pin num="5" name="VDD" type="power_in"/>
+        <pin num="6" name="OUTB" type="open_collector"/>
+      </pins>
+    </libpart>
+    <libpart lib="PSUControl" part="TPS3808G50">
+      <description>Low-Quiescent-Current, Programmable-Delay Supervisory Circuit, SOT-23-6</description>
+      <docs>http://www.ti.com/lit/ds/symlink/tps3808.pdf</docs>
+      <footprints>
+        <fp>SOT?23*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">TPS3808G50</field>
+        <field name="Footprint">Package_TO_SOT_SMD:SOT-23-6</field>
+        <field name="Datasheet">http://www.ti.com/lit/ds/symlink/tps3808.pdf</field>
+        <field name="Description">Low-Quiescent-Current, Programmable-Delay Supervisory Circuit, SOT-23-6</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~{RESET}" type="open_collector"/>
+        <pin num="2" name="GND" type="power_in"/>
+        <pin num="3" name="~{MR}" type="input"/>
+        <pin num="4" name="CT" type="input"/>
+        <pin num="5" name="SENSE" type="input"/>
+        <pin num="6" name="VDD" type="power_in"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="Connector">
+      <uri>/usr/share/kicad/symbols//Connector.kicad_sym</uri>
+    </library>
+    <library logical="Connector_Generic">
+      <uri>/usr/share/kicad/symbols//Connector_Generic.kicad_sym</uri>
+    </library>
+    <library logical="Device">
+      <uri>/usr/share/kicad/symbols//Device.kicad_sym</uri>
+    </library>
+    <library logical="PSUControl">
+      <uri>/workspace/SWM-PORWER-SUP/design/control/PSUControl.kicad_sym</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="ARM_FEED" class="Default">
+      <node ref="JP1" pin="2" pinfunction="Pin_2" pintype="passive"/>
+      <node ref="R24" pin="1" pintype="passive"/>
+    </net>
+    <net code="2" name="AUX5" class="Default">
+      <node ref="C1" pin="1" pintype="passive"/>
+      <node ref="C2" pin="1" pintype="passive"/>
+      <node ref="C3" pin="1" pintype="passive"/>
+      <node ref="C4" pin="1" pintype="passive"/>
+      <node ref="C5" pin="1" pintype="passive"/>
+      <node ref="C6" pin="1" pintype="passive"/>
+      <node ref="J1" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="JP1" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="R13" pin="1" pintype="passive"/>
+      <node ref="TP1" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U1" pin="4" pinfunction="V+" pintype="power_in"/>
+      <node ref="U2" pin="6" pinfunction="VS" pintype="power_in"/>
+      <node ref="U4" pin="3" pinfunction="~{MR}" pintype="input"/>
+      <node ref="U4" pin="5" pinfunction="SENSE" pintype="input"/>
+      <node ref="U4" pin="6" pinfunction="VDD" pintype="power_in"/>
+      <node ref="U5" pin="5" pinfunction="VDD" pintype="power_in"/>
+      <node ref="U6" pin="3" pinfunction="V+" pintype="power_in"/>
+      <node ref="U7" pin="3" pinfunction="V+" pintype="power_in"/>
+    </net>
+    <net code="3" name="CC_COMP" class="Default">
+      <node ref="C8" pin="1" pintype="passive"/>
+      <node ref="R9" pin="2" pintype="passive"/>
+    </net>
+    <net code="4" name="CC_NEG" class="Default">
+      <node ref="C8" pin="2" pintype="passive"/>
+      <node ref="R8" pin="2" pintype="passive"/>
+      <node ref="U1" pin="6" pinfunction="-" pintype="input"/>
+    </net>
+    <net code="5" name="CC_OUT" class="Default">
+      <node ref="D2" pin="1" pinfunction="K" pintype="passive"/>
+      <node ref="R9" pin="1" pintype="passive"/>
+      <node ref="TP10" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U1" pin="7" pintype="output"/>
+    </net>
+    <net code="6" name="CV_DRIVE" class="Default">
+      <node ref="D1" pin="2" pinfunction="A" pintype="passive"/>
+      <node ref="U1" pin="1" pintype="output"/>
+    </net>
+    <net code="7" name="CV_NEG" class="Default">
+      <node ref="R3" pin="2" pintype="passive"/>
+      <node ref="R4" pin="1" pintype="passive"/>
+      <node ref="U1" pin="2" pinfunction="-" pintype="input"/>
+    </net>
+    <net code="8" name="CV_POS" class="Default">
+      <node ref="R1" pin="2" pintype="passive"/>
+      <node ref="R2" pin="2" pintype="passive"/>
+      <node ref="U1" pin="3" pinfunction="+" pintype="input"/>
+    </net>
+    <net code="9" name="DELAY" class="Default">
+      <node ref="C9" pin="1" pintype="passive"/>
+      <node ref="U4" pin="4" pinfunction="CT" pintype="input"/>
+    </net>
+    <net code="10" name="DIFF_NEG" class="Default">
+      <node ref="R19" pin="2" pintype="passive"/>
+      <node ref="R20" pin="2" pintype="passive"/>
+      <node ref="R21" pin="2" pintype="passive"/>
+      <node ref="U1" pin="13" pinfunction="-" pintype="input"/>
+    </net>
+    <net code="11" name="DIFF_POS" class="Default">
+      <node ref="R16" pin="2" pintype="passive"/>
+      <node ref="R17" pin="2" pintype="passive"/>
+      <node ref="R18" pin="2" pintype="passive"/>
+      <node ref="U1" pin="12" pinfunction="+" pintype="input"/>
+    </net>
+    <net code="12" name="ENABLE" class="Default">
+      <node ref="J3" pin="3" pinfunction="Pin_3" pintype="passive"/>
+      <node ref="R24" pin="2" pintype="passive"/>
+      <node ref="R25" pin="1" pintype="passive"/>
+      <node ref="TP12" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U4" pin="1" pinfunction="~{RESET}" pintype="open_collector"/>
+      <node ref="U5" pin="1" pinfunction="OUTA" pintype="open_collector"/>
+      <node ref="U5" pin="6" pinfunction="OUTB" pintype="open_collector"/>
+      <node ref="U6" pin="1" pintype="open_collector"/>
+      <node ref="U6" pin="13" pintype="open_collector"/>
+      <node ref="U6" pin="14" pintype="open_collector"/>
+      <node ref="U6" pin="2" pintype="open_collector"/>
+      <node ref="U7" pin="1" pintype="open_collector"/>
+      <node ref="U7" pin="13" pintype="open_collector"/>
+      <node ref="U7" pin="14" pintype="open_collector"/>
+      <node ref="U7" pin="2" pintype="open_collector"/>
+    </net>
+    <net code="13" name="HV1" class="Default">
+      <node ref="R42" pin="2" pintype="passive"/>
+      <node ref="R43" pin="1" pintype="passive"/>
+    </net>
+    <net code="14" name="HV2" class="Default">
+      <node ref="R43" pin="2" pintype="passive"/>
+      <node ref="R44" pin="1" pintype="passive"/>
+    </net>
+    <net code="15" name="IMON" class="Default">
+      <node ref="R8" pin="1" pintype="passive"/>
+      <node ref="TP9" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U2" pin="5" pinfunction="OUT" pintype="output"/>
+      <node ref="U7" pin="5" pinfunction="+" pintype="input"/>
+    </net>
+    <net code="16" name="INJ_NODE" class="Default">
+      <node ref="D1" pin="1" pinfunction="K" pintype="passive"/>
+      <node ref="R16" pin="1" pintype="passive"/>
+      <node ref="R3" pin="1" pintype="passive"/>
+      <node ref="R7" pin="1" pintype="passive"/>
+      <node ref="TP5" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U6" pin="6" pinfunction="-" pintype="input"/>
+    </net>
+    <net code="17" name="INM" class="Default">
+      <node ref="R23" pin="2" pintype="passive"/>
+      <node ref="U2" pin="1" pinfunction="IN-" pintype="input"/>
+    </net>
+    <net code="18" name="INP" class="Default">
+      <node ref="R22" pin="2" pintype="passive"/>
+      <node ref="U2" pin="8" pinfunction="IN+" pintype="input"/>
+    </net>
+    <net code="19" name="IREF" class="Default">
+      <node ref="TP8" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U1" pin="8" pintype="output"/>
+      <node ref="U1" pin="9" pinfunction="-" pintype="input"/>
+      <node ref="U2" pin="3" pinfunction="REF2" pintype="input"/>
+      <node ref="U2" pin="7" pinfunction="REF1" pintype="input"/>
+    </net>
+    <net code="20" name="IREF_RAW" class="Default">
+      <node ref="R11" pin="2" pintype="passive"/>
+      <node ref="R12" pin="1" pintype="passive"/>
+      <node ref="U1" pin="10" pinfunction="+" pintype="input"/>
+    </net>
+    <net code="21" name="ISET" class="Default">
+      <node ref="J2" pin="2" pinfunction="Pin_2" pintype="passive"/>
+      <node ref="R6" pin="1" pintype="passive"/>
+      <node ref="TP7" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U1" pin="5" pinfunction="+" pintype="input"/>
+      <node ref="U6" pin="11" pinfunction="+" pintype="input"/>
+      <node ref="U6" pin="8" pinfunction="-" pintype="input"/>
+    </net>
+    <net code="22" name="ITH" class="Default">
+      <node ref="J3" pin="2" pinfunction="Pin_2" pintype="passive"/>
+      <node ref="R10" pin="1" pintype="passive"/>
+      <node ref="TP11" pin="1" pinfunction="1" pintype="passive"/>
+    </net>
+    <net code="23" name="ITH_LIM" class="Default">
+      <node ref="D2" pin="2" pinfunction="A" pintype="passive"/>
+      <node ref="R10" pin="2" pintype="passive"/>
+    </net>
+    <net code="24" name="KS_HIGH" class="Default">
+      <node ref="J4" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="R22" pin="1" pintype="passive"/>
+    </net>
+    <net code="25" name="KS_LOW" class="Default">
+      <node ref="J4" pin="2" pinfunction="Pin_2" pintype="passive"/>
+      <node ref="R23" pin="1" pintype="passive"/>
+    </net>
+    <net code="26" name="PGND" class="Default">
+      <node ref="C1" pin="2" pintype="passive"/>
+      <node ref="C10" pin="2" pintype="passive"/>
+      <node ref="C2" pin="2" pintype="passive"/>
+      <node ref="C3" pin="2" pintype="passive"/>
+      <node ref="C4" pin="2" pintype="passive"/>
+      <node ref="C5" pin="2" pintype="passive"/>
+      <node ref="C6" pin="2" pintype="passive"/>
+      <node ref="C7" pin="2" pintype="passive"/>
+      <node ref="C9" pin="2" pintype="passive"/>
+      <node ref="J1" pin="2" pinfunction="Pin_2" pintype="passive"/>
+      <node ref="J2" pin="3" pinfunction="Pin_3" pintype="passive"/>
+      <node ref="J3" pin="4" pinfunction="Pin_4" pintype="passive"/>
+      <node ref="J4" pin="3" pinfunction="Pin_3" pintype="passive"/>
+      <node ref="J5" pin="2" pinfunction="Pin_2" pintype="passive"/>
+      <node ref="R12" pin="2" pintype="passive"/>
+      <node ref="R15" pin="2" pintype="passive"/>
+      <node ref="R18" pin="1" pintype="passive"/>
+      <node ref="R25" pin="2" pintype="passive"/>
+      <node ref="R27" pin="2" pintype="passive"/>
+      <node ref="R29" pin="2" pintype="passive"/>
+      <node ref="R31" pin="2" pintype="passive"/>
+      <node ref="R33" pin="2" pintype="passive"/>
+      <node ref="R35" pin="2" pintype="passive"/>
+      <node ref="R37" pin="2" pintype="passive"/>
+      <node ref="R39" pin="2" pintype="passive"/>
+      <node ref="R4" pin="2" pintype="passive"/>
+      <node ref="R41" pin="2" pintype="passive"/>
+      <node ref="R45" pin="2" pintype="passive"/>
+      <node ref="R6" pin="2" pintype="passive"/>
+      <node ref="TP2" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U1" pin="11" pinfunction="V-" pintype="power_in"/>
+      <node ref="U2" pin="2" pinfunction="GND" pintype="power_in"/>
+      <node ref="U2" pin="4" pinfunction="NC" pintype="passive"/>
+      <node ref="U3" pin="2" pinfunction="A" pintype="passive"/>
+      <node ref="U3" pin="3" pinfunction="NC_/_A" pintype="passive"/>
+      <node ref="U4" pin="2" pinfunction="GND" pintype="power_in"/>
+      <node ref="U5" pin="2" pinfunction="GND" pintype="power_in"/>
+      <node ref="U6" pin="12" pinfunction="V-" pintype="power_in"/>
+      <node ref="U7" pin="12" pinfunction="V-" pintype="power_in"/>
+    </net>
+    <net code="27" name="REF25" class="Default">
+      <node ref="C7" pin="1" pintype="passive"/>
+      <node ref="R11" pin="1" pintype="passive"/>
+      <node ref="R13" pin="2" pintype="passive"/>
+      <node ref="R14" pin="1" pintype="passive"/>
+      <node ref="R26" pin="1" pintype="passive"/>
+      <node ref="R28" pin="1" pintype="passive"/>
+      <node ref="R30" pin="1" pintype="passive"/>
+      <node ref="R32" pin="1" pintype="passive"/>
+      <node ref="R34" pin="1" pintype="passive"/>
+      <node ref="R36" pin="1" pintype="passive"/>
+      <node ref="R38" pin="1" pintype="passive"/>
+      <node ref="R40" pin="1" pintype="passive"/>
+      <node ref="R5" pin="1" pintype="passive"/>
+      <node ref="TP3" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U3" pin="1" pinfunction="K" pintype="passive"/>
+      <node ref="U6" pin="7" pinfunction="+" pintype="input"/>
+      <node ref="U7" pin="9" pinfunction="+" pintype="input"/>
+    </net>
+    <net code="28" name="REF_CMD_HI" class="Default">
+      <node ref="R26" pin="2" pintype="passive"/>
+      <node ref="R27" pin="1" pintype="passive"/>
+      <node ref="U6" pin="5" pinfunction="+" pintype="input"/>
+    </net>
+    <net code="29" name="REF_DIFF_HI" class="Default">
+      <node ref="R36" pin="2" pintype="passive"/>
+      <node ref="R37" pin="1" pintype="passive"/>
+      <node ref="U7" pin="11" pinfunction="+" pintype="input"/>
+    </net>
+    <net code="30" name="REF_DIFF_LO" class="Default">
+      <node ref="R34" pin="2" pintype="passive"/>
+      <node ref="R35" pin="1" pintype="passive"/>
+      <node ref="U7" pin="6" pinfunction="-" pintype="input"/>
+    </net>
+    <net code="31" name="REF_IMON_LO" class="Default">
+      <node ref="R32" pin="2" pintype="passive"/>
+      <node ref="R33" pin="1" pintype="passive"/>
+      <node ref="U7" pin="4" pinfunction="-" pintype="input"/>
+    </net>
+    <net code="32" name="REF_I_HI" class="Default">
+      <node ref="R30" pin="2" pintype="passive"/>
+      <node ref="R31" pin="1" pintype="passive"/>
+      <node ref="U6" pin="9" pinfunction="+" pintype="input"/>
+    </net>
+    <net code="33" name="REF_I_LO" class="Default">
+      <node ref="R28" pin="2" pintype="passive"/>
+      <node ref="R29" pin="1" pintype="passive"/>
+      <node ref="U6" pin="10" pinfunction="-" pintype="input"/>
+    </net>
+    <net code="34" name="REF_OV" class="Default">
+      <node ref="R40" pin="2" pintype="passive"/>
+      <node ref="R41" pin="1" pintype="passive"/>
+      <node ref="TP16" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U5" pin="4" pinfunction="INB-" pintype="input"/>
+    </net>
+    <net code="35" name="REF_UV" class="Default">
+      <node ref="R38" pin="2" pintype="passive"/>
+      <node ref="R39" pin="1" pintype="passive"/>
+      <node ref="TP15" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U5" pin="3" pinfunction="INA+" pintype="input"/>
+    </net>
+    <net code="36" name="VCMD" class="Default">
+      <node ref="J2" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="R2" pin="1" pintype="passive"/>
+      <node ref="R20" pin="1" pintype="passive"/>
+      <node ref="R5" pin="2" pintype="passive"/>
+      <node ref="TP4" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U6" pin="4" pinfunction="-" pintype="input"/>
+    </net>
+    <net code="37" name="VDIFF" class="Default">
+      <node ref="R21" pin="1" pintype="passive"/>
+      <node ref="TP13" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U1" pin="14" pintype="output"/>
+      <node ref="U7" pin="10" pinfunction="-" pintype="input"/>
+      <node ref="U7" pin="7" pinfunction="+" pintype="input"/>
+    </net>
+    <net code="38" name="VFB" class="Default">
+      <node ref="J3" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="R1" pin="1" pintype="passive"/>
+      <node ref="R19" pin="1" pintype="passive"/>
+      <node ref="R7" pin="2" pintype="passive"/>
+      <node ref="TP6" pin="1" pinfunction="1" pintype="passive"/>
+    </net>
+    <net code="39" name="VMID" class="Default">
+      <node ref="R14" pin="2" pintype="passive"/>
+      <node ref="R15" pin="1" pintype="passive"/>
+      <node ref="R17" pin="1" pintype="passive"/>
+    </net>
+    <net code="40" name="VMON" class="Default">
+      <node ref="C10" pin="1" pintype="passive"/>
+      <node ref="R44" pin="2" pintype="passive"/>
+      <node ref="R45" pin="1" pintype="passive"/>
+      <node ref="TP14" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U7" pin="8" pinfunction="-" pintype="input"/>
+    </net>
+    <net code="41" name="VOUT_SENSE" class="Default">
+      <node ref="J5" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="R42" pin="1" pintype="passive"/>
+    </net>
+  </nets>
+</export>

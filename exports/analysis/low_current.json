@@ -1,0 +1,157 @@
+{
+  "scope": "bounds for unimplemented low-current ranges; no hardware tests",
+  "candidate": "INA190A3IDDFR, low-side; 1 or 0.1 ohm external Kelvin shunt",
+  "implemented_in_existing_control": false,
+  "sensor_reference_V_assumption": 0.2,
+  "datasheet_limits": {
+    "common_mode_V": [
+      -0.2,
+      40.0
+    ],
+    "supply_V": [
+      1.7,
+      5.5
+    ],
+    "gain_error_A3_max_fraction": 0.003
+  },
+  "offset_terms": {
+    "offset_25C_uV": 15.0,
+    "supply_change_1p8_to_5V_uV": 16.0,
+    "common_mode_change_12_to_0V_uV": 3.014263717811499,
+    "reference_change_2p5_to_0p2V_uV": 9.2,
+    "offset_drift_for_50C_change_uV": 4.0
+  },
+  "combined_input_offset_bound_uV": 47.2142637178115,
+  "gain_and_shunt_ratio_bound_fraction": 0.0056,
+  "assumed_shunt": {
+    "tolerance_fraction": 0.001,
+    "temperature_coefficient_ppm_per_C": 25,
+    "temperature_change_C": 50,
+    "manufacturer_part": "NOT SELECTED"
+  },
+  "assumed_command_and_reference_uncertainty_V": 0.001,
+  "ranges": [
+    {
+      "shunt_requirement_ohm": 1.0,
+      "gain_V_per_V": 100.0,
+      "range_max_A": 0.02,
+      "sensor_V_at_range_max": 2.2,
+      "shunt_drop_V_at_range_max": 0.02,
+      "shunt_loss_W_at_range_max": 0.0004,
+      "hypothetical_40A_shunt_loss_W": 1600.0,
+      "examples": [
+        {
+          "actual_current_A": 0.001,
+          "arithmetic_error_bound_A": 6.30642637178115e-05,
+          "relative_bound_percent": 6.30642637178115
+        },
+        {
+          "actual_current_A": 0.005,
+          "arithmetic_error_bound_A": 8.54642637178115e-05,
+          "relative_bound_percent": 1.7092852743562301
+        },
+        {
+          "actual_current_A": 0.01,
+          "arithmetic_error_bound_A": 0.0001134642637178115,
+          "relative_bound_percent": 1.134642637178115
+        },
+        {
+          "actual_current_A": 0.02,
+          "arithmetic_error_bound_A": 0.0001694642637178115,
+          "relative_bound_percent": 0.8473213185890576
+        }
+      ]
+    },
+    {
+      "shunt_requirement_ohm": 0.1,
+      "gain_V_per_V": 100.0,
+      "range_max_A": 0.2,
+      "sensor_V_at_range_max": 2.2,
+      "shunt_drop_V_at_range_max": 0.020000000000000004,
+      "shunt_loss_W_at_range_max": 0.004000000000000001,
+      "hypothetical_40A_shunt_loss_W": 160.0,
+      "examples": [
+        {
+          "actual_current_A": 0.001,
+          "arithmetic_error_bound_A": 0.000580242637178115,
+          "relative_bound_percent": 58.02426371781149
+        },
+        {
+          "actual_current_A": 0.005,
+          "arithmetic_error_bound_A": 0.000602642637178115,
+          "relative_bound_percent": 12.0528527435623
+        },
+        {
+          "actual_current_A": 0.01,
+          "arithmetic_error_bound_A": 0.000630642637178115,
+          "relative_bound_percent": 6.30642637178115
+        },
+        {
+          "actual_current_A": 0.2,
+          "arithmetic_error_bound_A": 0.001694642637178115,
+          "relative_bound_percent": 0.8473213185890575
+        }
+      ]
+    }
+  ],
+  "energy": [
+    {
+      "capacitance_uF": 1.0,
+      "voltage_V": 5.0,
+      "stored_energy_J": 1.2499999999999999e-05
+    },
+    {
+      "capacitance_uF": 1.0,
+      "voltage_V": 100.0,
+      "stored_energy_J": 0.004999999999999999
+    },
+    {
+      "capacitance_uF": 96.0,
+      "voltage_V": 5.0,
+      "stored_energy_J": 0.0012000000000000001
+    },
+    {
+      "capacitance_uF": 96.0,
+      "voltage_V": 100.0,
+      "stored_energy_J": 0.48000000000000004
+    },
+    {
+      "capacitance_uF": 384.0,
+      "voltage_V": 5.0,
+      "stored_energy_J": 0.0048000000000000004
+    },
+    {
+      "capacitance_uF": 384.0,
+      "voltage_V": 100.0,
+      "stored_energy_J": 1.9200000000000002
+    }
+  ],
+  "discharge": [
+    {
+      "C_uF": 1.0,
+      "R_ohm": 10000,
+      "initial_voltage_V": 100.0,
+      "target_voltage_V": 0.1,
+      "ideal_time_s": 0.06907755278982138,
+      "resistor_initial_W": 1.0
+    },
+    {
+      "C_uF": 96.0,
+      "R_ohm": 10000,
+      "initial_voltage_V": 100.0,
+      "target_voltage_V": 0.1,
+      "ideal_time_s": 6.631445067822852,
+      "resistor_initial_W": 1.0
+    }
+  ],
+  "linear_pass_short_scenarios_W": {
+    "100V_20mA": 2.0,
+    "100V_200mA": 20.0
+  },
+  "missing": [
+    "post-bulk pass element with DC/pulse SOA",
+    "range interlock and fault-rated bypass/disconnect",
+    "independent load voltage supervision",
+    "loop design, output-capacitor choice, dynamics and calibration"
+  ]
+}

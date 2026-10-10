@@ -1,0 +1,79 @@
+Replayed 1662 native copper objects; unchanged logical pins and project rules
+Plotted to '/tmp/power_regen_review/exports/power/power_phase.pdf'.
+Done.
+Plotted to '/tmp/power_regen_review/exports/power/schematic_svg/power_phase.svg'.
+Plotted to '/tmp/power_regen_review/exports/power/schematic_svg/power_phase-Controller and sensing.svg'.
+Done.
+Checking sheet names...
+Checking bus conflicts...
+Checking conflicts...
+Checking units...
+Checking footprints...
+Checking pins...
+Checking similar labels...
+Checking local and global labels...
+Checking for unresolved variables...
+Checking no connect pins for connections...
+Checking for library symbol issues...
+Checking for footprint link issues...
+Checking for off grid pins and wires...
+Checking for labels on more than one wire...
+Checking for undefined netclasses...
+Found 0 violations
+Saved ERC Report to /tmp/power_regen_review/exports/power/erc.json
+Found 0 violations
+Found 0 unconnected items
+Found 0 schematic parity issues
+Saved DRC Report to /tmp/power_regen_review/exports/power/drc_unrouted.json
+{
+  "status": "CAD ROUTING COMPLETE - DRC PASS; HARDWARE UNVALIDATED",
+  "hardware_validated": false,
+  "fabrication_released": false,
+  "board_size_mm": [
+    135,
+    90
+  ],
+  "copper_layers": 4,
+  "copper_thickness_um": [
+    70,
+    35,
+    35,
+    70
+  ],
+  "track_segments": 1551,
+  "vias": 111,
+  "track_objects": 1662,
+  "components": 75,
+  "erc_violations": 0,
+  "drc_geometry_violations": 0,
+  "drc_geometry_types": {},
+  "unconnected_items": 0,
+  "schematic_parity_issues": 0,
+  "drc_exit_code": 0,
+  "unconnected_detail": "remaining_connections.json",
+  "note": "CAD connectivity/geometry checks do not qualify switching, current, thermal or isolation performance."
+}
+Plotted to '/tmp/power_regen_review/exports/power/pcb_placement.svg'.
+Done.
+Generated fixed-CV research prototype with deterministic complete CAD routing. DRC status is explicit in layout_summary.json. No fabrication files.
+Plotted to '/tmp/power_regen_review/exports/power/pcb_back.svg'.
+Done.
+Plotted to '/tmp/power_regen_review/exports/power/pcb_layers/power_phase-F_Cu.pdf'.
+Plotted to '/tmp/power_regen_review/exports/power/pcb_layers/power_phase-In1_Cu.pdf'.
+Plotted to '/tmp/power_regen_review/exports/power/pcb_layers/power_phase-In2_Cu.pdf'.
+Plotted to '/tmp/power_regen_review/exports/power/pcb_layers/power_phase-B_Cu.pdf'.
+Done.
+Plotted to '/tmp/power_regen_review/exports/power/pcb_assembly.pdf'.
+Done.
+Plotted to '/tmp/power_regen_review/exports/power/pcb_assembly_back.pdf'.
+Done.
+Plotted to '/tmp/power_regen_review/exports/power/pcb_assembly.svg'.
+Done.
+
+** (inkscape:113376): WARNING **: 06:46:58.574: Failed to wrap object of type 'PangoFT2FontMap'. Hint: this error is commonly caused by failing to call a library init() function.
+
+** (inkscape:113376): WARNING **: 06:46:58.720: Failed to wrap object of type 'GtkRecentManager'. Hint: this error is commonly caused by failing to call a library init() function.
+
+** (inkscape:113384): WARNING **: 06:46:58.948: Failed to wrap object of type 'PangoFT2FontMap'. Hint: this error is commonly caused by failing to call a library init() function.
+
+** (inkscape:113384): WARNING **: 06:46:59.094: Failed to wrap object of type 'GtkRecentManager'. Hint: this error is commonly caused by failing to call a library init() function.

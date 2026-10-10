@@ -1,0 +1,38 @@
+{
+  "scope": "single-channel schematic-only study; no PCB; not integrated four-phase hardware",
+  "component_refs": 47,
+  "BOM_XML_refs_values_footprints_match": true,
+  "virtual_refs_excluded": [
+    "#FLG1",
+    "#FLG2",
+    "#FLG3"
+  ],
+  "expected_pin_nodes_checked": 113,
+  "ERC": {
+    "$schema": "https://schemas.kicad.org/erc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-10-10T06:45:03+0000",
+    "kicad_version": "9.0.2",
+    "sheets": [
+      {
+        "path": "/",
+        "uuid_path": "/f06960aa-0392-43eb-b980-a6a37a4fc004",
+        "violations": []
+      }
+    ],
+    "source": "phase_sensor_study.kicad_sch"
+  },
+  "ERC_violations_all_severities": 0,
+  "ERC_container": "identical standalone file copied to temporary /tmp project; local lookup table enabled",
+  "hardware_tests": 0,
+  "unimplemented": [
+    "RUN enable logic",
+    "command/DIAG fault latch",
+    "anti-windup",
+    "PI OFF tracking/reset",
+    "phase fail-stop",
+    "clock gating"
+  ],
+  "AMC_sensor_pinmap_verified": true,
+  "FET_physical_pin_and_landpattern_independent_review": "pending"
+}

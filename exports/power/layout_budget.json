@@ -1,0 +1,154 @@
+{
+  "status": "CALCULATED ASSUMPTIONS - NOT HARDWARE TESTED",
+  "empirical_model": "I=0.048*DeltaT^0.44*A_mil2^0.725, traditional IPC-2221 external-trace fit; not IPC-2152 qualification",
+  "native_outer_copper_um": 70,
+  "native_inner_copper_um": 35,
+  "board_nominal_thickness_mm": 1.6,
+  "width_requirements": [
+    {
+      "current_A": 10,
+      "copper_um": 35,
+      "rise_assumption_K": 20,
+      "external_width_mm": 4.723856750326787
+    },
+    {
+      "current_A": 10,
+      "copper_um": 70,
+      "rise_assumption_K": 20,
+      "external_width_mm": 2.3619283751633935
+    },
+    {
+      "current_A": 13.26,
+      "copper_um": 35,
+      "rise_assumption_K": 20,
+      "external_width_mm": 6.971436400627052
+    },
+    {
+      "current_A": 13.26,
+      "copper_um": 70,
+      "rise_assumption_K": 20,
+      "external_width_mm": 3.485718200313526
+    },
+    {
+      "current_A": 20.5,
+      "copper_um": 35,
+      "rise_assumption_K": 20,
+      "external_width_mm": 12.7145807655601
+    },
+    {
+      "current_A": 20.5,
+      "copper_um": 70,
+      "rise_assumption_K": 20,
+      "external_width_mm": 6.35729038278005
+    },
+    {
+      "current_A": 40,
+      "copper_um": 35,
+      "rise_assumption_K": 20,
+      "external_width_mm": 31.968649752019008
+    },
+    {
+      "current_A": 40,
+      "copper_um": 70,
+      "rise_assumption_K": 20,
+      "external_width_mm": 15.984324876009504
+    }
+  ],
+  "outer_trace_comparisons": [
+    {
+      "width_mm": 0.18,
+      "outer_copper_um": 70,
+      "external_empirical_20K_current_A": 1.5468713347772565,
+      "resistance_50mm_20C_mohm": 68.41269841269843,
+      "resistance_50mm_80C_mohm": 84.54441269841273,
+      "heat_at10A_50mm20C_W": 6.841269841269844,
+      "note": "0.18/0.3 mm are signal traces; 10 A heat columns are comparisons only."
+    },
+    {
+      "width_mm": 0.3,
+      "outer_copper_um": 70,
+      "external_empirical_20K_current_A": 2.2402399363342256,
+      "resistance_50mm_20C_mohm": 41.047619047619065,
+      "resistance_50mm_80C_mohm": 50.72664761904764,
+      "heat_at10A_50mm20C_W": 4.104761904761906,
+      "note": "0.18/0.3 mm are signal traces; 10 A heat columns are comparisons only."
+    },
+    {
+      "width_mm": 0.8,
+      "outer_copper_um": 70,
+      "external_empirical_20K_current_A": 4.561649009285175,
+      "resistance_50mm_20C_mohm": 15.392857142857146,
+      "resistance_50mm_80C_mohm": 19.02249285714286,
+      "heat_at10A_50mm20C_W": 1.5392857142857146,
+      "note": "0.18/0.3 mm are signal traces; 10 A heat columns are comparisons only."
+    },
+    {
+      "width_mm": 1.8,
+      "outer_copper_um": 70,
+      "external_empirical_20K_current_A": 8.212099288600708,
+      "resistance_50mm_20C_mohm": 6.841269841269843,
+      "resistance_50mm_80C_mohm": 8.45444126984127,
+      "heat_at10A_50mm20C_W": 0.6841269841269842,
+      "note": "0.18/0.3 mm are signal traces; 10 A heat columns are comparisons only."
+    },
+    {
+      "width_mm": 3,
+      "outer_copper_um": 70,
+      "external_empirical_20K_current_A": 11.893085335448598,
+      "resistance_50mm_20C_mohm": 4.104761904761906,
+      "resistance_50mm_80C_mohm": 5.072664761904764,
+      "heat_at10A_50mm20C_W": 0.4104761904761906,
+      "note": "0.18/0.3 mm are signal traces; 10 A heat columns are comparisons only."
+    },
+    {
+      "width_mm": 5,
+      "outer_copper_um": 70,
+      "external_empirical_20K_current_A": 17.2240341751109,
+      "resistance_50mm_20C_mohm": 2.4628571428571435,
+      "resistance_50mm_80C_mohm": 3.043598857142858,
+      "heat_at10A_50mm20C_W": 0.24628571428571433,
+      "note": "0.18/0.3 mm are signal traces; 10 A heat columns are comparisons only."
+    }
+  ],
+  "current_limits": {
+    "target_A": 10,
+    "native_average_CC_nominal_A": 12.5,
+    "native_average_CC_worst_A": 13.26,
+    "cycle_peak_worst_A": 20.483155060758204,
+    "inductor_hot_Isat_required_A": 25
+  },
+  "ideal_buck_at_nominal": {
+    "Vin_V": 110,
+    "Vout_V": 99.6,
+    "frequency_Hz": 101800,
+    "L_H": 0.00015,
+    "duty": 0.9054545454545454,
+    "ripple_pp_A": 0.6166815502768355,
+    "inductor_rms_A": 10.001584441704107
+  },
+  "loss_examples": {
+    "MOSFET_two_path_Rdsmax_25C_10A_W": 2.1999999999999997,
+    "cycle_shunt_6mohm_at10Arms_W": 0.6,
+    "average_shunt_4mohm_at10A_W": 0.4,
+    "hard_switch_overlap_example_40ns_one_path_W": 2.2396,
+    "four_gates_Qg_typ28nC_10V_100percent_switching_W": 0.11401599999999999,
+    "four_gates_Qg_max35nC_10V_100percent_switching_W": 0.14252,
+    "not_included": [
+      "Hot Rds(on), diode reverse recovery, Coss/inductor/ESR losses, switching ringing, terminal/via resistance, load transient losses, driver/LDO heating"
+    ]
+  },
+  "MOSFET_thermal_context": {
+    "RthJC_max_K_per_W": 1,
+    "RthJA_example_max_K_per_W": 50,
+    "datasheet_testboard": "40 x 40 x 1.5 mm FR4, drain copper 6 cm2, one 70 um layer, vertical in still air. This PCB does not establish these conditions.",
+    "qualification": false
+  },
+  "pending": [
+    "Independent physical gate/source-loop, routing and Kelvin review despite complete CAD connectivity",
+    "MPNs/datasheets for inductor, bulk capacitors, shunts, connectors, bootstrap footprint",
+    "Drain copper heat spreading/thermal vias and cooling",
+    "Fabricator stackup/copper plating/hole and creepage review",
+    "Gate ringing/current sharing and stable compensation measurement",
+    "No integrated 0..100 V / 40 A supply"
+  ]
+}

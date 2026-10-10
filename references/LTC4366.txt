@@ -1,0 +1,1492 @@
+                                                                                                         LTC4366
+                                                                                       High Voltage Surge Stopper
+
+FEATURES                                                                               DESCRIPTION
+n Rugged Floating Topology                                                             The LTC®4366 surge stopper protects loads from high
+n Wide Operating Voltage Range: 9V to >500V                                            voltage transients. By controlling the gate of an external
+n Adjustable Output Clamp Voltage                                                      N-channel MOSFET, the LTC4366 regulates the output
+n Controls N-Channel MOSFET                                                            during an overvoltage transient. The load may remain
+n Adjustable Protection Timer                                                          operational while the overvoltage is dropped across the
+n Internal 9-Second Cool-Down Timer                                                    MOSFET. Placing a resistor in the return line isolates the
+n Shutdown I < 14µA                                                                    LTC4366 and allows it to float up with the supply; therefore,
+              Q
+n 8-Lead TSOT and 3mm × 2mm DFN Packages                                               the upper limit on the output voltage depends only on the
+                                                                                       availability of high valued resistors and MOSFET ratings.
+                                                                                       An adjustable overvoltage timer prevents MOSFET dam-
+APPLICATIONS                                                                           age during the surge while an additional 9-second timer
+                                                                                       provides for MOSFET cool down. A shutdown pin reduces
+n Industrial, Automotive and Avionic Surge Protection
+                                                                                       the quiescent current to less than 14µA during shutdown.
+n High Voltage DC Distribution
+n 28V Vehicle Systems
+                                                                                       After a fault the LTC4366-1 latches off while the LTC4366‑2
+                                                                                       will auto-retry.
+                                                                                        All registered trademarks and trademarks are the property of their respective owners.
+
+
+
+
+TYPICAL APPLICATION
+             Overvoltage Protected 1.5A, 28V Supply                                     Overvoltage Protector Regulates Output at 43V During Transient
+
+           VIN           IXTK90N25L2                              VOUT
+           28V                                                    1.5A                                         250V INPUT SURGE
+
+                         10Ω         2nF                         0.47µF                             VIN
+                                                                                               100V/DIV
+                      324k
+                                                                                                            28V
+
+                  VDD         GATE         OUT      12.4k
+                 SD       LTC4366-2          FB                                                                          43V CLAMP
+                                                                                                  VOUT
+                 TIMER        VSS          BASE     422k                                        20V/DIV     28V
+
+                        1µF
+                                                  436612 TA01a
+                                                                                                                                                              436612 TA01b
+                                 46.4k                                                                                            100ms/DIV
+
+
+
+
+                                                                                                                                                                                Rev. F
+
+
+
+
+Document Feedback                                                   For more information www.analog.com                                                                         1
+LTC4366
+ABSOLUTE MAXIMUM RATINGS (Notes 1, 2) All voltages relative to VSS, unless otherwise noted.
+Supply Voltage (VDD) ................................. –0.3V to 10V              Currents
+Supply Voltage (OUT) .................................. –0.3V to 5V                IVDD....................................................................10mA
+Input Voltages                                                                     IOUT . ..................................................................10mA
+   FB............................................... –0.3V to OUT + 0.3V           BASE. ................................................ –300µA to 10µA
+   TIMER. .................................................. –0.3V to 3.5V         SD. ......................................................–10mA to 10µA
+   SD. ......................................................... –0.3V to 10V    Operating Ambient Temperature Range (Note 4)
+Output Voltages                                                                    LTC4366C. ............................................... 0°C to 70°C
+   BASE. ........................................................–1.5V to 4V       LTC4366I..............................................–40°C to 85°C
+   OUT – BASE . ........................................ –0.3V to 5.5V             LTC4366H. ......................................... –40°C to 125°C
+   GATE (Note 3). ....................................... –0.3V to 15V             LTC4366MP. ...................................... –55°C to 125°C
+   GATE – OUT (Note 3).............................. –0.3V to 10V                Storage Temperature Range................... –65°C to 150°C
+                                                                                 Lead Temperature (Soldering, 10 sec)
+                                                                                   TSOT-23 Package Only..................................... 300°C
+
+
+PIN CONFIGURATION
+                                                                                                                     TOP VIEW
+
+
+                                    TOP VIEW                                                                 VSS 1              8   BASE
+                          VDD 1                    8 GATE                                                 TIMER 2               7   FB
+                           SD 2                    7 OUT                                                                9
+                                                                                                             SD 3               6   OUT
+                        TIMER 3                    6 FB
+                                                                                                            VDD 4               5   GATE
+                          VSS 4                    5 BASE
+
+                                   TS8 PACKAGE
+                             8-LEAD PLASTIC TSOT-23                                                                DDB PACKAGE
+                                                                                                          8-LEAD (3mm × 2mm) PLASTIC DFN
+                           TJMAX = 150°C, θJA = 195°C/W
+                                                                                                                    TJMAX = 150°C,
+                                                                                θJA = 75°C/W IF VSS IS SOLDERED TO PCB, θJA = 135°C/W IF VSS IS NOT SOLDERED TO PCB
+                                                                                                 EXPOSED PAD (PIN 9), PCB VSS CONNECTION OPTIONAL
+
+
+
+
+                                                                                                                                                               Rev. F
+
+
+
+
+2                                                            For more information www.analog.com
+                                                                                                                        LTC4366
+ORDER INFORMATION
+Lead Free Finish
+TAPE AND REEL (MINI)          TAPE AND REEL                 PART MARKING*           PACKAGE DESCRIPTION              TEMPERATURE RANGE
+LTC4366CTS8-1#TRMPBF          LTC4366CTS8-1#TRPBF           LTFMC                   8-Lead Plastic TSOT-23           0°C to 70°C
+LTC4366ITS8-1#TRMPBF          LTC4366ITS8-1#TRPBF           LTFMC                   8-Lead Plastic TSOT-23           –40°C to 85°C
+LTC4366HTS8-1#TRMPBF          LTC4366HTS8-1#TRPBF           LTFMC                   8-Lead Plastic TSOT-23           –40°C to 125°C
+LTC4366CDDB-1#TRMPBF          LTC4366CDDB-1#TRPBF           LFMD                    8-Lead (3mm × 2mm) Plastic DFN   0°C to 70°C
+LTC4366IDDB-1#TRMPBF          LTC4366IDDB-1#TRPBF           LFMD                    8-Lead (3mm × 2mm) Plastic DFN   –40°C to 85°C
+LTC4366HDDB-1#TRMPBF          LTC4366HDDB-1#TRPBF           LFMD                    8-Lead (3mm × 2mm) Plastic DFN   –40°C to 125°C
+LTC4366CTS8-2#TRMPBF          LTC4366CTS8-2#TRPBF           LTFMF                   8-Lead Plastic TSOT-23           0°C to 70°C
+LTC4366ITS8-2#TRMPBF          LTC4366ITS8-2#TRPBF           LTFMF                   8-Lead Plastic TSOT-23           –40°C to 85°C
+LTC4366HTS8-2#TRMPBF          LTC4366HTS8-2#TRPBF           LTFMF                   8-Lead Plastic TSOT-23           –40°C to 125°C
+LTC4366CDDB-2#TRMPBF          LTC4366CDDB-2#TRPBF           LFMG                    8-Lead (3mm × 2mm) Plastic DFN   0°C to 70°C
+LTC4366IDDB-2#TRMPBF          LTC4366IDDB-2#TRPBF           LFMG                    8-Lead (3mm × 2mm) Plastic DFN   –40°C to 85°C
+LTC4366HDDB-2#TRMPBF          LTC4366HDDB-2#TRPBF           LFMG                    8-Lead (3mm × 2mm) Plastic DFN   –40°C to 125°C
+LTC4366MPTS8-1#TRMPBF         LTC4366MPTS8-1#TRPBF          LTFMC                   8-Lead Plastic TSOT-23           –55°C to 125°C
+LTC4366MPTS8-2#TRMPBF         LTC4366MPTS8-2#TRPBF          LTFMF                   8-Lead Plastic TSOT-23           –55°C to 125°C
+LTC4366MPDDB-1#TRMPBF LTC4366MPDDB-1#TRPBF                  LFMD                    8-Lead (3mm × 2mm) Plastic DFN   –55°C to 125°C
+LTC4366MPDDB-2#TRMPBF LTC4366MPDDB-2#TRPBF                  LFMG                    8-Lead (3mm × 2mm) Plastic DFN   –55°C to 125°C
+TRM = 500 pieces. *Temperature grades are identified by a label on the shipping container.
+Consult LTC Marketing for parts specified with wider operating temperature ranges.
+Consult LTC Marketing for information on lead based finish parts.
+For more information on lead free part marking, go to: www.adi.com/leadfree/
+For more information on tape and reel specifications, go to: www.adi.com/tapeandreel/
+
+
+
+
+                                                                                                                                      Rev. F
+
+
+
+
+                                                           For more information www.analog.com                                        3
+LTC4366
+ELECTRICAL CHARACTERISTICS The l denotes the specifications which apply over the full operating
+temperature range, otherwise specifications are at TA = 25°C. All voltages relative to VSS, unless otherwise noted.
+SYMBOL          PARAMETER                                      CONDITIONS                                   MIN    TYP      MAX      UNITS
+VDD Regulator
+VZ(VDD)         VDD Shunt Regulator Voltage                    I = 1mA                                  l    11    11.7     12.5          V
+∆VZ(VDD)        VDD Shunt Regulator Load Regulation            I = 1mA to 5mA                           l           60      130        mV
+VDD             VDD Supply Voltage (Note 3)                                                             l   4.5            VZ(VDD)        V
+IVDD(STLO)      VDD Pin Current – Start-Up, Gate Low           GATE = 0V, VDD = 7V, OUT = 0V            l           15       23         µA
+IVDD(STHI)      VDD Pin Current – Start-Up, Gate High          GATE Open, VDD = 7V, OUT = 0V            l           8        13         µA
+IVDD(SD)        VDD Pin Current – Shutdown                     VDD = 7V, OUT = 0V                       l           5        8          µA
+OUT Regulator
+VZ(OUT)         OUT Shunt Regulator Voltage                    I = 1mA, BASE = 0V                       l   5.0     5.5     6.0           V
+∆VZ(OUT)        OUT Shunt Regulator Load Regulation            I = 1mA to 5mA                           l           30       70        mV
+OUT             OUT Supply Voltage (Note 3)                                                             l   3.0            VZ(OUT)        V
+VUVLO1          OUT Undervoltage Lockout 1                     Rising                                   l   2.42    2.6     2.80          V
+∆VUVH1          OUT Undervoltage Lockout 1 Hysteresis                                                   l   0.2    0.28     0.4           V
+VUVLO2          OUT Undervoltage Lockout 2                     Rising                                   l   4.5    4.75     4.9           V
+∆VUVH2          OUT Undervoltage Lockout 2 Hysteresis                                                   l   0.3     0.4     0.5           V
+IOUT(AMP)       OUT Pin Current – Regulation Amplifier On                                               l           37       54         µA
+IOUT(CP)        OUT Pin Current – Charge Pump On                                                        l          150      220         µA
+IOUT(SD)        OUT Pin Current – Shutdown                                                              l           3        6          µA
+BASE, VSS
+VZ(BASE)        BASE Shunt Regulator Voltage (OUT – BASE)      I = –10µA, OUT = 4.5V                    l   5.5     6.1     6.6           V
+∆VZ(BASE)       BASE Shunt Regulator Load Regulation           I = –10µA to –80µA, OUT = 4.5V           l          125      200        mV
+IBASE           BASE Pin Leakage Current                       OUT = 4.5V, BASE = –0.5V                 l   –0.1   –0.8     –5.5        µA
+IVSS(AMP)       VSS Pin Current – Regulation Amplifier On                                               l   –30    –45      –72         µA
+IVSS(CP)        VSS Pin Current – Charge Pump On                                                        l   –108   –160     –230        µA
+IVSS(SD)        VSS Pin Current – Shutdown                                                              l           –7      –12         µA
+GATE Drive
+∆VGATE          External N-Channel Gate Drive (GATE – OUT)     OUT = 4.9V, I = 0, –1µA                  l   11.2   11.75    12.5          V
+IGATE(ST)       GATE Pin Current – Start-Up                    GATE = OUT = 0V           LTC4366C/I/H   l   –4.5   –7.5     –11         µA
+                                                                                         LTC4366MP      l   –3.2   –7.5     –11         µA
+IGATE(CP)       GATE Pin Current – Charge Pump On              GATE = 5V, OUT = 4.9V                    l   –14    –20      –28         µA
+IGATE(FD)       GATE Pin Current – Fast Discharge              GATE = 10V, OUT = 4.9V                   l   122    200      300        mA
+IGATE(FLT)      GATE Pin Current – Fault                       GATE = 10V, OUT = 4.9V                   l   0.25    0.7     1.25       mA
+
+
+
+
+                                                                                                                                      Rev. F
+
+
+
+
+4                                                           For more information www.analog.com
+                                                                                                                                  LTC4366
+ELECTRICAL CHARACTERISTICS The l denotes the specifications which apply over the full operating
+temperature range, otherwise specifications are at TA = 25°C. All voltages relative to VSS, unless otherwise noted.
+
+SYMBOL        PARAMETER                                       CONDITIONS                                        MIN        TYP        MAX         UNITS
+FB, SD, TIMER
+VFB(REG)      3% FB pin Regulation Threshold (OUT – FB)                                                  l     1.193       1.23      1.267              V
+IFB           FB Pin Leakage Current                          OUT – FB = 1.2V                            l                  0          ±1             µA
+VSD(TH)       SD Pin Threshold Voltage (VDD – SD)             Falling                                    l      1.0        1.5        2.3               V
+VSD(HYST)     SD Pin Hysteresis                                                                          l      129        260        530            mV
+ISD           SD Pin Input Pull-Up Current                    VDD – SD = 0.7V                            l      –0.5       –1.6       –3.5            µA
+VTIMER(H)     TIMER Pin Threshold                             TIMER Rising, VDD = 7V, OUT = VZ(OUT)      l      2.5        2.7        3.1               V
+ITIMER(UP)    TIMER Pin Pull-Up Current                       TIMER = 1V                LTC4366C/I/H     l      –5.1        –9        –13             µA
+                                                                                        LTC4366MP        l       –4         –9        –13             µA
+ITIMER(DN)    TIMER Pin Pull-Down Current                     TIMER = 1V                                 l      0.7        1.8        2.8             µA
+ITIMER(RATIO) TIMER Pin Current Ratio ITIMER(DN)/ITIMER(UP)                                              l      15          20         25              %
+AC Characteristics
+tDLY – SD     SD Low to Gate Low Filter Time                  Step VDD – SD from 0V to 3V                l      420        700        1200            µs
+tDLY – FAST   FB Low to Gate Low Delay Time                   Step OUT – FB from 0V to 1.3V              l      60         150        300             ns
+tD(COOL)      Cool-Down Timer (Internal)                      VDD = VZ(VDD)             LTC4366MP        l      5.9         10         19       Seconds
+
+Note 1: Stresses beyond those listed under Absolute Maximum Ratings             Note 3: Limits on the maximum rating is defined as whichever limit occurs
+may cause permanent damage to the device. Exposure to any Absolute              first. An internal clamp limits the GATE pin to a maximum of 12V above
+Maximum Rating condition for extended periods may affect device                 source. Driving this pin to voltages beyond the clamp may damage the
+reliability and lifetime.                                                       device.
+Note 2: All currents into pins are positive.                                    Note 4: TJ is calculated from the ambient temperature, TA, and power
+                                                                                dissipation, PD, according to the formula:
+                                                                                    TJ = TA + (PD • θJA)
+
+
+
+
+                                                                                                                                                    Rev. F
+
+
+
+
+                                                          For more information www.analog.com                                                       5
+  LTC4366
+  TYPICAL PERFORMANCE CHARACTERISTICS
+                         VDD Shunt Regulator vs                                                     VDD Shunt Regulator vs                                                       VDD Start-Up Current vs
+                         VDD Current                                                                Temperature                                                                  Temperature (Gate High)
+                13.0                                                                     13.0                                                                               15
+
+
+
+                                                                                         12.5                                                                               12
+                12.5
+
+
+
+
+                                                                                                                                                          IVDD(STHI) (µA)
+VZ(VDD) (V)
+
+
+
+
+                                                                           VZ(VDD) (V)
+                                                                                         12.0                                                                                9
+
+
+                12.0
+                                                                                         11.5                                                                                6
+
+
+
+                11.5                                                                     11.0                                                                                3
+                         0         5          10        15            20                     –50        –25   0    25   50    75        100     125                           –50   –25   0    25   50    75   100     125
+                                           IVDD (mA)                                                           TEMPERATURE (°C)                                                            TEMPERATURE (°C)
+                                                              436612 G01                                                                 436612 G02                                                             436612 G03
+
+
+
+
+                         OUT Shunt Regulator vs                                                     OUT Shunt Regulator vs                                                       VSS Current (Regulation AMP On)
+                         OUT Current                                                                Temperature                                                                  vs Temperature
+                   5.9                                                                          7                                                                           75
+
+
+
+                   5.8
+                                                                                                6                                                                           50
+                                                                                                                                                         IVSS(AMP) (µA)
+     VZ(OUT) (V)
+
+
+
+
+                                                                                  VZ(OUT) (V)
+
+
+
+
+                   5.7
+
+
+                                                                                                5                                                                           25
+                   5.6
+
+
+
+                   5.5                                                                          4                                                                            0
+                         0         5          10        15            20                         –50    –25   0    25   50    75        100     125                           –50   –25   0    25   50    75   100     125
+                                           IOUT (mA)                                                           TEMPERATURE (°C)                                                            TEMPERATURE (°C)
+                                                              436612 G04                                                                 436612 G05                                                             436612 G10
+
+
+
+
+                         VSS Current (Charge Pump On)                                               Gate Drive vs Gate Pull-Up                                                   Gate Current (Charge Pump On)
+                         vs Temperature                                                             Current                                                                      vs Temperature
+                –300                                                                        16                                                                            –40
+
+
+
+                                                                                            12                                                                            –30
+                –200
+                                                                                                                                                      IGATE(CP) (µA)
+IVSS(CP) (µA)
+
+
+
+
+                                                                               ∆VGATE (V)
+
+
+
+
+                                                                                                8                                                                         –20
+
+
+                –100
+                                                                                                4                                                                         –10
+
+
+
+                    0                                                                           0                                                                            0
+                     –50     –25       0    25   50    75    100     125                            0          –10                –20           –30                           –50   –25   0    25   50    75   100     125
+                                        TEMPERATURE (°C)                                                             IGATE (µA)                                                            TEMPERATURE (°C)
+                                                              436612 G11                                                                 436612 G12                                                             436612 G14
+
+
+
+
+                                                                                                                                                                                                                       Rev. F
+
+
+
+
+  6                                                                                                 For more information www.analog.com
+                                                                                                                                                                                   LTC4366
+TYPICAL PERFORMANCE CHARACTERISTICS
+                       Gate Start-Up Current vs                                           Base Shunt Regulator vs                                                  Timer Pull-Up Current vs
+                       Temperature                                                        Base Current                                                             Temperature
+                 –12                                                               7.0                                                                   –12
+
+
+
+                 –10                                                                                                                                     –10
+                                                                                   6.5
+
+
+
+
+                                                                                                                                            ITIMER(UP) (µA)
+IGATE(ST) (µA)
+
+
+
+
+                                                                    VZ(BASE) (V)
+                  –8                                                                                                                                          –8
+
+
+                                                                                   6.0
+                  –6                                                                                                                                          –6
+
+
+
+                  –4                                                               5.5                                                                        –4
+                    –50   –25   0    25   50    75   100     125                          0    –100     –200     –300   –400         –500                       –50   –25   0    25   50    75   100     125
+                                 TEMPERATURE (°C)                                                         IBASE (µA)                                                         TEMPERATURE (°C)
+                                                      436612 G15                                                               436612 G16                                                         436612 G18
+
+
+
+
+                       SD Pull-Up Current vs                                              FB Regulation Threshold vs
+                       Temperature                                                        Temperature                                                              Cool-Down Time vs Temperature
+                  –3                                                               1.24                                                                       16
+
+
+                                                                                                                                                              14
+
+                  –2                                                               1.23
+                                                                                                                                                              12
+                                                                   VFB(REG) (V)
+
+
+
+
+                                                                                                                                            tD(COOL) (s)
+     ISD (µA)
+
+
+
+
+                                                                                                                                                              10
+                  –1                                                               1.22
+
+                                                                                                                                                               8
+
+
+                   0                                                               1.21                                                                        6
+                    –50   –25   0    25   50    75   100     125                       –50    –25     0    25   50    75   100        125                       –50   –25   0    25   50    75   100     125
+                                 TEMPERATURE (°C)                                                      TEMPERATURE (°C)                                                      TEMPERATURE (°C)
+                                                      436612 G21                                                               436612 G22                                                         436612 G23
+
+
+
+
+                                                                                                                                                                                                       Rev. F
+
+
+
+
+                                                                                      For more information www.analog.com                                                                              7
+LTC4366
+PIN FUNCTIONS
+BASE: Base Driver Output for External PNP Shunt Regula-             SD: Shutdown Comparator Input. Tie to VDD if unused.
+tor. This pin is connected to the anode of an internal 6.2V         Connect pin to a limited current pull down created by adding
+Zener with the cathode tied to OUT. In cases where lower            a resistor in series with an open-drain or open-collector
+Zener (Z3) clamp current is desired but a large VSS resis-          pull-down transistor. Activating the external pull down
+tor is prohibited, connect an external PNP base to this pin         overcomes the internal 1.6µA pull-up current source and
+(PNP collector is grounded, emitter is tied to VSS). Tie this       allows the SD pin to cross the shutdown threshold. This
+pin to VSS if unused.                                               threshold is defined as 1.5V below VDD with a 280mV
+                                                                    hysteresis. To prevent false triggers this pin must stay
+Exposed Pad: The exposed pad may be left open or con-
+                                                                    below the threshold for 700µs to activate the shutdown
+nected to VSS.
+                                                                    state. The shutdown state lowers the total quiescent cur-
+FB: Overvoltage Regulation Amplifier Feedback Input.                rent (IVDD plus IOUT) below 20µA. This quiescent current
+Connect this pin to an external resistive divider from OUT          does not include shunt current in the VDD, OUT and BASE
+to ground. The overvoltage regulation amplifier controls            regulators. After a fault on the LTC4366, putting the part
+the gate of the external N-channel MOSFET to regulate               in shutdown will clear the fault and allow operation to
+the FB pin voltage at 1.23V below OUT. The overvoltage              resume. Clearing the fault during the 9-second cool-down
+amplifier will activate a 200mA pull-down on the GATE pin           period will shorten the timeout for the LTC4366-2 (auto-
+during a fast overvoltage event.                                    retry) version.
+GATE: Gate Drive for External N-Channel MOSFET. Dur-                TIMER: Timer Input. Leave this pin open for a 1µs overvolt-
+ing start-up an internal 7.5µA current source charges the           age regulation period before fault off. Connect a capacitor
+gate of the external N-channel MOSFET from the VDD pin.             between this pin and VSS to set a 311ms/µF duration for
+Once the OUT voltage is above VSS by 4.75V, the charge              overvoltage regulation before the switch is turned off.
+pump will finish charging the GATE to 12V above OUT.                The LTC4366-2 version will restart after a nine second
+During a fast overvoltage event, a 200mA pull-down cur-             cool-down period.
+rent source between GATE and OUT is activated, followed
+                                                                    VDD: Start-Up Supply. Supply input for 7.5µA start-up cur-
+by regulation of the GATE pin voltage by the overvoltage
+                                                                    rent source that charges the gate of the external N-channel
+regulation amplifier.
+                                                                    MOSFET. Also provides supply for timer and logic circuits
+OUT: Charge Pump and Overvoltage Regulation Amplifier               active when the external MOSFET is off. This pin is clamped
+Supply Voltage. Supply input for floating circuitry powered         at 12V above VSS. Do not bypass this pin with a capacitor.
+from the MOSFET source. Once the OUT voltage is 4.75V
+                                                                    VSS: Device Return and Substrate. The capacitors on the
+(UVLO2) above VSS, the charge pump will turn on and draw
+                                                                    TIMER and OUT pins should be returned to this pin.
+power from this pin. When OUT exceeds 2.55V (UVLO1)
+it is used as a power supply and reference input for over-
+voltage regulation amplifier. This pin is clamped at 5.7V
+and requires a 0.22µF or greater bypass to the VSS pin.
+
+
+
+
+                                                                                                                            Rev. F
+
+
+
+
+8                                               For more information www.analog.com
+                                                                                                                                                   LTC4366
+SIMPLIFIED DIAGRAM
+                        Start                                              Run                                       Regulate
+
+
+                      RIN
+
+
+
+                            7.5µA                                                                                  1.23V   +
+                                                               20µA                                                        –
+                                                                                  Z3                                               Z3
+                                                                           CP     5.7V                                –            5.7V       RFB1
+                       Z1                                                                                             +
+                       12V
+                                                                                                                                              RFB2
+
+                      RSS                                                        RSS                                               RSS        436612 SD
+
+
+
+
+FUNCTIONAL DIAGRAM
+                                                                                 M1
+    VIN                                                                                                                                                            VOUT
+
+
+                                                                                      RG
+               RIN
+                                                                                            CG
+
+
+                                                                                                    Z4
+               VDD                                                                GATE                                                  OUT
+                                                                                                   12V
+
+
+                                       OUT           7.5µA            D1                   20µA
+                Z1                                                                                 CHARGE
+                                                                                                                       UVLO2
+                12V                                                                                  PUMP
+                                                                                                                       4.75V
+                                                                                                   f = 2MHz
+                         LOGIC
+                                      VCC
+                        SUPPLY
+                                                                                                                       UVLO1
+                                                                                                                       2.55V
+                      VDD
+                                                                  VCC
+                                             SHUTDOWN                                                                      1.23V    +                             C1
+                                  +                                                                                                 –
+                                  –    1.5V COMPARATOR
+                            1.6µA               +                LOGIC                             –                                                 RFB1
+          SD                                                      AND                                                                    FB
+                                                –                TIMER                             +
+                      VCC                                                                    OVERVOLTAGE                                             RFB2
+                                                                                              AMPLIFIER
+                            9µA
+
+                                                TIMER
+                                             COMPARATOR
+          TIMER                                                                                        OUT
+                                                +
+                                                –                                           Z2                Z3
+    CT                                      + 2.8V                                          6.2V              5.7V
+                                            –
+                            1.8µA
+
+                                                                                            BASE             VSS
+
+
+                                                                                                                                                      436612 FD
+
+                                                                                                           RSS
+
+
+
+
+                                                                                                                                                                          Rev. F
+
+
+
+
+                                                             For more information www.analog.com                                                                          9
+LTC4366
+OPERATION
+The Simplified Diagram shows three states of operation:             Once the OUT to VSS voltage exceeds the 2.55V UVLO1
+the start, run and regulate mode. Previous surge stopper            threshold, the overvoltage amplifier is enabled. Next, the
+parts are powered off the input supply, therefore the surge         UVLO2 threshold of 4.75V is crossed and the charge pump
+voltage is limited to the breakdown voltage of the input pins       turns on. The charge pump charges the GATE pin with
+of the part. As demonstrated in run and regulate modes,             20µA to its final value 12V above OUT (clamped by Z4).
+the majority of this part is powered off the output, so the         This allows the capacitor between OUT and VSS to charge
+MOSFET isolates the surge from the power pins of the                until clamped by Z3 to 5.7V. In this run mode the MOSFET
+part. This allows surge voltages up to the breakdown of             is configured as a low resistance pass transistor with little
+the external MOSFET.                                                voltage drop and power dissipation in the MOSFET.
+In the start mode a 15µA trickle current flows through RIN,         The powered up LTC4366 is now ready to protect the load
+half is used to charge the gate with the other half used as         against an overvoltage transient. The overvoltage regula-
+bias current. As the GATE pin charges, the external MOSFET          tion amplifier monitors the load voltage between OUT and
+brings up the OUT pin. This leads to the run mode where             ground by sensing the voltage on the FB pin with respect
+the output is high enough to become a supply voltage for            to the OUT pin (drop across RFB1). In an overvoltage
+the charge pump. The charge pump is then used to fully              condition the OUT rises until the amplifier drives the M1
+charge the gate 12V above the source.                               gate to regulate and limit the output voltage. This is the
+                                                                    regulate mode.
+With the output voltage equal to the input voltage, it is
+necessary to protect the load from an input supply over-            During regulation the excess voltage is dropped across the
+voltage. In the regulate mode, the overvoltage regulation           MOSFET. To prevent overheating the MOSFET, the LTC4366
+amplifier is referenced to the output through a 1.23V               limits the overvoltage regulation time using the TIMER pin.
+reference. If the voltage drop across the upper feedback            The TIMER pin is charged with 9µA until the pin exceeds
+resistor, RFB1, exceeds 1.23V the regulation amplifier pulls        2.8V. At that point an overvoltage fault is set, the MOSFET
+the gate down to regulate the RFB1 voltage back to 1.23V.           is turned off, and the part enters a cool-down period of
+Therefore, the output voltage is clamped by setting the             9 seconds. The logic and timer block are active during
+proper ratio between RFB1 and RFB2.                                 cool down while the GATE pin is pulled to OUT.
+For example, if the output voltage is regulated at 100V then        The latched-off version, LTC4366-1, will remain in fault
+the voltage drop across the RFB2 is 98.77V. If the Zener Z3         until the SD pin is toggled low and then high. Once the fault
+is 5.7V then the voltage drop across RSS is 94.3V. There-           is cleared, the GATE is permitted to turn the MOSFET on
+fore, when the output is at a high voltage, the majority of         again. The auto-retry version, LTC4366-2, waits 9 seconds
+the voltage is dropped across the two resistors RFB2 and            then clears the fault and restarts.
+RSS. This demonstrates how the LTC4366 floats up with
+the supply. The adjustable 3-terminal regulators, such
+as the LT®1085 and LM117, are also based on this idea.
+The Functional Diagram shows the actual circuits. An
+external RIN resistor on the VDD pin powers up the 12V
+shunt regulator which then powers up logic supply, VCC.
+After verifying that the shutdown input is not active, the
+GATE pin is charged with a 7.5µA current from VDD. This
+is the start mode.
+
+
+
+
+                                                                                                                             Rev. F
+
+
+
+
+10                                              For more information www.analog.com
+                                                                                                                                       LTC4366
+APPLICATIONS INFORMATION
+The typical LTC4366 application is a protected system                                     voltage minus 5.7V is impressed on RSS. The RSS current
+that distributes power to loads safe from overvoltage                                     is divided into three areas: the 5.7V shunt current, bias
+transients. External component selection is discussed in                                  current between OUT and VSS and finally the RIN current.
+the following sections.                                                                   The 5.7V shunt current can be as high as 10mA which
+                                                                                          greatly exceeds the typical OUT (160µA) bias current.
+Dual Shunt Regulators
+                                                                                          Turn-On Sequence
+The LTC4366 uses two shunt regulators coupled with
+the external voltage dropping resistors, RSS and RIN, to                                  The voltage between the VDD and VSS pins is shunt regu-
+generate internal supply rails at the VDD and OUT pins.                                   lated to 12V after ramping up the input supply. Next, the
+These shunt-regulated rails allow overvoltage protection                                  internally generated supply, VCC, produces a 30µs power-
+from unlimited high voltage transients irrespective of the                                on-reset pulse which clears the fault latch and initializes
+voltage rating of the LTC4366’s internal circuitry.                                       internal latches. Next, the shutdown comparator determines
+                                                                                          if the SD pin is externally pulled low, thereby requesting a
+At the beginning of start-up, during shutdown, or after an
+                                                                                          low bias current shutdown state. Otherwise the external
+overvoltage fault, the GATE pin is clamped to the OUT pin
+                                                                                          MOSFET, M1, is allowed to turn on.
+thereby shutting off the MOSFET. This allows the VSS and
+OUT pins to be pulled to ground by output load and RSS.                                   Turning on the 7.5µA GATE pull-up current source from the
+Under this condition the VDD pin is clamped with a 12V                                    VDD pin begins what can be described as a “bootstrapped”
+shunt regulator to VSS. The full supply voltage minus 12V                                 method for powering up the MOSFET gate. Once the GATE
+is then impressed on the RIN resistor which sets the shunt                                reaches the VDD pin voltage (minus a Schottky diode), the
+current. The shunt current can be as high as 10mA which                                   7.5µA source loses voltage headroom and stops charging
+is several orders of magnitude higher than the typical 9µA                                the GATE (middle of waveforms in Figure 2.). The bootstrap
+VDD pin quiescent current.                                                                method relies on charging C1 to a sufficient voltage after
+                                                                                          GATE stops increasing. The voltage on C1 is then used
+In normal operation the OUT voltage is equal to the input
+                                                                                          as a supply for a charge pump that charges the gate to
+supply. With C1 fully charged IC1 is zero at this point. Under
+                                                                                          its final value 12V above OUT. C1 will discharge if the
+this condition the voltage between the OUT and VSS pins
+                                                                                          charge pump current exceeds the C1 charging current.
+are clamped with a 5.7V shunt regulator. The input supply
+                                                                                          If the voltage drops below 4.35V, the charge pump will
+                                      M1
+                                                                                          pause allowing C1 to recharge.
+                     VIN           FQA62N25C                                VOUT
+                     28V                                                    1.5A
+     (18V DC TO 250V DC)                                                    (43V CLAMP)
+                                                 CG
+                                    RG
+                                                10nF                                           VGATE
+                                   10Ω
+                                RIN                                        C1                10V/DIV
+                                324k                                       0.47µF                                                 CHARGE
+                 R1                                           RFB1                                                                PUMP PAUSE
+                            VDD        GATE            OUT
+                470k                                          12.4k
+      R2                   SD       LTC4366-2            FB                                    VOUT
+     100k                                                     RFB2                           10V/DIV
+             Q1            TIMER          VSS          BASE
+SD                                                            422k
+             MMBT3904
+                                  CT                                                                                                C1 RECHARGING
+                                  8.2nF
+                                                                                                 VC1
+                                            RSS
+                                                              436612 F01
+                                                                                              5V/DIV                                CHARGE
+                                            46.4k                                                                                   PUMP STARTS
+                                                                                                                    C1 CHARGING
+                                                                                                                                           436612 TA01b
+                                                                                                                       20ms/DIV
+                       Figure 1. Typical Application
+                                                                                                             Figure 2. Turn-On Waveforms
+
+
+
+                                                                                                                                                           Rev. F
+
+
+
+
+                                                                       For more information www.analog.com                                                11
+LTC4366
+APPLICATIONS INFORMATION
+Starting up with a supply voltage insufficient to charge            Depending on which version, the part will cool down and
+C1 with large load current may result in overheating the            self start (LTC4366-2), or remain latched off until the SD
+MOSFET and subsequent damage. While the gate and                    pin activates a shutdown followed by a start-up command
+output are ramping the drop across the MOSFET is the                (LTC4366-1). The cool-down time is typically nine seconds
+input supply minus the output. If the supply is lower than          which provides a very low pulsed power duty cycle.
+necessary to charge C1, then the output fails to ramp higher
+                                                                    Starting up with an input supply overvoltage and full
+than the supply minus the threshold of the MOSFET. This
+                                                                    load current does increase the power dissipation in the
+3V to 5V MOSFET drop with high load current will result in
+                                                                    MOSFET well beyond the case for an overvoltage surge.
+power dissipation without any protection or timeout limit.
+                                                                    During the gate and output ramp up, the partial supply
+Overvoltage Fault                                                   voltage (at full current) is dropped across the MOSFET.
+                                                                    After start-up the normal overvoltage surge (with timeout)
+The LTC4366 prevents an overvoltage on the input supply             occurs before the shutting off the MOSFET. The Design
+from reaching the load. Normally, the pass transistor is            Example section only considers the normal overvoltage
+fully on, powering the load with very little voltage drop. As       surge for safe operating area (SOA) calculations for the
+the input voltage increases the OUT voltage increases until         MOSFET. Start-up into overvoltage will require additional
+it reaches the regulation point (VREG). From that point any         SOA considerations.
+further voltage increase is dropped across the MOSFET.
+Note the MOSFET is still on so the LTC4366 allows un-               Shutdown
+interrupted operation during a short overvoltage event.
+                                                                    The LTC4366 has a low current (<20µA) shutdown state
+The VREG point is configured with the two FB resistors, RFB1        that turns off the pass FET by tying the GATE and OUT pins
+and RFB2. The regulation amplifier compares the FB pin to           together with a switched resistor. In the normal operating
+a threshold 1.23V below the OUT pin. During regulation              condition, the SD pin is pulled up to the VDD pin voltage
+the drop across RFB1 is 1.23V, while the remainder of the           with a 1.6µA current source. Tie the SD pin to VDD when
+VREG voltage is dropped across RFB2.                                the shutdown state is not used.
+When the output is at the regulation point a timer is started       Bringing the SD pin more than 1.5V below VDD pin volt-
+to prevent excessive power dissipation in the MOSFET.               age for greater than the 700µs filter time activates the
+Normally the TIMER pin is held low with a 1.8µA pull-               shutdown state. This filter time prevents unwanted activa-
+down current. During regulation the TIMER pin charges               tion of shutdown during transients. The SD pin is diode
+with 9µA. If the regulation point is held long enough for           clamped 0.7V below VSS which requires current limiting
+the TIMER pin to reach 2.8V then an overvoltage fault is            (maximum 10mA) on the pull-down device. One way to
+latched. The equation for setting the timer capacitor is:           limit the current is to connect an external 470k resistor in
+                                                                    series with the open-collector pull-down device. Activat-
+   CT = 3.2 • t [nF / ms]
+                                                                    ing the external pull-down overcomes the internal 1.6µA
+                                                                    pull-up current source and allows the SD pin to cross the
+                                                                    shutdown threshold.
+
+
+
+
+                                                                                                                            Rev. F
+
+
+
+
+12                                              For more information www.analog.com
+                                                                                                                            LTC4366
+APPLICATIONS INFORMATION
+Following an overvoltage fault, putting the part in shutdown              The full supply voltage minus 12V can appear across
+will clear the fault, allowing operation to resume once the               RIN during the overvoltage cool-down period. Normally
+LTC4366 leaves shutdown.                                                  the value for RIN is several times larger than RSS which
+                                                                          lowers the power and size requirements for this resistor.
+Output Short
+                                                                          External PNP
+A sudden short on the output can result in excessive cur-
+rent into the LTC4366 GATE pin supplied from the gate                     In some cases the power resistor for RSS may be physically
+capacitor, CG. The GATE pin is internally clamped to OUT                  large. A large value RSS (with lower power and size) may
+with a 10V to 12V clamp. If the OUT pin is pulled low                     be used in conjunction with a PNP as shown in Figure 4.
+while the GATE pin is held up with CG, then the clamp will                In addition to the 0.8µA sourced from the BASE pin, the
+be damaged trying to discharge CG when clamp voltage                      base current from the PNP must flow through RSS which
+is exceeded. One solution is to add a 1k RS resistor in                   will limit the maximum RSS value. In some cases the
+series with CG with a bypass diode as shown in Figure 3.                  minimum PNP Beta is as low as 35. The base current
+The diode allows the capacitor to function as a bypass for                becomes 10µA when the VSS current is 350µA. One can
+energy coming from the MOSFET drain to gate capacitor                     see this allows a 35 (Beta) times larger RSS than the ap-
+during an supply overvoltage.                                             plication without the PNP.
+                                    M1
+
+
+
+                                         RG                                                             LTC4366
+                                        DBYPASS
+
+
+                                            RS                                                       BASE             VSS
+                 LTC4366                    1k
+                             GATE
+
+                  10V TO                          CG
+                                                                                                        RSS
+                     12V
+                             OUT
+                                                                                                         436612 F04
+
+                                    436612 F03
+
+                                                                                             Figure 4. External PNP Option
+               Figure 3. Output Short Protection
+
+Resistor Power Ratings                                                    Minimum Supply Start-Up
+The proper rating for the RSS resistor in Figure 1 must be                When designing for the minimum supply condition, it is
+considered. During an overvoltage event the OUT pin is                    important that RSS and RIN are chosen to provide enough
+at regulation voltage (VREG), so the voltage across RSS is                current to sufficiently charge C1 to 4.75V. The parameters
+VREG minus 5.7V. A small minimum supply voltage reduces                   that determine the minimum supply voltage include: C1
+the value of RSS. Therefore, large differences between                    voltage, MOSFET threshold voltage, a series Schottky diode
+minimum supply voltage and the regulation voltage may                     voltage drop, resistance of RSS and RIN, current in the VDD
+require a large power resistor for RSS.
+
+
+
+
+                                                                                                                                 Rev. F
+
+
+
+
+                                                       For more information www.analog.com                                     13
+LTC4366
+APPLICATIONS INFORMATION
+pin, and finally the current from the VSS pin (see Figure 5).                            The last VIN(MIN) equation sets the maximum value for
+                                                                                         RSS. After choosing RSS the maximum value for RIN (for
+     VIN(MIN) = (IVDD • RIN) + VD + VTH + VC1 + (IVSS • RSS)
+                                                                                         that particular RSS) is calculated from the first VIN(MIN)
+Using the Electrical Characteristics table for above                                     equation:
+parameters:
+                                                                                                           VIN(MIN) – 5.7V
+     VC1 = VUVLO2 = 4.75V (UVLO2 threshold)                                              RSS(MAX) =
+                                                                                                               160µA
+     IVDD = IVDD(STHI) = 9µA (IVDD start-up, gate high)
+                                                                                                       VIN(MIN) – 4.75V – 0.58V – VTH – ( 45µA • RSS )
+     IVSS = IVSS(AMP) = 45µA (IVSS w/regulation amp)                                     RIN(MAX) =
+                                                                                                                            9µA
+     VD = 0.58V
+                                                                                         These two equations maximize the values of RSS and
+     VIN(MIN) = (9µA • RIN) + 0.58V + VTH + 4.75V + (45µA • RSS)                         RIN (reducing power dissipation) while still providing
+When the MOSFET gate is fully enhanced, the OUT pin                                      the necessary VC1 voltage to turn the charge pump on.
+voltage is equal to the supply voltage. This places another                              Increasing the supply voltage beyond the minimum sup-
+constraint on the minimum supply voltage because the                                     ply voltage increases the current and power in RSS while
+charge pump increases the VSS current to 160µA. The C1                                   reducing the time required to charge C1. Conditions that
+voltage is assumed to be clamped at 5.7V. These values                                   may require an even smaller RSS(MAX) will be discussed
+are specified as VZ(OUT) and IVSS(CP) (charge pump on)                                   in the Maximum Supply Start-Up section.
+in the table of Electrical Characteristics:
+                                                                                         Maximum Supply Start-Up
+     VIN(MIN) = VZ(OUT) + (IVSS(CP) • RSS)
+                                                                                         The maximum overvoltage supply may also exist during
+or                                                                                       start-up. The overvoltage protection circuitry has to wake
+     VIN(MIN) = 5.7V + (160µA • RSS)                                                     up before high voltage is passed to the load. Dynamically
+                                                                                         the GATE is ramping up while C1 is charging. Capacitor
+                                                                                         C1 must charge to the 2.55V UVLO1 threshold to turn on
+     VIN                                                                                 the regulation amplifier and reference before the OUT pin
+     IRIN   RIN                                                                          voltage exceeds the overvoltage regulation point, VREG.
+            VDD                7.5µA   D1
+                                                  GATE
+                                                                                         These conditions may reduce the value of RSS below the
+                                                                     M1
+                                                                                         maximum value dictated by the minimum supply start-up
+                                                  CG
+                                                                                         discussed above.
+                                                           OUT           VOUT
+                                                                                         When current in RSS exceeds the current sourced from
+                                                                                RLOAD
+                                                                                         the VSS pin (essentially IRIN), the capacitor C1 begins to
+             Z1
+             12V
+                       LOGIC
+                       TIMER
+                                       Z3
+                                       5.7V CIRCUITS                 +                   charge. The voltage at the VSS pin when IRIN = IRSS is now
+                                                           C1
+                                                                     –
+                                                                         VC1
+                                                                                         labeled VSS(MATCH). The VSS pin voltage is the center of a
+             ISHUNT1       9µA          ISHUNT2        IBIAS             IC1             voltage divider between RIN and RSS after the Zener clamp
+                                                               VSS                       voltage from VDD to VSS is subtracted from the supply.
+                                                                                                                  RSS
+                                                                                                                         • ( VIN(MAX) – VZ(VDD) )
+                                                           RSS           IRSS
+                                                                                             VSS(MATCH) =
+                                                                     436612 F05                                 RSS +RIN
+                   Figure 5. Simplified Block Diagram
+                                                                                         As VIN increases the VSS(MATCH) voltage increases. If the
+                                                                                         match voltage exceeds the overvoltage regulation point
+                                                                                         (VREG), then load is unprotected. This is true because
+                                                                                         C1 will still need to charge to 2.55V while VSS already
+                                                                                                                                                    Rev. F
+
+
+
+
+14                                                                   For more information www.analog.com
+                                                                                                            LTC4366
+APPLICATIONS INFORMATION
+has exceeded VREG. Since the OUT pin voltage is at least          GATE Capacitor, CG
+2.55V larger than VSS it exceeds the specified maximum.           The gate capacitor is used for three functions. First, CG
+Choosing the match point (with supply at the maximum)             absorbs charge from the gate-to-drain capacitance of
+sufficiently below VREG (by at least 2.55V), allows C1 to         the MOSFET during overvoltage transients. Second, the
+charge up in time to protect the load from overvoltage.           capacitor also acts as a compensation element for the
+In reality having VSS pin voltage 7V below VREG provides          overvoltage regulation amplifier. The minimum value for
+required margin for charging C1.                                  CG to guarantee stability is 2nF. Finally, CG sets the slew
+  VSS(MATCH)(MAX) = VREG – 7V                                     rate of the GATE and OUT pins. The voltage at the GATE pin
+                                                                  rises at a slope equal to 20µA/CG. This slope determines
+Increasing RSS increases the match point, so determin-
+                                                                  the charging current into the load capacitor.
+ing the maximum RSS value while still protecting from
+overvoltage is useful. Using IRIN = IRSS:                                            CLOAD
+                                                                      IINRUSH =            •IG
+                 VRSS                                                                 CG
+  RSS = RIN •
+                 VRIN
+                                                                  The voltage rating for CG must be greater than the regula-
+Using:                                                            tion voltage (VREG).
+
+  VRSS = VSS(MATCH)(MAX) = VREG – 7V                              MOSFET Selection
+  VRIN = VIN – VZ(VDD) – VRSS                                     The LTC4366 drives an N-channel MOSFET to conduct
+Substituting:                                                     the load current. The important features of the MOSFET
+                                                                  are on-resistance, RDS(ON), the maximum drain-source
+                       RIN • ( VREG – 7V )                        voltage, V(BR)DSS, the threshold voltage, and the SOA.
+  RSS(MAX) =
+                 VIN(MAX) – 12V – ( VREG – 7V )                   The maximum allowable drain-source voltage must be
+                                                                  higher than the supply voltage. If the output is shorted
+                   RIN • ( VREG – 7V )                            to ground or during an overvoltage event, the full supply
+  RSS(MAX) =
+                 VIN(MAX) – 5V – VREG                             voltage will appear across the MOSFET.
+                                                                  The threshold voltage of the MOSFET is used in the mini-
+If we guarantee that RSS < RSS(MAX) then the following
+                                                                  mum supply start-up calculation. For applications with
+is true:
+                                                                  supplies less than 12V, a logic-level MOSFET is required.
+  VSS(MATCH) < VSS(MATCH)(MAX)                                    Above 12V a standard threshold N-channel MOSFET is
+C1 bypasses the charge pump, and requires at least a              sufficient.
+0.22µF. The size of C1 needs limits also. The gate capaci-        The SOA of the MOSFET must encompass all fault condi-
+tor (CG) dictates the maximum output capacitor C1(MAX)            tions. In normal operation the pass transistor is fully on,
+that will charge to the 2.55V UVLO1 threshold (VUVLO1)            dissipating very little power. But during overvoltage faults,
+before the OUT voltage exceeds the overvoltage threshold.         the GATE pin is servoed to regulate the output voltage
+                                                                  through the MOSFET. Large current and high voltage drop
+                –C G • (RSS +RIN ) ( VREG – VSS(MATCH ) )         across the MOSFET can coexist in these cases. The SOA
+ C1(MAX ) =
+                                      2 • VUVLO1                curves of the MOSFET must be considered carefully along
+              IG • RSS • RIN •In1–                              with the selection of the fault timer capacitor.
+                                 VREG – VSS(MATCH ) 
+
+In most cases:
+  C1(MAX) = 10 • CG to 100 • CG
+                                                                                                                           Rev. F
+
+
+
+
+                                               For more information www.analog.com                                    15
+LTC4366
+APPLICATIONS INFORMATION
+Layout Considerations                                                            DESIGN EXAMPLE
+Due to the high impedances on the SD, VDD, and GATE                              Overview
+pins, these pins are susceptible to leakages to ground.
+For example, a leakage to ground on SD will activate the                         The design process starts with minimum input voltage
+shutdown state if greater than 1.6µA. Providing adequate                         start-up equations to calculate values for RSS and RIN.
+spacing away from grounded traces and adding conformal                           These values need further refinement to meet two other
+coating on exposed pins lowers the risk that leakage cur-                        conditions: the maximum input voltage start-up condi-
+rent will interrupt system operation.                                            tions and proper current for the charging of C1. The the
+                                                                                 remaining element values are calculated based on the
+It is important to put the bypass capacitor, C1, as close as                     input parameters.
+possible to the OUT and VSS pins. Place the 10Ω resistor
+as close as possible to the MOSFET gate pin. This will                           Following are the input parameters for this example:
+limit the parasitic trace capacitance that leads to MOSFET                       VSUPPLY(MIN) = 18V, VREG = 43V, VIN(MAX) = 250V, ILOAD
+self-oscillation.                                                                = 1.5A at start-up, ILOAD = 3A after start-up, VTH = 5V
+The FB pin is sensitive to parasitic capacitance when the                        Important Electrical Characteristics table parameters used
+regulation loop is closed. One result from this capacitive                       in this example are summarized in Table 1.
+loading is output oscillations during overvoltage regula-
+tion. It is suggested that the resistors RFB1 and RFB2 be                        Step 1: Maximum RSS
+placed close to the pin and that the FB trace itself be
+                                                                                 In this design example (Figure 6.) the component sizing
+minimized in size.
+                                                                                 first considers the start-up phase after the charge pump
+                                                                                 is active. The goal is to maximize the resistance of RSS
+                                                                                 which still allows operation when the input voltage is at
+                                                                                 the minimum value.
+
+                                                                      M1
+                                                     VIN           FQA62N25C                                VOUT
+                                                     28V                                                    1.5A
+                                     (18V DC TO 250V DC)                                                    (43V CLAMP)
+                                                                                 CG
+                                                                    RG
+                                                                                10nF
+                                                                   10Ω
+                                                                RIN                                        C1
+                                                                324k                                       0.47µF
+
+                                                   R1                                         RFB1
+                                                            VDD        GATE            OUT
+                                                  470k                                        12.4k
+                                      R2                   SD       LTC4366-2            FB
+                                     100k                                                     RFB2
+                                               Q1          TIMER          VSS          BASE
+                                SD                                                            422k
+                                               MMBT3904
+                                                                  CT
+                                                                  8.2nF
+                                                                                              436612 F06
+                                                                            RSS
+                                                                            46.4k
+
+
+
+                                            Figure 6. Overvoltage Protected 28V, 1.5A Supply
+
+
+
+
+                                                                                                                                        Rev. F
+
+
+
+
+16                                                   For more information www.analog.com
+                                                                                                                              LTC4366
+APPLICATIONS INFORMATION
+Table 1. Electrical Parameters Used in Design Example
+SYMBOL         PARAMETER                                              CONDITIONS                                            TYP      MAX
+VZ(OUT)        OUT Shunt Reg. Voltage                                 I = 1mA, BASE = 0V                                    5.7V     6.0V
+VUVLO2         OUT Undervoltage Lockout 2                             Rising                                               4.75V     4.9V
+IVSS(CP)       VSS Pin Current – Charge Pump On                                                                        –160µA       –230µA
+IVSS(AMP)      VSS Pin Current – Regulation Amplifier On                                                                   –45µA    –72µA
+IVDD(STHI)     VDD Pin Current – Start-Up, Gate High                  GATE Open, VDD = 7V, OUT = 0V                         9µA     13µA
+IGATE(ST)      GATE Pin Current – Start-Up                            GATE = OUT = 0V                                      –7.5µA   –11µA
+VUVLO1         OUT Undervoltage Lockout 1                             Rising                                               2.55V    2.75V
+
+
+
+After the charge pump is active the VSS current increases                      Step 3: Find RSS(MAX)
+to 160µA (worst-case 230µA, see Table 1) current while                         In some cases this value for RSS is too large to charge C1
+the final value OUT voltage is equal to the minimum supply                     and power the overvoltage amplifier before the maximum
+voltage. The C1 voltage is clamped at 5.7V (worst-case                         input voltage passes to the output. The voltage at the VSS
+6.0V):                                                                         pin when IRIN = IRSS is called the match point (VSS(MATCH)).
+                  VIN(MIN) – VZ(OUT)                                           Choosing the match point (with supply at the maximum)
+    RSS(MAX) =                                                                 sufficiently below VREG (by at least 7V), allows C1 to charge
+                       IVSS(CP)
+                                                                               up in time to protect the load from overvoltage:
+                  18V – 6V                                                                           RIN • ( VREG – 7V )
+    RSS(MAX) =             = 52.3k
+                   230µA                                                          RSS(MAX) =
+                                                                                                   VIN(MAX) − 5V − VREG
+
+Step 2: Determine RIN                                                                              287k • ( 43V – 7V )
+                                                                                  RSS(MAX) =                           = 51.1k
+The value for resistor RIN is calculated using the calculated                                      250V – 5V – 43V
+RSS value. RIN is chosen to provide enough headroom to
+sufficiently charge C1 to 4.9V the maximum undervoltage                        In this case the RSS value of 52.3k calculated in Step 1
+lockout 2 threshold (VUVLO2) which starts the charge pump.                     is too large.
+The parameters that determine RIN include: minimum
+                                                                               Step 4: Iterate Smaller RSS
+supply voltage, the final C1 voltage, MOSFET threshold
+voltage, RSS, 72µA maximum VSS pin current (regulation                         Using 51.1k (RSS(MAX)) as the next guess for RSS, we can
+amplifier on, IVSS(AMP)), and finally the 13µA maximum                         now calculate RIN and RSS(MAX):
+start-up current in the VDD pin (IVDD(STHI)):
+                                                                                           18V – 4.9V − 0.58V − 5V − (72µA • 51.1k)
+                                                                                  RIN =
+              VIN(MIN) – VUVLO2 − VD − VTH − (ISS(AMP) • RSS )                                              13µA
+RIN(MAX) =
+                                   IVDD(STHI)
+                                                                                  RIN = 294k
+             18V − 4.9V − 0.58V − 5V − (72µA • 52.3k )
+RIN(MAX) =                                                                                       294k • ( 43V – 7V )
+                              13µA                                                RSS(MAX)                           = 52.3k
+                                                                                                 250V – 5V − 43V
+RIN(MAX) = 287k
+                                                                               In this case the RSS value of 51.1k is less than RSS(MAX)
+                                                                               and the solution is acceptable.
+
+
+                                                                                                                                            Rev. F
+
+
+
+
+                                                           For more information www.analog.com                                       17
+LTC4366
+APPLICATIONS INFORMATION
+Step 5: Determine CG, C1(MAX), Check RSS                          threshold, 2.75V:
+The gate capacitor (CG) determines the gate slew rate and                            –10nF • (51.6k + 291k ) ( 43V – 35.8V )
+therefore the slew rate of the OUT pin since the output                C1(MAX ) =
+                                                                                                              2 • 2.75V 
+voltage follows the GATE pin. The voltage at the GATE pin                           11µA • 51.6k • 291k •In1–
+                                                                                                            43V − 35.8V 
+rises with a slope equal to 7.5µA/CG at startup and 20µA/CG
+when the charge pump is on. Limiting this slope will limit        or
+the inrush current charging the load capacitance where:                C1(MAX) = 0.1µF
+               CLOAD                                              This limit on C1 does not meet the shunt regulator stability
+  IINRUSH =          •IG
+                CG                                                requirements (C1 > 0.22µF).
+In this example we choose CG to be 10nF which limits the          If we desire a larger value of C1 then a lower size of RSS
+inrush current to be 660mA for a 330µF CLOAD.                     is required. A lower value for RSS is 48.7k, which calls
+                                                                  out an RIN value of 309k and a max C1 value of 0.27µF.
+C1 is used as a bypass capacitor for the circuitry between        The next lower value of 46.4k with RVIN of 324k, results
+the OUT and VSS pins. C1 also stabilizes the shunt regula-        in the worst-case maximum C1 value of 0.49µF. A larger
+tor that clamps the voltage between these pins where the          C1 increases circuit immunity to transients in exchange
+minimum value for regulator stability is 0.22µF. An even          for slightly higher current. Therefore, a selection of com-
+greater 0.47µF value is desired for C1 to protect the OUT         ponents that allow a 0.47µF C1 is recommended.
+to VSS circuitry from transients on the OUT pin.
+                                                                  The lowered RSS value of 46.4k now considers the toler-
+The startup into an overvoltage creates an upper bound-           ances of all the components that set the C1 ramp rate to
+ary on the value of C1. The value of CG, RSS and RVIN             guarantee it charges to the 2.55V UVLO1 threshold before
+determines a maximum C1 that will reach UVLO1 and                 the OUT voltage exceeds the overvoltage threshold.
+power the regulation amplifier before the OUT pin voltage
+exceeds the overvoltage threshold. If our desired value           Step 6: Determine RFB1, RFB2
+for C1 (0.47µF) exceeds the maximum allowed C1 then
+a smaller RSS must be used to iterate a new solution for          The feedback resistors, RFB1 and RFB2, are chosen to
+C1(MAX). We start with calculating VSS(MATCH):                    regulate the overvoltage at 43V. One way to quickly choose
+                                                                  these resistors is to assign 100µA or 1.2V across a 12.4k
+                     RSS                                          RFB1. RFB2 would need to drop the remainder of the regu-
+   VSS(MATCH) =              • ( VIN – VZ(VDD) )
+                  RSS +R VIN                                      lated voltage. Dividing this remainder by 100µA yields the
+                                                                  value for RFB2. In this example RFB2 drops 41.8V. When
+If we use the worst-case 1% maximum value for RSS                 divided by 100µA it results in a 422k value.
+(51.6k) and minimum value for RVIN (291k):
+  VSS(MATCH) = 35.8V                                              Step 7: Determine CT, R1
+                                                                  During an overvoltage the power dissipated in the MOSFET
+                –CG • (RSS +RIN ) ( VREG – VSS(MATCH) )
+   C1(MAX) =                                                      is dependent on the load current and the difference be-
+                                       2 • VUVLO1               tween the supply and regulated voltages. It is necessary
+               IG • RSS • RIN •In1–                             to keep the device power in a safe range. In the power
+                                  VREG – VSS(MATCH) 
+                                                                  MOSFET data sheets there is a maximum safe operating
+Use the worst-case maximum gate current of 11µA instead           curve displaying current versus drain to source voltage
+of the typical 7.5µA and the worst-case minimum UVLO1             for a fixed pulsed time. Other pulsed time data from DC
+                                                                  to 10µs are plotted on the one graph. The different lines
+                                                                  of operation generally follow a constant power squared
+
+                                                                                                                          Rev. F
+
+
+
+
+18                                            For more information www.analog.com
+                                                                                                                            LTC4366
+APPLICATIONS INFORMATION
+times time or P2t. Knowing the power we then adjust                         In order to limit the SD pin current (10mA max) a collector
+the time using the timer capacitor to limit the P2t during                  resistor, R1, in series with Q1 is required. The maximum
+overvoltage. In this example the MOSFET data sheet has                      value for this resistor is around 5M. This requirement oc-
+a 6400W2s P2t for a 10ms single pulse.                                      curs when the pull-down is required to sink 1.6µA from
+                                                                            SD and VDD is clamped at 12V. High valued resistors are
+In this application 250V minus 43V is applied across the
+                                                                            susceptible to leakage currents so we chose a 470k resistor
+MOSFET at 3A. If the power is applied for less than 16.5ms
+                                                                            for R1. Resistor R2 provides ESD protection for Q1’s base.
+then MOSFET P2t limit is not exceeded:
+                                                                            The gate resistor RG limits the parasitic trace capacitance
+  P = (250V – 43V) • 3A = 621W
+                                                                            on M1’s gate node that could lead to parasitic MOSFET
+  P2t = (621W)2 • 16.5ms = 6363W2s                                          self-oscillation. The recommended value for RG is 10Ω.
+Prior to the moment when the output is regulated at 43V,
+the output is ramping from 28V to 43V. This ramp time is                    High Voltage Application
+based on the 20µA gate current charging the 10nF capaci-                    In Figure 7 the circuit accepts 110V AC (rectified to 160V)
+tor. Using the equation for ramp time:                                      and protects the load from accidental connection to 220V
+          CG • ∆V 10nF • 15V                                                AC by limiting the output to less than 200V. The circuit
+   ∆t =          =           = 7.5ms                                        has a 100V to 800V VIN operating range where the FET
+            IG      20µA                                                    breakdown voltage limits the maximum input voltage. The
+                                                                            C1 is set to 0.47µF to provide a bypass for the charge pump
+To be safe we set the overvoltage time to 10ms. We set the
+                                                                            that is large enough to provide good noise immunity from
+regulation time to be 2.5ms (the remainder of the 10ms
+                                                                            outside voltage transients. The timer capacitor is sized to
+overvoltage time minus the ramp time). In this example
+                                                                            give a 1ms overvoltage regulation time that keeps the P2t
+it is assumed the 250V overvoltage is a constant DC volt-
+                                                                            below the 640W2s specified for this MOSFET.
+age for 10ms. This duration exceeds Mil-Std-1275 which
+specifies a 70µs surge to 250V that decays in 1.6ms. Us-
+ing the following equation (based on charging with 9µA)
+to set the CT:
+               ∆t         2.5ms
+   CT = IT •      = 9µA •       ≈ 8.2nF
+               ∆V          2.8V
+
+                                                                        M1
+                                                      VIN           IXTH12N100L                              VOUT
+                                 160V (RECTIFIED 110V AC)                                                    0.5A
+                                            100V TO 800V                                                     (200V CLAMP)
+                                                                                 CG
+                                                                     RG
+                                                                                 2nF
+                                                                    10Ω
+                                                                 RIN                                        C1
+                                                                 4.64M                                      0.47µF
+                                                  R1                                          RFB1
+                                                             VDD         GATE          OUT
+                                                 470k                                         12.4k
+                                       R2                   SD       LTC4366-2           FB
+                                      100k                                                    RFB2
+                                              Q1            TIMER          VSS         BASE
+                                 SD                                                           2M
+                                              BF722
+                                                                   CT
+                                                                   3.3nF
+                                                                                               436612 F07
+                                                                             RSS
+                                                                             412k
+                          DANGER! Lethal Voltages Present
+
+                                 Figure 7. Rectified 110V AC Supply Protected from 220V AC
+
+                                                                                                                                   Rev. F
+
+
+
+
+                                                 For more information www.analog.com                                           19
+LTC4366
+APPLICATIONS INFORMATION
+28V Vehicle Application                                                   During negative input voltages Q2 turns on when current
+                                                                          from R6 (via D4) develops a forward diode drop on R5.
+The circuit in Figure 8 adds reverse voltage protection to
+                                                                          Q2 then holds the gate of M2 at the input voltage which
+the standard 28V application shown in Figure 6. There are
+                                                                          turns M2 off. This blocks negative input voltages from
+three modes to this circuit: pass FET On when the input
+                                                                          reaching M1 and the load. D2 prevents damage to the
+is 18V to 41V, clamping the output to 43V when more
+                                                                          LTC4366’s GATE pin by clamping it at ground when the
+than 43V appears at the input and finally reverse voltage
+                                                                          M2’s gate is negative.
+protection when up to –250V DC is present at the input.
+The reverse voltage protection consists of the circuitry                  Low Voltage Application
+inside the dotted box in Figure 8. When a positive voltage                The circuit on the last page (Surge Protected Automotive
+is first applied to the input, D3 and the forward biased                  Supply) starts up with minimum input voltage of 9V. In
+base-collector junction of Q2 allow the gate of M2 to                     order to successfully start up at 9V and clamp the output
+follow the input voltage minus a two diode drop. During                   voltage at 18V for input voltages up to 100V the value of
+this condition the body diode of M2 is used to transmit                   RSS has to be small (1.91k). The FET used in this case has
+power to the LTC4366. Once the LTC4366 is powered up                      a 3V threshold to ease the start-up requirements. The timer
+it fully enhances the gate of M1 and M2 (via D1). The M1                  capacitor is sized to give a 2.5ms overvoltage regulation
+and M2 pass FETs then provide a low impedance path to                     time that keeps the P2t below the 420W2s specified for
+the load. In an overvoltage condition, D1 blocks excessive                this MOSFET.
+positive voltage from the input supply passing to the GATE
+pin of the LTC4366. D4 eliminates current flow through
+R6 when the input is positive while D3 prevents emitter
+base breakdown of Q2 when the input is powering up.
+
+                    REVERSE VOLTAGE             M2                                               M1
+              VIN   PROTECTION               FDB33N25                                         FQA62N25C                                VOUT
+       18V TO 41V                                                                                                                      1.5A
+       (±250V DC)                                                                                                                      (43V CLAMP)
+                                          Q2
+                                        MMBT3904                                                            CG
+                                                                                               RG
+                                                                                                           10nF
+                                                                  D1                 RIN      10Ω
+                          D3       R5                 R4                                                                              C1
+                    BAV3004W     470k                270k      BAV3004W             324k
+                                                                                                                                      0.47µF
+                          D4                             D2
+                    BAV3004W                       BAV3004W
+                                                                              R1                                         RFB1
+                           R6                                                          VDD       GATE             OUT
+                                                                             470k                                        12.4k
+                         270k
+                                                                                      SD       LTC4366-2            FB
+                                                                                                                         RFB2
+                                                                          Q1          TIMER          VSS          BASE
+                                                              SD                                                         422k
+                                                                          MMBT3904
+                                                                    R2
+                                                                                             CT
+                                                                   100k
+                                                                                             8.2nF
+                                                                                                                         436612 F08
+                                                                                                       RSS
+                                                                                                       46.4k
+
+
+
+                                  Figure 8. 28V Vehicle Application with Reverse Voltage Protection
+
+
+
+
+                                                                                                                                                     Rev. F
+
+
+
+
+20                                                    For more information www.analog.com
+                                                                                                                                   LTC4366
+PACKAGE DESCRIPTION
+Please refer to http://www.adi.com/designtools/packaging/ for the most recent package drawings.
+
+
+
+                                                                     TS8 Package
+                                                                8-Lead Plastic TSOT-23
+                                                         (Reference LTC DWG # 05-08-1637 Rev A)
+
+
+
+
+                           0.40                  0.65                                                           2.90 BSC
+                           MAX                   REF                                                            (NOTE 4)
+
+
+
+
+                                                            1.22 REF
+
+
+
+
+                                                                        2.80 BSC    1.50 – 1.75
+       3.85 MAX 2.62 REF                                    1.4 MIN                  (NOTE 4)
+
+                                                                                                         PIN ONE ID
+
+
+
+
+                           RECOMMENDED SOLDER PAD LAYOUT                                                                             0.22 – 0.36
+                                                                                              0.65 BSC
+                                PER IPC CALCULATOR                                                                                   8 PLCS (NOTE 3)
+
+
+                                                                                          0.80 – 0.90
+
+            0.20 BSC
+                                                                                                                                    0.01 – 0.10
+                                                                                   1.00 MAX
+                    DATUM ‘A’
+
+
+
+                                       0.30 – 0.50 REF
+                                                                  0.09 – 0.20                                   1.95 BSC   TS8 TSOT-23 0710 REV A
+
+                                                                   (NOTE 3)
+             NOTE:
+             1. DIMENSIONS ARE IN MILLIMETERS
+             2. DRAWING NOT TO SCALE
+             3. DIMENSIONS ARE INCLUSIVE OF PLATING
+             4. DIMENSIONS ARE EXCLUSIVE OF MOLD FLASH AND METAL BURR
+             5. MOLD FLASH SHALL NOT EXCEED 0.254mm
+             6. JEDEC PACKAGE REFERENCE IS MO-193
+
+
+
+
+                                                                                                                                                       Rev. F
+
+
+
+
+                                                            For more information www.analog.com                                                     21
+LTC4366
+PACKAGE DESCRIPTION
+Please refer to http://www.adi.com/designtools/packaging/ for the most recent package drawings.
+
+
+                                                                  DDB Package
+                                                        8-Lead Plastic DFN (3mm × 2mm)
+                                                      (Reference LTC DWG # 05-08-1702 Rev B)
+
+                                    0.61 ±0.05
+                                    (2 SIDES)
+
+                                                                      0.70 ±0.05
+                       2.55 ±0.05
+                              1.15 ±0.05
+
+                                                                         PACKAGE
+                                                                         OUTLINE
+                                 0.25 ±0.05
+                                                          0.50 BSC
+                                                  2.20 ±0.05
+                                                  (2 SIDES)
+                             RECOMMENDED SOLDER PAD PITCH AND DIMENSIONS
+
+
+                                                                                                  R = 0.115                0.40 ±0.10
+                                                  3.00 ±0.10
+                                                                                   R = 0.05             TYP
+                                                  (2 SIDES)
+                                                                                       TYP               5             8
+
+
+                                                                     2.00 ±0.10
+                               PIN 1 BAR                                                                                          PIN 1
+                                                                     (2 SIDES)
+                              TOP MARK                                                                                            R = 0.20 OR
+                            (SEE NOTE 6)                                                                                          0.25 × 45°
+                                                                                     0.56 ±0.05
+                                                                                     (2 SIDES)                                    CHAMFER
+                                                                                                        4              1          (DDB8) DFN 0905 REV B
+
+                                    0.200 REF                        0.75 ±0.05                   0.25 ±0.05
+                                                                                                                       0.50 BSC
+                                                                                                          2.15 ±0.05
+                                                                                                          (2 SIDES)
+                                                                             0 – 0.05
+                                                                                              BOTTOM VIEW—EXPOSED PAD
+                                           NOTE:
+                                           1. DRAWING CONFORMS TO VERSION (WECD-1) IN JEDEC PACKAGE OUTLINE M0-229
+                                           2. DRAWING NOT TO SCALE
+                                           3. ALL DIMENSIONS ARE IN MILLIMETERS
+                                           4. DIMENSIONS OF EXPOSED PAD ON BOTTOM OF PACKAGE DO NOT INCLUDE
+                                              MOLD FLASH. MOLD FLASH, IF PRESENT, SHALL NOT EXCEED 0.15mm ON ANY SIDE
+                                           5. EXPOSED PAD SHALL BE SOLDER PLATED
+                                           6. SHADED AREA IS ONLY A REFERENCE FOR PIN 1 LOCATION ON THE TOP AND BOTTOM OF PACKAGE
+
+
+
+
+                                                                                                                                                          Rev. F
+
+
+
+
+22                                                        For more information www.analog.com
+                                                                                                                                                             LTC4366
+REVISION HISTORY
+REV   DATE   DESCRIPTION                                                                                                                                      PAGE NUMBER
+ A    1/12   Added Patents Pending statement                                                                                                                        1
+             Revised Figure 4 in Applications Information section                                                                                                  11
+ B    2/12   Removed reference to overcurrent faults under MOSFET Selection                                                                                        13
+             Fixed orientation of M2 in Figure 8                                                                                                                   18
+ C    8/12   Updated Shutdown current from <20µA to <14µA                                                                                                           1
+             Changed MOSFET part number and Gate Capacitor value used in the Typical Application                                                                    1
+             Added MP-grade order information and specifications                                                                                                2, 3, 4, 5
+             Added negative sign to graphs G12 x-axis and G18, G21 y-axis                                                                                         6, 7
+             Changed MOSFET part number in Figure 1 and Figure 6                                                                                                 11, 16
+             Added section GATE Capacitor, CG                                                                                                                      15
+             Changed ILOAD current from 5A to 3A in Design Example                                                                                                 16
+             Updated C1(MAX) values in Step 5 calculations to 0.27µF and worst case 0.49µF                                                                         18
+             Updated calculated values in Step 7, added supporting text                                                                                            19
+             Changed MOSFET part number and GATE capacitor used in Figure 7                                                                                        19
+ D    8/13   Simplified Diagram: Corrected amplifier’s input polarity in Regulate Diagram                                                                           9
+             Functional Diagram: Added switch in series with TIMER pull-down current                                                                                9
+ E    8/15   Clarified “Ambient” on Operating Temperature Range; raised TJMAX to 150°C                                                                              2
+             TIMER Pin Function: Changed 278ms/µF to 311ms/µF                                                                                                       8
+             Figures 1, 6, 8: Changed CT to 8.2nF from 10nF                                                                                                    11, 16, 20
+             In CT equation, changed constant to 3.2 from 3.5; updated CT calculation                                                                            12, 19
+ F    2/24   Updated Electrical Characteristics table                                                                                                             4, 5
+
+
+
+
+                                                                                                                                                                          Rev. F
+
+                   Information furnished by Analog Devices is believed to be accurate and reliable. However, no responsibility is assumed by Analog
+                   Devices for its use, nor for any infringements of patents or other rights of third parties that may result from its use. Specifications
+                   subject to change without notice. No license For  more by
+                                                                is granted information   www.analog.com
+                                                                             implication or otherwise under any patent or patent rights of Analog Devices.         23
+LTC4366
+TYPICAL APPLICATION
+                                                    Surge Protected Automotive 12V Supply
+
+                                                                            M1
+                                                          VIN           HUF76639S3S                               VOUT
+                                                          12V                                                     4A
+                                                 (9V TO 100V)                                                     (18V CLAMP)
+                                                                                     CG
+                                                                         RG
+                                                                                     2nF
+                                                                        10Ω
+                                                                     RIN                                         C1
+                                                                     29.4k                                       0.47µF
+                                                      R1                                          RFB1
+                                                                 VDD         GATE          OUT
+                                                     470k                                         12.4k
+                                          R2                    SD       LTC4366-2           FB
+                                         100k                                                     RFB2
+                                                  Q1            TIMER          VSS         BASE
+                                    SD                                                            169k
+                                                  MMBT3904
+                                                                       CT
+                                                                       3.3nF
+                                                                                                   436612 TA02
+                                                                                 RSS
+                                                                                 1.91k
+
+
+
+
+RELATED PARTS
+PART NUMBER         DESCRIPTION                                              COMMENTS
+LTC1696             Overvoltage Protection Controller                        ThinSOT™ Package, 2.7V to 28V
+LTC2909             Triple/Dual Inputs UV/OV Negative Monitor                Pin Selectable Input Polarity Allows Negative and OV Monitoring
+LTC2912/LTC2913     Single/Dual UV/OV Voltage Monitor                        Ads UV and OV Trip Values, ±1.5% Threshold Accuracy
+LTC2914             Quad UV/OV Monitor                                       For Positive and Negative Supplies
+LTC3827/LTC3827-1 Low IQ, Dual, Synchronous Controller                       4V ≤ VIN ≤ 36V, 0.8V ≤ VOUT ≤ 10V, 80µA Quiescent Current
+LTC3835/LTC3835-1 Low IQ, Synchronous Step-Down Controller                   Single Channel LTC3827/LTC3827-1
+LT3845            Low IQ, Synchronous Step-Down Controller                   4V ≤ VIN ≤ 60V, 1.23V ≤ VOUT ≤ 36V, 120µA Quiescent Current
+LTC3850             Dual, 550kHz, 2-Phase Synchronous Step-Down Dual 180° Phased Controllers, VIN 4V to 24V, 97% Duty Cycle, 4mm × 4mm
+                    Controller                                  QFN-28, SSOP-28 Packages
+LTC3890             Low IQ, Dual 2-Phase, Synchronous Step-Down              4V ≤ VIN ≤ 60V, 0.8V ≤ VOUT ≤ 24V, 50µA Quiescent Current
+                    Controller
+LT4256              Positive 48V Hot Swap Controller with                    Foldback Current Limiting, Open-Circuit and Overcurrent Fault Output, Up to 80V
+                    Open-Circuit Detect                                      Supply
+LTC4260             Positive High Voltage Hot Swap Controller with           Wide Operating Range 8.5V to 80V
+                    8-Bit ADC and I2C
+LTC4352             Ideal MOSFET ORing Diode                                 External N-Channel MOSFETs Replace ORing Diodes, 0V to 18V
+LTC4354             Negative Voltage Diode-OR Controller                     Controls Two N-Channel MOSFETs, 1.2µs Turn-Off, –80V Operation
+LTC4355             Positive Voltage Diode-OR Controller                     Controls Two N-Channel MOSFETs, 0.4µs Turn-Off, 80V Operation
+LT4363              High Voltage Surge Stopper                               100V Overvoltage and Overcurrent Protection, Latch-Off and Auto-Retry Options
+LTC4365             Window Passer – OV, UV and Reverse Supply                2.5V to 34V Operation, Protects 60V to –40V
+                    Protection Controller
+
+
+
+
+                                                                                                                                                          Rev. F
+
+
+
+
+24
+                                                                                                                                                            2/24
+                                                                                                                                               www.analog.com
+                                                         For more information www.analog.com                                     ANALOG DEVICES, INC. 2012–2024
+

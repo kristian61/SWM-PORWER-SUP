@@ -1,0 +1,1585 @@
+{
+  "scope": "Analytical ideal-buck and assumed averaged-plant sensitivity studies only",
+  "actual_hardware_tests": 0,
+  "LTC3779_device_simulation": false,
+  "four_phase_system_implemented": false,
+  "inputs": {
+    "bus_V": 110.0,
+    "frequency_Hz": 101800.0,
+    "phase_inductance_H": 0.00015,
+    "phase_target_current_A": 10,
+    "ideal_phase_count_hypothesis": 4
+  },
+  "manufacturer_data": {
+    "BSC110N15NS5": {
+      "revision": "2.6, 2022-11-07",
+      "page": "3-4",
+      "Rds_max_10V_25C_ohm": 0.011,
+      "Qg_max_C": 3.5e-08,
+      "Qg_typ_C": 2.8e-08,
+      "Qgd_max_C": 9e-09,
+      "Qgd_typ_C": 5.8e-09,
+      "tr_typ_s": 3.3e-09,
+      "tf_typ_s": 2.9e-09,
+      "Qrr_typ_C": 4.6e-08,
+      "Qrr_max_C": 9.2e-08,
+      "RthetaJC_max_K_per_W": 1,
+      "Tj_max_C": 150,
+      "gate_test": "75V, 38A, VGS0..10V; timing with external RG=3ohm",
+      "Qrr_test": "75V, 38A, diF/dt=100A/us; NOT a 110V/10A specification",
+      "RthetaJA_test_K_per_W": 50,
+      "RthetaJA_test": "40x40x1.5mm vertical FR4, 6cm2 drain Cu, 70um, still air"
+    },
+    "LTC3779": {
+      "gm_typ_S": 0.0015,
+      "gate_deadtime_typ_s": 6e-08,
+      "maximum_buck_valley_threshold_V": [
+        0.07,
+        0.09,
+        0.11
+      ],
+      "threshold_range_is_matching_specification": false,
+      "buck_only_max_duty": 0.9167
+    }
+  },
+  "sources": [
+    {
+      "file": "references/BSC110N15NS5.pdf",
+      "sha256": "ba0b880c5ae9919b1b32bdae90ea848e70739c4be5f2247b96e3c1b86fa45576"
+    },
+    {
+      "file": "references/LTC3779.pdf",
+      "sha256": "f3726b2ba54a88947f210ca819dd426d4cdc04159579e40e4b352893925e194f"
+    }
+  ],
+  "limitations": [
+    "Buck/boost transition, pulse skipping, DCM and actual LTC3779 sampling are absent.",
+    "Qrr/timing/charge values have different manufacturer test points; extrapolation is illustrative.",
+    "No actual inductor DCR/core model, capacitor ESR/ESL/lifetime or PCB thermal model exists.",
+    "Current-command gain, inner current-loop pole and delay are assumed, not identified LTC3779 data.",
+    "Modeled loss subtotal excludes Coss/Eoss, ringing, snubbers, copper/connectors and quiescent losses.",
+    "Shared ITH/V5 startup and failed-phase pin-limit problem remains unsolved.",
+    "Fault discharge ignores ESL and nonlinear DUT behavior; it is an energy illustration."
+  ],
+  "capacitor_scenarios": [
+    {
+      "phase_count_ideal": 1,
+      "phase_ripple_A_pp": 0.3125558135381319,
+      "input_capacitor_bank_Irms_A": 2.0834311278236415,
+      "output_capacitor_bank_Irms_A": 0.0902270920376638,
+      "output_current_sum_ripple_A_pp": 0.31255036299729966,
+      "capacitive_voltage_ripple_V_pp": 0.007995554383958044,
+      "with_ESR_voltage_ripple_V_pp": 0.011078266026362055,
+      "output_bank_effective_C_F_assumption": 4.8e-05,
+      "output_bank_ESR_ohm_assumption": 0.02,
+      "output_bank_ESR_heat_W": 0.00016281856275146108,
+      "Vout_V": 5.0,
+      "effective_C_fraction_scenario": 0.5
+    },
+    {
+      "phase_count_ideal": 1,
+      "phase_ripple_A_pp": 0.3125558135381319,
+      "input_capacitor_bank_Irms_A": 2.0834311278236415,
+      "output_capacitor_bank_Irms_A": 0.0902270920376638,
+      "output_current_sum_ripple_A_pp": 0.31255036299729966,
+      "capacitive_voltage_ripple_V_pp": 0.007995554383958044,
+      "with_ESR_voltage_ripple_V_pp": 0.031256544505221834,
+      "output_bank_effective_C_F_assumption": 4.8e-05,
+      "output_bank_ESR_ohm_assumption": 0.1,
+      "output_bank_ESR_heat_W": 0.0008140928137573054,
+      "Vout_V": 5.0,
+      "effective_C_fraction_scenario": 0.5
+    },
+    {
+      "phase_count_ideal": 1,
+      "phase_ripple_A_pp": 0.3125558135381319,
+      "input_capacitor_bank_Irms_A": 2.0834311278236415,
+      "output_capacitor_bank_Irms_A": 0.0902270920376638,
+      "output_current_sum_ripple_A_pp": 0.31255036299729966,
+      "capacitive_voltage_ripple_V_pp": 0.003997777191979022,
+      "with_ESR_voltage_ripple_V_pp": 0.007581962032566675,
+      "output_bank_effective_C_F_assumption": 9.6e-05,
+      "output_bank_ESR_ohm_assumption": 0.02,
+      "output_bank_ESR_heat_W": 0.00016281856275146108,
+      "Vout_V": 5.0,
+      "effective_C_fraction_scenario": 1.0
+    },
+    {
+      "phase_count_ideal": 1,
+      "phase_ripple_A_pp": 0.3125558135381319,
+      "input_capacitor_bank_Irms_A": 2.0834311278236415,
+      "output_capacitor_bank_Irms_A": 0.0902270920376638,
+      "output_current_sum_ripple_A_pp": 0.31255036299729966,
+      "capacitive_voltage_ripple_V_pp": 0.003997777191979022,
+      "with_ESR_voltage_ripple_V_pp": 0.031255790402475905,
+      "output_bank_effective_C_F_assumption": 9.6e-05,
+      "output_bank_ESR_ohm_assumption": 0.1,
+      "output_bank_ESR_heat_W": 0.0008140928137573054,
+      "Vout_V": 5.0,
+      "effective_C_fraction_scenario": 1.0
+    },
+    {
+      "phase_count_ideal": 4,
+      "phase_ripple_A_pp": 0.3125558135381319,
+      "input_capacitor_bank_Irms_A": 3.8576689368531865,
+      "output_capacitor_bank_Irms_A": 0.07733750902021098,
+      "output_current_sum_ripple_A_pp": 0.2678831808693616,
+      "capacitive_voltage_ripple_V_pp": 0.0004283332805991713,
+      "with_ESR_voltage_ripple_V_pp": 0.0013404214228590406,
+      "output_bank_effective_C_F_assumption": 0.000192,
+      "output_bank_ESR_ohm_assumption": 0.005,
+      "output_bank_ESR_heat_W": 2.990545150725608e-05,
+      "Vout_V": 5.0,
+      "effective_C_fraction_scenario": 0.5
+    },
+    {
+      "phase_count_ideal": 4,
+      "phase_ripple_A_pp": 0.3125558135381319,
+      "input_capacitor_bank_Irms_A": 3.8576689368531865,
+      "output_capacitor_bank_Irms_A": 0.07733750902021098,
+      "output_current_sum_ripple_A_pp": 0.2678831808693616,
+      "capacitive_voltage_ripple_V_pp": 0.0004283332805991713,
+      "with_ESR_voltage_ripple_V_pp": 0.006697402687959745,
+      "output_bank_effective_C_F_assumption": 0.000192,
+      "output_bank_ESR_ohm_assumption": 0.025,
+      "output_bank_ESR_heat_W": 0.0001495272575362804,
+      "Vout_V": 5.0,
+      "effective_C_fraction_scenario": 0.5
+    },
+    {
+      "phase_count_ideal": 4,
+      "phase_ripple_A_pp": 0.3125558135381319,
+      "input_capacitor_bank_Irms_A": 3.8576689368531865,
+      "output_capacitor_bank_Irms_A": 0.07733750902021098,
+      "output_current_sum_ripple_A_pp": 0.2678831808693616,
+      "capacitive_voltage_ripple_V_pp": 0.00021416664029958566,
+      "with_ESR_voltage_ripple_V_pp": 0.00133957748745966,
+      "output_bank_effective_C_F_assumption": 0.000384,
+      "output_bank_ESR_ohm_assumption": 0.005,
+      "output_bank_ESR_heat_W": 2.990545150725608e-05,
+      "Vout_V": 5.0,
+      "effective_C_fraction_scenario": 1.0
+    },
+    {
+      "phase_count_ideal": 4,
+      "phase_ripple_A_pp": 0.3125558135381319,
+      "input_capacitor_bank_Irms_A": 3.8576689368531865,
+      "output_capacitor_bank_Irms_A": 0.07733750902021098,
+      "output_current_sum_ripple_A_pp": 0.2678831808693616,
+      "capacitive_voltage_ripple_V_pp": 0.00021416664029958566,
+      "with_ESR_voltage_ripple_V_pp": 0.006697241104846892,
+      "output_bank_effective_C_F_assumption": 0.000384,
+      "output_bank_ESR_ohm_assumption": 0.025,
+      "output_bank_ESR_heat_W": 0.0001495272575362804,
+      "Vout_V": 5.0,
+      "effective_C_fraction_scenario": 1.0
+    },
+    {
+      "phase_count_ideal": 1,
+      "phase_ripple_A_pp": 1.8009168303863787,
+      "input_capacitor_bank_Irms_A": 5.013468137101643,
+      "output_capacitor_bank_Irms_A": 0.5198799103425552,
+      "output_current_sum_ripple_A_pp": 1.8009168303863774,
+      "capacitive_voltage_ripple_V_pp": 0.0460696225847858,
+      "with_ESR_voltage_ripple_V_pp": 0.05311182112599174,
+      "output_bank_effective_C_F_assumption": 4.8e-05,
+      "output_bank_ESR_ohm_assumption": 0.02,
+      "output_bank_ESR_heat_W": 0.005405502423555666,
+      "Vout_V": 55.0,
+      "effective_C_fraction_scenario": 0.5
+    },
+    {
+      "phase_count_ideal": 1,
+      "phase_ripple_A_pp": 1.8009168303863787,
+      "input_capacitor_bank_Irms_A": 5.013468137101643,
+      "output_capacitor_bank_Irms_A": 0.5198799103425552,
+      "output_current_sum_ripple_A_pp": 1.8009168303863774,
+      "capacitive_voltage_ripple_V_pp": 0.0460696225847858,
+      "with_ESR_voltage_ripple_V_pp": 0.18009730677186353,
+      "output_bank_effective_C_F_assumption": 4.8e-05,
+      "output_bank_ESR_ohm_assumption": 0.1,
+      "output_bank_ESR_heat_W": 0.027027512117778332,
+      "Vout_V": 55.0,
+      "effective_C_fraction_scenario": 0.5
+    },
+    {
+      "phase_count_ideal": 1,
+      "phase_ripple_A_pp": 1.8009168303863787,
+      "input_capacitor_bank_Irms_A": 5.013468137101643,
+      "output_capacitor_bank_Irms_A": 0.5198799103425552,
+      "output_current_sum_ripple_A_pp": 1.8009168303863774,
+      "capacitive_voltage_ripple_V_pp": 0.0230348112923929,
+      "with_ESR_voltage_ripple_V_pp": 0.037117009748972335,
+      "output_bank_effective_C_F_assumption": 9.6e-05,
+      "output_bank_ESR_ohm_assumption": 0.02,
+      "output_bank_ESR_heat_W": 0.005405502423555666,
+      "Vout_V": 55.0,
+      "effective_C_fraction_scenario": 1.0
+    },
+    {
+      "phase_count_ideal": 1,
+      "phase_ripple_A_pp": 1.8009168303863787,
+      "input_capacitor_bank_Irms_A": 5.013468137101643,
+      "output_capacitor_bank_Irms_A": 0.5198799103425552,
+      "output_current_sum_ripple_A_pp": 1.8009168303863774,
+      "capacitive_voltage_ripple_V_pp": 0.0230348112923929,
+      "with_ESR_voltage_ripple_V_pp": 0.18009449490525065,
+      "output_bank_effective_C_F_assumption": 9.6e-05,
+      "output_bank_ESR_ohm_assumption": 0.1,
+      "output_bank_ESR_heat_W": 0.027027512117778332,
+      "Vout_V": 55.0,
+      "effective_C_fraction_scenario": 1.0
+    },
+    {
+      "phase_count_ideal": 4,
+      "phase_ripple_A_pp": 1.8009168303863787,
+      "input_capacitor_bank_Irms_A": 0.5198799045324445,
+      "output_capacitor_bank_Irms_A": 0.0,
+      "output_current_sum_ripple_A_pp": 0.0,
+      "capacitive_voltage_ripple_V_pp": 0.0,
+      "with_ESR_voltage_ripple_V_pp": 0.0,
+      "output_bank_effective_C_F_assumption": 0.000192,
+      "output_bank_ESR_ohm_assumption": 0.005,
+      "output_bank_ESR_heat_W": 0.0,
+      "Vout_V": 55.0,
+      "effective_C_fraction_scenario": 0.5
+    },
+    {
+      "phase_count_ideal": 4,
+      "phase_ripple_A_pp": 1.8009168303863787,
+      "input_capacitor_bank_Irms_A": 0.5198799045324445,
+      "output_capacitor_bank_Irms_A": 0.0,
+      "output_current_sum_ripple_A_pp": 0.0,
+      "capacitive_voltage_ripple_V_pp": 0.0,
+      "with_ESR_voltage_ripple_V_pp": 0.0,
+      "output_bank_effective_C_F_assumption": 0.000192,
+      "output_bank_ESR_ohm_assumption": 0.025,
+      "output_bank_ESR_heat_W": 0.0,
+      "Vout_V": 55.0,
+      "effective_C_fraction_scenario": 0.5
+    },
+    {
+      "phase_count_ideal": 4,
+      "phase_ripple_A_pp": 1.8009168303863787,
+      "input_capacitor_bank_Irms_A": 0.5198799045324445,
+      "output_capacitor_bank_Irms_A": 0.0,
+      "output_current_sum_ripple_A_pp": 0.0,
+      "capacitive_voltage_ripple_V_pp": 0.0,
+      "with_ESR_voltage_ripple_V_pp": 0.0,
+      "output_bank_effective_C_F_assumption": 0.000384,
+      "output_bank_ESR_ohm_assumption": 0.005,
+      "output_bank_ESR_heat_W": 0.0,
+      "Vout_V": 55.0,
+      "effective_C_fraction_scenario": 1.0
+    },
+    {
+      "phase_count_ideal": 4,
+      "phase_ripple_A_pp": 1.8009168303863787,
+      "input_capacitor_bank_Irms_A": 0.5198799045324445,
+      "output_capacitor_bank_Irms_A": 0.0,
+      "output_current_sum_ripple_A_pp": 0.0,
+      "capacitive_voltage_ripple_V_pp": 0.0,
+      "with_ESR_voltage_ripple_V_pp": 0.0,
+      "output_bank_effective_C_F_assumption": 0.000384,
+      "output_bank_ESR_ohm_assumption": 0.025,
+      "output_bank_ESR_heat_W": 0.0,
+      "Vout_V": 55.0,
+      "effective_C_fraction_scenario": 1.0
+    },
+    {
+      "phase_count_ideal": 1,
+      "phase_ripple_A_pp": 0.6166815502768355,
+      "input_capacitor_bank_Irms_A": 2.930729910804751,
+      "output_capacitor_bank_Irms_A": 0.17802063110957123,
+      "output_current_sum_ripple_A_pp": 0.6166685213040299,
+      "capacitive_voltage_ripple_V_pp": 0.01577545714395001,
+      "with_ESR_voltage_ripple_V_pp": 0.021117411004965156,
+      "output_bank_effective_C_F_assumption": 4.8e-05,
+      "output_bank_ESR_ohm_assumption": 0.02,
+      "output_bank_ESR_heat_W": 0.0006338269020130008,
+      "Vout_V": 99.6,
+      "effective_C_fraction_scenario": 0.5
+    },
+    {
+      "phase_count_ideal": 1,
+      "phase_ripple_A_pp": 0.6166815502768355,
+      "input_capacitor_bank_Irms_A": 2.930729910804751,
+      "output_capacitor_bank_Irms_A": 0.17802063110957123,
+      "output_current_sum_ripple_A_pp": 0.6166685213040299,
+      "capacitive_voltage_ripple_V_pp": 0.01577545714395001,
+      "with_ESR_voltage_ripple_V_pp": 0.06166890384486634,
+      "output_bank_effective_C_F_assumption": 4.8e-05,
+      "output_bank_ESR_ohm_assumption": 0.1,
+      "output_bank_ESR_heat_W": 0.0031691345100650042,
+      "Vout_V": 99.6,
+      "effective_C_fraction_scenario": 0.5
+    },
+    {
+      "phase_count_ideal": 1,
+      "phase_ripple_A_pp": 0.6166815502768355,
+      "input_capacitor_bank_Irms_A": 2.930729910804751,
+      "output_capacitor_bank_Irms_A": 0.17802063110957123,
+      "output_current_sum_ripple_A_pp": 0.6166685213040299,
+      "capacitive_voltage_ripple_V_pp": 0.007887728571975006,
+      "with_ESR_voltage_ripple_V_pp": 0.014640486888482405,
+      "output_bank_effective_C_F_assumption": 9.6e-05,
+      "output_bank_ESR_ohm_assumption": 0.02,
+      "output_bank_ESR_heat_W": 0.0006338269020130008,
+      "Vout_V": 99.6,
+      "effective_C_fraction_scenario": 1.0
+    },
+    {
+      "phase_count_ideal": 1,
+      "phase_ripple_A_pp": 0.6166815502768355,
+      "input_capacitor_bank_Irms_A": 2.930729910804751,
+      "output_capacitor_bank_Irms_A": 0.17802063110957123,
+      "output_current_sum_ripple_A_pp": 0.6166685213040299,
+      "capacitive_voltage_ripple_V_pp": 0.007887728571975006,
+      "with_ESR_voltage_ripple_V_pp": 0.061667877987634664,
+      "output_bank_effective_C_F_assumption": 9.6e-05,
+      "output_bank_ESR_ohm_assumption": 0.1,
+      "output_bank_ESR_heat_W": 0.0031691345100650042,
+      "Vout_V": 99.6,
+      "effective_C_fraction_scenario": 1.0
+    },
+    {
+      "phase_count_ideal": 4,
+      "phase_ripple_A_pp": 0.6166815502768355,
+      "input_capacitor_bank_Irms_A": 4.85038791728551,
+      "output_capacitor_bank_Irms_A": 0.12225513744698525,
+      "output_current_sum_ripple_A_pp": 0.4234952495702373,
+      "capacitive_voltage_ripple_V_pp": 0.0006771092299754412,
+      "with_ESR_voltage_ripple_V_pp": 0.002117828496744656,
+      "output_bank_effective_C_F_assumption": 0.000192,
+      "output_bank_ESR_ohm_assumption": 0.005,
+      "output_bank_ESR_heat_W": 7.473159316090628e-05,
+      "Vout_V": 99.6,
+      "effective_C_fraction_scenario": 0.5
+    },
+    {
+      "phase_count_ideal": 4,
+      "phase_ripple_A_pp": 0.6166815502768355,
+      "input_capacitor_bank_Irms_A": 4.85038791728551,
+      "output_capacitor_bank_Irms_A": 0.12225513744698525,
+      "output_current_sum_ripple_A_pp": 0.4234952495702373,
+      "capacitive_voltage_ripple_V_pp": 0.0006771092299754412,
+      "with_ESR_voltage_ripple_V_pp": 0.010587733488149401,
+      "output_bank_effective_C_F_assumption": 0.000192,
+      "output_bank_ESR_ohm_assumption": 0.025,
+      "output_bank_ESR_heat_W": 0.0003736579658045314,
+      "Vout_V": 99.6,
+      "effective_C_fraction_scenario": 0.5
+    },
+    {
+      "phase_count_ideal": 4,
+      "phase_ripple_A_pp": 0.6166815502768355,
+      "input_capacitor_bank_Irms_A": 4.85038791728551,
+      "output_capacitor_bank_Irms_A": 0.12225513744698525,
+      "output_current_sum_ripple_A_pp": 0.4234952495702373,
+      "capacitive_voltage_ripple_V_pp": 0.0003385546149877206,
+      "with_ESR_voltage_ripple_V_pp": 0.0021176523722979215,
+      "output_bank_effective_C_F_assumption": 0.000384,
+      "output_bank_ESR_ohm_assumption": 0.005,
+      "output_bank_ESR_heat_W": 7.473159316090628e-05,
+      "Vout_V": 99.6,
+      "effective_C_fraction_scenario": 1.0
+    },
+    {
+      "phase_count_ideal": 4,
+      "phase_ripple_A_pp": 0.6166815502768355,
+      "input_capacitor_bank_Irms_A": 4.85038791728551,
+      "output_capacitor_bank_Irms_A": 0.12225513744698525,
+      "output_current_sum_ripple_A_pp": 0.4234952495702373,
+      "capacitive_voltage_ripple_V_pp": 0.0003385546149877206,
+      "with_ESR_voltage_ripple_V_pp": 0.01058755736370267,
+      "output_bank_effective_C_F_assumption": 0.000384,
+      "output_bank_ESR_ohm_assumption": 0.025,
+      "output_bank_ESR_heat_W": 0.0003736579658045314,
+      "Vout_V": 99.6,
+      "effective_C_fraction_scenario": 1.0
+    }
+  ],
+  "MOSFET_buck_loss_scenarios": [
+    {
+      "Q1_conduction_W": 0.05000407046402402,
+      "Q2_conduction_W": 1.0500854797445045,
+      "Q3_conduction_W": 0.0,
+      "Q4_conduction_W": 1.1000895502085284,
+      "Q1_hard_switch_overlap_W": 0.347138,
+      "reverse_recovery_reference_scaling_W": 0.515108,
+      "two_deadtime_diode_intervals_W": 0.1075008,
+      "two_gates_drive_W": 0.07126,
+      "modeled_subtotal_W": 3.241185900417057,
+      "thermal_multiplier_assumption": 1.0,
+      "rise_plus_fall_time_s_assumption": 6.2e-09,
+      "Qrr_C_reference_scaling": 4.6e-08,
+      "Q1_assigned_heat_W": 0.912250070464024,
+      "Q2_assigned_heat_W": 1.1575862797445045,
+      "Q4_assigned_heat_W": 1.1000895502085284,
+      "Vout_V": 5.0
+    },
+    {
+      "Q1_conduction_W": 0.05000407046402402,
+      "Q2_conduction_W": 1.0500854797445045,
+      "Q3_conduction_W": 0.0,
+      "Q4_conduction_W": 1.1000895502085284,
+      "Q1_hard_switch_overlap_W": 2.2396000000000003,
+      "reverse_recovery_reference_scaling_W": 0.515108,
+      "two_deadtime_diode_intervals_W": 0.1075008,
+      "two_gates_drive_W": 0.07126,
+      "modeled_subtotal_W": 5.133647900417057,
+      "thermal_multiplier_assumption": 1.0,
+      "rise_plus_fall_time_s_assumption": 4e-08,
+      "Qrr_C_reference_scaling": 4.6e-08,
+      "Q1_assigned_heat_W": 2.8047120704640243,
+      "Q2_assigned_heat_W": 1.1575862797445045,
+      "Q4_assigned_heat_W": 1.1000895502085284,
+      "Vout_V": 5.0
+    },
+    {
+      "Q1_conduction_W": 0.05000407046402402,
+      "Q2_conduction_W": 1.0500854797445045,
+      "Q3_conduction_W": 0.0,
+      "Q4_conduction_W": 1.1000895502085284,
+      "Q1_hard_switch_overlap_W": 5.598999999999999,
+      "reverse_recovery_reference_scaling_W": 0.515108,
+      "two_deadtime_diode_intervals_W": 0.1075008,
+      "two_gates_drive_W": 0.07126,
+      "modeled_subtotal_W": 8.493047900417055,
+      "thermal_multiplier_assumption": 1.0,
+      "rise_plus_fall_time_s_assumption": 1e-07,
+      "Qrr_C_reference_scaling": 4.6e-08,
+      "Q1_assigned_heat_W": 6.164112070464023,
+      "Q2_assigned_heat_W": 1.1575862797445045,
+      "Q4_assigned_heat_W": 1.1000895502085284,
+      "Vout_V": 5.0
+    },
+    {
+      "Q1_conduction_W": 0.07500610569603604,
+      "Q2_conduction_W": 1.5751282196167566,
+      "Q3_conduction_W": 0.0,
+      "Q4_conduction_W": 1.6501343253127927,
+      "Q1_hard_switch_overlap_W": 0.347138,
+      "reverse_recovery_reference_scaling_W": 0.515108,
+      "two_deadtime_diode_intervals_W": 0.1075008,
+      "two_gates_drive_W": 0.07126,
+      "modeled_subtotal_W": 4.341275450625585,
+      "thermal_multiplier_assumption": 1.5,
+      "rise_plus_fall_time_s_assumption": 6.2e-09,
+      "Qrr_C_reference_scaling": 4.6e-08,
+      "Q1_assigned_heat_W": 0.9372521056960361,
+      "Q2_assigned_heat_W": 1.6826290196167566,
+      "Q4_assigned_heat_W": 1.6501343253127927,
+      "Vout_V": 5.0
+    },
+    {
+      "Q1_conduction_W": 0.07500610569603604,
+      "Q2_conduction_W": 1.5751282196167566,
+      "Q3_conduction_W": 0.0,
+      "Q4_conduction_W": 1.6501343253127927,
+      "Q1_hard_switch_overlap_W": 2.2396000000000003,
+      "reverse_recovery_reference_scaling_W": 0.515108,
+      "two_deadtime_diode_intervals_W": 0.1075008,
+      "two_gates_drive_W": 0.07126,
+      "modeled_subtotal_W": 6.233737450625585,
+      "thermal_multiplier_assumption": 1.5,
+      "rise_plus_fall_time_s_assumption": 4e-08,
+      "Qrr_C_reference_scaling": 4.6e-08,
+      "Q1_assigned_heat_W": 2.8297141056960364,
+      "Q2_assigned_heat_W": 1.6826290196167566,
+      "Q4_assigned_heat_W": 1.6501343253127927,
+      "Vout_V": 5.0
+    },
+    {
+      "Q1_conduction_W": 0.07500610569603604,
+      "Q2_conduction_W": 1.5751282196167566,
+      "Q3_conduction_W": 0.0,
+      "Q4_conduction_W": 1.6501343253127927,
+      "Q1_hard_switch_overlap_W": 5.598999999999999,
+      "reverse_recovery_reference_scaling_W": 0.515108,
+      "two_deadtime_diode_intervals_W": 0.1075008,
+      "two_gates_drive_W": 0.07126,
+      "modeled_subtotal_W": 9.593137450625585,
+      "thermal_multiplier_assumption": 1.5,
+      "rise_plus_fall_time_s_assumption": 1e-07,
+      "Qrr_C_reference_scaling": 4.6e-08,
+      "Q1_assigned_heat_W": 6.189114105696035,
+      "Q2_assigned_heat_W": 1.6826290196167566,
+      "Q4_assigned_heat_W": 1.6501343253127927,
+      "Vout_V": 5.0
+    },
+    {
+      "Q1_conduction_W": 0.10000814092804804,
+      "Q2_conduction_W": 2.100170959489009,
+      "Q3_conduction_W": 0.0,
+      "Q4_conduction_W": 2.2001791004170568,
+      "Q1_hard_switch_overlap_W": 0.347138,
+      "reverse_recovery_reference_scaling_W": 0.515108,
+      "two_deadtime_diode_intervals_W": 0.1075008,
+      "two_gates_drive_W": 0.07126,
+      "modeled_subtotal_W": 5.4413650008341135,
+      "thermal_multiplier_assumption": 2.0,
+      "rise_plus_fall_time_s_assumption": 6.2e-09,
+      "Qrr_C_reference_scaling": 4.6e-08,
+      "Q1_assigned_heat_W": 0.9622541409280481,
+      "Q2_assigned_heat_W": 2.207671759489009,
+      "Q4_assigned_heat_W": 2.2001791004170568,
+      "Vout_V": 5.0
+    },
+    {
+      "Q1_conduction_W": 0.10000814092804804,
+      "Q2_conduction_W": 2.100170959489009,
+      "Q3_conduction_W": 0.0,
+      "Q4_conduction_W": 2.2001791004170568,
+      "Q1_hard_switch_overlap_W": 2.2396000000000003,
+      "reverse_recovery_reference_scaling_W": 0.515108,
+      "two_deadtime_diode_intervals_W": 0.1075008,
+      "two_gates_drive_W": 0.07126,
+      "modeled_subtotal_W": 7.333827000834114,
+      "thermal_multiplier_assumption": 2.0,
+      "rise_plus_fall_time_s_assumption": 4e-08,
+      "Qrr_C_reference_scaling": 4.6e-08,
+      "Q1_assigned_heat_W": 2.8547161409280486,
+      "Q2_assigned_heat_W": 2.207671759489009,
+      "Q4_assigned_heat_W": 2.2001791004170568,
+      "Vout_V": 5.0
+    },
+    {
+      "Q1_conduction_W": 0.10000814092804804,
+      "Q2_conduction_W": 2.100170959489009,
+      "Q3_conduction_W": 0.0,
+      "Q4_conduction_W": 2.2001791004170568,
+      "Q1_hard_switch_overlap_W": 5.598999999999999,
+      "reverse_recovery_reference_scaling_W": 0.515108,
+      "two_deadtime_diode_intervals_W": 0.1075008,
+      "two_gates_drive_W": 0.07126,
+      "modeled_subtotal_W": 10.693227000834113,
+      "thermal_multiplier_assumption": 2.0,
+      "rise_plus_fall_time_s_assumption": 1e-07,
+      "Qrr_C_reference_scaling": 4.6e-08,
+      "Q1_assigned_heat_W": 6.214116140928047,
+      "Q2_assigned_heat_W": 2.207671759489009,
+      "Q4_assigned_heat_W": 2.2001791004170568,
+      "Vout_V": 5.0
+    },
+    {
+      "Q1_conduction_W": 0.5514865131554024,
+      "Q2_conduction_W": 0.5514865131554024,
+      "Q3_conduction_W": 0.0,
+      "Q4_conduction_W": 1.1029730263108048,
+      "Q1_hard_switch_overlap_W": 0.347138,
+      "reverse_recovery_reference_scaling_W": 0.515108,
+      "two_deadtime_diode_intervals_W": 0.1075008,
+      "two_gates_drive_W": 0.07126,
+      "modeled_subtotal_W": 3.2469528526216096,
+      "thermal_multiplier_assumption": 1.0,
+      "rise_plus_fall_time_s_assumption": 6.2e-09,
+      "Qrr_C_reference_scaling": 4.6e-08,
+      "Q1_assigned_heat_W": 1.4137325131554026,
+      "Q2_assigned_heat_W": 0.6589873131554024,
+      "Q4_assigned_heat_W": 1.1029730263108048,
+      "Vout_V": 55.0
+    },
+    {
+      "Q1_conduction_W": 0.5514865131554024,
+      "Q2_conduction_W": 0.5514865131554024,
+      "Q3_conduction_W": 0.0,
+      "Q4_conduction_W": 1.1029730263108048,
+      "Q1_hard_switch_overlap_W": 2.2396000000000003,
+      "reverse_recovery_reference_scaling_W": 0.515108,
+      "two_deadtime_diode_intervals_W": 0.1075008,
+      "two_gates_drive_W": 0.07126,
+      "modeled_subtotal_W": 5.13941485262161,
+      "thermal_multiplier_assumption": 1.0,
+      "rise_plus_fall_time_s_assumption": 4e-08,
+      "Qrr_C_reference_scaling": 4.6e-08,
+      "Q1_assigned_heat_W": 3.3061945131554027,
+      "Q2_assigned_heat_W": 0.6589873131554024,
+      "Q4_assigned_heat_W": 1.1029730263108048,
+      "Vout_V": 55.0
+    },
+    {
+      "Q1_conduction_W": 0.5514865131554024,
+      "Q2_conduction_W": 0.5514865131554024,
+      "Q3_conduction_W": 0.0,
+      "Q4_conduction_W": 1.1029730263108048,
+      "Q1_hard_switch_overlap_W": 5.598999999999999,
+      "reverse_recovery_reference_scaling_W": 0.515108,
+      "two_deadtime_diode_intervals_W": 0.1075008,
+      "two_gates_drive_W": 0.07126,
+      "modeled_subtotal_W": 8.498814852621608,
+      "thermal_multiplier_assumption": 1.0,
+      "rise_plus_fall_time_s_assumption": 1e-07,
+      "Qrr_C_reference_scaling": 4.6e-08,
+      "Q1_assigned_heat_W": 6.665594513155401,
+      "Q2_assigned_heat_W": 0.6589873131554024,
+      "Q4_assigned_heat_W": 1.1029730263108048,
+      "Vout_V": 55.0
+    },
+    {
+      "Q1_conduction_W": 0.8272297697331037,
+      "Q2_conduction_W": 0.8272297697331037,
+      "Q3_conduction_W": 0.0,
+      "Q4_conduction_W": 1.6544595394662074,
+      "Q1_hard_switch_overlap_W": 0.347138,
+      "reverse_recovery_reference_scaling_W": 0.515108,
+      "two_deadtime_diode_intervals_W": 0.1075008,
+      "two_gates_drive_W": 0.07126,
+      "modeled_subtotal_W": 4.349925878932415,
+      "thermal_multiplier_assumption": 1.5,
+      "rise_plus_fall_time_s_assumption": 6.2e-09,
+      "Qrr_C_reference_scaling": 4.6e-08,
+      "Q1_assigned_heat_W": 1.6894757697331038,
+      "Q2_assigned_heat_W": 0.9347305697331036,
+      "Q4_assigned_heat_W": 1.6544595394662074,
+      "Vout_V": 55.0
+    },
+    {
+      "Q1_conduction_W": 0.8272297697331037,
+      "Q2_conduction_W": 0.8272297697331037,
+      "Q3_conduction_W": 0.0,
+      "Q4_conduction_W": 1.6544595394662074,
+      "Q1_hard_switch_overlap_W": 2.2396000000000003,
+      "reverse_recovery_reference_scaling_W": 0.515108,
+      "two_deadtime_diode_intervals_W": 0.1075008,
+      "two_gates_drive_W": 0.07126,
+      "modeled_subtotal_W": 6.242387878932415,
+      "thermal_multiplier_assumption": 1.5,
+      "rise_plus_fall_time_s_assumption": 4e-08,
+      "Qrr_C_reference_scaling": 4.6e-08,
+      "Q1_assigned_heat_W": 3.5819377697331043,
+      "Q2_assigned_heat_W": 0.9347305697331036,
+      "Q4_assigned_heat_W": 1.6544595394662074,
+      "Vout_V": 55.0
+    },
+    {
+      "Q1_conduction_W": 0.8272297697331037,
+      "Q2_conduction_W": 0.8272297697331037,
+      "Q3_conduction_W": 0.0,
+      "Q4_conduction_W": 1.6544595394662074,
+      "Q1_hard_switch_overlap_W": 5.598999999999999,
+      "reverse_recovery_reference_scaling_W": 0.515108,
+      "two_deadtime_diode_intervals_W": 0.1075008,
+      "two_gates_drive_W": 0.07126,
+      "modeled_subtotal_W": 9.601787878932415,
+      "thermal_multiplier_assumption": 1.5,
+      "rise_plus_fall_time_s_assumption": 1e-07,
+      "Qrr_C_reference_scaling": 4.6e-08,
+      "Q1_assigned_heat_W": 6.941337769733103,
+      "Q2_assigned_heat_W": 0.9347305697331036,
+      "Q4_assigned_heat_W": 1.6544595394662074,
+      "Vout_V": 55.0
+    },
+    {
+      "Q1_conduction_W": 1.1029730263108048,
+      "Q2_conduction_W": 1.1029730263108048,
+      "Q3_conduction_W": 0.0,
+      "Q4_conduction_W": 2.2059460526216097,
+      "Q1_hard_switch_overlap_W": 0.347138,
+      "reverse_recovery_reference_scaling_W": 0.515108,
+      "two_deadtime_diode_intervals_W": 0.1075008,
+      "two_gates_drive_W": 0.07126,
+      "modeled_subtotal_W": 5.452898905243219,
+      "thermal_multiplier_assumption": 2.0,
+      "rise_plus_fall_time_s_assumption": 6.2e-09,
+      "Qrr_C_reference_scaling": 4.6e-08,
+      "Q1_assigned_heat_W": 1.965219026310805,
+      "Q2_assigned_heat_W": 1.2104738263108048,
+      "Q4_assigned_heat_W": 2.2059460526216097,
+      "Vout_V": 55.0
+    },
+    {
+      "Q1_conduction_W": 1.1029730263108048,
+      "Q2_conduction_W": 1.1029730263108048,
+      "Q3_conduction_W": 0.0,
+      "Q4_conduction_W": 2.2059460526216097,
+      "Q1_hard_switch_overlap_W": 2.2396000000000003,
+      "reverse_recovery_reference_scaling_W": 0.515108,
+      "two_deadtime_diode_intervals_W": 0.1075008,
+      "two_gates_drive_W": 0.07126,
+      "modeled_subtotal_W": 7.345360905243219,
+      "thermal_multiplier_assumption": 2.0,
+      "rise_plus_fall_time_s_assumption": 4e-08,
+      "Qrr_C_reference_scaling": 4.6e-08,
+      "Q1_assigned_heat_W": 3.857681026310805,
+      "Q2_assigned_heat_W": 1.2104738263108048,
+      "Q4_assigned_heat_W": 2.2059460526216097,
+      "Vout_V": 55.0
+    },
+    {
+      "Q1_conduction_W": 1.1029730263108048,
+      "Q2_conduction_W": 1.1029730263108048,
+      "Q3_conduction_W": 0.0,
+      "Q4_conduction_W": 2.2059460526216097,
+      "Q1_hard_switch_overlap_W": 5.598999999999999,
+      "reverse_recovery_reference_scaling_W": 0.515108,
+      "two_deadtime_diode_intervals_W": 0.1075008,
+      "two_gates_drive_W": 0.07126,
+      "modeled_subtotal_W": 10.70476090524322,
+      "thermal_multiplier_assumption": 2.0,
+      "rise_plus_fall_time_s_assumption": 1e-07,
+      "Qrr_C_reference_scaling": 4.6e-08,
+      "Q1_assigned_heat_W": 7.217081026310804,
+      "Q2_assigned_heat_W": 1.2104738263108048,
+      "Q4_assigned_heat_W": 2.2059460526216097,
+      "Vout_V": 55.0
+    },
+    {
+      "Q1_conduction_W": 0.9963156457915948,
+      "Q2_conduction_W": 0.1040329589983192,
+      "Q3_conduction_W": 0.0,
+      "Q4_conduction_W": 1.100348604789914,
+      "Q1_hard_switch_overlap_W": 0.347138,
+      "reverse_recovery_reference_scaling_W": 0.515108,
+      "two_deadtime_diode_intervals_W": 0.1075008,
+      "two_gates_drive_W": 0.07126,
+      "modeled_subtotal_W": 3.241704009579828,
+      "thermal_multiplier_assumption": 1.0,
+      "rise_plus_fall_time_s_assumption": 6.2e-09,
+      "Qrr_C_reference_scaling": 4.6e-08,
+      "Q1_assigned_heat_W": 1.8585616457915948,
+      "Q2_assigned_heat_W": 0.2115337589983192,
+      "Q4_assigned_heat_W": 1.100348604789914,
+      "Vout_V": 99.6
+    },
+    {
+      "Q1_conduction_W": 0.9963156457915948,
+      "Q2_conduction_W": 0.1040329589983192,
+      "Q3_conduction_W": 0.0,
+      "Q4_conduction_W": 1.100348604789914,
+      "Q1_hard_switch_overlap_W": 2.2396000000000003,
+      "reverse_recovery_reference_scaling_W": 0.515108,
+      "two_deadtime_diode_intervals_W": 0.1075008,
+      "two_gates_drive_W": 0.07126,
+      "modeled_subtotal_W": 5.134166009579828,
+      "thermal_multiplier_assumption": 1.0,
+      "rise_plus_fall_time_s_assumption": 4e-08,
+      "Qrr_C_reference_scaling": 4.6e-08,
+      "Q1_assigned_heat_W": 3.7510236457915953,
+      "Q2_assigned_heat_W": 0.2115337589983192,
+      "Q4_assigned_heat_W": 1.100348604789914,
+      "Vout_V": 99.6
+    },
+    {
+      "Q1_conduction_W": 0.9963156457915948,
+      "Q2_conduction_W": 0.1040329589983192,
+      "Q3_conduction_W": 0.0,
+      "Q4_conduction_W": 1.100348604789914,
+      "Q1_hard_switch_overlap_W": 5.598999999999999,
+      "reverse_recovery_reference_scaling_W": 0.515108,
+      "two_deadtime_diode_intervals_W": 0.1075008,
+      "two_gates_drive_W": 0.07126,
+      "modeled_subtotal_W": 8.493566009579828,
+      "thermal_multiplier_assumption": 1.0,
+      "rise_plus_fall_time_s_assumption": 1e-07,
+      "Qrr_C_reference_scaling": 4.6e-08,
+      "Q1_assigned_heat_W": 7.1104236457915935,
+      "Q2_assigned_heat_W": 0.2115337589983192,
+      "Q4_assigned_heat_W": 1.100348604789914,
+      "Vout_V": 99.6
+    },
+    {
+      "Q1_conduction_W": 1.4944734686873924,
+      "Q2_conduction_W": 0.15604943849747882,
+      "Q3_conduction_W": 0.0,
+      "Q4_conduction_W": 1.6505229071848713,
+      "Q1_hard_switch_overlap_W": 0.347138,
+      "reverse_recovery_reference_scaling_W": 0.515108,
+      "two_deadtime_diode_intervals_W": 0.1075008,
+      "two_gates_drive_W": 0.07126,
+      "modeled_subtotal_W": 4.342052614369742,
+      "thermal_multiplier_assumption": 1.5,
+      "rise_plus_fall_time_s_assumption": 6.2e-09,
+      "Qrr_C_reference_scaling": 4.6e-08,
+      "Q1_assigned_heat_W": 2.3567194686873925,
+      "Q2_assigned_heat_W": 0.26355023849747883,
+      "Q4_assigned_heat_W": 1.6505229071848713,
+      "Vout_V": 99.6
+    },
+    {
+      "Q1_conduction_W": 1.4944734686873924,
+      "Q2_conduction_W": 0.15604943849747882,
+      "Q3_conduction_W": 0.0,
+      "Q4_conduction_W": 1.6505229071848713,
+      "Q1_hard_switch_overlap_W": 2.2396000000000003,
+      "reverse_recovery_reference_scaling_W": 0.515108,
+      "two_deadtime_diode_intervals_W": 0.1075008,
+      "two_gates_drive_W": 0.07126,
+      "modeled_subtotal_W": 6.2345146143697425,
+      "thermal_multiplier_assumption": 1.5,
+      "rise_plus_fall_time_s_assumption": 4e-08,
+      "Qrr_C_reference_scaling": 4.6e-08,
+      "Q1_assigned_heat_W": 4.249181468687392,
+      "Q2_assigned_heat_W": 0.26355023849747883,
+      "Q4_assigned_heat_W": 1.6505229071848713,
+      "Vout_V": 99.6
+    },
+    {
+      "Q1_conduction_W": 1.4944734686873924,
+      "Q2_conduction_W": 0.15604943849747882,
+      "Q3_conduction_W": 0.0,
+      "Q4_conduction_W": 1.6505229071848713,
+      "Q1_hard_switch_overlap_W": 5.598999999999999,
+      "reverse_recovery_reference_scaling_W": 0.515108,
+      "two_deadtime_diode_intervals_W": 0.1075008,
+      "two_gates_drive_W": 0.07126,
+      "modeled_subtotal_W": 9.593914614369742,
+      "thermal_multiplier_assumption": 1.5,
+      "rise_plus_fall_time_s_assumption": 1e-07,
+      "Qrr_C_reference_scaling": 4.6e-08,
+      "Q1_assigned_heat_W": 7.608581468687391,
+      "Q2_assigned_heat_W": 0.26355023849747883,
+      "Q4_assigned_heat_W": 1.6505229071848713,
+      "Vout_V": 99.6
+    },
+    {
+      "Q1_conduction_W": 1.9926312915831896,
+      "Q2_conduction_W": 0.2080659179966384,
+      "Q3_conduction_W": 0.0,
+      "Q4_conduction_W": 2.200697209579828,
+      "Q1_hard_switch_overlap_W": 0.347138,
+      "reverse_recovery_reference_scaling_W": 0.515108,
+      "two_deadtime_diode_intervals_W": 0.1075008,
+      "two_gates_drive_W": 0.07126,
+      "modeled_subtotal_W": 5.442401219159656,
+      "thermal_multiplier_assumption": 2.0,
+      "rise_plus_fall_time_s_assumption": 6.2e-09,
+      "Qrr_C_reference_scaling": 4.6e-08,
+      "Q1_assigned_heat_W": 2.8548772915831897,
+      "Q2_assigned_heat_W": 0.3155667179966384,
+      "Q4_assigned_heat_W": 2.200697209579828,
+      "Vout_V": 99.6
+    },
+    {
+      "Q1_conduction_W": 1.9926312915831896,
+      "Q2_conduction_W": 0.2080659179966384,
+      "Q3_conduction_W": 0.0,
+      "Q4_conduction_W": 2.200697209579828,
+      "Q1_hard_switch_overlap_W": 2.2396000000000003,
+      "reverse_recovery_reference_scaling_W": 0.515108,
+      "two_deadtime_diode_intervals_W": 0.1075008,
+      "two_gates_drive_W": 0.07126,
+      "modeled_subtotal_W": 7.334863219159656,
+      "thermal_multiplier_assumption": 2.0,
+      "rise_plus_fall_time_s_assumption": 4e-08,
+      "Qrr_C_reference_scaling": 4.6e-08,
+      "Q1_assigned_heat_W": 4.74733929158319,
+      "Q2_assigned_heat_W": 0.3155667179966384,
+      "Q4_assigned_heat_W": 2.200697209579828,
+      "Vout_V": 99.6
+    },
+    {
+      "Q1_conduction_W": 1.9926312915831896,
+      "Q2_conduction_W": 0.2080659179966384,
+      "Q3_conduction_W": 0.0,
+      "Q4_conduction_W": 2.200697209579828,
+      "Q1_hard_switch_overlap_W": 5.598999999999999,
+      "reverse_recovery_reference_scaling_W": 0.515108,
+      "two_deadtime_diode_intervals_W": 0.1075008,
+      "two_gates_drive_W": 0.07126,
+      "modeled_subtotal_W": 10.694263219159655,
+      "thermal_multiplier_assumption": 2.0,
+      "rise_plus_fall_time_s_assumption": 1e-07,
+      "Qrr_C_reference_scaling": 4.6e-08,
+      "Q1_assigned_heat_W": 8.106739291583189,
+      "Q2_assigned_heat_W": 0.3155667179966384,
+      "Q4_assigned_heat_W": 2.200697209579828,
+      "Vout_V": 99.6
+    }
+  ],
+  "MOSFET_thermal_scenarios": [
+    {
+      "equivalent_Rtheta_JA_K_per_W_assumption": 5.0,
+      "ambient_C_assumption": 25.0,
+      "Q1_fixed_hot_factor_estimated_Tj_C": 68.10923645791594,
+      "Q2_fixed_hot_factor_estimated_Tj_C": 26.577833589983193,
+      "Q4_fixed_hot_factor_estimated_Tj_C": 36.003486047899145,
+      "temperature_was_not_solved_from_actual_Rds_curve": true
+    },
+    {
+      "equivalent_Rtheta_JA_K_per_W_assumption": 5.0,
+      "ambient_C_assumption": 50.0,
+      "Q1_fixed_hot_factor_estimated_Tj_C": 93.10923645791594,
+      "Q2_fixed_hot_factor_estimated_Tj_C": 51.57783358998319,
+      "Q4_fixed_hot_factor_estimated_Tj_C": 61.003486047899145,
+      "temperature_was_not_solved_from_actual_Rds_curve": true
+    },
+    {
+      "equivalent_Rtheta_JA_K_per_W_assumption": 15.0,
+      "ambient_C_assumption": 25.0,
+      "Q1_fixed_hot_factor_estimated_Tj_C": 154.32770937374784,
+      "Q2_fixed_hot_factor_estimated_Tj_C": 29.733500769949575,
+      "Q4_fixed_hot_factor_estimated_Tj_C": 58.01045814369742,
+      "temperature_was_not_solved_from_actual_Rds_curve": true
+    },
+    {
+      "equivalent_Rtheta_JA_K_per_W_assumption": 15.0,
+      "ambient_C_assumption": 50.0,
+      "Q1_fixed_hot_factor_estimated_Tj_C": 179.32770937374784,
+      "Q2_fixed_hot_factor_estimated_Tj_C": 54.73350076994957,
+      "Q4_fixed_hot_factor_estimated_Tj_C": 83.01045814369742,
+      "temperature_was_not_solved_from_actual_Rds_curve": true
+    },
+    {
+      "equivalent_Rtheta_JA_K_per_W_assumption": 50.0,
+      "ambient_C_assumption": 25.0,
+      "Q1_fixed_hot_factor_estimated_Tj_C": 456.09236457915944,
+      "Q2_fixed_hot_factor_estimated_Tj_C": 40.778335899831916,
+      "Q4_fixed_hot_factor_estimated_Tj_C": 135.0348604789914,
+      "temperature_was_not_solved_from_actual_Rds_curve": true
+    },
+    {
+      "equivalent_Rtheta_JA_K_per_W_assumption": 50.0,
+      "ambient_C_assumption": 50.0,
+      "Q1_fixed_hot_factor_estimated_Tj_C": 481.09236457915944,
+      "Q2_fixed_hot_factor_estimated_Tj_C": 65.77833589983192,
+      "Q4_fixed_hot_factor_estimated_Tj_C": 160.0348604789914,
+      "temperature_was_not_solved_from_actual_Rds_curve": true
+    }
+  ],
+  "MOSFET_sensitivity_reference": {
+    "Q1_conduction_W": 1.9926312915831896,
+    "Q2_conduction_W": 0.2080659179966384,
+    "Q3_conduction_W": 0.0,
+    "Q4_conduction_W": 2.200697209579828,
+    "Q1_hard_switch_overlap_W": 5.598999999999999,
+    "reverse_recovery_reference_scaling_W": 1.030216,
+    "two_deadtime_diode_intervals_W": 0.1075008,
+    "two_gates_drive_W": 0.07126,
+    "modeled_subtotal_W": 11.209371219159655,
+    "thermal_multiplier_assumption": 2.0,
+    "rise_plus_fall_time_s_assumption": 1e-07,
+    "Qrr_C_reference_scaling": 9.2e-08,
+    "Q1_assigned_heat_W": 8.621847291583189,
+    "Q2_assigned_heat_W": 0.3155667179966384,
+    "Q4_assigned_heat_W": 2.200697209579828
+  },
+  "inductor_scenarios": [
+    {
+      "DCR_ohm_assumption": 0.005,
+      "core_loss_W_assumption": 1.0,
+      "thermal_resistance_K_per_W_assumption": 3.0,
+      "phase_rms_A": 10.021092997956554,
+      "ripple_A_pp_at_L_minus20_percent": 2.251146037982973,
+      "copper_loss_W": 0.5021115243684694,
+      "total_modeled_loss_W": 1.5021115243684693,
+      "temperature_rise_C": 4.506334573105407,
+      "selected_manufacturer_part": null
+    },
+    {
+      "DCR_ohm_assumption": 0.005,
+      "core_loss_W_assumption": 1.0,
+      "thermal_resistance_K_per_W_assumption": 10.0,
+      "phase_rms_A": 10.021092997956554,
+      "ripple_A_pp_at_L_minus20_percent": 2.251146037982973,
+      "copper_loss_W": 0.5021115243684694,
+      "total_modeled_loss_W": 1.5021115243684693,
+      "temperature_rise_C": 15.021115243684694,
+      "selected_manufacturer_part": null
+    },
+    {
+      "DCR_ohm_assumption": 0.005,
+      "core_loss_W_assumption": 3.0,
+      "thermal_resistance_K_per_W_assumption": 3.0,
+      "phase_rms_A": 10.021092997956554,
+      "ripple_A_pp_at_L_minus20_percent": 2.251146037982973,
+      "copper_loss_W": 0.5021115243684694,
+      "total_modeled_loss_W": 3.5021115243684693,
+      "temperature_rise_C": 10.506334573105407,
+      "selected_manufacturer_part": null
+    },
+    {
+      "DCR_ohm_assumption": 0.005,
+      "core_loss_W_assumption": 3.0,
+      "thermal_resistance_K_per_W_assumption": 10.0,
+      "phase_rms_A": 10.021092997956554,
+      "ripple_A_pp_at_L_minus20_percent": 2.251146037982973,
+      "copper_loss_W": 0.5021115243684694,
+      "total_modeled_loss_W": 3.5021115243684693,
+      "temperature_rise_C": 35.02111524368469,
+      "selected_manufacturer_part": null
+    },
+    {
+      "DCR_ohm_assumption": 0.005,
+      "core_loss_W_assumption": 8.0,
+      "thermal_resistance_K_per_W_assumption": 3.0,
+      "phase_rms_A": 10.021092997956554,
+      "ripple_A_pp_at_L_minus20_percent": 2.251146037982973,
+      "copper_loss_W": 0.5021115243684694,
+      "total_modeled_loss_W": 8.50211152436847,
+      "temperature_rise_C": 25.50633457310541,
+      "selected_manufacturer_part": null
+    },
+    {
+      "DCR_ohm_assumption": 0.005,
+      "core_loss_W_assumption": 8.0,
+      "thermal_resistance_K_per_W_assumption": 10.0,
+      "phase_rms_A": 10.021092997956554,
+      "ripple_A_pp_at_L_minus20_percent": 2.251146037982973,
+      "copper_loss_W": 0.5021115243684694,
+      "total_modeled_loss_W": 8.50211152436847,
+      "temperature_rise_C": 85.0211152436847,
+      "selected_manufacturer_part": null
+    },
+    {
+      "DCR_ohm_assumption": 0.02,
+      "core_loss_W_assumption": 1.0,
+      "thermal_resistance_K_per_W_assumption": 3.0,
+      "phase_rms_A": 10.021092997956554,
+      "ripple_A_pp_at_L_minus20_percent": 2.251146037982973,
+      "copper_loss_W": 2.0084460974738776,
+      "total_modeled_loss_W": 3.0084460974738776,
+      "temperature_rise_C": 9.025338292421633,
+      "selected_manufacturer_part": null
+    },
+    {
+      "DCR_ohm_assumption": 0.02,
+      "core_loss_W_assumption": 1.0,
+      "thermal_resistance_K_per_W_assumption": 10.0,
+      "phase_rms_A": 10.021092997956554,
+      "ripple_A_pp_at_L_minus20_percent": 2.251146037982973,
+      "copper_loss_W": 2.0084460974738776,
+      "total_modeled_loss_W": 3.0084460974738776,
+      "temperature_rise_C": 30.084460974738775,
+      "selected_manufacturer_part": null
+    },
+    {
+      "DCR_ohm_assumption": 0.02,
+      "core_loss_W_assumption": 3.0,
+      "thermal_resistance_K_per_W_assumption": 3.0,
+      "phase_rms_A": 10.021092997956554,
+      "ripple_A_pp_at_L_minus20_percent": 2.251146037982973,
+      "copper_loss_W": 2.0084460974738776,
+      "total_modeled_loss_W": 5.008446097473877,
+      "temperature_rise_C": 15.025338292421631,
+      "selected_manufacturer_part": null
+    },
+    {
+      "DCR_ohm_assumption": 0.02,
+      "core_loss_W_assumption": 3.0,
+      "thermal_resistance_K_per_W_assumption": 10.0,
+      "phase_rms_A": 10.021092997956554,
+      "ripple_A_pp_at_L_minus20_percent": 2.251146037982973,
+      "copper_loss_W": 2.0084460974738776,
+      "total_modeled_loss_W": 5.008446097473877,
+      "temperature_rise_C": 50.084460974738775,
+      "selected_manufacturer_part": null
+    },
+    {
+      "DCR_ohm_assumption": 0.02,
+      "core_loss_W_assumption": 8.0,
+      "thermal_resistance_K_per_W_assumption": 3.0,
+      "phase_rms_A": 10.021092997956554,
+      "ripple_A_pp_at_L_minus20_percent": 2.251146037982973,
+      "copper_loss_W": 2.0084460974738776,
+      "total_modeled_loss_W": 10.008446097473877,
+      "temperature_rise_C": 30.02533829242163,
+      "selected_manufacturer_part": null
+    },
+    {
+      "DCR_ohm_assumption": 0.02,
+      "core_loss_W_assumption": 8.0,
+      "thermal_resistance_K_per_W_assumption": 10.0,
+      "phase_rms_A": 10.021092997956554,
+      "ripple_A_pp_at_L_minus20_percent": 2.251146037982973,
+      "copper_loss_W": 2.0084460974738776,
+      "total_modeled_loss_W": 10.008446097473877,
+      "temperature_rise_C": 100.08446097473878,
+      "selected_manufacturer_part": null
+    },
+    {
+      "DCR_ohm_assumption": 0.05,
+      "core_loss_W_assumption": 1.0,
+      "thermal_resistance_K_per_W_assumption": 3.0,
+      "phase_rms_A": 10.021092997956554,
+      "ripple_A_pp_at_L_minus20_percent": 2.251146037982973,
+      "copper_loss_W": 5.021115243684694,
+      "total_modeled_loss_W": 6.021115243684694,
+      "temperature_rise_C": 18.06334573105408,
+      "selected_manufacturer_part": null
+    },
+    {
+      "DCR_ohm_assumption": 0.05,
+      "core_loss_W_assumption": 1.0,
+      "thermal_resistance_K_per_W_assumption": 10.0,
+      "phase_rms_A": 10.021092997956554,
+      "ripple_A_pp_at_L_minus20_percent": 2.251146037982973,
+      "copper_loss_W": 5.021115243684694,
+      "total_modeled_loss_W": 6.021115243684694,
+      "temperature_rise_C": 60.21115243684694,
+      "selected_manufacturer_part": null
+    },
+    {
+      "DCR_ohm_assumption": 0.05,
+      "core_loss_W_assumption": 3.0,
+      "thermal_resistance_K_per_W_assumption": 3.0,
+      "phase_rms_A": 10.021092997956554,
+      "ripple_A_pp_at_L_minus20_percent": 2.251146037982973,
+      "copper_loss_W": 5.021115243684694,
+      "total_modeled_loss_W": 8.021115243684694,
+      "temperature_rise_C": 24.06334573105408,
+      "selected_manufacturer_part": null
+    },
+    {
+      "DCR_ohm_assumption": 0.05,
+      "core_loss_W_assumption": 3.0,
+      "thermal_resistance_K_per_W_assumption": 10.0,
+      "phase_rms_A": 10.021092997956554,
+      "ripple_A_pp_at_L_minus20_percent": 2.251146037982973,
+      "copper_loss_W": 5.021115243684694,
+      "total_modeled_loss_W": 8.021115243684694,
+      "temperature_rise_C": 80.21115243684693,
+      "selected_manufacturer_part": null
+    },
+    {
+      "DCR_ohm_assumption": 0.05,
+      "core_loss_W_assumption": 8.0,
+      "thermal_resistance_K_per_W_assumption": 3.0,
+      "phase_rms_A": 10.021092997956554,
+      "ripple_A_pp_at_L_minus20_percent": 2.251146037982973,
+      "copper_loss_W": 5.021115243684694,
+      "total_modeled_loss_W": 13.021115243684694,
+      "temperature_rise_C": 39.063345731054085,
+      "selected_manufacturer_part": null
+    },
+    {
+      "DCR_ohm_assumption": 0.05,
+      "core_loss_W_assumption": 8.0,
+      "thermal_resistance_K_per_W_assumption": 10.0,
+      "phase_rms_A": 10.021092997956554,
+      "ripple_A_pp_at_L_minus20_percent": 2.251146037982973,
+      "copper_loss_W": 5.021115243684694,
+      "total_modeled_loss_W": 13.021115243684694,
+      "temperature_rise_C": 130.21115243684693,
+      "selected_manufacturer_part": null
+    }
+  ],
+  "four_phase_counterexamples": [
+    {
+      "Vout_V": 5.0,
+      "shared_sense_command_V": 0.059022158320682264,
+      "inductances_H": [
+        0.00011999999999999999,
+        0.000135,
+        0.000165,
+        0.00017999999999999998
+      ],
+      "shunts_ohm": [
+        0.00594,
+        0.00606,
+        0.00594,
+        0.00606
+      ],
+      "comparator_offsets_V_hypothetical": [
+        0.003,
+        0.001,
+        -0.001,
+        -0.003
+      ],
+      "valley_currents_A": [
+        10.441440794727654,
+        9.90464658757133,
+        9.76804012132698,
+        9.24458058097067
+      ],
+      "average_currents_A": [
+        10.636788178188986,
+        10.078288706203626,
+        9.910110945662494,
+        9.374812169944892
+      ],
+      "peak_currents_A": [
+        10.83213556165032,
+        10.25193082483592,
+        10.05218176999801,
+        9.505043758919113
+      ],
+      "maximum_phase_deviation_from_10A_percent": 6.367881781889864
+    },
+    {
+      "Vout_V": 55.0,
+      "shared_sense_command_V": 0.05444195984774067,
+      "inductances_H": [
+        0.00011999999999999999,
+        0.000135,
+        0.000165,
+        0.00017999999999999998
+      ],
+      "shunts_ohm": [
+        0.00594,
+        0.00606,
+        0.00594,
+        0.00606
+      ],
+      "comparator_offsets_V_hypothetical": [
+        0.003,
+        0.001,
+        -0.001,
+        -0.003
+      ],
+      "valley_currents_A": [
+        9.670363610730753,
+        9.14883825870308,
+        8.996962937330078,
+        8.48877225210242
+      ],
+      "average_currents_A": [
+        10.79593662972224,
+        10.149347608917735,
+        9.815561496596613,
+        9.23915426476341
+      ],
+      "peak_currents_A": [
+        11.921509648713727,
+        11.14985695913239,
+        10.63416005586315,
+        9.989536277424403
+      ],
+      "maximum_phase_deviation_from_10A_percent": 7.959366297222399
+    },
+    {
+      "Vout_V": 99.6,
+      "shared_sense_command_V": 0.05808625888551527,
+      "inductances_H": [
+        0.00011999999999999999,
+        0.000135,
+        0.000165,
+        0.00017999999999999998
+      ],
+      "shunts_ohm": [
+        0.00594,
+        0.00606,
+        0.00594,
+        0.00606
+      ],
+      "comparator_offsets_V_hypothetical": [
+        0.003,
+        0.001,
+        -0.001,
+        -0.003
+      ],
+      "valley_currents_A": [
+        10.283881967258463,
+        9.750207736883707,
+        9.61048129385779,
+        9.090141730283046
+      ],
+      "average_currents_A": [
+        10.669307936181484,
+        10.092808598148617,
+        9.890791089438169,
+        9.347092376231727
+      ],
+      "peak_currents_A": [
+        11.054733905104507,
+        10.435409459413524,
+        10.17110088501855,
+        9.60404302218041
+      ],
+      "maximum_phase_deviation_from_10A_percent": 6.693079361814842
+    }
+  ],
+  "four_phase_corner_sweeps": [
+    {
+      "hypothetical_offset_bound_mV": 0,
+      "phase_min_A": 9.584752644765693,
+      "phase_max_A": 10.41942069548792,
+      "corners_checked": 4096,
+      "L_tolerance_scenario_fraction": 0.2,
+      "shunt_tolerance_fraction": 0.01
+    },
+    {
+      "hypothetical_offset_bound_mV": 1,
+      "phase_min_A": 9.33599642586022,
+      "phase_max_A": 10.670676976894956,
+      "corners_checked": 4096,
+      "L_tolerance_scenario_fraction": 0.2,
+      "shunt_tolerance_fraction": 0.01
+    },
+    {
+      "hypothetical_offset_bound_mV": 3,
+      "phase_min_A": 8.838483988049274,
+      "phase_max_A": 11.173189539709027,
+      "corners_checked": 4096,
+      "L_tolerance_scenario_fraction": 0.2,
+      "shunt_tolerance_fraction": 0.01
+    },
+    {
+      "hypothetical_offset_bound_mV": 5,
+      "phase_min_A": 8.34097155023833,
+      "phase_max_A": 11.675702102523097,
+      "corners_checked": 4096,
+      "L_tolerance_scenario_fraction": 0.2,
+      "shunt_tolerance_fraction": 0.01
+    }
+  ],
+  "assumed_voltage_loop_scenarios": [
+    {
+      "label": "Ki=5 A/V, C=96 µF",
+      "Ki_A_per_V_assumption": 5.0,
+      "C_F_assumption": 9.6e-05,
+      "gm_multiplier": 1.0,
+      "inner_current_loop_pole_Hz_assumption": 10180.0,
+      "sample_delay_s_assumption": 4.911591355599214e-06,
+      "load_ohm_assumption": 10.0,
+      "ESR_ohm_assumption": 0.05,
+      "crossovers": [
+        {
+          "gain_crossover_Hz": 1891.927157541611,
+          "phase_margin_degrees_in_assumed_model": 43.62950912171851,
+          "crosses_above_fs_divided_by_10": false
+        }
+      ]
+    },
+    {
+      "label": "Ki=20 A/V, C=96 µF",
+      "Ki_A_per_V_assumption": 20.0,
+      "C_F_assumption": 9.6e-05,
+      "gm_multiplier": 1.0,
+      "inner_current_loop_pole_Hz_assumption": 10180.0,
+      "sample_delay_s_assumption": 4.911591355599214e-06,
+      "load_ohm_assumption": 10.0,
+      "ESR_ohm_assumption": 0.05,
+      "crossovers": [
+        {
+          "gain_crossover_Hz": 5480.534110258927,
+          "phase_margin_degrees_in_assumed_model": 44.97663286106183,
+          "crosses_above_fs_divided_by_10": false
+        }
+      ]
+    },
+    {
+      "label": "Ki=80 A/V, C=96 µF",
+      "Ki_A_per_V_assumption": 80.0,
+      "C_F_assumption": 9.6e-05,
+      "gm_multiplier": 1.0,
+      "inner_current_loop_pole_Hz_assumption": 10180.0,
+      "sample_delay_s_assumption": 4.911591355599214e-06,
+      "load_ohm_assumption": 10.0,
+      "ESR_ohm_assumption": 0.05,
+      "crossovers": [
+        {
+          "gain_crossover_Hz": 14719.221902877705,
+          "phase_margin_degrees_in_assumed_model": 21.818520516171958,
+          "crosses_above_fs_divided_by_10": true
+        }
+      ]
+    },
+    {
+      "label": "Ki=20 A/V, C=48 µF",
+      "Ki_A_per_V_assumption": 20.0,
+      "C_F_assumption": 4.8e-05,
+      "gm_multiplier": 1.0,
+      "inner_current_loop_pole_Hz_assumption": 10180.0,
+      "sample_delay_s_assumption": 4.911591355599214e-06,
+      "load_ohm_assumption": 10.0,
+      "ESR_ohm_assumption": 0.05,
+      "crossovers": [
+        {
+          "gain_crossover_Hz": 9030.91524522388,
+          "phase_margin_degrees_in_assumed_model": 29.09167587121547,
+          "crosses_above_fs_divided_by_10": false
+        }
+      ]
+    },
+    {
+      "label": "Fire gm / én RC (uskalering)",
+      "Ki_A_per_V_assumption": 20.0,
+      "C_F_assumption": 9.6e-05,
+      "gm_multiplier": 4.0,
+      "inner_current_loop_pole_Hz_assumption": 10180.0,
+      "sample_delay_s_assumption": 4.911591355599214e-06,
+      "load_ohm_assumption": 10.0,
+      "ESR_ohm_assumption": 0.05,
+      "crossovers": [
+        {
+          "gain_crossover_Hz": 14719.221902877705,
+          "phase_margin_degrees_in_assumed_model": 21.818520516171958,
+          "crosses_above_fs_divided_by_10": true
+        }
+      ]
+    }
+  ],
+  "ideal_gm_RC_scaling_verified": {
+    "one_gm_S": 0.0015,
+    "four_gm_S": 0.006,
+    "one_R_ohm": 10000.0,
+    "equivalent_four_R_ohm": 2500,
+    "one_series_C_F": 1e-08,
+    "equivalent_four_series_C_F": 4e-08,
+    "one_shunt_C_F": 1e-10,
+    "equivalent_four_shunt_C_F": 4e-10,
+    "equivalence_is_small_signal_algebra_only": true
+  },
+  "assumed_CC_active_branch_scenarios": [
+    {
+      "label": "Ki=5, last=10 Ω, Cout=96 µF, Cpi=1 nF",
+      "Ki_A_per_V_assumption": 5.0,
+      "load_ohm_assumption": 10.0,
+      "C_F_assumption": 9.6e-05,
+      "sensor_V_per_A": 0.05,
+      "PI_input_R_ohm": 20000.0,
+      "PI_series_R_ohm": 10000.0,
+      "PI_series_C_F": 1e-09,
+      "diode_is_assumed_active": true,
+      "ITH_clamp_authority_is_assumed_sufficient": true,
+      "crossovers": [
+        {
+          "gain_crossover_Hz": 560.9010190653192,
+          "phase_margin_degrees_in_assumed_model": 15.230738518338285,
+          "crosses_above_fs_divided_by_10": false
+        }
+      ]
+    },
+    {
+      "label": "Ki=20, last=10 Ω, Cout=96 µF, Cpi=1 nF",
+      "Ki_A_per_V_assumption": 20.0,
+      "load_ohm_assumption": 10.0,
+      "C_F_assumption": 9.6e-05,
+      "sensor_V_per_A": 0.05,
+      "PI_input_R_ohm": 20000.0,
+      "PI_series_R_ohm": 10000.0,
+      "PI_series_C_F": 1e-09,
+      "diode_is_assumed_active": true,
+      "ITH_clamp_authority_is_assumed_sufficient": true,
+      "crossovers": [
+        {
+          "gain_crossover_Hz": 1138.0516262866595,
+          "phase_margin_degrees_in_assumed_model": 5.912389545852221,
+          "crosses_above_fs_divided_by_10": false
+        }
+      ]
+    },
+    {
+      "label": "Ki=80, last=10 Ω, Cout=96 µF, Cpi=1 nF",
+      "Ki_A_per_V_assumption": 80.0,
+      "load_ohm_assumption": 10.0,
+      "C_F_assumption": 9.6e-05,
+      "sensor_V_per_A": 0.05,
+      "PI_input_R_ohm": 20000.0,
+      "PI_series_R_ohm": 10000.0,
+      "PI_series_C_F": 1e-09,
+      "diode_is_assumed_active": true,
+      "ITH_clamp_authority_is_assumed_sufficient": true,
+      "crossovers": [
+        {
+          "gain_crossover_Hz": 2274.89812594408,
+          "phase_margin_degrees_in_assumed_model": -0.41230452999718636,
+          "crosses_above_fs_divided_by_10": false
+        }
+      ]
+    },
+    {
+      "label": "Ki=20, last=1 Ω, Cout=96 µF, Cpi=1 nF",
+      "Ki_A_per_V_assumption": 20.0,
+      "load_ohm_assumption": 1.0,
+      "C_F_assumption": 9.6e-05,
+      "sensor_V_per_A": 0.05,
+      "PI_input_R_ohm": 20000.0,
+      "PI_series_R_ohm": 10000.0,
+      "PI_series_C_F": 1e-09,
+      "diode_is_assumed_active": true,
+      "ITH_clamp_authority_is_assumed_sufficient": true,
+      "crossovers": [
+        {
+          "gain_crossover_Hz": 3328.493999316196,
+          "phase_margin_degrees_in_assumed_model": 18.931510855266367,
+          "crosses_above_fs_divided_by_10": false
+        }
+      ]
+    },
+    {
+      "label": "Ki=20, last=10 Ω, Cout=48 µF, Cpi=1 nF",
+      "Ki_A_per_V_assumption": 20.0,
+      "load_ohm_assumption": 10.0,
+      "C_F_assumption": 4.8e-05,
+      "sensor_V_per_A": 0.05,
+      "PI_input_R_ohm": 20000.0,
+      "PI_series_R_ohm": 10000.0,
+      "PI_series_C_F": 1e-09,
+      "diode_is_assumed_active": true,
+      "ITH_clamp_authority_is_assumed_sufficient": true,
+      "crossovers": [
+        {
+          "gain_crossover_Hz": 1598.0065849028538,
+          "phase_margin_degrees_in_assumed_model": 7.032595459768174,
+          "crosses_above_fs_divided_by_10": false
+        }
+      ]
+    },
+    {
+      "label": "Ki=20, last=10 Ω, Cout=96 µF, Cpi=10 nF",
+      "Ki_A_per_V_assumption": 20.0,
+      "load_ohm_assumption": 10.0,
+      "C_F_assumption": 9.6e-05,
+      "sensor_V_per_A": 0.05,
+      "PI_input_R_ohm": 20000.0,
+      "PI_series_R_ohm": 10000.0,
+      "PI_series_C_F": 1e-08,
+      "diode_is_assumed_active": true,
+      "ITH_clamp_authority_is_assumed_sufficient": true,
+      "crossovers": [
+        {
+          "gain_crossover_Hz": 348.41208976103434,
+          "phase_margin_degrees_in_assumed_model": 35.709840734273115,
+          "crosses_above_fs_divided_by_10": false
+        }
+      ]
+    },
+    {
+      "label": "Ki=20, last=10 Ω, Cout=96 µF, Cpi=100 nF",
+      "Ki_A_per_V_assumption": 20.0,
+      "load_ohm_assumption": 10.0,
+      "C_F_assumption": 9.6e-05,
+      "sensor_V_per_A": 0.05,
+      "PI_input_R_ohm": 20000.0,
+      "PI_series_R_ohm": 10000.0,
+      "PI_series_C_F": 1e-07,
+      "diode_is_assumed_active": true,
+      "ITH_clamp_authority_is_assumed_sufficient": true,
+      "crossovers": [
+        {
+          "gain_crossover_Hz": 80.13769963735798,
+          "phase_margin_degrees_in_assumed_model": 90.36162143459858,
+          "crosses_above_fs_divided_by_10": false
+        }
+      ]
+    }
+  ],
+  "fault_energy_scenarios": {
+    "capacitor_discharge": {
+      "initial_V": 5.0,
+      "C_F_assumption": 0.000384,
+      "fault_R_ohm_assumption": 0.5,
+      "initial_capacitor_energy_J": 0.0048000000000000004,
+      "initial_ideal_resistive_current_A": 10.0,
+      "source_A_before_delay": 0.1,
+      "source_A_after_delay": 0.01,
+      "delay_s_assumption": 0.0001,
+      "R_C_time_constant_s": 0.000192,
+      "ESL_omitted": true,
+      "physical_DUT_peak_predicted": false
+    },
+    "100V_four_nominal_output_banks_energy_J": 1.9200000000000002,
+    "bus_returned_energy": {
+      "bus_initial_V": 110.0,
+      "bus_C_F_assumption": 0.000384,
+      "returned_energy_J_assumption": 1.0,
+      "bus_final_V_if_no_sink": 131.56113914577256,
+      "energy_to_raise_bus_to_120V_J": 0.4416,
+      "Mean_Well_sink_capacity_assumed": false
+    }
+  },
+  "checks": {
+    "passed": [
+      "buck endpoints and units/scaling",
+      "triangle RMS and integrated voltage identity",
+      "ideal four-phase cancellation at D=0.5",
+      "phase-current sums equal 40A",
+      "parallel RC/gm equivalence",
+      "scaled output-plant equivalence",
+      "fault initial voltage and discharge bound"
+    ],
+    "actual_hardware_tests": 0
+  }
+}

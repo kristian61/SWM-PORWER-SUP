@@ -1,0 +1,244 @@
+{
+  "schema_version": 1,
+  "status": "UNRESOLVED_NOT_QUALIFIED_NO_FABRICATION_RELEASE",
+  "description": "Bounded manufacturer-backed design study, no physical test or SPICE validation",
+  "source_facts": {
+    "RSP3000_48_ovp_each_range_v": [
+      57.6,
+      67.2
+    ],
+    "sum_of_ovp_threshold_upper_limits_v": 134.4,
+    "one_module_upper_threshold_plus_other_55v_v": 122.2,
+    "ovp_threshold_is_not_transient_ceiling": true,
+    "LTC4366_FB_range_v": [
+      1.193,
+      1.23,
+      1.267
+    ],
+    "LTC4366_FB_leakage_abs_max_a": 1e-06,
+    "LTC4366_fast_path_delay_max_s": 3e-07,
+    "LTC4366_SD_filter_max_s": 0.0012,
+    "LTC4366_gate_fast_sink_min_at_test_point_a": 0.122,
+    "TPSI3050_three_wire_off_delay_max_at_100pF_s": 3e-06,
+    "IPP110N20N3G_VDS_min_v": 200.0,
+    "IPP110N20N3G_RDS_on_max_25C_10V_ohm": 0.011,
+    "IPP110N20N3G_Qg_max_100V_44A_c": 8.7e-08,
+    "references": "references/bus-protection-sources.json"
+  },
+  "design_assumptions_and_limits": {
+    "existing_phase_procedural_bus_ceiling_v": 120.0,
+    "existing_phase_MOSFET_rating_v": 150.0,
+    "bulk_cap_tolerance_fraction_assumed": 0.2,
+    "nominal_bus_v": 110.0,
+    "unmeasured_converter_efficiency": 0.95,
+    "normal_bus_budget_1percent_plus_25C_tempco_v": 112.475,
+    "normal_bus_budget_excludes_ripple_and_dynamic_overshoot": true,
+    "example_fault_source_v_NOT_guaranteed_max": 134.4,
+    "example_fault_source_resistance_ohm_NOT_measured": 0.02,
+    "example_trip_nominal_v_NOT_selected": 116.0,
+    "example_trip_uncertainty_v_NOT_qualified": 0.65,
+    "required_5mV_overdrive_referred_to_bus_v": 0.23199999999999998,
+    "example_timing_start_v": 116.882,
+    "delay_budget_s": {
+      "comparator_12ns_at_5mV_overdrive": 1.2e-08,
+      "sense_filter_assumed": 5e-07,
+      "latch_buffer_assumed": 5e-07,
+      "TPSI3050_EN_to_VDRV_max_at_100pF": 3e-06,
+      "additional_loaded_gate_turnoff_assumed": 1e-06
+    },
+    "example_total_delay_s_NOT_guaranteed": 5.012e-06,
+    "fault_charging_currents_a_NOT_source_pulse_limits": [
+      62.5,
+      125.0,
+      500.0
+    ],
+    "LTC4366_estimated_gate_charge_c_NOT_selected": 2e-07,
+    "LTC4366_gate_cap_f_MIN_stability_not_completed_design": 2e-09,
+    "hot_RDS_multiplier_NOT_manufacturer_bound": 2.0,
+    "source_output_capacitance_f": null,
+    "source_transient_peak_v": null,
+    "source_shutdown_time_max_s": null
+  },
+  "operating_budget": {
+    "output_power_w": 4000.0,
+    "input_bus_power_w": 4210.526315789474,
+    "input_bus_current_a": 38.277511961722496
+  },
+  "capacitor_and_time_cases": [
+    {
+      "case": "existing_one_phase_bulk_min",
+      "capacitance_min_f": 7.52e-05,
+      "energy_at_110v_j": 0.45496,
+      "energy_at_120v_j": 0.54144,
+      "reverse_energy_room_110_to_120_j": 0.08648000000000006,
+      "time_to_120_at_4kw_regeneration_s": 2.1620000000000013e-05,
+      "no_load_constant_current_time_to_120_from_timing_start_s": {
+        "62.5": 3.751577599999994e-06,
+        "125.0": 1.875788799999997e-06,
+        "500.0": 4.6894719999999924e-07
+      },
+      "rc_step_134_4v_20milliohm_after_driver_only_v": 132.0165522528636,
+      "rc_step_134_4v_20milliohm_after_example_total_v": 133.7745087167162
+    },
+    {
+      "case": "four_phase_bulk_min_if_all_connected",
+      "capacitance_min_f": 0.0003008,
+      "energy_at_110v_j": 1.81984,
+      "energy_at_120v_j": 2.16576,
+      "reverse_energy_room_110_to_120_j": 0.3459200000000002,
+      "time_to_120_at_4kw_regeneration_s": 8.648000000000005e-05,
+      "no_load_constant_current_time_to_120_from_timing_start_s": {
+        "62.5": 1.5006310399999976e-05,
+        "125.0": 7.503155199999988e-06,
+        "500.0": 1.875788799999997e-06
+      },
+      "rc_step_134_4v_20milliohm_after_driver_only_v": 123.76065724376612,
+      "rc_step_134_4v_20milliohm_after_example_total_v": 126.78502105341946
+    },
+    {
+      "case": "hypothetical_470u_bulk_min",
+      "capacitance_min_f": 0.00037600000000000003,
+      "energy_at_110v_j": 2.2748000000000004,
+      "energy_at_120v_j": 2.7072000000000003,
+      "reverse_energy_room_110_to_120_j": 0.4323999999999999,
+      "time_to_120_at_4kw_regeneration_s": 0.00010809999999999997,
+      "no_load_constant_current_time_to_120_from_timing_start_s": {
+        "62.5": 1.8757887999999972e-05,
+        "125.0": 9.378943999999986e-06,
+        "500.0": 2.3447359999999965e-06
+      },
+      "rc_step_134_4v_20milliohm_after_driver_only_v": 122.64483458792937,
+      "rc_step_134_4v_20milliohm_after_example_total_v": 125.4043640792689
+    },
+    {
+      "case": "hypothetical_2200u_bulk_min",
+      "capacitance_min_f": 0.0017600000000000003,
+      "energy_at_110v_j": 10.648000000000001,
+      "energy_at_120v_j": 12.672000000000002,
+      "reverse_energy_room_110_to_120_j": 2.024000000000001,
+      "time_to_120_at_4kw_regeneration_s": 0.0005060000000000003,
+      "no_load_constant_current_time_to_120_from_timing_start_s": {
+        "62.5": 8.780287999999987e-05,
+        "125.0": 4.3901439999999935e-05,
+        "500.0": 1.0975359999999984e-05
+      },
+      "rc_step_134_4v_20milliohm_after_driver_only_v": 118.31315831773503,
+      "rc_step_134_4v_20milliohm_after_example_total_v": 119.20688203132237
+    }
+  ],
+  "LTC4366_illustrative_clamp_divider_NOT_selected": {
+    "top_ohm": 1210.0,
+    "bottom_ohm": 111200.0,
+    "resistor_tolerance_fraction": 0.001,
+    "nominal_v": 114.26801652892561,
+    "min_v": 110.500540834828,
+    "max_v": 118.04976811145688,
+    "bottom_resistor_total_power_nominal_w": 0.11490641349634588,
+    "normal_55v_each_budget_margin_v": -1.974459165171993,
+    "normal_53v_each_budget_margin_v": 2.1155408348280105,
+    "margin_to_120v_at_max_clamp_v": 1.9502318885431151
+  },
+  "LTC4366_estimated_fast_gate_discharge_NOT_guaranteed_s": 1.8360655737704917e-06,
+  "LTC4366_estimated_delay_plus_discharge_NOT_guaranteed_s": 2.136065573770492e-06,
+  "linear_pass_stress_examples": {
+    "source_v": 134.4,
+    "clamp_v": 114.26801652892561,
+    "current_a": 40.0,
+    "dissipation_w": 805.2793388429757,
+    "duration_energy_cases": [
+      {
+        "duration_s": 0.001,
+        "energy_j": 0.8052793388429756
+      },
+      {
+        "duration_s": 0.005,
+        "energy_j": 4.026396694214879
+      },
+      {
+        "duration_s": 0.02,
+        "energy_j": 16.105586776859514
+      },
+      {
+        "duration_s": 1.0,
+        "energy_j": 805.2793388429757
+      }
+    ],
+    "IPP110N20N3G_single_40A_20ms_status": "REJECTED: above 10ms SOA at approximately 20V even Tc25C",
+    "IPP110N20N3G_single_40A_5ms_status": "NOT_QUALIFIED: no 5ms SOA curve; 1ms curve does not qualify it"
+  },
+  "precharge_zero_load_examples": [
+    {
+      "capacitance_f": 0.000376,
+      "ideal_linear_charge_energy_110v_from_zero_j": 2.2748,
+      "ideal_charge_time_at_1a_to_110v_s": 0.04136,
+      "converter_required_off_during_precharge": true
+    },
+    {
+      "capacitance_f": 0.00176,
+      "ideal_linear_charge_energy_110v_from_zero_j": 10.648,
+      "ideal_charge_time_at_1a_to_110v_s": 0.1936,
+      "converter_required_off_during_precharge": true
+    }
+  ],
+  "source_bulk_energy_unknown_example_only": {
+    "assumed_capacitance_f": 0.001,
+    "energy_at_134_4v_j": 9.03168,
+    "additional_energy_110_to_134_4v_j": 2.98168
+  },
+  "isolated_bidirectional_switch_on_loss_example": {
+    "candidate": "2 x IPP110N20N3G common-source; not released",
+    "current_a": 40.0,
+    "pair_hot_resistance_assumed_ohm": 0.044,
+    "pair_dissipation_assumed_w": 70.39999999999999,
+    "pair_drop_assumed_v": 1.7599999999999998
+  },
+  "inductive_interruption_examples": [
+    {
+      "loop_inductance_h": 1e-06,
+      "current_a": 40.0,
+      "energy_j": 0.0007999999999999999,
+      "voltage_if_current_changes_to_zero_in_1us_v": 40.0
+    },
+    {
+      "loop_inductance_h": 1e-06,
+      "current_a": 500.0,
+      "energy_j": 0.125,
+      "voltage_if_current_changes_to_zero_in_1us_v": 500.00000000000006
+    },
+    {
+      "loop_inductance_h": 1e-05,
+      "current_a": 40.0,
+      "energy_j": 0.008,
+      "voltage_if_current_changes_to_zero_in_1us_v": 400.00000000000006
+    },
+    {
+      "loop_inductance_h": 1e-05,
+      "current_a": 500.0,
+      "energy_j": 1.25,
+      "voltage_if_current_changes_to_zero_in_1us_v": 5000.0
+    }
+  ],
+  "regenerative_dump_example_NOT_selected": {
+    "dump_voltage_v": 116.0,
+    "regenerative_power_w": 4000.0,
+    "required_resistance_ohm_at_4kw": 3.364,
+    "dump_current_a_at_4kw": 34.48275862068966,
+    "pulse_energy_50ms_j": 200.0,
+    "pulse_energy_1s_j": 4000.0,
+    "resistor_and_switch_MPN": null
+  },
+  "conclusion": {
+    "existing_150v_phase_and_120v_ceiling_protection_proven": false,
+    "fast_bus_clamp_MOS_SOA_qualified": false,
+    "complete_threshold_and_latch_circuit_designed": false,
+    "AC_contactor_fuses_emergency_stop_qualified": false,
+    "native_schematic_or_PCB_changed_by_this_study": false,
+    "next_required": [
+      "Bound source transient waveform, output bulk energy and path impedance",
+      "Choose protected bus capacitance and independent threshold tolerance budget",
+      "Qualify linear-clamp MOSFET SOA at hot case, fault/startup and repetition",
+      "Design reverse-energy dump and inductive interruption current paths",
+      "Complete hardware latch/shutdown, AC coordination and independent review"
+    ]
+  }
+}

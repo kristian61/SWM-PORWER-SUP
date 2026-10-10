@@ -1,0 +1,658 @@
+{
+  "schema_version": 1,
+  "status": "CONDITIONAL_DESIGN_ENVELOPE_PHYSICAL_QUALIFICATION_FAIL",
+  "units": "SI internally; suffixes identify each output unit",
+  "model": "No-load source step, fixed series R, lumped C+ESR; bounded ESL/ringing separately",
+  "source_fact_warning": "134.4V is sum of RSP OVP threshold upper endpoints, not a transient bound",
+  "design_requirements_NOT_verified": {
+    "Rseries_nominal_ohm": 0.05,
+    "Rseries_full_budget_fraction": 0.05,
+    "Rseries_min_ohm": 0.0475,
+    "Rseries_max_ohm": 0.052500000000000005,
+    "Rseries_bypass_permitted": false,
+    "Cprotected_nominal_f": 0.0022,
+    "Cprotected_full_budget_fraction": 0.2,
+    "Cprotected_min_f": 0.0017600000000000003,
+    "Cprotected_max_f": 0.00264,
+    "Cprotected_ESR_max_ohm": 0.001,
+    "source_transient_bound_at_NODE_F_v": 160.0,
+    "total_detection_to_opening_delay_max_s": 5e-06,
+    "extra_terminal_peak_max_v": 1.0,
+    "critical_terminal_ceiling_v": 120.0,
+    "RC_terminal_target_v": 119.0,
+    "fast_OV_nominal_v": 114.0,
+    "fast_OV_total_error_bound_v": 0.65,
+    "fast_OV_required_5mV_overdrive_bus_equivalent_v": 0.23,
+    "fast_OV_nominal_5mV_overdrive_bus_equivalent_v_NOT_bound": 0.22800000000000004,
+    "protected_trip_analysis_start_v": 114.88000000000001
+  },
+  "delay_budget_requirements_s": {
+    "sense_filter_settle_max_NOT_verified": 5e-07,
+    "TLV3501_max_ONLY_given_datasheet_step_conditions": 1.2e-08,
+    "latch_gating_logic_max_NOT_selected": 2.5e-07,
+    "TPSI3050_EN_to_10percent_max_ONLY_given_100pF_conditions": 3e-06,
+    "additional_loaded_gate_opening_max_NOT_verified": 1e-06,
+    "remaining_budget_NOT_measured": 2.38e-07,
+    "total_requirement_NOT_qualified": 5e-06
+  },
+  "timing_source_facts": {
+    "TPSI3050_off_max_under_table_conditions_s": 3e-06,
+    "TPSI3050_primary_supply_loss_timeout_typ_s_NO_MAX": 0.0001,
+    "TPSI3050_peak_sink_typ_a_NO_MIN": 3.0,
+    "TPSI3050_low_driver_resistance_typ_ohm_NO_MAX": 1.7,
+    "TLV3501_5mV_overdrive_step_delay_max_s": 1.2e-08,
+    "TLV3501_maximum_NOT_production_tested_characterized": true,
+    "TPS3700_HL_typ_s_NO_MAX": 1.8e-05,
+    "TPS3700_LH_typ_s_NO_MAX": 2.9e-05,
+    "TPS3700_startup_max_s": 0.00045
+  },
+  "fault_start_cases": [
+    {
+      "fault_source_v": 134.4,
+      "start_case": "upstream_detected_initial_110v",
+      "start_v": 110.0,
+      "deadline_to_120_ideal_ESR_zero_s": 4.408687178995802e-05,
+      "deadline_to_119_ESR_1milliohm_s": 3.7505607910973724e-05,
+      "additional_delay_margin_at_5us_s": 3.2505607910973725e-05,
+      "required_Cmin_for_5us_ESR_1milliohm_to_119_f": 0.00023463157885317786,
+      "required_Cnom_if_total_minus20percent_f": 0.00029328947356647224,
+      "mathematical_evaluation": {
+        "model_valid": true,
+        "model_accepts": true,
+        "calculated_RC_terminal_peak_v": 111.86265749840753,
+        "bounded_extra_peak_v": 1.0,
+        "calculated_total_peak_v": 112.86265749840753,
+        "margin_to_ceiling_v": 7.137342501592471,
+        "reason": "Conditional mathematical model; physical bounds are not verified"
+      },
+      "pulse_at_Cmax_and_ESRzero_for_current_energy_screen": {
+        "initial_current_a": 513.684210526316,
+        "current_at_opening_a": 493.6053404630409,
+        "initial_Rlimit_power_w": 12533.894736842114,
+        "Rlimit_pulse_energy_j": 0.06023580914800346,
+        "ESR_pulse_energy_j": 0.0,
+        "cap_energy_gain_j": 0.27816864796962004,
+        "source_energy_j": 0.33840445711762246
+      }
+    },
+    {
+      "fault_source_v": 134.4,
+      "start_case": "upstream_detected_initial_normal_high_budget",
+      "start_v": 112.475,
+      "deadline_to_120_ideal_ESR_zero_s": 3.5145384128138e-05,
+      "deadline_to_119_ESR_1milliohm_s": 2.837587840364171e-05,
+      "additional_delay_margin_at_5us_s": 2.337587840364171e-05,
+      "required_Cmin_for_5us_ESR_1milliohm_to_119_f": 0.0003101225581397553,
+      "required_Cnom_if_total_minus20percent_f": 0.000387653197674694,
+      "mathematical_evaluation": {
+        "model_valid": true,
+        "model_accepts": true,
+        "calculated_RC_terminal_peak_v": 114.14871990379447,
+        "bounded_extra_peak_v": 1.0,
+        "calculated_total_peak_v": 115.14871990379447,
+        "margin_to_ceiling_v": 4.851280096205528,
+        "reason": "Conditional mathematical model; physical bounds are not verified"
+      },
+      "pulse_at_Cmax_and_ESRzero_for_current_energy_screen": {
+        "initial_current_a": 461.57894736842127,
+        "current_at_opening_a": 443.5367659693514,
+        "initial_Rlimit_power_w": 10120.11842105264,
+        "Rlimit_pulse_energy_j": 0.04863560246551958,
+        "ESR_pulse_energy_j": 0.0,
+        "cap_energy_gain_j": 0.255442992710867,
+        "source_energy_j": 0.30407859517638586
+      }
+    },
+    {
+      "fault_source_v": 134.4,
+      "start_case": "protected_trip_max_plus_required_overdrive",
+      "start_v": 114.88000000000001,
+      "deadline_to_120_ideal_ESR_zero_s": 2.5432070900090042e-05,
+      "deadline_to_119_ESR_1milliohm_s": 1.845807437079274e-05,
+      "additional_delay_margin_at_5us_s": 1.345807437079274e-05,
+      "required_Cmin_for_5us_ESR_1milliohm_to_119_f": 0.0004767561243509097,
+      "required_Cnom_if_total_minus20percent_f": 0.000595945155438637,
+      "mathematical_evaluation": {
+        "model_valid": true,
+        "model_accepts": true,
+        "calculated_RC_terminal_peak_v": 116.37012599872602,
+        "bounded_extra_peak_v": 1.0,
+        "calculated_total_peak_v": 117.37012599872602,
+        "margin_to_ceiling_v": 2.6298740012739756,
+        "reason": "Conditional mathematical model; physical bounds are not verified"
+      },
+      "pulse_at_Cmax_and_ESRzero_for_current_energy_screen": {
+        "initial_current_a": 410.94736842105254,
+        "current_at_opening_a": 394.8842723704325,
+        "initial_Rlimit_power_w": 8021.692631578945,
+        "Rlimit_pulse_energy_j": 0.03855091785472218,
+        "ESR_pulse_energy_j": 0.0,
+        "cap_energy_gain_j": 0.23217264783937586,
+        "source_energy_j": 0.27072356569409795
+      }
+    },
+    {
+      "fault_source_v": 150.0,
+      "start_case": "upstream_detected_initial_110v",
+      "start_v": 110.0,
+      "deadline_to_120_ideal_ESR_zero_s": 2.405022125696888e-05,
+      "deadline_to_119_ESR_1milliohm_s": 1.997920477028692e-05,
+      "additional_delay_margin_at_5us_s": 1.4979204770286922e-05,
+      "required_Cmin_for_5us_ESR_1milliohm_to_119_f": 0.0004404579712345391,
+      "required_Cnom_if_total_minus20percent_f": 0.0005505724640431737,
+      "mathematical_evaluation": {
+        "model_valid": true,
+        "model_accepts": true,
+        "calculated_RC_terminal_peak_v": 113.05353688263529,
+        "bounded_extra_peak_v": 1.0,
+        "calculated_total_peak_v": 114.05353688263529,
+        "margin_to_ceiling_v": 5.946463117364715,
+        "reason": "Conditional mathematical model; physical bounds are not verified"
+      },
+      "pulse_at_Cmax_and_ESRzero_for_current_energy_screen": {
+        "initial_current_a": 842.1052631578947,
+        "current_at_opening_a": 809.1890827262962,
+        "initial_Rlimit_power_w": 33684.21052631579,
+        "Rlimit_pulse_energy_j": 0.16188070182210007,
+        "ESR_pulse_energy_j": 0.0,
+        "cap_energy_gain_j": 0.45727265209626294,
+        "source_energy_j": 0.6191533539183635
+      }
+    },
+    {
+      "fault_source_v": 150.0,
+      "start_case": "upstream_detected_initial_normal_high_budget",
+      "start_v": 112.475,
+      "deadline_to_120_ideal_ESR_zero_s": 1.8710515653676167e-05,
+      "deadline_to_119_ESR_1milliohm_s": 1.4527084312188046e-05,
+      "additional_delay_margin_at_5us_s": 9.527084312188045e-06,
+      "required_Cmin_for_5us_ESR_1milliohm_to_119_f": 0.0006057650531164681,
+      "required_Cnom_if_total_minus20percent_f": 0.0007572063163955849,
+      "mathematical_evaluation": {
+        "model_valid": true,
+        "model_accepts": true,
+        "calculated_RC_terminal_peak_v": 115.33959928802223,
+        "bounded_extra_peak_v": 1.0,
+        "calculated_total_peak_v": 116.33959928802223,
+        "margin_to_ceiling_v": 3.660400711977772,
+        "reason": "Conditional mathematical model; physical bounds are not verified"
+      },
+      "pulse_at_Cmax_and_ESRzero_for_current_energy_screen": {
+        "initial_current_a": 790.0000000000001,
+        "current_at_opening_a": 759.1205082326069,
+        "initial_Rlimit_power_w": 29644.75000000001,
+        "Rlimit_pulse_energy_j": 0.1424677277679271,
+        "ESR_pulse_energy_j": 0.0,
+        "cap_energy_gain_j": 0.43837551237674144,
+        "source_energy_j": 0.5808432401446675
+      }
+    },
+    {
+      "fault_source_v": 150.0,
+      "start_case": "protected_trip_max_plus_required_overdrive",
+      "start_v": 114.88000000000001,
+      "deadline_to_120_ideal_ESR_zero_s": 1.3173135161957956e-05,
+      "deadline_to_119_ESR_1milliohm_s": 8.873127389065232e-06,
+      "additional_delay_margin_at_5us_s": 3.873127389065231e-06,
+      "required_Cmin_for_5us_ESR_1milliohm_to_119_f": 0.0009917585552580539,
+      "required_Cnom_if_total_minus20percent_f": 0.0012396981940725673,
+      "mathematical_evaluation": {
+        "model_valid": true,
+        "model_accepts": true,
+        "calculated_RC_terminal_peak_v": 117.5610053829538,
+        "bounded_extra_peak_v": 1.0,
+        "calculated_total_peak_v": 118.5610053829538,
+        "margin_to_ceiling_v": 1.4389946170462053,
+        "reason": "Conditional mathematical model; physical bounds are not verified"
+      },
+      "pulse_at_Cmax_and_ESRzero_for_current_energy_screen": {
+        "initial_current_a": 739.3684210526313,
+        "current_at_opening_a": 710.468014633688,
+        "initial_Rlimit_power_w": 25966.618947368406,
+        "Rlimit_pulse_energy_j": 0.12479124294342774,
+        "ESR_pulse_energy_j": 0.0,
+        "cap_energy_gain_j": 0.4188254017969021,
+        "source_energy_j": 0.5436166447403283
+      }
+    },
+    {
+      "fault_source_v": 160.0,
+      "start_case": "upstream_detected_initial_110v",
+      "start_v": 110.0,
+      "deadline_to_120_ideal_ESR_zero_s": 1.865480088986794e-05,
+      "deadline_to_119_ESR_1milliohm_s": 1.5161374471440238e-05,
+      "additional_delay_margin_at_5us_s": 1.0161374471440239e-05,
+      "required_Cmin_for_5us_ESR_1milliohm_to_119_f": 0.0005804223104294881,
+      "required_Cnom_if_total_minus20percent_f": 0.00072552788803686,
+      "mathematical_evaluation": {
+        "model_valid": true,
+        "model_accepts": true,
+        "calculated_RC_terminal_peak_v": 113.81692110329412,
+        "bounded_extra_peak_v": 1.0,
+        "calculated_total_peak_v": 114.81692110329412,
+        "margin_to_ceiling_v": 5.183078896705879,
+        "reason": "Conditional mathematical model; physical bounds are not verified"
+      },
+      "pulse_at_Cmax_and_ESRzero_for_current_energy_screen": {
+        "initial_current_a": 1052.6315789473683,
+        "current_at_opening_a": 1011.4863534078703,
+        "initial_Rlimit_power_w": 52631.57894736841,
+        "Rlimit_pulse_energy_j": 0.25293859659703133,
+        "ESR_pulse_energy_j": 0.0,
+        "cap_energy_gain_j": 0.5725992086274561,
+        "source_energy_j": 0.8255378052244876
+      }
+    },
+    {
+      "fault_source_v": 160.0,
+      "start_case": "upstream_detected_initial_normal_high_budget",
+      "start_v": 112.475,
+      "deadline_to_120_ideal_ESR_zero_s": 1.4410669904182553e-05,
+      "deadline_to_119_ESR_1milliohm_s": 1.0827893359740413e-05,
+      "additional_delay_margin_at_5us_s": 5.8278933597404125e-06,
+      "required_Cmin_for_5us_ESR_1milliohm_to_119_f": 0.0008127157986907781,
+      "required_Cnom_if_total_minus20percent_f": 0.0010158947483634724,
+      "mathematical_evaluation": {
+        "model_valid": true,
+        "model_accepts": true,
+        "calculated_RC_terminal_peak_v": 116.10298350868105,
+        "bounded_extra_peak_v": 1.0,
+        "calculated_total_peak_v": 117.10298350868105,
+        "margin_to_ceiling_v": 2.8970164913189507,
+        "reason": "Conditional mathematical model; physical bounds are not verified"
+      },
+      "pulse_at_Cmax_and_ESRzero_for_current_energy_screen": {
+        "initial_current_a": 1000.5263157894738,
+        "current_at_opening_a": 961.4177789141809,
+        "initial_Rlimit_power_w": 47550.01315789474,
+        "Rlimit_pulse_energy_j": 0.22851743833023716,
+        "ESR_pulse_energy_j": 0.0,
+        "cap_energy_gain_j": 0.5561562455356375,
+        "source_energy_j": 0.7846736838658726
+      }
+    },
+    {
+      "fault_source_v": 160.0,
+      "start_case": "protected_trip_max_plus_required_overdrive",
+      "start_v": 114.88000000000001,
+      "deadline_to_120_ideal_ESR_zero_s": 1.0069298397142488e-05,
+      "deadline_to_119_ESR_1milliohm_s": 6.395124557815299e-06,
+      "additional_delay_margin_at_5us_s": 1.3951245578152985e-06,
+      "required_Cmin_for_5us_ESR_1milliohm_to_119_f": 0.0013760482568311784,
+      "required_Cnom_if_total_minus20percent_f": 0.0017200603210389726,
+      "mathematical_evaluation": {
+        "model_valid": true,
+        "model_accepts": true,
+        "calculated_RC_terminal_peak_v": 118.32438960361262,
+        "bounded_extra_peak_v": 1.0,
+        "calculated_total_peak_v": 119.32438960361262,
+        "margin_to_ceiling_v": 0.6756103963873841,
+        "reason": "Conditional mathematical model; physical bounds are not verified"
+      },
+      "pulse_at_Cmax_and_ESRzero_for_current_energy_screen": {
+        "initial_current_a": 949.8947368421051,
+        "current_at_opening_a": 912.7652853152621,
+        "initial_Rlimit_power_w": 42859.25052631577,
+        "Rlimit_pulse_energy_j": 0.20597441490721088,
+        "ESR_pulse_energy_j": 0.0,
+        "cap_energy_gain_j": 0.5389909005273671,
+        "source_energy_j": 0.7449653154345774
+      }
+    },
+    {
+      "fault_source_v": 200.0,
+      "start_case": "upstream_detected_initial_110v",
+      "start_v": 110.0,
+      "deadline_to_120_ideal_ESR_zero_s": 9.846661780873675e-06,
+      "deadline_to_119_ESR_1milliohm_s": 7.215175958525472e-06,
+      "additional_delay_margin_at_5us_s": 2.215175958525472e-06,
+      "required_Cmin_for_5us_ESR_1milliohm_to_119_f": 0.0012196514749722629,
+      "required_Cnom_if_total_minus20percent_f": 0.0015245643437153283,
+      "mathematical_evaluation": {
+        "model_valid": true,
+        "model_accepts": true,
+        "calculated_RC_terminal_peak_v": 116.8704579859294,
+        "bounded_extra_peak_v": 1.0,
+        "calculated_total_peak_v": 117.8704579859294,
+        "margin_to_ceiling_v": 2.1295420140705943,
+        "reason": "Conditional mathematical model; physical bounds are not verified"
+      },
+      "pulse_at_Cmax_and_ESRzero_for_current_energy_screen": {
+        "initial_current_a": 1894.7368421052631,
+        "current_at_opening_a": 1820.6754361341666,
+        "initial_Rlimit_power_w": 170526.31578947368,
+        "Rlimit_pulse_energy_j": 0.8195210529743816,
+        "ESR_pulse_energy_j": 0.0,
+        "cap_energy_gain_j": 1.0379390087807183,
+        "source_energy_j": 1.8574600617551016
+      }
+    },
+    {
+      "fault_source_v": 200.0,
+      "start_case": "upstream_detected_initial_normal_high_budget",
+      "start_v": 112.475,
+      "deadline_to_120_ideal_ESR_zero_s": 7.515458769148486e-06,
+      "deadline_to_119_ESR_1milliohm_s": 4.834894988658696e-06,
+      "additional_delay_margin_at_5us_s": -1.6510501134130428e-07,
+      "required_Cmin_for_5us_ESR_1milliohm_to_119_f": 0.001820101578347064,
+      "required_Cnom_if_total_minus20percent_f": 0.0022751269729338296,
+      "mathematical_evaluation": {
+        "model_valid": true,
+        "model_accepts": false,
+        "calculated_RC_terminal_peak_v": 119.15652039131635,
+        "bounded_extra_peak_v": 1.0,
+        "calculated_total_peak_v": 120.15652039131635,
+        "margin_to_ceiling_v": -0.15652039131634865,
+        "reason": "Conditional mathematical model; physical bounds are not verified"
+      },
+      "pulse_at_Cmax_and_ESRzero_for_current_energy_screen": {
+        "initial_current_a": 1842.6315789473686,
+        "current_at_opening_a": 1770.6068616404773,
+        "initial_Rlimit_power_w": 161276.32894736846,
+        "Rlimit_pulse_energy_j": 0.7750671578571025,
+        "ESR_pulse_energy_j": 0.0,
+        "cap_energy_gain_j": 1.0313127521997305,
+        "source_energy_j": 1.806379910056833
+      }
+    },
+    {
+      "fault_source_v": 200.0,
+      "start_case": "protected_trip_max_plus_required_overdrive",
+      "start_v": 114.88000000000001,
+      "deadline_to_120_ideal_ESR_zero_s": 5.186158680866247e-06,
+      "deadline_to_119_ESR_1milliohm_s": 2.4565570037810426e-06,
+      "additional_delay_margin_at_5us_s": -2.5434429962189578e-06,
+      "required_Cmin_for_5us_ESR_1milliohm_to_119_f": 0.003582249459896662,
+      "required_Cnom_if_total_minus20percent_f": 0.004477811824870827,
+      "mathematical_evaluation": {
+        "model_valid": true,
+        "model_accepts": false,
+        "calculated_RC_terminal_peak_v": 121.37792648624792,
+        "bounded_extra_peak_v": 1.0,
+        "calculated_total_peak_v": 122.37792648624792,
+        "margin_to_ceiling_v": -2.3779264862479152,
+        "reason": "Conditional mathematical model; physical bounds are not verified"
+      },
+      "pulse_at_Cmax_and_ESRzero_for_current_energy_screen": {
+        "initial_current_a": 1791.9999999999998,
+        "current_at_opening_a": 1721.9543680415584,
+        "initial_Rlimit_power_w": 152535.03999999995,
+        "Rlimit_pulse_energy_j": 0.7330579800399686,
+        "ESR_pulse_energy_j": 0.0,
+        "cap_energy_gain_j": 1.023686469477746,
+        "source_energy_j": 1.756744449517714
+      }
+    }
+  ],
+  "conditional_160v_model": {
+    "model_valid": true,
+    "model_accepts": true,
+    "calculated_RC_terminal_peak_v": 118.32438960361262,
+    "bounded_extra_peak_v": 1.0,
+    "calculated_total_peak_v": 119.32438960361262,
+    "margin_to_ceiling_v": 0.6756103963873841,
+    "reason": "Conditional mathematical model; physical bounds are not verified"
+  },
+  "fail_closed_missing_bound_cases": {
+    "source_bound_v": {
+      "model_valid": false,
+      "model_accepts": false,
+      "reason": "Required bound absent: source_bound_v"
+    },
+    "start_v": {
+      "model_valid": false,
+      "model_accepts": false,
+      "reason": "Required bound absent: start_v"
+    },
+    "r_min_ohm": {
+      "model_valid": false,
+      "model_accepts": false,
+      "reason": "Required bound absent: r_min_ohm"
+    },
+    "c_min_f": {
+      "model_valid": false,
+      "model_accepts": false,
+      "reason": "Required bound absent: c_min_f"
+    },
+    "esr_max_ohm": {
+      "model_valid": false,
+      "model_accepts": false,
+      "reason": "Required bound absent: esr_max_ohm"
+    },
+    "delay_max_s": {
+      "model_valid": false,
+      "model_accepts": false,
+      "reason": "Required bound absent: delay_max_s"
+    },
+    "extra_terminal_peak_max_v": {
+      "model_valid": false,
+      "model_accepts": false,
+      "reason": "Required bound absent: extra_terminal_peak_max_v"
+    }
+  },
+  "ESR_sensitivity_at_160v_protected_trip_start": [
+    {
+      "ESR_ohm": 0.0,
+      "RC_terminal_peak_v": 117.4994509466357
+    },
+    {
+      "ESR_ohm": 0.001,
+      "RC_terminal_peak_v": 118.32438960361262
+    },
+    {
+      "ESR_ohm": 0.002,
+      "RC_terminal_peak_v": 119.11797230524337
+    },
+    {
+      "ESR_ohm": 0.005,
+      "RC_terminal_peak_v": 121.32746746127029
+    },
+    {
+      "ESR_ohm": 0.02,
+      "RC_terminal_peak_v": 129.55748417399505
+    }
+  ],
+  "continuous_Rseries_budget": [
+    {
+      "current_a": 38.28,
+      "nominal_drop_v": 1.9140000000000001,
+      "maximum_drop_v": 2.0097,
+      "nominal_loss_w": 73.26792,
+      "maximum_loss_w": 76.93131600000001
+    },
+    {
+      "current_a": 40.0,
+      "nominal_drop_v": 2.0,
+      "maximum_drop_v": 2.1,
+      "nominal_loss_w": 80.0,
+      "maximum_loss_w": 84.00000000000001
+    }
+  ],
+  "switchbank_screen_NOT_qualification": {
+    "candidate": "IPP110N20N3G in common-source back-to-back halves",
+    "use": "Switch only; no 40A/20ms linear clamp claim",
+    "VDS_rating_v": 200.0,
+    "VDS_design_ceiling_requirement_v": 180.0,
+    "parallel_count_per_half_working_candidate": 4,
+    "total_MOSFETs_working_candidate": 8,
+    "pulse_current_assessment": [
+      {
+        "fault_v": 134.4,
+        "peak_current_upper_example_a": 513.684210526316,
+        "parallel_count_per_half_at_352A_25C_and_assumed25percent_mismatch": 2,
+        "hot_SOA_and_pulse_current_qualified": false,
+        "200v_part_under_180v_VDS_design_ceiling_at_source_bound_alone": true
+      },
+      {
+        "fault_v": 150.0,
+        "peak_current_upper_example_a": 842.1052631578947,
+        "parallel_count_per_half_at_352A_25C_and_assumed25percent_mismatch": 3,
+        "hot_SOA_and_pulse_current_qualified": false,
+        "200v_part_under_180v_VDS_design_ceiling_at_source_bound_alone": true
+      },
+      {
+        "fault_v": 160.0,
+        "peak_current_upper_example_a": 1052.6315789473683,
+        "parallel_count_per_half_at_352A_25C_and_assumed25percent_mismatch": 4,
+        "hot_SOA_and_pulse_current_qualified": false,
+        "200v_part_under_180v_VDS_design_ceiling_at_source_bound_alone": true
+      },
+      {
+        "fault_v": 200.0,
+        "peak_current_upper_example_a": 1894.7368421052631,
+        "parallel_count_per_half_at_352A_25C_and_assumed25percent_mismatch": 7,
+        "hot_SOA_and_pulse_current_qualified": false,
+        "200v_part_under_180v_VDS_design_ceiling_at_source_bound_alone": false
+      }
+    ],
+    "pair_bank_hot_RDS_estimate_assumes_2x25C_ohm": 0.011,
+    "pair_bank_hot_loss_estimate_at_40A_w": 17.599999999999998,
+    "pair_bank_hot_drop_estimate_at_40A_v": 0.43999999999999995,
+    "Qg_sum_at_datasheet100V44A_conditions_c_NOT_fault_bound": 6.96e-07,
+    "Qg_over_3A_typ_sink_estimate_s_NOT_guaranteed": 2.3199999999999999e-07,
+    "sum_Ciss_max_at_datasheet_conditions_f_NOT_fixed_load_model": 5.68e-08,
+    "TPSI3050_gate_supply_each_divcap_nominal_requirement_f": 4.7e-06,
+    "each_divcap_min_requirement_f": 3.76e-06,
+    "gate_supply_series_effective_Cmin_f": 1.88e-06,
+    "charge_step_droop_estimate_v_NOT_fault_bound": 0.3702127659574468,
+    "loaded_delay_max_verified_s": null
+  },
+  "precharge_requirements_and_examples": {
+    "Rpre_nominal_ohm": 100.0,
+    "Rpre_full_budget_min_ohm": 95.0,
+    "Rpre_full_budget_max_ohm": 105.0,
+    "Rpre_switch_bidirectional_blocking_required": true,
+    "Rseries_included_and_never_bypassed": true,
+    "Cmax_f": 0.00264,
+    "source_max_before_OV_threshold_v_NOT_fault_bound": 114.65,
+    "pre_OV_peak_current_example_a": 1.2062389857702729,
+    "pre_OV_peak_Rpre_power_example_w": 138.36444736842105,
+    "normal_110v_energy_to_Rpre_upper_bound_j": 15.972,
+    "pre_OV_energy_to_Rpre_upper_example_j": 17.3509017,
+    "time_to_within1v_at_110v_Rmax_Cmax_s": 1.3036246439763566,
+    "timeout_requirement_s": 2.0,
+    "pre_OV_shorted_load_two_second_energy_to_Rpre_upper_example_j": 276.7288947368421,
+    "fault_source_bound_requirement_v": 160.0,
+    "fault_branch_detection_to_opening_max_requirement_s": 5e-06,
+    "fault_peak_current_upper_a": 1.6842105263157894,
+    "fault_peak_Rpre_power_upper_w": 269.4736842105263,
+    "fault_5us_extra_energy_Rpre_upper_j": 0.0013473684210526316,
+    "before_main_close_delta_v_max": 1.0,
+    "ideal_peak_equalization_current_at_1v_delta_a": 21.05263157894737,
+    "DUT_and_power_phases_OFF_until_main_gate_and_voltage_verified": true
+  },
+  "aux_loss_hold_up_requirements_example": {
+    "independent_BUS_NEG_referenced_logic_aux_required": true,
+    "hold_cap_nominal_f": 1e-05,
+    "hold_cap_min_f_full_budget": 8e-06,
+    "total_held_rail_current_max_requirement_a": 0.05,
+    "AUXUV_must_trip_at_or_above_v": 3.1,
+    "TPSI3050_primary_recommended_min_v": 3.0,
+    "ideal_held_time_to3v_from3_1v_s": 1.6e-05,
+    "TPSI3050_primary_decoupling_recommended_max_f": 2e-05,
+    "primary_loss_100us_typ_NOT_used_as_fast_stop": true,
+    "all_aux_current_and_diode_drop_bounds_verified": false
+  },
+  "inductive_interruption_cases": [
+    {
+      "inductance_h": 1e-07,
+      "current_a": 1052.6315789473683,
+      "energy_j": 0.05540166204986148,
+      "voltage_if_current_changes_to_zero_in_1us_v": 105.26315789473684,
+      "Rlimit_flywheel_decay_time_constant_s": 2.1052631578947366e-06,
+      "protected_cap_v_if_all_energy_injected": 118.59012441689687
+    },
+    {
+      "inductance_h": 1e-06,
+      "current_a": 1052.6315789473683,
+      "energy_j": 0.5540166204986148,
+      "voltage_if_current_changes_to_zero_in_1us_v": 1052.6315789473683,
+      "Rlimit_flywheel_decay_time_constant_s": 2.105263157894737e-05,
+      "protected_cap_v_if_all_energy_injected": 120.95546914688565
+    },
+    {
+      "inductance_h": 1e-05,
+      "current_a": 1052.6315789473683,
+      "energy_j": 5.540166204986149,
+      "voltage_if_current_changes_to_zero_in_1us_v": 10526.315789473685,
+      "Rlimit_flywheel_decay_time_constant_s": 0.0002105263157894737,
+      "protected_cap_v_if_all_energy_injected": 142.46509955011612
+    }
+  ],
+  "protected_extra_energy_allocation": {
+    "before_extra_peak_v": 118.32438960361262,
+    "allowed_extra_peak_v": 1.0,
+    "extra_energy_if_absorbed_only_by_Cmin_j": 0.2091309257023587,
+    "max_L_if_all_1053A_energy_injected_into_C_h": 3.774813208927575e-07,
+    "source_side_flywheel_diode_required": "anode NODE_PRE, cathode NODE_F; no selected MPN",
+    "source_and_protected_energy_paths_need_separate_qualification": true
+  },
+  "actual_qualification_evidence": {
+    "Rmin_over_temperature_age_and_pulses_ohm": null,
+    "Cmin_effective_over_voltage_temperature_age_f": null,
+    "ESRmax_in_fault_relevant_frequency_range_ohm": null,
+    "source_transient_bound_at_actual_NODE_F_v": null,
+    "full_loaded_detection_to_opening_max_s": null,
+    "terminal_ESL_inductive_extra_peak_bound_v": null,
+    "maximum_protected_trip_start_including_overdrive_v": null,
+    "hot_switchbank_SOA_qualified": false,
+    "resistor_continuous_and_pulse_qualified": false,
+    "capacitor_pulse_current_and_terminal_qualified": false,
+    "aux_hold_up_and_default_OFF_qualified": false,
+    "precharge_flywheel_dump_and_fault_reset_qualified": false
+  },
+  "physical_limit_acceptance_tests": {
+    "Rmin_over_temperature_age_and_pulses_ohm": [
+      "min",
+      0.0475
+    ],
+    "Cmin_effective_over_voltage_temperature_age_f": [
+      "min",
+      0.0017600000000000003
+    ],
+    "ESRmax_in_fault_relevant_frequency_range_ohm": [
+      "max",
+      0.001
+    ],
+    "source_transient_bound_at_actual_NODE_F_v": [
+      "max",
+      160.0
+    ],
+    "full_loaded_detection_to_opening_max_s": [
+      "max",
+      5e-06
+    ],
+    "terminal_ESL_inductive_extra_peak_bound_v": [
+      "max",
+      1.0
+    ],
+    "maximum_protected_trip_start_including_overdrive_v": [
+      "max",
+      114.88000000000001
+    ]
+  },
+  "qualification_gate": {
+    "physical_qualification_passes": false,
+    "failures": [
+      "Rmin_over_temperature_age_and_pulses_ohm: verified finite bound absent",
+      "Cmin_effective_over_voltage_temperature_age_f: verified finite bound absent",
+      "ESRmax_in_fault_relevant_frequency_range_ohm: verified finite bound absent",
+      "source_transient_bound_at_actual_NODE_F_v: verified finite bound absent",
+      "full_loaded_detection_to_opening_max_s: verified finite bound absent",
+      "terminal_ESL_inductive_extra_peak_bound_v: verified finite bound absent",
+      "maximum_protected_trip_start_including_overdrive_v: verified finite bound absent",
+      "hot_switchbank_SOA_qualified: not qualified",
+      "resistor_continuous_and_pulse_qualified: not qualified",
+      "capacitor_pulse_current_and_terminal_qualified: not qualified",
+      "aux_hold_up_and_default_OFF_qualified: not qualified",
+      "precharge_flywheel_dump_and_fault_reset_qualified: not qualified"
+    ],
+    "reason": "Required physical bounds and component qualifications remain absent",
+    "fabrication_or_energization_release": false,
+    "existing_120v_phase_bus_problem_verified": false
+  },
+  "references": [
+    "references/bus-protection-sources.json",
+    "references/sources.json"
+  ]
+}

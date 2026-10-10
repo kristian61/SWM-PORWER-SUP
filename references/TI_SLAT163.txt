@@ -1,0 +1,1343 @@
+www.ti.com
+
+User's Guide
+Smart DAC Product Selection Guide
+
+
+
+                                                       ABSTRACT
+Many systems require software to offer sophisticated performance. Applications for self-test in enterprise
+systems use voltage margining controlled by software to perform regular self-stress tests to check the health
+of the system. Closed-loop control, temperature compensation or biasing circuits rely on trivial software for
+sensing and control. Factory tuning and calibration of user-interfacing sub-systems or lighting applications
+heavily utilize software to perform such adjustments. Some applications that are responsible for human life or
+can potentially harm the user, require software-free fault-management. While discrete approach or application
+specific integrated circuit (ASIC) is used, this approach lacks basic intelligence.
+Conventional discrete data converters and analog ASICs require a micro-controller unit (MCU) to provide full
+functionality and basic intelligence. Hardware engineers must deal with the overhead of software development,
+maintenance and in some cases regulatory approval when designs demand programmable logic. Lack of
+reusability is another issue that such a design creates. When there is a hardware change many steps must
+be taken to push the product to market: a requirement is due, updates are needed, additional testing must be
+done, and sometimes re-qualification is required. Such challenges often times prevent designers from system
+upgrades. For life-dependent products, the software can also cause some issues. Software faults can cause
+some unpredictable system behavior, while overloaded micro-controller can miss a vital interrupt or system fail
+signal. For such systems and teams, the software overhead outweighs the cost of using the MCUs. Any design
+that eliminates software development is desirable in these systems. Smart DACs and AFE provide software
+independence.
+Because smart DACs eliminate the need for software, smart DACs fill the gap between DAC-based circuits,
+MCU-based circuits and entirely discrete circuits built with components like precision resistors, capacitors and
+inductors.
+
+
+                                                           MCU
+                                                    SW for differentiation
+
+
+
+
+                                 Discrete                                                 DACs
+                               components                                       Programmability
+                                 Simplicity                                      and precision
+
+
+
+
+                                              Figure 1-1. Why Smart DAC?
+
+
+
+
+SLAT163 – JULY 2024                                                                               Smart DAC Product Selection Guide   1
+Submit Document Feedback
+                                        Copyright © 2024 Texas Instruments Incorporated
+Table of Contents                                                                                                                                                              www.ti.com
+
+
+
+                                                                           Table of Contents
+1 What is a Smart DAC?............................................................................................................................................................3
+2 What is a Smart Analog Front End (AFE)?...........................................................................................................................4
+3 Smart DAC selection guide....................................................................................................................................................5
+4 Smart AFE Selection Guide................................................................................................................................................... 6
+5 Applications............................................................................................................................................................................ 7
+  5.1 Lightning.............................................................................................................................................................................7
+    5.1.1 Light Emitting Diode (LED) Biasing and Linear Fade-In Fade-Out..............................................................................7
+    5.1.2 LED Biasing With LED Driver...................................................................................................................................... 8
+    5.1.3 Analog Thermal Foldback............................................................................................................................................9
+    5.1.4 Logarithmic Fade-In/Fade-Out...................................................................................................................................11
+    5.1.5 LED Sequencing........................................................................................................................................................12
+  5.2 Control..............................................................................................................................................................................13
+    5.2.1 Voltage Margining and Scaling With Voltage Output Smart DAC..............................................................................13
+    5.2.2 Thermoelectric Cooling (TEC) Control...................................................................................................................... 14
+    5.2.3 Analog Power Control (APC) of a Laser....................................................................................................................16
+    5.2.4 Constant Power Control............................................................................................................................................ 17
+  5.3 Microcontroller Independent Fault Management and Communication.............................................................................18
+    5.3.1 Programmable Comparator Using Smart DAC..........................................................................................................18
+    5.3.2 GPI-to-PWM.............................................................................................................................................................. 19
+    5.3.3 If-Then-Else Logic..................................................................................................................................................... 20
+  5.4 Driver................................................................................................................................................................................21
+    5.4.1 Lens Positioning Control for Camera Module Auto-Focus and Image Stabilization.................................................. 21
+    5.4.2 Laser Drive................................................................................................................................................................ 22
+  5.5 Miscellaneous Smart DAC Applications...........................................................................................................................23
+    5.5.1 Software-less Medical Alarm Generation.................................................................................................................. 23
+    5.5.2 555 Timer...................................................................................................................................................................24
+Trademarks
+All trademarks are the property of their respective owners.
+
+
+
+
+2       Smart DAC Product Selection Guide                                                                                                                        SLAT163 – JULY 2024
+                                                                                                                                                             Submit Document Feedback
+                                                                 Copyright © 2024 Texas Instruments Incorporated
+www.ti.com                                                                                                              What is a Smart DAC?
+
+
+1 What is a Smart DAC?
+Smart DAC is a general purpose (GP) DAC with complementary features designed to simplify software. Typical
+smart DAC integrates the following features:
+•   Factory or user programmable non-volatile memory (NVM) to store all configurations
+•   Waveform generation
+    – Saw-tooth, triangular, sinusoidal, square
+•   Pulth-width modulation (PWM) generation
+•   Force-sense control
+•   Programmable comparator with hysteresis
+•   Programmable digital slew rate control (DAC ramp-up speed)
+•   Programmable general purpose input, output (GPIO)
+                                                              REF     VDD
+                                                    Internal                       BUF
+                                                   Reference                COMP         PWM
+                              GPIO     GPIO
+                                      Handler
+
+                              I2C                               DAC                        Hi-Z
+                                       Digital                                                    OUTx
+                              SPI                                              BUF
+                                      Interface
+                                                                                                  FBx
+                                                               Function
+                                                  Slew rate
+                                       NVM                       Gen
+
+
+                                     SMART DAC
+                                                                              GND
+
+                                     Figure 1-1. Smart DAC Block Diagram
+
+
+
+
+SLAT163 – JULY 2024                                                                                     Smart DAC Product Selection Guide   3
+Submit Document Feedback
+                                       Copyright © 2024 Texas Instruments Incorporated
+What is a Smart Analog Front End (AFE)?                                                                                        www.ti.com
+
+
+2 What is a Smart Analog Front End (AFE)?
+Real-time control loops are often implemented with external hardware and an MCU. Such implementation often
+requires a variety of discrete components for sensing, filtering, and a control routine mechanism implemented
+with a micro-controller. Such systems however add complex research and development cycles. In the event of a
+system upgrade - changes to the regulatory upgrade or system design, software controlled systems are often not
+reusable. To simplify this, Texas Instruments released smart AFEs which are the devices that contain all of the
+smart DAC features with additional:
+•   An integrated and programmable state machine
+•   An integrated digital or analog sensing mechanism
+•   Programmable look-up table
+•   Non-volatile memory to store configurations
+Smart AFEs incorporate both a sensing and a controlling mechanism in one chip to remove the need for
+additional discrete components. With NVM and a variety of configurable tools, smart AFEs eliminate the need for
+run-time software and can be configured directly by a hardware engineer.
+By offloading the real-time logic to the hardware, the system becomes modular and concurrent, allowing the
+individual blocks to be loosely coupled and replaced without the need to update adjacent blocks. An upgrade of
+hardware in the system or an addition regulatory requirements does not affect the real-time logic and controlling
+loop, making the design significantly more versatile compared to the standard MCU approach.
+For the subsystems that require run-time updates - smart AFEs also support such requirements by having
+a versatile and auto detecting SPI and I2C communication protocols available. AFE block diagram gives an
+example of a common smart AFE.
+
+                                                                                        BUF
+                                                                                 COMP         PWM
+                                                                     Slew rate
+                                     GPIO     GPIO
+                                             Handler
+
+                                      I2C                  State                                    Hi-Z
+                                              Digital                   DAC                                OUTx
+                                      SPI                 Machine                   OUT
+                                             Interface
+                                                                                                           FBx
+                                                                         LUT
+                                              NVM
+                                                                                              ADC
+
+                                            SMART AFE
+
+                                               Figure 2-1. AFE Block Diagram
+
+Due to the fact that the control is offloaded from the micro-controller and is independent from the driver and the
+load - in the event of a hardware update or in case of a supply shortage when needing a hardware replacement -
+there is no need for a software update since the control loop remains the same.
+
+
+
+
+4     Smart DAC Product Selection Guide                                                                               SLAT163 – JULY 2024
+                                                                                                                  Submit Document Feedback
+                                              Copyright © 2024 Texas Instruments Incorporated
+www.ti.com                                                                                                                                                                        Smart DAC selection guide
+
+
+3 Smart DAC selection guide
+ Resolution
+
+
+
+                                                                                       DAC63002                                               DAC63004                            DAC63004W
+                     DAC63701                                                                                                                VDAC/IDAC                             VDAC/IDAC
+                                                                                      VDAC/IDAC
+                        I2C                                                                                                          2                                     2
+                                                                                                                                                                          I C/SPI, low-power (35 A/ch)
+                                                                             I C/SPI, low-power (35A/ch)
+                                                                              2                                                     I C/SPI, low-power (35 A/ch)
+                  SON (3mm x 3mm)                                                                                                        QFN (3mm x 3 mm)                  WCSP (1.75mm x 1.75mm)
+                                                                                  QFN (3mm x 3mm)
+
+12-bit
+                        DAC63001                                                       DAC63202                                               DAC63204                             DAC63204W
+                       VDAC/IDAC                                                       VDAC/IDAC                                              VDAC/IDAC                             VDAC/IDAC
+              I2C/SPI, low-power (35A/ch)                                   I C/SPI, low-power (250A/ch)
+                                                                             2                                                      2
+                                                                                                                                    I C/SPI, low-power (250 A/ch)         I C/SPI, low-power (250A/ch)
+                                                                                                                                                                          2
+
+
+                   QFN (3mm x 3mm)                                                QFN (3mm x 3mm)                                        QFN (3mm x 3mm)                    WCSP (1.75mm x 1.75mm)
+
+
+
+
+                                                                     DAC53002                                                                 DAC53004                            DAC53004W
+                                                                    VDAC/IDAC                                                                VDAC/IDAC                             VDAC/IDAC
+                                                                                                                                                                           2
+                                                           I2C/SPI, low-power (35 A/ch)                                             I C/SPI, low-power (35A/ch)
+                                                                                                                                     2                                    I C/SPI, low-power (35 A/ch)
+                      DAC53701                                  QFN (3mm x 3mm)                         DAC530A2W                        QFN (3mm x 3mm)                   WCSP (1.75mm x 1.75mm)
+                        VDAC                                                                       IDAC (300mA) + VDAC
+                         I2C                                                                   I C/SPI, low-power (150A/ch)
+                                                                                               2
+
+10-bit             SON (2mm x 2mm)                                   DAC53202                    WCSP (1.75mm x 1.75mm)                       DAC53204                             DAC53204W
+                                                                     VDAC/IDAC                                                                VDAC/IDAC                             VDAC/IDAC
+                                                                                                                                                                          2
+                                                           I C/SPI, low-power (250A/ch)
+                                                            2
+                                                                                                                                    I C/SPI, low-power (250A/ch)
+                                                                                                                                     2                                    I C/SPI, low-power (250 A/ch)
+                                                                QFN (3mm x 3mm)                                                          QFN (3mm x 3mm)                    WCSP (1.75mm x 1.75mm)
+
+
+
+
+ 8-bit
+                     DAC43701                                                                                                                                   DAC43202
+                       VDAC                                                                                                                                     VDAC/IDAC
+                        I2C                                                                                                                           I C/SPI, low-power (250A/ch)
+                                                                                                                                                      2
+
+                  SON (2mm x 2mm)                                                                                                                          QFN (3mm x 3mm)
+
+
+
+
+                           1                                                               2                                                                          4                         Channel count
+
+                        Automotive           Hero device
+
+
+                                                                             Figure 3-1. Smart DAC Selection Guide
+
+
+
+
+SLAT163 – JULY 2024                                                                                                                                                Smart DAC Product Selection Guide            5
+Submit Document Feedback
+                                                                                  Copyright © 2024 Texas Instruments Incorporated
+Smart AFE Selection Guide                                                                                                              www.ti.com
+
+
+4 Smart AFE Selection Guide
+                                  Table 4-1. Smart Analog Front End (AFE) Selection Guide
+    Part number                Specifications             Description                    Application                   End Equipment
+          AFE539A4               3-ch 10-bit VDAC, 1-ch    Digital PI loop with voltage TEC control using DC/DC                  IVD
+                                          ADC                          output                    driver                     Optical Module
+          AFE439A2               1-ch VDAC, 1-ch ADC,       Digital PI loop with PWM     TEC control using h-bridge              IVD
+                                      PWM, GPO                  and digital output                driver                    Optical Module
+          AFE639D2               1-ch VDAC, 1-ch ADC       Digital PI loop with voltage TEC control using DC/DC                  IVD
+                                                             output and I2C sensor               driver                     Optical Module
+                                                                     interface
+         AFE53902-Q1            10-bit, 1-ch VDAC, 1-ch    State machine configured          Multislope thermal           Automotive lighting
+                                   PWM, 1-ch ADC           to control the LED output              foldback                    Lighting
+                                                             based on the current
+                                                                 temperature
+         AFE53902-Q1             8-bit, 1-ch VDAC, 1-ch    State machine configured          Multislope thermal           Automotive lighting
+                                    PWM, 1-ch ADC          to control the LED output              foldback                    Lighting
+                                                             based on the current
+                                                                 temperature
+         DAC43902-Q1                8-bit, 4-ch PWM        State machine configured       Logarithmic fade-in and         Automotive lighting
+                                                           to control LED animation               fade-out                    Lighting
+                                                                    patterns              Sequential on/off control
+         DAC43901-Q1                8-bit, 2-ch PWM        State machine configured       Logarithmic fade-in and         Automotive lighting
+                                                           to control LED animation               fade-out                    Lighting
+                                                                    patterns              Sequential on/off control
+        DAC539G2-Q1                 3 GPI, 1-ch PWM         LUT to convert GPI input          GPI-to-PWM fault            Automotive lighting
+                                                           to PWM with a unique duty           communication                Wired control
+                                                                     cycle
+                                                                                                                              Appliances
+         DAC539E4W                 4 programmable          LUT to convert comparator           If-then-else fault            Appleances
+                                 comparators, 4 GPOs       outputs into corresponding            management
+                                                                      GPOs
+         AFE539F1-Q1             1-ch ADC, 1-ch PWM             Constant power           Traction inverter/ constant       Traction inverter
+                                                           dissipation control across           power control                  Elevator
+                                                             the load based on the
+                                                                transfer function
+         AFE532A3W             1-ch IDAC, 1-ch VDAC, 1-     Closed loop control and                 Laser driver            Optical module
+                                       ch ADC               biasing of a laser diode                                             Laser
+
+
+
+
+6       Smart DAC Product Selection Guide                                                                                    SLAT163 – JULY 2024
+                                                                                                                         Submit Document Feedback
+                                                  Copyright © 2024 Texas Instruments Incorporated
+www.ti.com                                                                                                                          Applications
+
+
+5 Applications
+5.1 Lightning
+Smart DAC and AFE offers software free control of LEDs for both automotive and commercial applications. This
+section goes over how to use Smart DAC and AFE in lighting applications and the LED animation capability of
+these devices.
+5.1.1 Light Emitting Diode (LED) Biasing and Linear Fade-In Fade-Out
+In the applications where there is a need for a simple LED biasing, smart DAC is a solid choice. In
+this application the DAC controls the collector current by varying the voltage at the gate of the MOSFET.
+Force-sense configuration enables this process to be completely autonomous. In addition, the forse-sense
+configuration maintains the consistency of the LED light output across multiple platforms by adjusting to
+component mismatch and errors. Smart DAC also contains a GPIO trigger for on and off control capability,
+and slew rate control for fade-in and fade-out functionality. All of these parameters are configured via internal
+register values and can be stored in the integrated non-volatile memory, which loads the registers upon power
+cycle.
+                                                  Table 5-1. Design Implementation
+                                                              REF     VDD                                VCC
+                                                    Internal                       BUF
+                                                   Reference                COMP         PWM
+                           GPI         GPI
+                                      Handler
+
+                               I2C                              DAC                        Hi-Z
+                                       Digital                                                    OUTx
+                               SPI                                              BUF
+                                      Interface
+                                                                                                  FBx
+                                                               Function
+                                                  Slew rate
+                                      NVM                        Gen
+                                                                                                              Rset
+                                     SMART DAC
+                                                                                                               GND
+                                                                                GND
+
+                                                Figure 5-1. Hardware Block Diagram
+
+ Design Benefits                                                            Suggested device
+ •   Stability against temperature changes and component variations •           DAC43701
+ •   Software independent                                           •           DAC43204
+ •   Fade-in/fade-out animation
+
+ End Equipment                                                              Design help
+ •   Barcode scanner                                                        •   LED biasing using smart DAC
+ •   Appliance                                                              •   Fade-in fade-out calculator
+ •   In-vitro diagnostics
+ •   Exit/emergency lighting
+
+
+
+
+SLAT163 – JULY 2024                                                                                      Smart DAC Product Selection Guide    7
+Submit Document Feedback
+                                                  Copyright © 2024 Texas Instruments Incorporated
+Applications                                                                                                                         www.ti.com
+
+5.1.2 LED Biasing With LED Driver
+Brightness of the LED is controlled by a LED driver which is regulated by a PWM signal. Using smart DAC
+PWM generation capability, the LED driver can be controlled without the need for software. Smart DAC uses the
+combination of a comparator and an integrated random function generator to create a PWM. Internal registers
+also allow the set up the amplitude and frequency of the generated signal. Since all of the configurations and
+registers values are stored in the non-volatile memory, there is no need for any software for such control.
+                                                     Table 5-2. Design Implementation
+                                                            REF     VDD
+                                                  Internal                       BUF
+                                                 Reference                COMP         PWM
+                          GPI         GPI
+                                     Handler
+
+                          I2C                                 DAC                        Hi-Z
+                                     Digital                                                    OUTx         LED
+                          SPI                                                BUF
+                                    Interface                                                                Driver
+                                                                                                FBx
+                                                             Function
+                                                Slew rate
+                                     NVM                       Gen
+
+
+                                 SMART DAC
+                                                                            GND
+
+                                                  Figure 5-2. Hardware Block Diagram
+
+    Design Benefits                                                              Suggested device
+    •   Stand alone, software independent design                                 •     DAC43701
+    •   Consistent LED output across multiple platforms                          •     DAC43204
+
+    End Equipment                                                                Design help
+    •   Automotive lighting                                                      •     Generating PWM using smart DAC
+    •   Appliance
+    •   POS printers
+
+
+
+
+8        Smart DAC Product Selection Guide                                                                                  SLAT163 – JULY 2024
+                                                                                                                        Submit Document Feedback
+                                                     Copyright © 2024 Texas Instruments Incorporated
+www.ti.com                                                                                                                                   Applications
+
+5.1.3 Analog Thermal Foldback
+Protecting the light emitting diodes (LED) from the operating junction temperature rating and doing so with
+minimal system cost is a challenge particularly in automotive applications. One of the techniques is to reduce or
+fold back the current through the LED while heating up. This increases the longevity of the LED and maintains
+that the LED operates safely.
+Smart DAC has an ability to implement a simple single slope or multi-slope thermal foldback.
+5.1.3.1 Single Slope Thermal Foldback
+For a simple single-slope thermal foldback implementation, the feedback pin and the smart DAC PWM
+generation are used. Analog temperature sensing mechanism such as negative temperature coefficient (NTC)
+or an analog temperature sensor is connected to the feedback pin of the smart DAC. As the temperature
+rises, the voltage at the feedback pin drops due to the increase of resistivity of the NTC. The PWM duty cycle
+generated by the smart DAC decreases as the temperature rises. The PWM in return controls the LED driver
+and brightness.
+The device has an integrated non-volatile memory to store configuration and autonomously generate PWM
+signal without the need for runtime software.
+                                                   Table 5-3. Design Implementation
+                                                          REF     VDD
+                                                Internal                       BUF
+                                               Reference                COMP         PWM
+                      GPI          GPI
+                                  Handler
+
+                       I2C                                  DAC                        Hi-Z
+                                   Digital                                                    OUTx               LED
+                       SPI                                                 BUF
+                                  Interface                                                                      Driver
+                                                                                              FBx
+                                                           Function
+                                              Slew rate
+                                     NVM                     Gen
+                                                                                                     VCC
+
+                                                                                                       NTC
+                                SMART DAC
+                                                                          GND
+
+
+
+                                                                                                           GND
+
+
+                                OUT             Change of PWM duty cycle due to NTC variation
+                           5V
+
+
+
+
+                                FB
+                           0V
+                                                                                                                          Time
+
+                                                Figure 5-3. Hardware Block Diagram
+
+ Design Benefits                                                               Suggested device
+ •   Processor-less single-slope thermal foldback                              •     DAC53701
+ •   PWM with duty cycle following foldback curve                              •     DAC53202
+
+ End Equipment                                                                 Design help
+ •   Rear automotive light                                                     •     Generating PWM using smart DAC
+ •   Small light
+
+
+
+
+SLAT163 – JULY 2024                                                                                               Smart DAC Product Selection Guide    9
+Submit Document Feedback
+                                                   Copyright © 2024 Texas Instruments Incorporated
+Applications                                                                                                                            www.ti.com
+
+5.1.3.2 Multi-Slope Thermal Foldback
+To maintain that the LED is lit up at the same luminosity throughout safe temperature ranges, the current through
+LED needs to be increased progressively by higher margin and at some point, when the temperature reaches
+a critical level, completely shut off the current and the LED. Usually software is required for such operation to
+process the temperature and adjust the slope of the current.
+AFE53902-Q1 is the device that can implement thermal foldback with no need for software. This device has an
+integrated ADC which senses the temperature from an analog temperature sensor or a simple NTC. The input is
+then compared to the look-up table which is entirely customizable by the user. The LUT outputs in the operating
+region of the LED the current temperature is, and what the biasing current in such region needs to be. Using
+this information, the internal state machine adjusts the PWM duty cycle based on the temperature range and
+the desired LED output. All configurations including the look-up table can be stored in the non-volatile memory
+to remove the need for run-time software. Alternatively, if the PWM signal is required to stay constant, voltage
+output of the AFE can be used. The voltage controls current adjustment setting of the LED driver.
+                                                        Table 5-4. Design Implementation
+
+                                   GPIO                                       PWM           Option 2
+                                                                                                       PWM
+                     GPIO         Handler                                    Generator
+                                                                                                           LED
+                                                                                            Option 1
+                     I2C                          State                              Hi-Z                 Driver
+                                   Digital                     DAC                          OUT
+                     SPI                         Machine                   OUT
+                                  Interface                                                            IADJ
+                                                                                            FBx                      VDD
+                                                                LUT                                                        NTC
+                                  NVM                                                       VADC
+                                                                                 ADC
+
+                                SMART AFE
+
+
+
+                                                           Change of IADJ due to NTC variation
+                                   Slope change point
+                           5V
+
+
+
+
+                                        OUT
+                                 VADC
+                           0V
+                                                                                                                   Time
+
+                                                    Figure 5-4. Hardware Block Diagram
+
+ Design Benefits                                                                 Suggested device
+
+ •   Processor-less multislope thermal foldback                                  •   AFE53902-Q1
+ •   Look-up table to program foldback points and slopes                         •   AFE43902-Q1
+ •   Sensing and control in one chip
+ •   PWM or voltage output options
+ •   NVM to store all configurations to remove the need for run-time
+     software
+
+ End Equipment                                                                   Design help
+ •   Rear automotive light                                                       •   Device data sheet
+ •   Small light
+
+
+
+
+10     Smart DAC Product Selection Guide                                                                                       SLAT163 – JULY 2024
+                                                                                                                           Submit Document Feedback
+                                                        Copyright © 2024 Texas Instruments Incorporated
+www.ti.com                                                                                                                                Applications
+
+5.1.4 Logarithmic Fade-In/Fade-Out
+The human eye does not perceive light linearly. To trick the eye, logarithmic fade-in and fade-out is often used to
+make dimming look more natural. Most of the time a combination of a micro-controller and a LED driver is used
+for such application. The micro-controller calculates all of the required timings and progressively increases the
+duty cycle of the PWM to much logarithmic dimming requirement.
+With DAC43902 however, there is no need for software to implement such operation. The smart DAC using
+the internal state machine progressively increases (if fading-in) or decreases (if fading out) the duty cycle of
+the PWM signal supplied to LED driver. This increase/decrease of the PWM duty cycle produces logarithmic
+animation to the LEDs.
+The dimming timing, PWM frequency, and duty cycle can be customized through the internal registers and
+stored into the device non-volatile memory to remove the need for run-time software.
+                                                     Table 5-5. Design Implementation
+
+                           TRIG-OUTx        TRIGGER                                                  PWM0                LED0
+                                                                                        PWM          PWM1      LED       LED1
+                                              OUT                                                    PWM2                LED2
+                                                                                       Generator     PWM3      Driver    LED3
+                                I2C                          State
+                                             Digital                       LUT
+                                SPI                         Machine
+                                            Interface
+                                                                                       TRIGGER       TRIG-IN
+                                                                                          IN
+                                            NVM
+                                                    SMART AFE
+
+                               Duty-cycle
+                                                              Fade-in fade-out timing diagram
+                                                  TRIG-IN
+                              100%
+
+
+
+
+                                                    PWM0
+                                0%
+                                                                                                                        Time
+
+                                                   Figure 5-5. Hardware Block Diagram
+
+ Design Benefits                                                                 Suggested device
+ •   Processor-less logarithmic dimming                                          •   DAC43901
+ •   Logarithmic increase of PWM duty cycle                                      •   DAC43902
+ •   PWM output up to 48.8kHz
+ •   Fully customizable timing
+ •   NVM to store all configurations to remove the need for run-time
+     software
+
+ End Equipment                                                                   Design help
+ •   Rear automotive light                                                       •   Device data sheet
+ •   Appliances
+ •   Interior light
+
+
+
+
+SLAT163 – JULY 2024                                                                                            Smart DAC Product Selection Guide   11
+Submit Document Feedback
+                                                        Copyright © 2024 Texas Instruments Incorporated
+Applications                                                                                                                                www.ti.com
+
+5.1.5 LED Sequencing
+Smart DAC is able to create sequencing animation for LED or an array of LEDs for applications such as a turn
+indicator. Turn indicator requires the LED arrays to light up with a specific delay and then to turn off after certain
+time. Normally to set up this behavior the software is utilized. Smart DAC can implement such application without
+the need for any software.
+AFE43901-Q1 (2 PWM channels) or AFE43902-Q1 (4 PWM channels) control the LED driver. After receiving a
+trigger signal, each PWM channel gets activated with a predefined delay. The delay is completely customizable
+through the device internal registers. In cases where more PWM channels are desired, the AFE43902-Q1 can
+be cascaded by connecting TRIG-OUT pin to TRIG-IN pin of the next device. All of the configurations can be
+stored in the device non-volatile memory for software free operation.
+                                                         Table 5-6. Design Implementation
+
+                        TRIG-OUTx          TRIGGER                                                   PWM0               LED0
+                                                                                        PWM          PWM1      LED      LED1
+                                             OUT                                                     PWM2               LED2
+                                                                                       Generator     PWM3      Driver   LED3
+                               I2C                           State
+                                              Digital                     LUT
+                               SPI                          Machine
+                                             Interface
+                                                                                       TRIGGER       TRIG-IN
+                                                                                          IN
+                                           NVM
+                                                    SMART AFE
+
+                           Duty-cycle                         Fade-in fade-out timing diagram
+                            100%        PWM0
+                              0%
+                            100%
+                              0%        PWM1
+                            100%
+                              0%        PWM2
+
+                            100%
+                              0%        PWM3
+                                                                                                                          Time
+                                   TRIG-IN
+
+                                                    Figure 5-6. Hardware Block Diagram
+
+ Design Benefits                                                                 Suggested device
+ •   Professor-less logarithmic fading of LED                                    •   AFE43901-Q1
+ •   Fading trigger                                                              •   AFE43902-Q1
+ •   Slew rate to control the speed
+ •   PWM or voltage output
+ •   Non-volatile memory to store all configurations
+
+ End Equipment                                                                   Design help
+ •   Indication LED                                                              •   Device data sheet
+ •   Turn indicator
+
+
+
+
+12     Smart DAC Product Selection Guide                                                                                           SLAT163 – JULY 2024
+                                                                                                                               Submit Document Feedback
+                                                         Copyright © 2024 Texas Instruments Incorporated
+www.ti.com                                                                                                                                    Applications
+
+5.2 Control
+5.2.1 Voltage Margining and Scaling With Voltage Output Smart DAC
+Adjustable power supplies, such as low dropout regulators (LDOs), DC/DC converters, or SMPS provide a
+feedback (FB) input that is used to control the desired output of the power supply. Smart DAC is an excellent
+design to control such systems. Non-volatile memory stores the power-on voltage level which along with true
+Hi-Z power down (even when VDD is off) capability eliminates the need for power-up sequencing and maintains
+predictable power-on. In addition, 2 voltage levels (margin-high and margin-low) can be stored in the non-volatile
+memory and can be triggered between each other with the GPI pin. The device also has a slew-rate control
+feature, allowing for a configurable voltage ramp up to eliminate power supply glitches. Smart DACs also offer
+programmable current output capability for current voltage margining.
+                                                     Table 5-7. Design Implementation
+                                              REF     VDD                                                         LDO/SMPS
+                                                                                            VOUT    OUT                                  IN
+                                    Internal                       BUF
+                                   Reference                COMP         PWM
+             GPIO      GPIO                                                                                             VREF
+                                                                                                                    +
+
+
+
+
+                                                                                                                               +
+                                                                                                                                   –
+                      Handler
+                                                                                                   R2               -
+             I2C                                DAC                        Hi-Z              R1
+                       Digital                                  BUF                                     FB
+             SPI      Interface
+                                                                                      FBx          R3
+                                               Function
+                                  Slew rate
+                      NVM                        Gen
+                                                                                                    GND
+
+                    SMART DAC
+                                                                GND
+
+                                                    Figure 5-7. Hardware Block Diagram
+
+ Design Benefits                                                                  Suggested device
+ •   High-Z output                                                                •    DAC53204
+ •   Slew rate control for glitch free margining                                  •    DAC53204W
+ •   EEPROM that store margin high and margin low voltage levels                  •    DAC53701
+ •   GPIO
+ •   Non-volatile memory to store all configurations
+
+ End Equipment                                                                    Design help
+ •   PC                                                                           •    Voltage margining and scaling with voltage output DAC
+ •   Rack server                                                                  •    Voltage margining and scaling with current output DAC
+ •   Ultrasound smart probe
+
+
+
+
+SLAT163 – JULY 2024                                                                                              Smart DAC Product Selection Guide     13
+Submit Document Feedback
+                                                      Copyright © 2024 Texas Instruments Incorporated
+Applications                                                                                                                     www.ti.com
+
+5.2.2 Thermoelectric Cooling (TEC) Control
+Peltier element or often called thermoelectric cooling (TEC) is a kind of semiconductor that changes the
+temperature based on magnitude and the direction of the current. TEC is often used in the application where
+localized temperature stability is important. Such applications include lasers (optical modules, laser cutters,
+lidar), in-vitro diagnostics to maintain fluid temperature (chemistry/gas analyzer, flow cytometer, etc.) and many
+more. to drive the Peltier element DC/DC or H-bridge drivers are commonly used. Such control however requires
+some sort of digital loop with a PI controller. Such control is often implemented through routine software. Smart
+DAC offers hardware and software-free implementation of a TEC control.
+5.2.2.1 TEC Control Using DC/DC Driver
+Buck-boost converters are often used to drive the TEC element where TEC is positioned between VOUT and
+VIN pins of the power supply and VOUT is changed by varying current at VFB pin.
+AFE539A4 is an excellent design for such control. AFE539A4 integrates sensing (ADC), digital loop (PI loop with
+a set point), voltage output for VFB control of the buck-booster, and comparator for over current protection. All of
+these parameters are fully adjustable through the device internal registers.
+The device has an integrated non-volatile memory to store all of the configurations eliminating run-time software
+requirement. If set point has to be adjusted run-time, the device supports I2C or SPI communication protocols.
+If digital sensors are used, AFE639D2 has a capability to read the temperature sensor through I2C
+communication.
+                                                 Table 5-8. Design Implementation
+                                                                                               COMP IN
+                   I2C          Digital                                                        COMP OUT
+                   SPI         Interface                 SAFE                  COMP
+                                                                   THLD
+                                                        OUTPUT
+
+
+
+                                           
+                             SET                  PI                                                     Buck-boost
+                                                                                        Hi-Z
+                                                                  DAC                          OUTx VOUT Converter VIN
+                            POINT              Controller                     OUT
+
+                                                  LOOP POLARITY                                FBx          TEC
+                             NVM
+
+                                                            ±1                        ADC                   NTC
+                          SMART AFE
+
+                                               Figure 5-8. Hardware Block Diagram
+
+ Design Benefits                                                          Suggested device
+ •   Integrated DAC and ADC                                               •   AFE539A4
+ •   Fully integrated closed loop real-time control                       •   AFE639A2
+ •   Completely independent from software design
+ •   Highly modular design
+ •   Non-volatile memory to store all configurations
+
+ End Equipment                                                            Design help
+ •   IVD                                                                  •   Closed-loop TEC control
+ •   Optical modules
+
+
+
+
+14     Smart DAC Product Selection Guide                                                                                SLAT163 – JULY 2024
+                                                                                                                    Submit Document Feedback
+                                                 Copyright © 2024 Texas Instruments Incorporated
+www.ti.com                                                                                                                          Applications
+
+5.2.2.2 TEC control using h-Bridge driver
+High-power TEC usually requires a H-Bridge to drive. H-Bridge requires 2 control signals: PWM to control
+average power and a digital direction pin to control the direction of the current flow.
+AFE439A2 is an excellent for such topology. The device integrates sensing (ADC), digital loop (PI loop with a set
+point), PWM and digital output. Based on the ADC input, the PI loop dictates the duty cycle and direction pin to
+maintain the set-point temperature of the TEC.
+The device has an integrated non-volatile memory to store all of the configurations eliminating run-time software
+requirement. If set point has to be adjusted run-time, the device supports I2C or SPI communication protocols.
+                                                 Table 5-9. Design Implementation
+                                                                                             COMP IN
+                   I2C         Digital                                                       COMP OUT
+                   SPI        Interface                  SAFE                  COMP
+                                                                   THLD
+                                                        OUTPUT
+
+
+                            SET
+                           POINT                 PI
+                                               Controller                             PWM
+                                                                                              PWM
+                                                                                                           H-Bridge
+                                                                                              DIR
+                                                LOOP POLARITY                         DIR
+                            NVM
+                                                                                                        OUT2 TEC OUT1
+
+
+                                                            ±1                     ADC                        NTC
+
+                         SMART AFE
+
+                                              Figure 5-9. Hardware Block Diagram
+
+ Design Benefits                                                          Suggested device
+ •   Integrated DAC and ADC                                               •   AFE439A2
+ •   Fully integrated closed loop real-time control
+ •   Completely independent from software design
+ •   Highly modular design
+ •   H-Bridge drive for higher power TEC control
+ •   Non-volatile memory to store all configurations
+
+ End Equipment                                                            Design help
+ •   IVD                                                                  •   Closed-loop TEC control
+ •   Optical modules
+
+
+
+
+SLAT163 – JULY 2024                                                                                      Smart DAC Product Selection Guide   15
+Submit Document Feedback
+                                                 Copyright © 2024 Texas Instruments Incorporated
+Applications                                                                                                                            www.ti.com
+
+5.2.3 Analog Power Control (APC) of a Laser
+Analog power control of a laser is a simple circuit designed to control power through a laser module
+(combination of a laser diode and a photodiode). Smart DAC provides a closed loop control of such system.
+The output of the DAC controls the gate voltage across MOSFET which along with the drain resistor controls
+the amount of current flow through the laser. The intensity of the laser is monitored by the photodiode, output
+of which is sensed by the feedback pin of the smart DAC to close the loop. Smart DAC also integrates a
+programmable comparator which can be used for over-current protection.
+This configuration is resilient to temperature variations of the laser diode along with resister/component
+mismatch and FET aging. This configuration also maintains the consistency of the laser across multiple
+platforms. Integrated non-volatile memory is used to store all of the biasing parameters and insures software-
+free operation.
+                                                  Table 5-10. Design Implementation
+                                                         REF      VDD
+                                                Internal
+                                               Reference              SMART DAC
+                                                                                                             VCC
+
+                       GPIO        GPIO
+                                  Handler                   THLD                                     Laser
+                                                                        COMP                         diode          Photodiode
+                                                                                         COMP IN
+
+
+                       I2C                                  DAC                  Hi-Z
+                                  Digital                                                OUTx
+                       SPI                                              BUF
+                                 Interface
+                                                                                         FBx                 RSET
+                                                           Function
+                                             Slew rate
+                                  NVM                        Gen
+                                                                                                             GND
+
+
+
+                                                                        GND
+
+                                               Figure 5-10. Hardware Block Diagram
+
+ Design Benefits                                                           Suggested device
+ •   Closed loop control of a laser bias point                             •   DAC53202
+ •   Auto-calibration of a biasing point across multiple systems           •   DAC53701
+ •   Configurable GPI to turn on/off the DAC or bring the DAC to
+     safety level in case of a fault
+ •   NVM to store all configuration for software-free operation
+
+ End Equipment                                                             Design help
+ •   IVD                                                                   •   PSpice simulation
+ •   Appliances
+ •   Barcode scanner
+ •   Laser pointer
+
+
+
+
+16     Smart DAC Product Selection Guide                                                                                       SLAT163 – JULY 2024
+                                                                                                                           Submit Document Feedback
+                                                   Copyright © 2024 Texas Instruments Incorporated
+www.ti.com                                                                                                                                Applications
+
+5.2.4 Constant Power Control
+AFE539F1-Q1 is a device designed to maintain a constant power dissipation across a load independently from
+the applied voltage. This kind of use-case is particularly important in the safety applications such as traction
+inverter DC link capacitor discharge control.
+The AFE539F1-Q1 integrates an ADC to sense the power across the load and a configurable discharge transfer
+function within the state machine. According to the input and transfer function, the device outputs the PWM to
+control the average power across the load.
+With integrated non-volatile memory, there is no need for any run-time software.
+                                                  Table 5-11. Design Implementation
+
+                                    GPIO           GPIO                                                VDD
+                                                  Handler
+
+                                     I2C                        State                       VADC
+                                                   Digital                         ADC
+                                     SPI                       Machine
+                                                  Interface
+                                                                                                             RLOAD
+                                                  NVM                            PWM        PWM OUT
+                                                                                Generator
+                                                                                                             GND
+                                            AFE539F1-Q1
+
+                                     Duty Cycle                PWM OUT vs VADC
+                                     100%
+
+
+
+
+                                      0%
+                                                                                                      VADC
+
+                                              Figure 5-11. Hardware Block Diagram
+
+ Design Benefits                                                            Suggested device
+ •   ADC that monitors the power                                            •     AFE539F1-Q1
+ •   Power dissipation configurable transfer function
+ •   NVM to store all configuration for software-free operation
+
+ End Equipment                                                              Design help
+ •   Traction inverter                                                      •     Device data sheet
+
+
+
+
+SLAT163 – JULY 2024                                                                                            Smart DAC Product Selection Guide   17
+Submit Document Feedback
+                                                    Copyright © 2024 Texas Instruments Incorporated
+Applications                                                                                                                       www.ti.com
+
+5.3 Microcontroller Independent Fault Management and Communication
+Various systems particularly in the medical field and appliances - require additional software independent way
+to implement system fault management or fault communication. This is particularly important in systems that
+are responsible for human life or safety. Discrete implementation of such fault management circuit can be
+cumbersome in terms of the need for numerous discrete components and potentially lack of intelligence and
+if-then capabilities.
+This section covers in detail all designs that smart DAC and AFE provide for fault management and
+communication.
+5.3.1 Programmable Comparator Using Smart DAC
+Any smart DAC output channel can be individually configured as a programmable comparator with output buffer
+being a comparator, VFB node an input to the comparator and an internal DAC ladder as an programmable
+threshold. Internal features allow the user to set up programmable hysteresis by adjusting internal register
+values. The GPI can be used as a comparator input and act as a latching comparator. The GPI behavior can be
+programmed as desired (turn the device on/off, bring the device output to a safety level state, etc. ). All of the
+configurations can be stored in the non-volatile memory for software-free operation. This simple design enables
+control of critical modules and in case of a major failure to quick response to the failure without the latency of
+software processing.
+                                                Table 5-12. Design Implementation
+
+                                                                    REF     VDD
+                                                          Internal                        BUF
+                                                         Reference                 COMP         PWM
+                                   GPIO      GPIO
+                                            Handler
+
+                                   I2C                                DAC                         Hi-Z
+                                             Digital                                                     COMP-OUTx
+                                   SPI                                                COMP
+                                            Interface
+                                                                                                         COMP-INx
+                                                                     Function
+                                                        Slew rate
+                                            NVM                        Gen
+
+
+                                           SMART DAC
+                                                                                      GND
+
+                                             Figure 5-12. Hardware Block Diagram
+
+ Design Benefits                                                            Suggested device
+ •   Programmable hysteresis and latching functions independent             •     DAC53701
+     from MCU                                                               •     DAC43204
+ •   Programmable threshold independent from hardware
+ •   GPOI for latching comparator function
+ •   NVM to store all configurations
+
+ End Equipment                                                              Design help
+ •   Medical equipment                                                      •     Programmable comparator using smart DAC
+ •   Appliances                                                             •     Programmable comparator with hysterisis
+
+
+
+
+18     Smart DAC Product Selection Guide                                                                                  SLAT163 – JULY 2024
+                                                                                                                      Submit Document Feedback
+                                                 Copyright © 2024 Texas Instruments Incorporated
+www.ti.com                                                                                                                    Applications
+
+5.3.2 GPI-to-PWM
+To gather and communicate simple faults from system to system often times require software implementation.
+Take rear lighting of a car as an example: there are a few LED drivers which output digital fault signals which
+needs to be somehow communicate to the main processor located in the front of the car. To do so, another
+micro-controller is normally utilized.
+DAC539G2-Q1 provides software-free way to solve this kind of problem. The device takes 3 GPIs as an input.
+The input is mapped in the internal LUT to the corresponding PWM duty cycle signal. For example: if input
+is 0 0 0, the output PWM is 100% duty cycle, if input is 0 0 1, the output PWM is 87.5% duty cycle, and
+so on. Hence, up to 8 different fault condition can be monitored and communicated. As the output is PWM
+duty cycle is modulated, such communication only requires a single wire and can be transmitted across 3-5
+meters. GPI-to-duty cycle relationship is fully customizable within device LUT and can be stored in the device
+non-volatile memory for software-free operation.
+                                                Table 5-13. Design Implementation
+                           I2C      Digital             DAC539G2-Q1
+                           SPI     Interface
+
+                           GPI0
+
+                           GPI1       GPI                                        PWM    ~5meters
+                                                      LUT            PWM                           MCU
+                                   Interface
+                           GPI2
+
+
+                                   NVM
+
+
+
+                                               Figure 5-13. Hardware Block Diagram
+
+ Design Benefits                                                         Suggested device
+ •   Up to 8 different fault signals that can be transmitted             •   DAC539G2-Q1
+ •   Mode pin to select between digital interface and stand alone
+     mode
+ •   Medium length (3-5m) software-less fault management and
+     communication
+ •   NVM to store all configurations
+
+ End Equipment                                                           Design help
+ •   Rear light                                                          •   Device data sheet
+ •   Wired control
+
+
+
+
+SLAT163 – JULY 2024                                                                                Smart DAC Product Selection Guide   19
+Submit Document Feedback
+                                                 Copyright © 2024 Texas Instruments Incorporated
+Applications                                                                                                                        www.ti.com
+
+5.3.3 If-Then-Else Logic
+In systems where safety is important such as medical patient monitoring equipment, there is often a requirement
+for redundant safety and or software-free fault monitoring. For such systems, smart DAC is a great design.
+DAC539E4W integrates 4 independently programmable comparators that can monitor up to 4 different lines. The
+output of the comparator is internally routed to the user configurable look-up table. Such look-up table outputs
+GPOs with programmable delay based on the comparator input. For example: if comparator outputs are 0 0 0 0,
+the GPO is 1 1 1 1, if comparators output 0 0 0 1, the GPI is 1 1 1 0, so on. The comparator-to-GPO relationship
+can be set-up within the LUT and stored in the non-volatile memory for software-free operation.
+                                                Table 5-14. Design Implementation
+
+                                GPO0                                                                       GPO2
+                                                                      GPIO
+                                GPO1                                 Handler                               GPO3
+
+
+
+                           COMP2-OUT                      THLD                     THLD                    COMP0-OUT
+                                                                                                    COMP
+
+
+                           COMP2-IN                                  Look-up                               COMP0-IN
+                                                                      Table
+
+                           COMP3-OUT                      THLD                     THLD                    COMP1-OUT
+                                                                                                    COMP
+
+
+
+                           COMP3-IN                                                                        COMP1-IN
+                                  I2C
+                                            Digital      NVM
+                                  SPI      Interface                                    DAC539E4W
+
+                                              Figure 5-14. Hardware Block Diagram
+
+ Design Benefits                                                          Suggested device
+ •   4 independent comparators mapped to 4 GPOs                       •        DAC539E4W
+ •   Monitoring and detection of up to 16 different monitoring
+     conditions
+ •   Mode pin to switch between digital communication (SPI/I2C) or
+     GPIO mode
+ •   Small size and low power for small, battery-powered applications
+
+ End Equipment                                                            Design help
+ •   Cordless power tool                                                  •    Device data sheet
+ •   Vaccum robot
+
+
+
+
+20     Smart DAC Product Selection Guide                                                                                   SLAT163 – JULY 2024
+                                                                                                                       Submit Document Feedback
+                                                  Copyright © 2024 Texas Instruments Incorporated
+www.ti.com                                                                                                                                   Applications
+
+5.4 Driver
+5.4.1 Lens Positioning Control for Camera Module Auto-Focus and Image Stabilization
+In camera modules, voice-coil motor (VCM) is often used to control the lens displacement for auto-focus and
+image stabilization. VCM is a very simple design as the lens displacement is directly proportional to the amount
+of current flowing though the motor.
+High current output smart DAC is an excellent design to drive the VCM. DAC530A2W is a small (1.75mm x
+1.75mm), low-power (150uA), precision current source smart DAC. The device is able to source up to 300mA
+of current. Second channel of the device can be configured as a programmable comparator for over-current
+protection and monitoring. Non-volatile memory is used to store all of the configuration for predictable power-up
+and software reduction.
+                                                        Table 5-15. Design Implementation
+                                                                  VDD
+                                                                                      PVDD
+
+                                 NVM
+                                                                            RSET
+
+                                                                                             ISRC          ISRC
+                                                          DAC                                                                  Voice
+                                                                                                                                Coil
+                                                                                                                              Motor
+                   I2C/SPI                                                                                                    (VCM)
+                                   Digital Interface
+
+
+
+
+                                                                                                                                GND
+                    GPIO
+
+
+                                                         DAC
+                                                                                                           OUT1
+
+
+                                                                                                           FB1
+
+
+
+
+                                                                            GND
+
+                                                       Figure 5-15. Hardware Block Diagram
+
+ Design Benefits                                                                 Suggested device
+ •   Comparator/supervisor mode for short circuit detection                      •   DAC530A2W
+ •   High-precision current source
+ •   NVM to store all configuration for software-free operation
+
+ End Equipment                                                                   Design help
+ •   IP network camera                                                           •   Device data sheet
+ •   Dahsboard camera
+
+
+
+
+SLAT163 – JULY 2024                                                                                               Smart DAC Product Selection Guide   21
+Submit Document Feedback
+                                                         Copyright © 2024 Texas Instruments Incorporated
+Applications                                                                                                                   www.ti.com
+
+5.4.2 Laser Drive
+High-current output smart DAC is a highly integrated design for laser driver.
+DAC530A2W is a small (1.75mm x 1.75mm), low-power (150uA), precision current source smart DAC. The
+device is able to source up to 300mA of current. The second channel of the device can be configured as
+a programmable comparator for over-current protection and monitoring. For closed loop control of a laser
+with photo-diode, AFE532A3W is an excellent option. Apart from current sourcing, AFE532A2W integrates an
+ADC channel that can be used for feedback photo-diode sensing. All of the configurations are stored in the
+non-volatile memory for software-free operation.
+                                                        Table 5-16. Design Implementation
+                                                                  VDD
+                                                                                      PVDD
+
+                                 NVM
+                                                                            RSET
+
+                                                                                             ISRC          ISRC
+                                                          DAC                                                     Laser
+
+
+
+                   I2C/SPI
+                                   Digital Interface
+
+
+
+
+                                                                                                                  GND
+                    GPIO
+
+
+                                                         DAC
+                                                                                                           OUT1
+
+
+                                                                                                           FB1
+
+
+
+
+                                                                            GND
+
+                                                       Figure 5-16. Hardware Block Diagram
+
+ Design Benefits                                                                 Suggested device
+ •   Comparator/supervisor mode for short circuit detection                      •   DAC530A2W
+ •   ADC channel for feedback monitoring                                         •   AFE532A3W
+ •   Low-power of operation (150uA)
+ •   NVM to store all configuration for software-free operation
+
+ End Equipment                                                                   Design help
+ •   Optical module                                                              •   Programmable FET biasing
+
+
+
+
+22     Smart DAC Product Selection Guide                                                                              SLAT163 – JULY 2024
+                                                                                                                  Submit Document Feedback
+                                                         Copyright © 2024 Texas Instruments Incorporated
+www.ti.com                                                                                                                      Applications
+
+5.5 Miscellaneous Smart DAC Applications
+5.5.1 Software-less Medical Alarm Generation
+DAC53701 is able to generate an IEC60601-1-8 complaint medical alarms without the need for any software.
+The DAC is capable of supplying the wave forms required for visual, audible and primary alarms used in medical
+applications. DAC53701 is a part of smart DAC family with integrated EEPROM and preprogrammed wave forms
+for the alarms. Internal registers enable set-up custom burst and custom timing between pulse to generate the
+exact alarm sequence. The DAC53701 has a GPI to toggle on and off so the whole system can operate when
+MCU is down or even without an MCU.
+                                                Table 5-17. Design Implementation
+ GPI                       Burst
+       DAC53701
+                                               Waveform Volume
+                                     SHDN
+                                                        control
+ GPI DAC53701            Frequency
+
+
+
+ Design Benefits                                                         Suggested device
+ •     Configurable pulse rise and fall times                            •   DAC53701
+ •     Configurable burst patterns
+ •     Fully IEC60601-1-8 complaint patterns
+ •     GPI for control
+ •     All patterns are pregenerated and stored in NVM
+
+ End Equipment                                                           Design help
+ •     Infusion pump                                                     •   Hardware-based smart DAC medical alarm
+ •     Patient monitor                                                   •   Medical alarms with smart DAC
+
+
+
+
+SLAT163 – JULY 2024                                                                                  Smart DAC Product Selection Guide   23
+Submit Document Feedback
+                                                 Copyright © 2024 Texas Instruments Incorporated
+Applications                                                                                                                        www.ti.com
+
+5.5.2 555 Timer
+Smart DAC is a good choice as a better alternative to the 555 timers. Smart DAC is capable of generating
+an output pulse train with variable frequency and duty cycle. Integrated AWG is able to generate a fully
+customizable square wave. While conventional 555 timers rely on the external capacitor leading to large
+variation in the output frequency, smart DAC uses the internal oscillator which is more precise.
+All of the register values which are the output settings can be stored in the NVM and reduce the need for the
+external software. If frequency, amplitude or the duty cycle needs to be updated run-time, device supports I2C or
+SPI modes of communication.
+                                                      Table 5-18. Design Implementation
+                                     REF     VDD
+                           Internal                       BUF
+                          Reference                COMP         PWM
+ GPIO           GPIO
+               Handler
+
+ I2C                                   DAC                        Hi-Z
+              Digital                                                    OUTx
+ SPI                                                  BUF
+             Interface
+                                                                         FBx
+                                      Function
+                         Slew rate
+               NVM                      Gen
+
+
+          SMART DAC
+                                                     GND
+
+ Design Benefits                                                                  Suggested device
+ •     AWG able to generate triangle, sawtooth and square waves                   •   DAC53701
+ •     Complete control of the output through internal registers                  •   DAC53202
+ •     High precision
+ •     Non-volitile memory to store all of the configurations
+
+ End Equipment                                                                    Design help
+ •     Fingerprint biometrics                                                     •   555 timer using smart DAC
+ •     PWM                                                                        •   PWM generation using smart DAC
+ •     Precision timing
+
+
+
+
+24      Smart DAC Product Selection Guide                                                                                  SLAT163 – JULY 2024
+                                                                                                                       Submit Document Feedback
+                                                          Copyright © 2024 Texas Instruments Incorporated
+                                       IMPORTANT NOTICE AND DISCLAIMER
+TI PROVIDES TECHNICAL AND RELIABILITY DATA (INCLUDING DATA SHEETS), DESIGN RESOURCES (INCLUDING REFERENCE
+DESIGNS), APPLICATION OR OTHER DESIGN ADVICE, WEB TOOLS, SAFETY INFORMATION, AND OTHER RESOURCES “AS IS”
+AND WITH ALL FAULTS, AND DISCLAIMS ALL WARRANTIES, EXPRESS AND IMPLIED, INCLUDING WITHOUT LIMITATION ANY
+IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE OR NON-INFRINGEMENT OF THIRD
+PARTY INTELLECTUAL PROPERTY RIGHTS.
+These resources are intended for skilled developers designing with TI products. You are solely responsible for (1) selecting the appropriate
+TI products for your application, (2) designing, validating and testing your application, and (3) ensuring your application meets applicable
+standards, and any other safety, security, regulatory or other requirements.
+These resources are subject to change without notice. TI grants you permission to use these resources only for development of an
+application that uses the TI products described in the resource. Other reproduction and display of these resources is prohibited. No license
+is granted to any other TI intellectual property right or to any third party intellectual property right. TI disclaims responsibility for, and you
+will fully indemnify TI and its representatives against, any claims, damages, costs, losses, and liabilities arising out of your use of these
+resources.
+TI’s products are provided subject to TI’s Terms of Sale or other applicable terms available either on ti.com or provided in conjunction with
+such TI products. TI’s provision of these resources does not expand or otherwise alter TI’s applicable warranties or warranty disclaimers for
+TI products.
+TI objects to and rejects any additional or different terms you may have proposed. IMPORTANT NOTICE
+
+                             Mailing Address: Texas Instruments, Post Office Box 655303, Dallas, Texas 75265
+                                            Copyright © 2024, Texas Instruments Incorporated
+

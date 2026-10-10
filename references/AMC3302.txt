@@ -1,0 +1,2309 @@
+                                                                                                                                                                          AMC3302
+                                                                                                                                 SBASA11B – AUGUST 2020 – REVISED JULY 2021
+
+                                      AMC3302 High-Precision, ±50-mV Input,
+                           Reinforced Isolated Amplifier With Integrated DC/DC Converter
+
+1 Features                                                                                             3 Description
+•            3.3-V or 5-V single supply with integrated DC/DC                                          The AMC3302 is a precision, isolated amplifier
+             converter                                                                                 optimized for shunt-based current measurements.
+•            ±50-mV input voltage range optimized for current                                          The fully integrated, isolated DC/DC converter allows
+             measurement using shunt resistors                                                         single-supply operation from the low-side of the
+•            Fixed gain: 41                                                                            device, which makes the device a unique solution
+•            Low DC errors:                                                                            for space-constrained applications. The reinforced
+             – Offset voltage: ±50 μV (max)                                                            capacitive isolation barrier is certified according to
+             – Offset drift: ±0.5 μV/°C (max)                                                          VDE V 0884-11 and UL1577 and supports a working
+             – Gain error: ±0.2% (max)                                                                 voltage of up to 1.2 kVRMS.
+             – Gain error drift: ±35 ppm/°C (max)                                                      The isolation barrier separates parts of the system
+             – Nonlinearity: ±0.03% (max)                                                              that operate on different common-mode voltage levels
+•            High CMTI: 95 kV/µs (min)                                                                 and protects the low-voltage side from hazardous
+•            System-level diagnostic features                                                          voltages and damage.
+•            Meets CISPR-11 and CISPR-25 EMI standards
+•            Safety-related certifications:                                                            The input of the AMC3302 is optimized for direct
+             – 6000-VPK reinforced isolation per DIN VDE V                                             connection to a low-impedance shunt resistor
+                0884-11                                                                                or another low-impedance voltage source with
+             – 4250-VRMS isolation for 1 minute per UL1577                                             low signal levels. The excellent DC accuracy
+•            Fully specified over the extended industrial                                              and low temperature drift supports accurate
+             temperature range: –40°C to +125°C                                                        current measurements over the extended industrial
+                                                                                                       temperature range from –40°C to +125°C.
+2 Applications
+                                                                                                       The integrated DC/DC converter fault-detection and
+•            Isolated current sensing in:                                                              diagnostic output pin of the AMC3302 simplify
+             – Protection relays                                                                       system-level design and diagnostics.
+             – Motor drives
+             – Power supplies                                                                                                  Device Information(1)
+             – Photovoltaic inverters                                                                         PART NUMBER                PACKAGE                BODY SIZE (NOM)
+                                                                                                        AMC3302                    SOIC (16)                10.30 mm × 7.50 mm
+
+                                                                                                       (1)     For all available packages, see the orderable addendum at
+                                                                                                               the end of the data sheet.
+
+                                                                                                                               Low-side supply
+                                                                                                                                (3.3 V or 5 V)
+
+                                               DCDC_OUT                                                             DCDC_IN
+
+                                             DCDC_HGND                                                              DCDC_GND
+                                                               Isolated                            Isolated
+                                                HLDO_IN         Power                               Power           DIAG
+                                                                                                                                                      To MCU (optional)
+                                                                            Reinforced Isolation
+
+
+
+
+I                                                   NC                                                              LDO_OUT
+
+                                               HLDO_OUT                                                             VDD
+
+                                                    INP                                                             OUTP
+    RSHUNT
+
+
+
+
+                           +50 mV
+              0V
+                                                    INN                                                             OUTN
+                                                                                                                                             VCMout           ±2.05 V      ADC
+                           ± 50 mV
+                                                  HGND                                                              GND
+
+
+
+
+                                                                          AMC3302
+
+
+                                                                   Typical Application
+
+
+
+
+               An IMPORTANT NOTICE at the end of this data sheet addresses availability, warranty, changes, use in safety-critical applications,
+               intellectual property matters and other important disclaimers. PRODUCTION DATA.
+AMC3302
+SBASA11B – AUGUST 2020 – REVISED JULY 2021                                                                                                                       www.ti.com
+
+
+                                                                        Table of Contents
+1 Features............................................................................1     7.2 Functional Block Diagram......................................... 18
+2 Applications..................................................................... 1       7.3 Feature Description...................................................19
+3 Description.......................................................................1       7.4 Device Functional Modes..........................................21
+4 Revision History.............................................................. 2        8 Application and Implementation.................................. 22
+5 Pin Configuration and Functions...................................3                       8.1 Application Information............................................. 22
+6 Specifications.................................................................. 4        8.2 Typical Application.................................................... 22
+  6.1 Absolute Maximum Ratings ....................................... 4                    8.3 What to Do and What Not to Do............................... 25
+  6.2 ESD Ratings .............................................................. 4        9 Power Supply Recommendations................................26
+  6.3 Recommended Operating Conditions ........................4                          10 Layout...........................................................................28
+  6.4 Thermal Information ...................................................5              10.1 Layout Guidelines................................................... 28
+  6.5 Power Ratings ............................................................5           10.2 Layout Example...................................................... 28
+  6.6 Insulation Specifications ............................................ 6            11 Device and Documentation Support..........................29
+  6.7 Safety-Related Certifications ..................................... 7                 11.1 Documentation Support.......................................... 29
+  6.8 Safety Limiting Values ................................................7              11.2 Receiving Notification of Documentation Updates.. 29
+  6.9 Electrical Characteristics ............................................8              11.3 Support Resources................................................. 29
+  6.10 Switching Characteristics .........................................9                 11.4 Trademarks............................................................. 29
+  6.11 Timing Diagram....................................................... 10             11.5 Electrostatic Discharge Caution.............................. 29
+  6.12 Insulation Characteristics Curves............................11                      11.6 Glossary.................................................................. 29
+  6.13 Typical Characteristics............................................ 12             12 Mechanical, Packaging, and Orderable
+7 Detailed Description......................................................18              Information.................................................................... 29
+  7.1 Overview................................................................... 18
+
+
+
+4 Revision History
+NOTE: Page numbers for previous revisions may differ from page numbers in the current version.
+
+Changes from Revision A (February 2021) to Revision B (July 2021)                                                                                            Page
+• Changed LDO_OUT pin description in Pin Functions table to include that no external load is allowed on the
+  LDO_OUT pin..................................................................................................................................................... 3
+• Changed overvoltage category for rated mains voltage ≤ 600 V from I-IV to I-III and for rated mains voltage
+  ≤1000 V from I-III to I-II ......................................................................................................................................6
+• Changed CIO from ~3.5 pF to ~4.5 pF................................................................................................................ 6
+• Changed output bandwidth (BW) minimum value from 300 kHz to 290 kHz......................................................8
+• Changed CMTI limits from 85 kV/µs (min), 135 kV/µs (typ) to 95 kV/µs (min), 155 kV/µs (typ)......................... 8
+• Added discussion of high-side and low-side LDO to What to Do and What Not to Do section........................ 25
+• Added information on reducing radiated emission to Power Supply Recommendations section, changed
+  Recommended External Components table..................................................................................................... 26
+• Added ferrite beads to Recommended Layout of the AMC3302 figure............................................................ 28
+
+
+Changes from Revision * (August 2020) to Revision A (February 2021)                                                                       Page
+• Changed document status from advance information to production data.......................................................... 1
+• Added VDDUV and VDDPOR specifications......................................................................................................... 8
+
+
+
+
+2       Submit Document Feedback                                                                                           Copyright © 2021 Texas Instruments Incorporated
+
+                                                                     Product Folder Links: AMC3302
+                                                                                                                                          AMC3302
+www.ti.com                                                                                            SBASA11B – AUGUST 2020 – REVISED JULY 2021
+
+
+5 Pin Configuration and Functions
+
+
+                                    DCDC_OUT          1                                         16         DCDC_IN
+
+
+                                   DCDC_HGND          2                                         15         DCDC_GND
+
+
+                                      HLDO_IN         3                                         14         DIAG
+
+
+                                           NC         4                                         13         LDO_OUT
+
+
+                                    HLDO_OUT          5                                         12         VDD
+
+
+                                           INP        6                                         11         OUTP
+
+
+                                           INN        7                                         10         OUTN
+
+
+                                        HGND          8                                          9         GND
+
+
+
+
+                                                     Not to scale
+
+
+                                         Figure 5-1. DWE Package, 16-Pin SOIC, Top View
+
+                                                            Table 5-1. Pin Functions
+           PIN
+                                     TYPE                                                     DESCRIPTION
+ NO.        NAME
+ 1       DCDC_OUT                   Power               High-side output of the isolated DC/DC converter; connect this pin to the HLDO_IN pin.(1)
+                                                        High-side ground reference for the isolated DC/DC converter; connect this pin to the
+ 2      DCDC_HGND          High-side power ground
+                                                        HGND pin.
+ 3         HLDO_IN                  Power               Input of the high-side LDO; connect this pin to the DCDC_OUT pin(1)
+ 4            NC                       —                No internal connection; connect this pin to HGND or leave this pin unconnected.
+ 5       HLDO_OUT                   Power               Output of the high-side LDO.(1)
+                                                        Noninverting analog input. Either INP or INN must have a DC current path to HGND to
+ 6            INP                Analog input
+                                                        define the common-mode input voltage.(2)
+                                                        Inverting analog input. Either INP or INN must have a DC current path to HGND to define
+ 7            INN                Analog input
+                                                        the common-mode input voltage.(2)
+ 8          HGND           High-side signal ground      High-side analog ground; connect this pin to the DCDC_HGND pin.
+ 9           GND           Low-side signal ground       Low-side analog ground; connect this pin to the DCDC_GND pin.
+ 10          OUTN               Analog output           Inverting analog output.
+ 11          OUTP               Analog output           Noninverting analog output.
+ 12          VDD               Low-side power           Low-side power supply.(1)
+                                                        Output of the low-side LDO; connect this pin to the DCDC_IN pin. The output of the LDO
+ 13       LDO_OUT                   Power
+                                                        must not be loaded by external circuitry.(1)
+                                                        Active-low, open-drain status indicator output; connect this pin to the pullup supply (for
+ 14          DIAG                Digital output
+                                                        example, VDD) using a resistor or leave this pin floating if not used.
+                                                        Low-side ground reference for the isolated DC/DC converter; connect this pin to the GND
+ 15      DCDC_GND          Low-side power ground
+                                                        pin.
+ 16        DCDC_IN                  Power               Low-side input of the isolated DC/DC converter; connect this pin to the LDO_OUT pin.(1)
+
+(1)    See the Power Supply Recommendations section for power-supply decoupling recommendations.
+(2)    See the Layout section for details.
+
+
+
+
+Copyright © 2021 Texas Instruments Incorporated                                                                      Submit Document Feedback        3
+                                                             Product Folder Links: AMC3302
+AMC3302
+SBASA11B – AUGUST 2020 – REVISED JULY 2021                                                                                             www.ti.com
+
+
+6 Specifications
+6.1 Absolute Maximum Ratings
+see (1)
+                                                                                                           MIN                   MAX       UNIT
+    Power-supply voltage               VDD to GND                                                         –0.3                     6.5      V
+    Analog input voltage               INP, INN                                                      HGND – 6        VHLDO_OUT + 0.5        V
+    Analog output voltage              OUTP, OUTN                                                    GND – 0.5               VDD + 0.5      V
+    Digital output voltage             DIAG                                                          GND – 0.5                     6.5      V
+    Input current                      Continuous, any pin except power-supply pins                        –10                      10     mA
+                                       Junction, TJ                                                                               150
+    Temperature                                                                                                                             °C
+                                       Storage, Tstg                                                       –65                    150
+
+(1)        Stresses beyond those listed under Absolute Maximum Ratings may cause permanent damage to the device. These are stress ratings
+           only, and do not imply functional operation of the device at these or any other conditions beyond those indicated under Recommended
+           Operating Conditions. Exposure to absolute-maximum-rated conditions for extended periods may affect device reliability.
+
+
+6.2 ESD Ratings
+                                                                                                                              VALUE        UNIT
+                                                               Human body model (HBM), per ANSI/ESDA/JEDEC JS-001 (1)          ±2000
+    V(ESD)      Electrostatic discharge                                                                                                     V
+                                                               Charged device model (CDM), per JESD22-C101 (2)                 ±1000
+
+(1)        JEDEC document JEP155 states that 500-V HBM allows safe manufacturing with a standard ESD control process.
+(2)        JEDEC document JEP157 states that 250-V CDM allows safe manufacturing with a standard ESD control process.
+
+
+6.3 Recommended Operating Conditions
+over operating ambient temperature range (unless otherwise noted)
+                                                                                                           MIN       NOM         MAX       UNIT
+    POWER SUPPLY
+    VDD         Low-side power supply                                   VDD to GND                            3        3.3         5.5      V
+    ANALOG INPUT
+    VClipping   Differential input voltage before clipping output       VIN = VINP – VINN                              ±64                 mV
+    VFSR        Specified linear differential full-scale voltage        VIN = VINP – VINN                  –50                      50     mV
+                Absolute common-mode input voltage (1)                  (VINP + VINN) / 2 to HGND           –2             VHLDO_OUT        V
+    VCM         Operating common-mode input voltage                     (VINP + VINN) / 2 to HGND       –0.032                         1    V
+    TEMPERATURE RANGE
+    TA          Specified ambient temperature                                                              –40                    125       °C
+
+(1)        Steady-state voltage supported by the device in case of a system failure. See specified common-mode input voltage VCM for normal
+           operation. Observe analog input voltage range as specified in the Absolute Maximum Ratings table.
+
+
+
+
+4          Submit Document Feedback                                                                    Copyright © 2021 Texas Instruments Incorporated
+
+                                                              Product Folder Links: AMC3302
+                                                                                                                                 AMC3302
+www.ti.com                                                                                    SBASA11B – AUGUST 2020 – REVISED JULY 2021
+
+
+6.4 Thermal Information
+                                                                                                            AMC3302
+                                         THERMAL METRIC(1)                                                DWE (SOIC)              UNIT
+                                                                                                            16 PINS
+ RθJA        Junction-to-ambient thermal resistance                                                           73.5                °C/W
+ RθJC(top)   Junction-to-case (top) thermal resistance                                                         31                 °C/W
+ RθJB        Junction-to-board thermal resistance                                                              44                 °C/W
+ YJT         Junction-to-top characterization parameter                                                       16.7                °C/W
+ YJB         Junction-to-board characterization parameter                                                     42.8                °C/W
+ RθJC(bot)   Junction-to-case (bottom) thermal resistance                                                     n/a                 °C/W
+
+(1)     For more information about traditional and new thermal metrics, see the Semiconductor and IC Package Thermal Metrics application
+        report.
+
+
+6.5 Power Ratings
+                      PARAMETER                                     TEST CONDITIONS                   MIN       TYP       MAX     UNIT
+                                                          VDD = 5.5 V                                                      231
+ PD          Maximum power dissipation                                                                                             mW
+                                                          VDD = 3.6 V                                                      151
+
+
+
+
+Copyright © 2021 Texas Instruments Incorporated                                                           Submit Document Feedback         5
+                                                          Product Folder Links: AMC3302
+AMC3302
+SBASA11B – AUGUST 2020 – REVISED JULY 2021                                                                                                            www.ti.com
+
+6.6 Insulation Specifications
+over operating ambient temperature range (unless otherwise noted)
+                      PARAMETER                                                  TEST CONDITIONS                                        VALUE             UNIT
+    GENERAL
+    CLR          External clearance (1)              Shortest pin-to-pin distance through air                                             ≥8               mm
+    CPG          External creepage (1)               Shortest pin-to-pin distance across the package surface                              ≥8               mm
+                                                     Minimum internal gap (internal clearance - capacitive signal isolation)             ≥ 21
+    DTI          Distance through the insulation                                                                                                           µm
+                                                     Minimum internal gap (internal clearance - transformer power isolation)             ≥ 120
+    CTI          Comparative tracking index          DIN EN 60112 (VDE 0303-11); IEC 60112                                               ≥ 600              V
+                 Material group                      According to IEC 60664-1                                                               I
+
+                 Overvoltage category                Rated mains voltage ≤ 600 VRMS                                                       I-III
+                 per IEC 60664-1                     Rated mains voltage ≤ 1000 VRMS                                                      I-II
+    DIN VDE V 0884-11 (VDE V 0884-11): 2017-01(2)
+                 Maximum repetitive peak isolation
+    VIORM                                            At AC voltage (bipolar)                                                             1700              VPK
+                 voltage
+                                                     At AC voltage (sine wave); time-dependent dielectric breakdown (TDDB)
+                 Maximum-rated isolation                                                                                                 1200             VRMS
+    VIOWM                                            test
+                 working voltage
+                                                     At DC voltage                                                                       1700              VDC
+
+                 Maximum transient                   VTEST = VIOTM, t = 60 s (qualification test)                                        6000              VPK
+    VIOTM
+                 isolation voltage                   VTEST = 1.2 × VIOTM, t = 1 s (100% production test)                                 7200              VPK
+                 Maximum surge                       Test method per IEC 60065, 1.2/50-µs waveform,
+    VIOSM                                                                                                                                6250              VPK
+                 isolation voltage(3)                VTEST = 1.6 × VIOSM = 10000 VPK (qualification)
+                                                     Method a, after input/output safety test subgroup 2 / 3,
+                                                                                                                                          ≤5
+                                                     Vini = VIOTM, tini = 60 s, Vpd(m) = 1.2 × VIORM, tm = 10 s
+                                                     Method a, after environmental tests subgroup 1,
+                                                                                                                                          ≤5
+    qpd          Apparent charge(4)                  Vini = VIOTM, tini = 60 s, Vpd(m) = 1.6 × VIORM, tm = 10 s                                             pC
+                                                     Method b1, at routine test (100% production) and preconditioning (type
+                                                     test),                                                                               ≤5
+                                                     Vini = VIOTM, tini = 1 s, Vpd(m) = 1.875 × VIORM, tm = 1 s
+                 Barrier capacitance,
+    CIO                                              VIO = 0.5 VPP at 1 MHz                                                              ~4.5               pF
+                 input to output(5)
+                                                     VIO = 500 V at TA = 25°C                                                           > 1012
+                 Insulation resistance,
+    RIO                                              VIO = 500 V at 100°C ≤ TA ≤ 125°C                                                   > 1011             Ω
+                 input to output(5)
+                                                     VIO = 500 V at TS = 150°C                                                           > 109
+                 Pollution degree                                                                                                          2
+                 Climatic category                                                                                                     40/125/21
+    UL1577
+                                                     VTEST = VISO = 4250 VRMS or 6000 VDC, t = 60 s (qualification),
+    VISO         Withstand isolation voltage                                                                                             4250             VRMS
+                                                     VTEST = 1.2 × VISO, t = 1 s (100% production test)
+
+(1)         Apply creepage and clearance requirements according to the specific equipment isolation standards of an application. Care must be
+            taken to maintain the creepage and clearance distance of a board design to ensure that the mounting pads of the isolator on the
+            printed circuit board (PCB) do not reduce this distance. Creepage and clearance on a PCB become equal in certain cases. Techniques
+            such as inserting grooves, ribs, or both on a PCB are used to help increase these specifications.
+(2)         This coupler is suitable for safe electrical insulation only within the safety ratings. Compliance with the safety ratings must be ensured
+            by means of suitable protective circuits.
+(3)         Testing is carried out in air or oil to determine the intrinsic surge immunity of the isolation barrier.
+(4)         Apparent charge is electrical discharge caused by a partial discharge (pd).
+(5)         All pins on each side of the barrier are tied together, creating a two-pin device.
+
+
+
+
+6           Submit Document Feedback                                                                                   Copyright © 2021 Texas Instruments Incorporated
+
+                                                                 Product Folder Links: AMC3302
+                                                                                                                                      AMC3302
+www.ti.com                                                                                         SBASA11B – AUGUST 2020 – REVISED JULY 2021
+
+
+6.7 Safety-Related Certifications
+                                    VDE                                                                     UL
+ Certified according to DIN VDE V 0884-11 (VDE V 0884-11): 2017-01,
+                                                                          Recognized under 1577 component recognition and
+ DIN EN 60950-1 (VDE 0805 Teil 1): 2014-08, and
+                                                                          CSA component acceptance NO 5 programs
+ DIN EN 60065 (VDE 0860): 2005-11
+ Reinforced insulation                                                    Single protection
+ Certificate number: 40040142                                             File number: E181974
+
+
+
+6.8 Safety Limiting Values
+Safety limiting (1) intends to minimize potential damage to the isolation barrier upon failure of input or output circuitry. A failure
+of the I/O can allow low resistance to ground or the supply and, without current limiting, dissipate sufficient power to overheat
+the die and damage the isolation barrier potentially leading to secondary system failures.
+                         PARAMETER                                    TEST CONDITIONS                      MIN        TYP      MAX     UNIT
+                                                           RθJA = 73.5°C/W, VDD = 5.5 V,
+                                                                                                                                309
+                                                           TJ = 150°C, TA = 25°C
+ IS          Safety input, output, or supply current                                                                                    mA
+                                                           RθJA = 73.5°C/W, VDD = 3.6 V,
+                                                                                                                                472
+                                                           TJ = 150°C, TA = 25°C
+                                                           RθJA = 73.5°C/W, TJ = 150°C,
+ PS          Safety input, output, or total power                                                                              1700    mW
+                                                           TA = 25°C
+ TS          Maximum safety temperature                                                                                         150     °C
+
+(1)    The maximum safety temperature, TS, has the same value as the maximum junction temperature, TJ, specified for the device. The IS
+       and PS parameters represent the safety current and safety power, respectively. Do not exceed the maximum limits of IS and PS. These
+       limits vary with the ambient temperature, TA.
+       The junction-to-air thermal resistance, RθJA, in the Thermal Information table is that of a device installed on a high-K test board for
+       leaded surface-mount packages. Use these equations to calculate the value for each parameter:
+       TJ = TA + RθJA × P, where P is the power dissipated in the device.
+       TJ(max) = TS = TA + RθJA × PS, where TJ(max) is the maximum junction temperature.
+       PS = IS × VDDmax, where VDDmax is the maximum low-side voltage.
+
+
+
+
+Copyright © 2021 Texas Instruments Incorporated                                                                  Submit Document Feedback        7
+                                                           Product Folder Links: AMC3302
+AMC3302
+SBASA11B – AUGUST 2020 – REVISED JULY 2021                                                                                          www.ti.com
+
+
+6.9 Electrical Characteristics
+minimum and maximum specifications apply from TA = –40°C to +125°C, VDD = 3.0 V to 5.5 V, INP = –50 mV to +50 mV,
+INN = HGND = 0 V, and the external components listed in the Typical Application section; typical specifications are at TA =
+25°C, and VDD = 3.3 V (unless otherwise noted)
+                       PARAMETER                                 TEST CONDITIONS                  MIN         TYP           MAX       UNIT
+    ANALOG INPUT
+    RIN          Single-ended input resistance          INN = HGND                                            4.75
+                                                                                                                                       kΩ
+    RIND         Differential input resistance                                                                  4.9
+                                                        INP = INN = HGND; IIB = (IIBP +
+    IIB          Input bias current                                                              –48.5         –36         –28.5       µA
+                                                        IIBN) / 2
+    IIO          Input offset current                   IIO = IIBP – IIBN; INP = INN = HGND                    ±10                     nA
+    CIN          Single-ended input capacitance         INN = HGND, fIN = 275 kHz                                 4                    pF
+    CIND         Differential input capacitance         fIN = 275 kHz                                             2                    pF
+    ANALOG OUTPUT
+                 Nominal gain                                                                                   41                     V/V
+    VCMout       Common-mode output voltage                                                       1.39        1.44          1.49        V
+                                                        VOUT = (VOUTP – VOUTN);
+    VCLIPout     Clipping differential output voltage                                            –2.52       ±2.49          2.52        V
+                                                        |VIN| = |VINP – VINN| > VClipping
+                                                        VOUT = (VOUTP – VOUTN);
+    VFailsafe    Failsafe differential output voltage   VDCDC_OUT ≤ VDCDCUV, or                  –2.63       –2.57         –2.53        V
+                                                        VHLDO_OUT ≤ VHLDOUV
+    BW           Output bandwidth                                                                  290         340                     kHz
+    ROUT         Output resistance                      On OUTP or OUTN                                         0.2                     Ω
+                                                        On OUTP or OUTN, sourcing or
+                 Output short-circuit current           sinking, INP = INN = HGND, outputs                      14                     mA
+                                                        shorted to either GND or VDD
+    CMTI         Common-mode transient immunity         |HGND – GND| = 2 kV                         95         155                    kV/µs
+    ACCURACY
+    VOS          Input offset voltage(1) (2)            TA = 25°C, INP = INN = HGND                –50         ±15            50       µV
+    TCVOS        Input offset drift (1) (2) (4)                                                   –0.5        ±0.1            0.5     uV/°C
+    EG           Gain error(1)                          TA = 25°C                               –0.2%      ±0.04%          0.2%
+    TCEG         Gain error drift(1) (5)                                                           –35         ±10            35     ppm/°C
+                 Nonlinearity (1)                                                               –0.03%   ±0.002%          0.03%
+                                                        VIN = 0.1 VPP, fIN = 1 kHz, BW = 10
+                                                                                                    77          81
+                                                        kHz, 10 kHz filter
+    SNR          Signal-to-noise ratio                                                                                                 dB
+                                                        VIN = 0.1 VPP, fIN = 10 kHz,
+                                                                                                                70
+                                                        BW = 100 kHz, 1 MHz filter
+                                                        VIN = 0.1 Vpp, fIN = 10 kHz,
+    THD          Total harmonic distortion(3)                                                                  –85                     dB
+                                                        BW = 100 kHz
+                                                        INP = INN = HGND, fIN = 0 Hz,
+                 Output noise                                                                                  340                   µVRMS
+                                                        BW = 100 kHz
+                                                        fIN = 0 Hz, VCM min ≤ VCM ≤VCM max                   –101
+    CMRR         Common-mode rejection ratio                                                                                           dB
+                                                        fIN = 10 kHz, VCM min ≤ VCM ≤VCM max                 –101
+                                                        VDD from 3.0 V to 5.5 V, at dc, input
+                                                                                                             –120
+                                                        referred
+    PSRR         Power-supply rejection ratio           INP = INN = HGND, VDD from 3.0                                                 dB
+                                                        V to 5.5 V, 10 kHz / 100 mV ripple,                  –108
+                                                        input referred
+
+
+
+
+8          Submit Document Feedback                                                                 Copyright © 2021 Texas Instruments Incorporated
+
+                                                          Product Folder Links: AMC3302
+                                                                                                                                          AMC3302
+www.ti.com                                                                                        SBASA11B – AUGUST 2020 – REVISED JULY 2021
+
+6.9 Electrical Characteristics (continued)
+minimum and maximum specifications apply from TA = –40°C to +125°C, VDD = 3.0 V to 5.5 V, INP = –50 mV to +50 mV,
+INN = HGND = 0 V, and the external components listed in the Typical Application section; typical specifications are at TA =
+25°C, and VDD = 3.3 V (unless otherwise noted)
+                    PARAMETER                                 TEST CONDITIONS                        MIN          TYP          MAX        UNIT
+ POWER SUPPLY
+                                                      no external load on HLDO                                    27.5          40
+ IDD           Low-side supply current                                                                                                     mA
+                                                      1 mA external load on HLDO                                  29.5          42
+
+               VDD analog undervoltage detection      VDD rising                                                                2.9
+ VDDUV                                                                                                                                      V
+               threshold                              VDD falling                                                               2.8
+                                                      VDD rising                                                                2.5
+ VDDPOR        VDD digital reset threshold                                                                                                  V
+                                                      VDD falling                                                               2.4
+ VDCDC_OUT DCDC output voltage                        DCDC_OUT to HGND                                3.1          3.5         4.65         V
+               DCDC output undervoltage detection
+ VDCDCUV                                          DCDC output falling                                 2.1         2.25                      V
+               threshold voltage
+                                                      HLDO to HGND, up to 1 mA external
+ VHLDO_OUT     High-side LDO output voltage                                                            3           3.2          3.4         V
+                                                      load
+               High-side LDO output undervoltage
+ VHLDOUV                                              HLDO output falling                             2.4          2.6                      V
+               detection threshold voltage
+               High-side supply current for auxiliary Load connected from HLDO_OUT to
+ IH                                                                                                                              1         mA
+               circuitry                              HGND, non-switching
+                                                      VDD step to 3.0 V, to OUTP and
+ tAS           Analog settling time                                                                                0.9          1.4        ms
+                                                      OUTN valid, 0.1% settling
+
+(1)    The typical value includes one standard deviation ("sigma") at nominal operating conditions.
+(2)    This parameter is input referred.
+(3)    THD is the ratio of the rms sum of the amplitues of first five higher harmonics to the amplitude of the fundamental.
+(4)    Offset error temperature drift is calculated using the box method, as described by the following equation:
+       TCVOS = (ValueMAX - ValueMIN) / TempRange
+(5)    Gain error temperature drift is calculated using the box method, as described by the following equation:
+       TCEG (ppm) = (ValueMAX - ValueMIN) / (Value(T=25℃) x TempRange) x 106
+
+
+6.10 Switching Characteristics
+over operating ambient temperature range (unless otherwise noted)
+                      PARAMETER                                     TEST CONDITIONS                         MIN          TYP    MAX        UNIT
+ tr          Output signal rise time                                                                                     1.3                µs
+ tf          Output signal fall time                                                                                     1.3                µs
+             VINx to VOUTx signal delay (50% – 10%)     Unfiltered output                                                1.2      1.5       µs
+             VINx to VOUTx signal delay (50% – 50%)     Unfiltered output                                                1.6      2.1       µs
+             VINx to VOUTx signal delay (50% – 90%)     Unfiltered output                                                2.3          3     µs
+
+
+
+
+Copyright © 2021 Texas Instruments Incorporated                                                                Submit Document Feedback             9
+                                                        Product Folder Links: AMC3302
+AMC3302
+SBASA11B – AUGUST 2020 – REVISED JULY 2021                                                                              www.ti.com
+
+6.11 Timing Diagram
+                                                                                                             50 mV
+
+              INP - INN                                                                                      0
+
+                                                                                                             ± 50 mV
+
+                                              tf                                    tr
+
+                 OUTN
+
+                                                                                                             VCMout
+
+                 OUTP
+
+                                        50% - 10%
+
+                                        50% - 50%
+
+                                         50% - 90 %
+
+
+                                  Figure 6-1. Rise, Fall, and Delay Time Waveforms
+
+
+
+
+10    Submit Document Feedback                                                           Copyright © 2021 Texas Instruments Incorporated
+
+                                                    Product Folder Links: AMC3302
+                                                                                                                                                                                                               AMC3302
+www.ti.com                                                                                                                                                                SBASA11B – AUGUST 2020 – REVISED JULY 2021
+
+
+6.12 Insulation Characteristics Curves
+              500                                                                                                                             1800
+                                                                                        VDD = 3.6 V
+                                                                                        VDD = 5.5 V                                           1600
+              400                                                                                                                             1400
+
+                                                                                                                                              1200
+              300
+
+
+
+
+                                                                                                                                   PS (mW)
+                                                                                                                                              1000
+    IS (mA)
+
+
+
+
+                                                                                                                                               800
+              200
+                                                                                                                                               600
+
+                                                                                                                                               400
+              100
+                                                                                                                                               200
+
+               0                                                                                                                                    0
+                    0   25    50       75                                100             125                  150                                       0          25            50        75      100   125    150
+                                     TA (°C)                                                                                                                                             TA (°C)                 D070
+                                                                                                                D069
+
+
+
+
+  Figure 6-2. Thermal Derating Curve for Safety-Limiting Current                                                                 Figure 6-3. Thermal Derating Curve for Safety-Limiting Power
+                             per VDE                                                                                                                       per VDE
+                                                               1.E+11
+
+                                                                                                      87.5%
+                                                               1.E+10         143 Yrs
+
+                                                                              76 Yrs
+                                                               1.E+09
+
+                                                               1.E+08
+                                          Time to Fail (sec)
+
+
+
+
+                                                               1.E+07
+                                                                                                                TDDB Line (< 1 ppm Fail Rate)
+
+                                                               1.E+06
+                                                                                           Operating Zone
+                                                               1.E+05
+
+                                                               1.E+04                          VDE Safety Margin Zone
+
+
+                                                               1.E+03
+
+                                                                                               20 %
+                                                               1.E+02
+
+                                                               1.E+01
+                                                                        500     1000    1500      2000        2500   3000      3500          4000   4500    5000   5500   6000    6500
+                                                                                                                     Applied Voltage (VRMS)
+
+                                               TA up to 150°C, stress-voltage frequency = 60 Hz,
+                                     isolation working voltage = 1200 VRMS, operating lifetime = 76 years
+                                         Figure 6-4. Reinforced Isolation Capacitor Lifetime Projection
+
+
+
+
+Copyright © 2021 Texas Instruments Incorporated                                                                                                                                            Submit Document Feedback     11
+                                                                                          Product Folder Links: AMC3302
+AMC3302
+SBASA11B – AUGUST 2020 – REVISED JULY 2021                                                                                                                                         www.ti.com
+
+6.13 Typical Characteristics
+at VDD = 3.3 V, INP = –50 mV to +50 mV, INN = HGND = 0 V, and fIN = 10 kHz (unless otherwise noted)
+
+                   -15                                                                                                 -30
+
+
+                   -20                                                                                                 -32
+
+
+                   -25                                                                                                 -34
+
+
+
+
+                                                                                                          IIB (PA)
+      IIB (PA)
+
+
+
+
+                   -30                                                                                                 -36
+
+
+                   -35                                                                                                 -38
+
+
+                   -40                                                                                                 -40
+                     -0.25          0             0.25         0.5       0.75            1      1.25                         3           3.5         4             4.5        5        5.5
+                                                             VCM (V)                              D003
+                                                                                                                                                         VDD (V)                           D004
+
+
+
+
+     Figure 6-5. Input Bias Current vs Common-Mode Input Voltage                                                         Figure 6-6. Input Bias Current vs Supply Voltage
+                   -30                                                                                                  5
+                                                                                                                                                                                   VOUTN
+                                                                                                                       4.5                                                         VOUTP
+                   -32                                                                                                  4
+                                                                                                                       3.5
+                   -34                                                                                                  3
+                                                                                                          VOUT (V)
+      IIB (PA)
+
+
+
+
+                                                                                                                       2.5
+                   -36                                                                                                  2
+                                                                                                                       1.5
+                   -38                                                                                                  1
+                                                                                                                       0.5
+                   -40                                                                                                  0
+                     -40      -25   -10       5     20 35 50 65                 80   95      110 125                    -70 -60 -50 -40 -30 -20 -10 0 10 20 30 40 50 60 70
+                                                     Temperature (°C)                             D005
+                                                                                                                                        Differential Input Voltage (mV)  D006
+
+
+
+
+                          Figure 6-7. Input Bias Current vs Temperature                                                          Figure 6-8. Output Voltage vs Input Voltage
+                   1.49                                                                                                1.49
+                   1.48                                                                                                1.48
+                   1.47                                                                                                1.47
+                   1.46                                                                                                1.46
+                   1.45                                                                                                1.45
+      VCMout (V)
+
+
+
+
+                                                                                                          VCMout (V)
+
+
+
+
+                   1.44                                                                                                1.44
+                   1.43                                                                                                1.43
+                   1.42                                                                                                1.42
+                   1.41                                                                                                1.41
+                    1.4                                                                                                 1.4
+                   1.39                                                                                                1.39
+                          3             3.5              4             4.5           5           5.5                      -40      -25   -10   5   20 35 50 65           80   95   110 125
+                                                             VDD (V)                              D009
+                                                                                                                                                    Temperature (°C)                       D010
+
+
+
+
+     Figure 6-9. Output Common-Mode Voltage vs Supply Voltage                                             Figure 6-10. Output Common-Mode Voltage vs Temperature
+
+
+
+
+12                 Submit Document Feedback                                                                                                        Copyright © 2021 Texas Instruments Incorporated
+
+                                                                                         Product Folder Links: AMC3302
+                                                                                                                                                                                      AMC3302
+www.ti.com                                                                                                                                   SBASA11B – AUGUST 2020 – REVISED JULY 2021
+
+
+6.13 Typical Characteristics (continued)
+at VDD = 3.3 V, INP = –50 mV to +50 mV, INN = HGND = 0 V, and fIN = 10 kHz (unless otherwise noted)
+
+                            5                                                                                           0°
+
+                            0                                                                                         -45°
+
+                            -5                                                                                        -90°
+    Normalized Gain (dB)
+
+
+
+
+                           -10
+
+
+
+
+                                                                                                      Output Phase
+                                                                                                                     -135°
+                           -15
+                                                                                                                     -180°
+                           -20
+                                                                                                                     -225°
+                           -25
+                                                                                                                     -270°
+                           -30
+                                                                                                                     -315°
+                           -35
+                                                                                                                     -360°
+                           -40
+                                                                                                                             1                   10               100                   1000
+                                 1            10                         100              1000
+                                                                                                                                                      fIN (kHz)                              D008
+                                                       fIN (kHz)                               D007
+
+
+
+                                                                                                                           Figure 6-12. Output Phase vs Input Frequency
+                             Figure 6-11. Normalized Gain vs Input Frequency
+                           360                                                                                       360
+
+
+                           350                                                                                       350
+
+
+                           340                                                                                       340
+                                                                                                      BW (kHz)
+    BW (kHz)
+
+
+
+
+                           330                                                                                       330
+
+
+                           320                                                                                       320
+
+
+                           310                                                                                       310
+                                 3     3.5         4               4.5         5           5.5                         -40       -25   -10   5   20 35 50 65            80   95     110 125
+                                                       VDD (V)                                                                                    Temperature (°C)                           D012
+                                                                                               D011
+
+
+
+
+                             Figure 6-13. Output Bandwidth vs Supply Voltage                                               Figure 6-14. Output Bandwidth vs Temperature
+                           50                                                                                        50
+                                                                                    Device 1                                                                                      Device 1
+                                                                                    Device 2                                                                                      Device 2
+                                                                                    Device 3                                                                                      Device 3
+                           25                                                                                        25
+    VOS (PV)
+
+
+
+
+                                                                                                      VOS (PV)
+
+
+
+
+                            0                                                                                          0
+
+
+
+                           -25                                                                                       -25
+
+
+
+                           -50                                                                                       -50
+                                 3     3.5         4               4.5         5           5.5                         -40       -25   -10   5   20 35 50 65         80      95     110 125
+                                                       VDD (V)                                 D027
+                                                                                                                                                  Temperature (°C)                           D026
+
+
+
+
+                            Figure 6-15. Input Offset Voltage vs Supply Voltage                                        Figure 6-16. Input Offset Voltage vs Temperature
+
+
+
+
+Copyright © 2021 Texas Instruments Incorporated                                                                                                          Submit Document Feedback                   13
+                                                                                   Product Folder Links: AMC3302
+AMC3302
+SBASA11B – AUGUST 2020 – REVISED JULY 2021                                                                                                                                                                    www.ti.com
+
+6.13 Typical Characteristics (continued)
+at VDD = 3.3 V, INP = –50 mV to +50 mV, INN = HGND = 0 V, and fIN = 10 kHz (unless otherwise noted)
+
+                          0.2                                                                                                           0.2
+                                                                                        Device 1
+                                                                                        Device 2
+                                                                                        Device 3
+                          0.1                                                                                                           0.1
+     EG (%)
+
+
+
+
+                                                                                                          EG (%)
+                            0                                                                                                            0
+
+
+
+                          -0.1                                                                                                     -0.1
+                                                                                                                                                      Device 1
+                                                                                                                                                      Device 2
+                                                                                                                                                      Device 3
+                          -0.2                                                                                                     -0.2
+                                 3           3.5          4             4.5        5           5.5                                    -40           -25    -10       5    20 35 50 65            80    95     110 125
+                                                              VDD (V)                              D020                                                                    Temperature (°C)                            D021
+
+
+
+                                     Figure 6-17. Gain Error vs Supply Voltage                                                                      Figure 6-18. Gain Error vs Temperature
+                          0.03                                                                                                          0.03
+                                                                                        Device 1
+                                                                                        Device 2
+                          0.02                                                          Device 3                                        0.02
+
+
+                          0.01                                                                                                          0.01
+     Nonlinearity (%)
+
+
+
+
+                                                                                                          Nonlinearity (%)
+
+
+
+
+                             0                                                                                                            0
+
+
+                          -0.01                                                                                                   -0.01
+
+
+                          -0.02                                                                                                   -0.02                                                                     Device 1
+                                                                                                                                                                                                            Device 2
+                                                                                                                                                                                                            Device 3
+                          -0.03                                                                                                   -0.03
+                              -50      -40   -30    -20 -10        0    10     20  30     40   50                                              3               3.5           4             4.5         5            5.5
+                                                   Differential Input Voltage (mV)                 D028
+                                                                                                   D001
+                                                                                                   D024
+                                                                                                                                                                                 VDD (V)                               D029
+
+
+
+
+                                     Figure 6-19. Nonlinearity vs Input Voltage                                                                   Figure 6-20. Nonlinearity vs Supply Voltage
+                           0.03                                                                                                          80
+                                                                                        Device 1                                                      Device 1
+                                                                                        Device 2                                         75           Device 2
+                          0.025                                                         Device 3                                                      Device 3
+                                                                                                                                         70
+     |Nonlinearity| (%)
+
+
+
+
+                           0.02
+                                                                                                                                         65
+                                                                                                                             SNR (dB)
+
+
+
+
+                          0.015                                                                                                          60
+
+                                                                                                                                         55
+                           0.01
+                                                                                                                                         50
+                          0.005
+                                                                                                                                         45
+
+                                 0                                                                                                       40
+                                 -40   -25   -10   5    20 35 50 65           80   95     110 125                                             0           20         40        60        80      100         120
+                                                         Temperature (°C)                                                                                                 |VINP - VINN| (mV)                       D032
+                                                                                                   D030
+                                                                                                                                                           VIN = 0.1 Vpp, fIN = 10 kHz
+
+                                     Figure 6-21. Nonlinearity vs Temperature                                                           Figure 6-22. Signal-to-Noise Ratio vs Input Voltage
+
+
+
+
+14                        Submit Document Feedback                                                                                                                        Copyright © 2021 Texas Instruments Incorporated
+
+                                                                                       Product Folder Links: AMC3302
+                                                                                                                                                                               AMC3302
+www.ti.com                                                                                                                           SBASA11B – AUGUST 2020 – REVISED JULY 2021
+
+
+6.13 Typical Characteristics (continued)
+at VDD = 3.3 V, INP = –50 mV to +50 mV, INN = HGND = 0 V, and fIN = 10 kHz (unless otherwise noted)
+
+                              80                                                                                80
+                                                                              Device 1
+                             77.5                                             Device 2                        77.5
+                                                                              Device 3
+                              75                                                                                75
+
+                             72.5                                                                             72.5
+    SNR (dB)
+
+
+
+
+                                                                                                  SNR (dB)
+                              70                                                                                70
+
+                             67.5                                                                             67.5
+
+                              65                                                                                65
+                                                                                                                                                                           Device 1
+                             62.5                                                                             62.5                                                         Device 2
+                                                                                                                                                                           Device 3
+                              60                                                                                60
+                                    3    3.5        4             4.5   5            5.5                         -40    -25   -10    5   20 35 50 65            80    95     110 125
+                                                        VDD (V)                          D034
+                                                                                                                                          Temperature (°C)                            D035
+
+                                        VIN = 0.1 Vpp, fIN = 10 kHz                                                           VIN = 0.1 Vpp, fIN = 10 kHz
+                             Figure 6-23. Signal-to-Noise Ratio vs Supply Voltage                               Figure 6-24. Signal-to-Noise Ratio vs Temperature
+                              -70                                                                              -70
+                                                                              Device 1
+                                                                              Device 2
+                              -75                                             Device 3                         -75
+
+
+                              -80                                                                              -80
+    THD (dB)
+
+
+
+
+                                                                                                  THD (dB)
+
+
+
+
+                              -85                                                                              -85
+
+
+                              -90                                                                              -90
+
+
+                              -95                                                                              -95                                                         Device 1
+                                                                                                                                                                           Device 2
+                                                                                                                                                                           Device 3
+                             -100                                                                             -100
+                                    3    3.5        4             4.5   5            5.5                         -40    -25   -10    5   20 35 50 65            80    95     110 125
+                                                        VDD (V)                          D056
+                                                                                                                                          Temperature (°C)                            D059
+
+
+
+
+                  Figure 6-25. Total Harmonic Distortion vs Supply Voltage                                    Figure 6-26. Total Harmonic Distortion vs Temperature
+                             1000                                                                              -40
+
+
+                                                                                                               -60
+    Noise Density (nV/—Hz)
+
+
+
+
+                                                                                                  CMRR (dB)
+
+
+
+
+                                                                                                               -80
+                              100
+
+                                                                                                              -100
+
+
+                                                                                                              -120
+
+
+                               10                                                                             -140
+                                0.01     0.1        1          10       100         1000                         0.01          0.1         1               10        100         1000
+                                                   Frequency (kHz)                       D017                                                  fIN (kHz)                              D038
+
+
+
+                         Figure 6-27. Input-Referred Noise Density vs Frequency                 Figure 6-28. Common-Mode Rejection Ratio vs Input Frequency
+
+
+
+
+Copyright © 2021 Texas Instruments Incorporated                                                                                                   Submit Document Feedback                   15
+                                                                            Product Folder Links: AMC3302
+AMC3302
+SBASA11B – AUGUST 2020 – REVISED JULY 2021                                                                                                                                      www.ti.com
+
+6.13 Typical Characteristics (continued)
+at VDD = 3.3 V, INP = –50 mV to +50 mV, INN = HGND = 0 V, and fIN = 10 kHz (unless otherwise noted)
+
+                      -40                                                                                        -40
+
+
+                      -60                                                                                        -60
+     CMRR (dB)
+
+
+
+
+                                                                                                 PSRR (dB)
+                      -80                                                                                        -80
+
+
+                     -100                                                                                       -100
+
+
+                     -120                                                                                       -120
+
+
+                     -140                                                                                       -140
+                        -40     -25   -10    5   20 35 50 65           80   95     110 125                         0.01           0.1            1         10             100      1000
+                                                  Temperature (°C)                      D039                                                Ripple Frequency (kHz)                   D041
+
+
+
+     Figure 6-29. Common-Mode Rejection Ratio vs Temperature                                   Figure 6-30. Power-Supply Rejection Ratio vs Ripple Frequency
+                     32.5                                                                                       32.5
+
+
+
+                      30                                                                                         30
+                                                                                                 IDD (mA)
+     IDD (mA)
+
+
+
+
+                     27.5                                                                                       27.5
+
+
+
+                      25                                                                                         25
+
+
+
+                     22.5                                                                                       22.5
+                            3          3.5         4             4.5        5          5.5                         -40     -25   -10    5    20 35 50 65             80    95   110 125
+                                                       VDD (V)                          D043
+                                                                                                                                              Temperature (°C)                       D044
+
+
+
+
+                        Figure 6-31. Supply Current vs Supply Voltage                                                  Figure 6-32. Supply Current vs Temperature
+                      3.4                                                                                         2
+
+                     3.35                                                                                       1.75
+
+                      3.3                                                                                        1.5
+     VHLDO_OUT (V)
+
+
+
+
+                     3.25                                                                                       1.25
+                                                                                                 tr / tf (Ps)
+
+
+
+
+                      3.2                                                                                         1
+
+                     3.15                                                                                       0.75
+
+                      3.1                                                                                        0.5
+
+                     3.05                                                                                       0.25
+
+                       3                                                                                          0
+                            3          3.5         4             4.5        5          5.5                             3          3.5           4             4.5         5         5.5
+                                                       VDD (V)                          D046
+                                                                                                                                                    VDD (V)                          D065
+
+
+
+
+                            Figure 6-33. High-Side LDO Line Regulation                                  Figure 6-34. Output Rise and Fall time vs Supply Voltage
+
+
+
+
+16                   Submit Document Feedback                                                                                                Copyright © 2021 Texas Instruments Incorporated
+
+                                                                                Product Folder Links: AMC3302
+                                                                                                                                                                                     AMC3302
+www.ti.com                                                                                                                                          SBASA11B – AUGUST 2020 – REVISED JULY 2021
+
+
+6.13 Typical Characteristics (continued)
+at VDD = 3.3 V, INP = –50 mV to +50 mV, INN = HGND = 0 V, and fIN = 10 kHz (unless otherwise noted)
+
+                    2                                                                                                         3.8
+                                                                                                                                                                                50% - 90%
+                 1.75                                                                                                         3.4                                               50% - 50%
+                                                                                                                                                                                50% - 10%
+                  1.5                                                                                                          3
+
+
+
+
+                                                                                                         Signal Delay (Ps)
+                                                                                                                              2.6
+                 1.25
+    tr/tf (Ps)
+
+
+
+
+                                                                                                                              2.2
+                    1
+                                                                                                                              1.8
+                 0.75
+                                                                                                                              1.4
+                  0.5
+                                                                                                                               1
+                 0.25
+                                                                                                                              0.6
+                    0                                                                                                         0.2
+                    -40   -25   -10   5   20 35 50 65                          80    95    110 125                                  3         3.5           4             4.5   5       5.5
+                                           Temperature (°C)                                     D066                                                            VDD (V)                     D067
+
+
+
+                 Figure 6-35. Output Rise and Fall Time vs Temperature                                                       Figure 6-36. VIN to VOUT Signal Delay vs Supply Voltage
+                                                                       3.8
+                                                                                                                                             50% - 90%
+                                                                       3.4                                                                   50% - 50%
+                                                                                                                                             50% - 10%
+                                                                        3
+                                                   Signal Delay (Ps)
+
+
+
+
+                                                                       2.6
+
+                                                                       2.2
+
+                                                                       1.8
+
+                                                                       1.4
+
+                                                                        1
+
+                                                                       0.6
+
+                                                                       0.2
+                                                                         -40   -25   -10    5   20 35 50 65                             80   95   110 125
+                                                                                                 Temperature (°C)                                        D068
+
+
+
+
+                                                                       Figure 6-37. VIN to VOUT Signal Delay vs Temperature
+
+
+
+
+Copyright © 2021 Texas Instruments Incorporated                                                                                                                    Submit Document Feedback        17
+                                                                                     Product Folder Links: AMC3302
+AMC3302
+SBASA11B – AUGUST 2020 – REVISED JULY 2021                                                                       www.ti.com
+
+
+7 Detailed Description
+7.1 Overview
+The AMC3302 is a fully differential, precision, isolated amplifier with an integrated DC/DC converter that can
+supply the device from a single 3.3-V or 5-V voltage supply on the low-side. The input stage of the device
+consists of a fully differential amplifier that drives a second-order, delta-sigma (ΔΣ) modulator. The modulator
+converts the analog input signal into a digital bitstream that is transferred across the isolation barrier that
+separates the highside from the low-side. On the low-side, the received bitstream is processed by a fourth-order
+analog filter that outputs a differential signal at the OUTP and OUTN pins that is proportional to the input signal.
+The signal path is isolated by a double capacitive silicon dioxide (SiO2) insuation barrier, whereas power
+isolation uses an on-chip transformer separated by a thin-film polymer as the insulating material.
+7.2 Functional Block Diagram
+
+
+
+
+18    Submit Document Feedback                                                    Copyright © 2021 Texas Instruments Incorporated
+
+                                             Product Folder Links: AMC3302
+                                                                                                                             AMC3302
+www.ti.com                                                                                    SBASA11B – AUGUST 2020 – REVISED JULY 2021
+
+
+7.3 Feature Description
+7.3.1 Analog Input
+The differential amplifier input stage of the AMC3302 feeds a second-order, switched-capacitor, feed-forward
+ΔΣ modulator. The gain of the differential amplifier is set by internal precision resistors with a differential input
+impedance of RIND. The modulator converts the analog signal into a bitstream that is transferred across the
+isolation barrier, as described in the Data Isolation Channel Signal Transmission section.
+There are two restrictions on the analog input signals (INP and INN). First, if the input voltages VINP or VINN
+exceed the range specified in the Absolute Maximum Ratings table, the input current must be limited to the
+absolute maximum value, because the device input electrostatic discharge (ESD) diodes turns on. In addition,
+the linearity and parametric performance of the device are ensured only when the analog input voltage remains
+within linear full-scale range (VFSR) and within the common-mode input voltage range (VCM) as specified in the
+Recommended Operating Conditions table.
+7.3.2 Data Isolation Channel Signal Transmission
+The AMC3302 uses an on-off keying (OOK) modulation scheme, as shown in Figure 7-1, to transmit the
+modulator output bitstream across the capacitive SiO2-based isolation barrier. The transmit driver (TX) shown
+in the Functional Block Diagram transmits an internally generated, high-frequency carrier across the isolation
+barrier to represent a digital one and does not send a signal to represent a digital zero. The nominal frequency of
+the carrier used inside the AMC3302 is 480 MHz.
+The receiver (RX) on the other side of the isolation barrier recovers and demodulates the signal and produces
+the output. The AMC3302 transmission (TX) channel is optimized to achieve the highest level of common-mode
+transient immunity (CMTI) and lowest level of radiated emissions caused by the high-frequency carrier and
+RX/TX buffer switching.
+
+                                                  Internal Clock
+
+
+
+                                         Modulator Bitstream
+                                               on High-side
+
+
+
+                               Signal Across Isolation Barrier
+
+
+
+                                             Recovered Sigal
+                                                on Low-side
+
+
+                                             Figure 7-1. OOK-Based Modulation Scheme
+
+
+
+
+Copyright © 2021 Texas Instruments Incorporated                                                          Submit Document Feedback      19
+                                                              Product Folder Links: AMC3302
+AMC3302
+SBASA11B – AUGUST 2020 – REVISED JULY 2021                                                                                               www.ti.com
+
+7.3.3 Analog Output
+The AMC3302 offers a differential analog output comprised of the OUTP and OUTN pins. For differential input
+voltages (V INP – V INN) in the range from –50 mV to 50 mV, the device provides a linear response with a nominal
+gain of 41. For example, for a differential input voltage of 50 mV, the differential output voltage (VOUTP – VOUTN)
+is 2.05 V. At zero input (INP shorted to INN), both pins output the same common-mode output voltage VCMout,
+as specified in the Electrical Characteristics table. For absolute differential input voltages greater than 50 mV
+but less than 64 mV, the differential output voltage continues to increase in magnitude but with reduced linearity
+performance. The outputs saturate at a differential output voltage of VCLIPout, as shown in Figure 7-2, if the
+differential input voltage exceeds the VClipping value.
+                                                   Maximum input range before clipping (VClipping)
+
+                                                             Linear input range (VFSR)
+
+
+                                 VOUTN
+                                                              VFAILSAFE
+
+                                 VCLIPout
+
+                                                                                                            VCMout
+                                 VOUTP
+
+                                            ± 64 mV                                               64 mV
+                                                                          0
+                                                  ± 50 mV                                    50 mV
+                                                       Differential Input Voltage (VINP ± VINN)
+
+                                       Figure 7-2. Output Behavior of the AMC3302
+
+The AMC3302 provides a failsafe output that simplifies diagnostics on system level. Figure 7-2 shows the
+failsafe mode, in which the AMC3302 outputs a negative differential output voltage that does not occur under
+normal operating conditions. The failsafe output is active in two cases:
+• The low-side does not receive data from the high-side (for example, because of a loss of power on the high
+    side)
+• The high-side DC/DC output voltage (DCDC_OUT) or the high-side LDO output voltage (HLDO_OUT) drop
+    below their respective undervoltage detection thresholds (brown-out)
+Use the maximum VFAILSAFE voltage specified in the Electrical Characteristics table as a reference value for the
+failsafe detection on the system level.
+7.3.4 Isolated DC/DC Converter
+The AMC3302 offers a fully integrated isolated DC/DC converter that includes following components illustrated in
+the Functional Block Diagram:
+• Low-dropout regulator (LDO) on the low-side side to stabilize the supply voltage VDD that drives the low-side
+   of the converter. This circuit does not output a constant voltage and is not intended for driving any external
+   load.
+• Low-side full-bridge inverter and drivers.
+• Laminate-based, air-core transformer for high immunity to magnetic fields.
+• High-side full-bridge rectifier.
+• High-side LDO to stabilize the output voltage of the DC/DC converter for high analog performance of the
+   signal path.
+The DC/DC converter uses a spread-spectrum clock generation technique to reduce the spectral density of
+the electromagnetic radiation. The resonator frequency is synchronized to the operation of the ΔΣ modulator to
+minimize the interference with data transmission and support the high analog performance of the device.
+The architecture of the DC/DC converter is optimized to drive the high-side circuitry of the AMC3302 and can
+source up to IH of additional DC current for an optional auxiliary circuit such as an active filter, preamplifier, or
+comparator. IH is specified in the Electrical Characteristics table as a DC, non-switching current.
+
+
+20    Submit Document Feedback                                                                            Copyright © 2021 Texas Instruments Incorporated
+
+                                                        Product Folder Links: AMC3302
+                                                                                                                               AMC3302
+www.ti.com                                                                                      SBASA11B – AUGUST 2020 – REVISED JULY 2021
+
+
+7.3.5 Diagnostic Output
+As shown in Figure 7-3, the open-drain DIAG pin can be monitored to confirm the device is operational and
+the output voltage is valid. During power-up, the DIAG pin is actively held low until the high-side supply is in
+regulation and the device operates properly. During normal operation, the DIAG pin is in high-impedance (Hi-Z)
+state and is pulled high through an external pullup resistor. The DIAG pin is actively pulled low if:
+•    The low-side does not receive data from the high-side (for example, because of a loss of power on the high
+     side). In this case, the amplifier outputs are driven to the VFAILSAFE value, see Figure 7-2.
+•    The high-side DC/DC output voltage (DCDC_OUT) or the high-side LDO output voltage (HLDO_OUT) drop
+     below their respective undervoltage detection thresholds (brown-out). In this case, the low-side may still
+     receive data from the high-side but the data may not be valid. The amplifier outputs are driven to VFAILSAFE
+     value, see Figure 7-2.
+                                                   Normal                                             Normal
+                             DIAG      Power-up                 High-side supply undervoltage
+                                                  Operation                                          Operation
+
+
+                               Figure 7-3. DIAG Output Under Different Operating Conditions
+
+During normal operation, the DIAG pin is in a high-impedance state. Connect the DIAG pin to a pullup resistor or
+leave open if not used.
+7.4 Device Functional Modes
+The AMC3302 is operational when the power supply VDD is applied, as specified in the Recommended
+Operating Conditions table.
+
+
+
+
+Copyright © 2021 Texas Instruments Incorporated                                                            Submit Document Feedback      21
+                                                     Product Folder Links: AMC3302
+AMC3302
+SBASA11B – AUGUST 2020 – REVISED JULY 2021                                                                                                                                                                         www.ti.com
+
+
+8 Application and Implementation
+                                                                                                        Note
+               Information in the following applications sections is not part of the TI component specification,
+               and TI does not warrant its accuracy or completeness. TI’s customers are responsible for
+               determining suitability of components for their purposes, as well as validating and testing their design
+               implementation to confirm system functionality.
+
+8.1 Application Information
+The low analog input voltage range, excellent accuracy, and low temperature drift make the AMC3302 a high-
+performance solution for industrial applications where shunt-based current sensing in the presence of high
+common-mode voltage levels is required.
+8.2 Typical Application
+The AMC3302 is ideally suited for shunt-based, current-sensing applications where accurate current monitoring
+is required in the presence of high common-mode voltages. The AMC3302 integrates an isolated power supply
+for the high-voltage side and therefore makes the device particularly easy to use in applications that do not have
+a high-side supply readily available or where a high-side supply is referenced to a different ground potential than
+the signal to be measured.
+Figure 8-1 shows a simplified schematic of the AMC3302 in a solar inverter where the phase current is
+measured on the grid-side of an LCL filter. Although the system offers a supply for the high-side gate driver,
+there is a large common-mode voltage between the gate driver supply ground reference and the shunt resistor
+on the other side of the LCL filter. Therefore, the gate driver supply is not suitable for powering the high-side
+of an isolated amplifier that measures the voltage across the shunt. The integrated isolated power supply of the
+AMC3302 solves that problem and enables current sensing at locations that is optimal for the system.
+Figure 8-1 also shows the AMC3330 being used for sensing the AC output voltage.
+                                                                                                                DC+
+                        SW
+
+
+                    N          PGND                                                         HS Gate
+                                                                                             Driver
+                             IPHASE                                                          Supply
+                        SW
+to grid (L1)
+                                      RSHUNT                                                                          PGND
+                    RL11
+                                                                                            LS Gate
+                                                                                             Driver
+                                                                                             Supply
+                    RL1SNS
+                                                            PGND                                                DC-
+
+
+                    RL12                                                                                                 AMC3302
+                                                                                    1 µF 1 nF                                                                         100 nF
+                                                                                                               DCDC_OUT                DCDC_IN
+                    N
+                                                                                                               DCDC_HGND              DCDC_GND
+                                                                                                                                                                           47 NŸ
+                                                                                                               HLDO_IN                    DIAG                                        to uC (optional)
+                                                                                        100 nF
+                                                                                                               NC                      LDO_OUT
+                                                                                       100 nF 1 nF                                                        1 nF 1 µF
+                                                                                                               HLDO_OUT                    VDD                                        3.3 V / 5 V supply
+                                                                   10 Ÿ     10 nF
+                                                                                                               INP                        OUTP
+                                                                                                                                                                                                           ADS8363
+                                                                                                                                                                                                                         to MCU
+                                                                                                               INN                        OUTN                                                             16-Bit ADC
+                                                                   10 Ÿ
+                                                                                                               HGND                       GND
+
+                                                                                                                                                                               GND
+
+                                                                                AMC3330
+                                               1 µF 1 nF                                                               100 nF
+                                                                      DCDC_OUT              DCDC_IN
+
+                                                                      DCDC_HGND          DCDC_GND
+                                                                                                                             47 NŸ
+                                                                      HLDO_IN                    DIAG                                       to uC (optional)
+                                                   100 nF
+                                                                      NC                   LDO_OUT
+                                                  100 nF 1 nF                                              1 nF 1 µF
+                                                                      HLDO_OUT                    VDD                                       3.3 V / 5 V supply
+
+                                                                      INP                        OUTP
+                                                                                                                                                                 ADS8363
+                                                                                                                                                                                     to MCU
+                                                                      INN                        OUTN                                                            16-Bit ADC
+
+                                                                      HGND                       GND
+
+                                                                                                                                GND
+
+
+
+                                               Figure 8-1. The AMC3302 in a Solar Inverter Application
+
+22             Submit Document Feedback                                                                                                                          Copyright © 2021 Texas Instruments Incorporated
+
+                                                                               Product Folder Links: AMC3302
+                                                                                                                           AMC3302
+www.ti.com                                                                                  SBASA11B – AUGUST 2020 – REVISED JULY 2021
+
+
+8.2.1 Design Requirements
+Table 8-1 lists the parameters for this typical application.
+                                                   Table 8-1. Design Requirements
+                                  PARAMETER                                                           VALUE
+                                 Supply voltage                                                     3.3 V or 5 V
+         Voltage drop across the shunt for a linear response (VSHUNT)                          ±50 mV (maximum)
+
+
+8.2.2 Detailed Design Procedure
+The AMC3302 requires a single 3.3-V or 5-V supply on its low side. The high-side supply is internally generated
+by an integrated DC/DC converter, as explained in the Isolated DC/DC Converter section.
+The ground reference (HGND) is derived from the terminal of the shunt resistor that is connected to the negative
+input (INN) of the AMC3302. If a four-pin shunt is used, the inputs of the device are connected to the inner leads
+and HGND is connected to one of the outer leads. To minimize offset and improve accuracy, set the ground
+connection to a separate trace that connects directly to the shunt resistor rather than shorting HGND to INN
+directly at the input to the device. See the Layout section for more details.
+8.2.2.1 Shunt Resistor Sizing
+Use Ohm's Law to calculate the voltage drop across the shunt resistor (VSHUNT) for the desired measured
+current: VSHUNT = I × RSHUNT.
+Consider the following two restrictions to choose the proper value of the shunt resistor, RSHUNT:
+•    The voltage drop caused by the nominal current range must not exceed the recommended differential input
+     voltage range: |VSHUNT| ≤ |VFSR|
+•    The voltage drop caused by the maximum allowed overcurrent must not exceed the input voltage that causes
+     a clipping output: |VSHUNT| ≤ |VClipping|
+8.2.2.2 Input Filter Design
+TI recommends placing an RC filter in front of the isolated amplifier to improve signal-to-noise performance of
+the signal path. Design the input filter such that:
+•    The cutoff frequency of the filter is at least one order of magnitude lower than the sampling frequency (20
+     MHz) of the ΔΣ modulator
+•    The input bias current does not generate significant voltage drop across the DC impedance of the input filter
+•    The impedances measured from the analog inputs are equal
+For most applications the structure shown in Figure 8-2 achieves excellent performance.
+                                                                                  AMC3302
+                                                                        DCDC_OUT          DCDC_IN
+
+                                                                        DCDC_HGND      DCDC_GND
+
+                                                                        HLDO_IN              DIAG
+
+                                                                        NC              LDO_OUT
+
+                                                                        HLDO_OUT              VDD
+                                                     10 Ÿ   10 nF
+                                        RSHUNT
+
+
+
+
+                                                                        INP                  OUTP
+
+                                                                        INN                  OUTN
+                                                     10 Ÿ
+                                                                        HGND                  GND
+
+
+                                                  Figure 8-2. Differential Input Filter
+
+
+
+Copyright © 2021 Texas Instruments Incorporated                                                          Submit Document Feedback    23
+                                                       Product Folder Links: AMC3302
+AMC3302
+SBASA11B – AUGUST 2020 – REVISED JULY 2021                                                                         www.ti.com
+
+8.2.2.3 Differential to Single-Ended Output Conversion
+Figure 8-3 shows an example of a TLV6001-based signal conversion and filter circuit for systems using single-
+ended-input ADCs to convert the analog output voltage into digital. With R1 = R2 = R3 = R4, the output voltage
+equals (VOUTP – VOUTN) + VREF. Tailor the bandwidth of this filter stage to the bandwidth requirement of the
+system. For most applications, R1 = R2 = R3 = R4 = 3.3 kΩ and C1 = C2 = 330 pF yields good performance.
+                          AMC3302
+                DCDC_OUT          DCDC_IN
+
+                DCDC_HGND        DCDC_GND
+
+                HLDO_IN               DIAG
+                                                                              C1
+                NC                LDO_OUT
+
+                HLDO_OUT               VDD                                    R2
+
+                                                             R1
+                INP                  OUTP                             ±
+                                                             R3                       ADC               To MCU
+                INN                  OUTN                             +
+                                                                          TLV6001
+                HGND                  GND                  C2        R4                     GND
+
+                                               GND
+                                                                          VREF
+
+
+                                                                      GND
+
+                      Figure 8-3. Connecting the AMC3302 Output to a Single-Ended Input ADC
+
+For more information on the general procedure to design the filtering and driving stages of successive-
+approximation-register (SAR) ADCs, see the 18-Bit, 1MSPS Data Acquisition Block (DAQ) Optimized for Lowest
+Distortion and Noise reference guide and 18-Bit Data Acquisition Block (DAQ) Optimized for Lowest Power
+reference guide, available for download at www.ti.com.
+8.2.3 Application Curve
+One important aspect of power-stage design is the effective detection of an overcurrent condition to protect the
+switching devices and passive components from damage. To power off the system quickly in the event of an
+overcurrent condition, a low delay caused by the isolated amplifier is required. Step Response of the AMC3302
+shows the typical fullscale step response of the AMC3302.
+
+
+
+                 VOUTN
+
+
+
+
+                 VOUTP
+
+                 VIN
+
+
+
+
+                                      Figure 8-4. Step Response of the AMC3302
+
+24    Submit Document Feedback                                                      Copyright © 2021 Texas Instruments Incorporated
+
+                                              Product Folder Links: AMC3302
+                                                                                                                 AMC3302
+www.ti.com                                                                        SBASA11B – AUGUST 2020 – REVISED JULY 2021
+
+
+8.3 What to Do and What Not to Do
+Do not leave the analog inputs INP and INN of the AMC3302 unconnected (floating) when the device is powered
+up. If the device inputs are left floating, the input bias current may drive the inputs to a positive value that
+exceeds the operating common-mode input voltage, leaving the output of the device undetermined.
+Connect the negative input (INN) to the high-side ground (HGND), either by a hard short or through a resistive
+path. A DC current path between INN and HGND is required to define the input common-mode voltage. Do
+not exceed the input common-mode range specified in the Recommended Operating Conditions table. For best
+accuracy, route the ground connection as a separate trace that connects directly to the shunt resistor rather than
+shorting AGND to INN directly at the input to the device. See the Layout section for more details.
+The high-side LDO can source a limited amount of current (IH) to power external circuitry. Take care not to
+overload the high-side LDO.
+The low-side LDO does not output a constant voltage and is not intended for powering any external circuitry. Do
+not connect any external load to the LDO_OUT pin.
+
+
+
+
+Copyright © 2021 Texas Instruments Incorporated                                              Submit Document Feedback      25
+                                                  Product Folder Links: AMC3302
+AMC3302
+SBASA11B – AUGUST 2020 – REVISED JULY 2021                                                                                       www.ti.com
+
+
+9 Power Supply Recommendations
+The AMC3302 is powered from the low-side power supply (VDD) with a nominal value of 3.3 V or 5 V. TI
+recommends a low-ESR decoupling capacitor of 1 nF (C8 in Figure 9-1) placed as close as possible to the VDD
+pin, followed by a 1-µF capacitor (C9) to filter this power-supply path.
+The low-side of the DC/DC converter is decoupled with a low-ESR 100-nF capacitor (C4) positioned close to
+the device between the DCDC_IN and DCDC_GND pins. Use a 1-µF capacitor (C2) to decouple the high-side
+in addition to a low-ESR, 1-nF capacitor (C3) placed as close as possible to the device and connected to the
+DCDC_OUT and DCDC_HGND pins.
+For the high-side LDO, use low-ESR capacitors of 1-nF (C6), placed as close as possible to the AMC3302,
+followed by a 100-nF decoupling capacitor (C5).
+The ground reference for the high-side (HGND) is derived from the terminal of the shunt resistor that is
+connected to the negative input (INN) of the device. For best DC accuracy, use a separate trace to make this
+connection instead of shorting HGND to INN directly at the device input. The high-side DC/DC ground terminal
+(DCDC_HGND) is shorted to HGND directly at the device pins.
+As shown in Figure 9-1, TI recommends placing ferrite beads in the INP, INN, and HGND signal lines for best
+EMI performance. For more information on reducing radiated emissions and guidelines for component selection,
+see the Best Practices to Attenuate AMC3301 Family Radiated Emissions EMI application note available for
+download at www.ti.com
+                                           C2 1 µF                    AMC3302                            C4
+                                                                                                       100 nF
+                                           C3 1 nF          DCDC_OUT         DCDC_IN
+
+                                                            DCDC_HGND      DCDC_GND                          R1
+                                                                                                            47 k
+                                         C1 100 nF          HLDO_IN              DIAG                                    to uC (optional)
+     I
+                                         C5 100 nF          NC               LDO_OUT        C8 C9
+                                                                                           1 nF 1 µF
+                                           C6 1 nF          HLDO_OUT             VDD                                     3.3 V / 5 V supply
+                               R2 10 
+                        FB1
+         RSHUNT
+
+
+
+
+                                                            INP                 OUTP                                     to RC filter / ADC
+
+                        FB2                                 INN                 OUTN                                     to RC filter / ADC
+                               R4 10      C10 10 nF
+                        FB3                                 HGND                 GND
+
+
+
+
+                                                      Figure 9-1. Decoupling the AMC3302
+
+Capacitors must provide adequate effective capacitance under the applicable DC bias conditions they
+experience in the application. Multilayer ceramic capacitors (MLCC) typically exhibit only a fraction of their
+nominal capacitance under real-world conditions and this factor must be taken into consideration when selecting
+these capacitors. This problem is especially acute in low-profile capacitors, in which the dielectric field strength is
+higher than in taller components. Reputable capacitor manufacturers provide capacitance versus DC bias curves
+that greatly simplify component selection.
+Table 9-1 lists components suitable for use with the AMC3302. This list is not exhaustive. Other components
+may exist that are equally suitable (or better), however these listed components have been validated during the
+development of the AMC3302.
+
+
+
+
+26                Submit Document Feedback                                                       Copyright © 2021 Texas Instruments Incorporated
+
+                                                           Product Folder Links: AMC3302
+                                                                                                                                AMC3302
+www.ti.com                                                                                    SBASA11B – AUGUST 2020 – REVISED JULY 2021
+
+                                          Table 9-1. Recommended External Components
+                      DESCRIPTION                                PART NUMBER              MANUFACTURER              SIZE (EIA, L x W)
+ VDD
+                                                               12065C102KAT2A(1)               AVX                1206, 3.2 mm x 1.6 mm
+ C8                       1 nF ± 10%, X7R, 50 V
+                                                               C0603C102K5RACTU               Kemet               0603, 1.6 mm x 0.8 mm
+                                                               12063C105KAT2A(1)               AVX                1206, 3.2 mm x 1.6 mm
+ C9                       1 µF ± 10%, X7R, 25 V
+                                                            CGA3E1X7R1E105K080AC               TDK                0603, 1.6 mm x 0.8 mm
+ DC/DC CONVERTER
+ C4                     100 nF ± 10%, X7R, 50 V              C0603C104K5RACAUTO               Kemet               0603, 1.6 mm x 0.8 mm
+ C3                       1 nF ± 10%, X7R, 50 V                C0603C102K5RACTU               Kemet               0603, 1.6 mm x 0.8 mm
+ C2                       1 µF ± 10%, X7R, 25 V             CGA3E1X7R1E105K080AC               TDK                0603, 1.6 mm x 0.8 mm
+ HLDO
+ C1                     100 nF ± 10%, X7R, 50 V              C0603C104K5RACAUTO               Kemet               0603, 1.6 mm x 0.8 mm
+                         100 nF ± 5%, NP0, 50 V             C3216NP01H104J160AA(1)             TDK                1206, 3.2 mm x 1.6 mm
+ C5
+                        100 nF ± 10%, X7R, 50 V              C0603C104K5RACAUTO               Kemet               0603, 1.6 mm x 0.8 mm
+                          1 nF ± 10%, X7R, 50 V                12065C102KAT2A(1)               AVX                1206, 3.2 mm x 1.6 mm
+ C6
+                                                               C0603C102K5RACTU               Kemet               0603, 1.6 mm x 0.8 mm
+ FERRITE BEADS
+                                                                   74269244182            Wurth Elektronik        0402, 1.0 mm x 0.5 mm
+ FB1, FB2,
+                               Ferrite bead(2)                  BLM15HD182SH1                 Murata              0402, 1.0 mm x 0.5 mm
+ FB3
+                                                                BKH1005LM182-T              Taiyo Yuden           0402, 1.0 mm x 0.5 mm
+
+(1)    Component used for parametric validation.
+(2)    No ferrite beads used for parametric validation.
+
+
+
+
+Copyright © 2021 Texas Instruments Incorporated                                                              Submit Document Feedback     27
+                                                          Product Folder Links: AMC3302
+AMC3302
+SBASA11B – AUGUST 2020 – REVISED JULY 2021                                                                                 www.ti.com
+
+
+10 Layout
+10.1 Layout Guidelines
+Figure 10-1 shows a layout recommendation with the critical placement of the decoupling capacitors (as close as
+possible to the AMC3302 supply pins) and placement of the other components required by the device. For best
+performance, place the shunt resistor close to the INP and INN inputs of the AMC3302 and keep the layout of
+both connections symmetrical.
+To avoid errors in the measurement caused by the input bias currents of the AMC3302, connect the high-side
+ground pin (HGND) to the IIN-side of the shunt resistor. Use a separate trace in the layout to make this
+connection to maintain equal currents in the IIN and INP traces.
+10.2 Layout Example
+                                                             Clearance area, to be
+                                                                kept free of any
+                                                             conductive materials.
+
+                                               C2
+
+                                               C3
+
+
+
+
+                                                                                     C4
+                                                                                                   DIAG     To MCU I/O (optional)
+                                               C1
+
+
+
+
+                                                                                              R1
+                                               C5                AMC3302
+                                                                                                    VDD     3.3-V or 5-V supply
+      RSHUNT
+
+
+
+
+               INP    FB1    R2                C6                                                  OUTP     To analog filter / ADC / MCU
+                                   C10
+
+
+
+
+                                                                                      C8
+
+
+                                                                                             C9
+                      FB2    R4                                                                    OUTN     To analog filter / ADC / MCU
+               INN
+
+               HGND                                                                        GND
+                      FB3
+
+                               Top Metal
+                               Inner or Bottom Layer Metal
+                               Via
+
+                                  Figure 10-1. Recommended Layout of the AMC3302
+
+
+
+
+28    Submit Document Feedback                                                             Copyright © 2021 Texas Instruments Incorporated
+
+                                                     Product Folder Links: AMC3302
+                                                                                                                                 AMC3302
+www.ti.com                                                                                     SBASA11B – AUGUST 2020 – REVISED JULY 2021
+
+
+11 Device and Documentation Support
+11.1 Documentation Support
+11.1.1 Related Documentation
+For related documentation, see the following:
+•    Texas Instruments, Isolation Glossary application report
+•    Texas Instruments, Semiconductor and IC Package Thermal Metrics application report
+•    Texas Instruments, ISO72x Digital Isolator Magnetic-Field Immunity application report
+•    Texas Instruments, AMC3330 Precision, ±1-V Input, Reinforced Isolated Amplifier data sheet
+•    Texas Instruments, TLV600x Low-Power, Rail-to-Rail In/Out, 1-MHz Operational Amplifier for Cost-Sensitive
+     Systems data sheet
+•    Texas Instruments, 18-Bit, 1-MSPS Data Acquisition Block (DAQ) Optimized for Lowest Distortion and Noise
+     reference guide
+•    Texas Instruments, 18-Bit, 1-MSPS Data Acquisition Block (DAQ) Optimized for Lowest Power reference
+     guide
+•    Texas Instruments, Isolated Amplifier Voltage Sensing Excel Calculator design tool
+•    Texas Instruments, Best Practices to Attenuate AMC3301 Family Radiated Emissions EMI application note
+11.2 Receiving Notification of Documentation Updates
+To receive notification of documentation updates, navigate to the device product folder on ti.com. Click on
+Subscribe to updates to register and receive a weekly digest of any product information that has changed. For
+change details, review the revision history included in any revised document.
+11.3 Support Resources
+TI E2E™ support forums are an engineer's go-to source for fast, verified answers and design help — straight
+from the experts. Search existing answers or ask your own question to get the quick design help you need.
+Linked content is provided "AS IS" by the respective contributors. They do not constitute TI specifications and do
+not necessarily reflect TI's views; see TI's Terms of Use.
+11.4 Trademarks
+TI E2E™ is a trademark of Texas Instruments.
+All trademarks are the property of their respective owners.
+11.5 Electrostatic Discharge Caution
+                    This integrated circuit can be damaged by ESD. Texas Instruments recommends that all integrated circuits be handled
+                    with appropriate precautions. Failure to observe proper handling and installation procedures can cause damage.
+                    ESD damage can range from subtle performance degradation to complete device failure. Precision integrated circuits may
+                    be more susceptible to damage because very small parametric changes could cause the device not to meet its published
+                    specifications.
+
+
+11.6 Glossary
+ TI Glossary             This glossary lists and explains terms, acronyms, and definitions.
+
+12 Mechanical, Packaging, and Orderable Information
+The following pages include mechanical, packaging, and orderable information. This information is the most
+current data available for the designated devices. This data is subject to change without notice and revision of
+this document. For browser-based versions of this data sheet, refer to the left-hand navigation.
+
+
+
+
+Copyright © 2021 Texas Instruments Incorporated                                                            Submit Document Feedback          29
+                                                       Product Folder Links: AMC3302
+                                                                                                                                                                      PACKAGE OPTION ADDENDUM
+
+       www.ti.com                                                                                                                                                                                                    6-Feb-2026
+
+
+
+
+PACKAGING INFORMATION
+
+       Orderable part number          Status     Material type      Package | Pins      Package qty | Carrier        RoHS             Lead finish/              MSL rating/               Op temp (°C)          Part marking
+                                        (1)            (2)                                                             (3)            Ball material             Peak reflow                                           (6)
+                                                                                                                                            (4)                      (5)
+
+           AMC3302DWE                 Active      Production       SOIC (DWE) | 16            40 | TUBE               Yes                NIPDAU            Level-3-260C-168 HR             -40 to 125             AMC3302
+          AMC3302DWE.A                Active      Production       SOIC (DWE) | 16            40 | TUBE               Yes                NIPDAU            Level-3-260C-168 HR             -40 to 125             AMC3302
+          AMC3302DWEG4                Active      Production       SOIC (DWE) | 16            40 | TUBE               Yes                NIPDAU            Level-3-260C-168 HR             -40 to 125             AMC3302
+         AMC3302DWEG4.A               Active      Production       SOIC (DWE) | 16            40 | TUBE               Yes                NIPDAU            Level-3-260C-168 HR             -40 to 125             AMC3302
+          AMC3302DWER                 Active      Production       SOIC (DWE) | 16       2000 | LARGE T&R             Yes                NIPDAU            Level-3-260C-168 HR             -40 to 125             AMC3302
+         AMC3302DWER.A                Active      Production       SOIC (DWE) | 16       2000 | LARGE T&R             Yes                NIPDAU            Level-3-260C-168 HR             -40 to 125             AMC3302
+
+(1)
+      Status: For more details on status, see our product life cycle.
+
+(2)
+   Material type: When designated, preproduction parts are prototypes/experimental devices, and are not yet approved or released for full production. Testing and final process, including without limitation quality assurance,
+reliability performance testing, and/or process qualification, may not yet be complete, and this item is subject to further changes or possible discontinuation. If available for ordering, purchases will be subject to an additional
+waiver at checkout, and are intended for early internal evaluation purposes only. These items are sold without warranties of any kind.
+
+(3)
+      RoHS values: Yes, No, RoHS Exempt. See the TI RoHS Statement for additional information and value definition.
+
+(4)
+   Lead finish/Ball material: Parts may have multiple material finish options. Finish options are separated by a vertical ruled line. Lead finish/Ball material values may wrap to two lines if the finish value exceeds the maximum
+column width.
+
+(5)
+  MSL rating/Peak reflow: The moisture sensitivity level ratings and peak solder (reflow) temperatures. In the event that a part has multiple moisture sensitivity ratings, only the lowest level per JEDEC standards is shown.
+Refer to the shipping label for the actual reflow temperature that will be used to mount the part to the printed circuit board.
+
+(6)
+      Part marking: There may be an additional marking, which relates to the logo, the lot trace code information, or the environmental category of the part.
+
+Multiple part markings will be inside parentheses. Only one part marking contained in parentheses and separated by a "~" will appear on a part. If a line is indented then it is a continuation of the previous line and the two
+combined represent the entire part marking for that device.
+
+Important Information and Disclaimer:The information provided on this page represents TI's knowledge and belief as of the date that it is provided. TI bases its knowledge and belief on information provided by third parties, and
+makes no representation or warranty as to the accuracy of such information. Efforts are underway to better integrate information from third parties. TI has taken and continues to take reasonable steps to provide representative
+and accurate information but may not have conducted destructive testing or chemical analysis on incoming materials and chemicals. TI and TI suppliers consider certain information to be proprietary, and thus CAS numbers
+and other limited information may not be available for release.
+
+In no event shall TI's liability arising out of such information exceed the total purchase price of the TI part(s) at issue in this document sold by TI to Customer on an annual basis.
+
+
+
+                                                                                                          Addendum-Page 1
+                                                                                                                          PACKAGE OPTION ADDENDUM
+
+   www.ti.com                                                                                                                               6-Feb-2026
+
+
+
+
+OTHER QUALIFIED VERSIONS OF AMC3302 :
+
+• Automotive : AMC3302-Q1
+
+NOTE: Qualified Version Definitions:
+
+       • Automotive - Q100 devices qualified for high-reliability automotive applications targeting zero defects
+
+
+
+
+                                                                                                        Addendum-Page 2
+                                                                               PACKAGE MATERIALS INFORMATION
+
+www.ti.com                                                                                                                                     10-Aug-2026
+
+
+
+TAPE AND REEL INFORMATION
+
+       REEL DIMENSIONS                                                                      TAPE DIMENSIONS
+                                                                                       K0       P1
+
+
+
+                                                                                                                       B0 W
+                                        Reel
+                                      Diameter
+                                                                                    Cavity            A0
+                                                                A0   Dimension designed to accommodate the component width
+                                                                B0   Dimension designed to accommodate the component length
+                                                                K0   Dimension designed to accommodate the component thickness
+                                                                W    Overall width of the carrier tape
+                                                                P1   Pitch between successive cavity centers
+
+
+                                       Reel Width (W1)
+                              QUADRANT ASSIGNMENTS FOR PIN 1 ORIENTATION IN TAPE
+
+                                                                                                      Sprocket Holes
+
+
+                                                 Q1        Q2          Q1    Q2
+
+                                                 Q3        Q4          Q3    Q4                  User Direction of Feed
+
+
+
+                                                            Pocket Quadrants
+
+
+*All dimensions are nominal
+             Device           Package Package Pins              SPQ       Reel   Reel   A0                    B0        K0     P1     W     Pin1
+                               Type Drawing                             Diameter Width (mm)                  (mm)      (mm)   (mm)   (mm) Quadrant
+                                                                          (mm) W1 (mm)
+     AMC3302DWER               SOIC     DWE           16        2000        330.0        16.4        10.75   10.7      2.7    12.0   16.0    Q1
+
+
+
+
+                                                                      Pack Materials-Page 1
+                                                                PACKAGE MATERIALS INFORMATION
+
+www.ti.com                                                                                                              10-Aug-2026
+
+
+
+ TAPE AND REEL BOX DIMENSIONS
+
+
+
+
+                                                               Width (mm)
+                                                                              H
+                      W
+
+
+
+
+                                                          L
+
+
+
+
+*All dimensions are nominal
+             Device           Package Type   Package Drawing   Pins         SPQ    Length (mm)   Width (mm)   Height (mm)
+     AMC3302DWER                 SOIC             DWE           16          2000      350.0        350.0         43.0
+
+
+
+
+                                                        Pack Materials-Page 2
+                                                                PACKAGE MATERIALS INFORMATION
+
+www.ti.com                                                                                                    10-Aug-2026
+
+
+
+TUBE
+
+       T - Tube
+        height                                                      L - Tube length
+
+
+                      W - Tube
+                       width
+
+
+         B - Alignment groove width
+
+*All dimensions are nominal
+             Device           Package Name   Package Type    Pins       SPQ     L (mm)   W (mm)   T (µm)   B (mm)
+      AMC3302DWE                  DWE          SO-MOD         16         40     506.98    12.7    4826      6.6
+     AMC3302DWE.A                 DWE          SO-MOD         16         40     506.98    12.7    4826      6.6
+     AMC3302DWEG4                 DWE          SO-MOD         16         40     506.98    12.7    4826      6.6
+    AMC3302DWEG4.A                DWE          SO-MOD         16         40     506.98    12.7    4826      6.6
+
+
+
+
+                                                        Pack Materials-Page 3
+                                                                                                        PACKAGE OUTLINE
+DWE0016A                                                           SCALE 1.500
+                                                                                                      SOIC - 2.65 mm max height
+                                                                                                                                           SOIC
+
+
+
+                                                                                                                                C
+
+                                         10.63                                                                 SEATING PLANE
+                                               TYP
+                                         9.97
+                          PIN 1 ID                                                                                        0.1 C
+          A
+                          AREA
+                                                                                        14X 1.27
+                                                                                 16
+                  1
+
+
+
+
+        10.5                                                                             2X
+        10.1                                                                            8.89
+       NOTE 3
+
+
+
+
+                  8
+                                                                                 9
+                                                                                          0.51
+                                                                                      16X
+                                                                                          0.31
+                                           7.6
+                      B                                                                 0.25   C A      B                 2.65 MAX
+                                           7.4
+                                          NOTE 4
+
+
+
+
+                                                                                        0.33
+                                                                                             TYP
+                                                                                        0.10
+
+
+
+
+                                     SEE DETAIL A
+                                                                                        0.25
+                                                                                 GAGE PLANE
+
+
+                                                                                                                                    0.3
+                                                                                      0 -8                                          0.1
+                                                                                               1.27
+                                                                                               0.40                  DETAIL A
+                                                                                                            (1.4)     TYPICAL
+
+
+                                                                                                                           4223098/A      07/2016
+
+NOTES:
+
+1. All linear dimensions are in millimeters. Any dimensions in parenthesis are for reference only. Dimensioning and tolerancing
+   per ASME Y14.5M.
+2. This drawing is subject to change without notice.
+3. This dimension does not include mold flash, protrusions, or gate burrs. Mold flash, protrusions, or gate burrs shall not
+   exceed 0.15 mm, per side.
+4. This dimension does not include interlead flash. Interlead flash shall not exceed 0.25 mm, per side.
+5. Reference JEDEC registration MS-013.
+
+
+
+
+                                                                  www.ti.com
+                                                                                   EXAMPLE BOARD LAYOUT
+DWE0016A                                                                                  SOIC - 2.65 mm max height
+                                                                                                                                   SOIC
+
+
+
+
+                                  SYMM                                                               SYMM
+         16X (2)                                                         16X (1.65)                                              SEE
+                                                           SEE                                                                   DETAILS
+                                                           DETAILS
+                   1                                                                  1
+                                                       16                                                                    16
+
+    16X (0.6)                                                          16X (0.6)
+
+                                                           SYMM                                                                  SYMM
+
+
+
+
+  14X (1.27)                                                         14X (1.27)
+                   8                                   9                              8                                      9
+
+
+                                  (9.3)                                                              (9.75)
+
+                             IPC-7351 NOMINAL                                                 HV / ISOLATION OPTION
+                       7.3 mm CLEARANCE/CREEPAGE                                          8.1 mm CLEARANCE/CREEPAGE
+
+
+                                                LAND PATTERN EXAMPLE
+                                                             SCALE:4X
+
+
+
+
+                                                SOLDER MASK              SOLDER MASK                          METAL
+                          METAL                 OPENING                      OPENING
+
+
+
+
+                                      0.07 MAX                                                 0.07 MIN
+                                      ALL AROUND                                               ALL AROUND
+
+
+                              NON SOLDER MASK                                               SOLDER MASK
+                                  DEFINED                                                     DEFINED
+
+
+                                                      SOLDER MASK DETAILS
+
+                                                                                                                      4223098/A 07/2016
+
+
+NOTES: (continued)
+
+6. Publication IPC-7351 may have alternate designs.
+7. Solder mask tolerances between and around signal pads can vary based on board fabrication site.
+
+
+
+
+                                                                  www.ti.com
+                                                                                EXAMPLE STENCIL DESIGN
+DWE0016A                                                                                   SOIC - 2.65 mm max height
+                                                                                                                                SOIC
+
+
+
+
+                                  SYMM                                                              SYMM
+         16X (2)                                                        16X (1.65)
+
+                   1                                                                 1
+                                                       16                                                                16
+
+    16X (0.6)                                                          16X (0.6)
+
+
+                                                            SYMM                                                              SYMM
+
+
+
+
+  14X (1.27)                                                       14X (1.27)
+                   8                                   9                             8                                   9
+
+
+                                   (9.3)                                                            (9.75)
+
+
+                             IPC-7351 NOMINAL                                                HV / ISOLATION OPTION
+                       7.3 mm CLEARANCE/CREEPAGE                                         8.1 mm CLEARANCE/CREEPAGE
+
+
+
+                                                    SOLDER PASTE EXAMPLE
+                                                  BASED ON 0.125 mm THICK STENCIL
+                                                             SCALE:4X
+
+
+
+
+                                                                                                                  4223098/A 07/2016
+
+NOTES: (continued)
+
+8. Laser cutting apertures with trapezoidal walls and rounded corners may offer better paste release. IPC-7525 may have alternate
+   design recommendations.
+9. Board assembly site may have different recommendations for stencil design.
+
+
+
+
+                                                                 www.ti.com
+                                         IMPORTANT NOTICE AND DISCLAIMER
+TI PROVIDES TECHNICAL AND RELIABILITY DATA (INCLUDING DATASHEETS), DESIGN RESOURCES (INCLUDING REFERENCE
+DESIGNS), APPLICATION OR OTHER DESIGN ADVICE, WEB TOOLS, SAFETY INFORMATION, AND OTHER RESOURCES “AS IS”
+AND WITH ALL FAULTS, AND DISCLAIMS ALL WARRANTIES, EXPRESS AND IMPLIED, INCLUDING WITHOUT LIMITATION ANY
+IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE OR NON-INFRINGEMENT OF THIRD
+PARTY INTELLECTUAL PROPERTY RIGHTS.
+These resources are intended for skilled developers designing with TI products. You are solely responsible for (1) selecting the appropriate
+TI products for your application, (2) designing, validating and testing your application, and (3) ensuring your application meets applicable
+standards, and any other safety, security, regulatory or other requirements.
+These resources are subject to change without notice. TI grants you permission to use these resources only for development of an
+application that uses the TI products described in the resource. Other reproduction and display of these resources is prohibited. No license
+is granted to any other TI intellectual property right or to any third party intellectual property right. TI disclaims responsibility for, and you fully
+indemnify TI and its representatives against any claims, damages, costs, losses, and liabilities arising out of your use of these resources.
+TI’s products are provided subject to TI’s Terms of Sale, TI’s General Quality Guidelines, or other applicable terms available either on
+ti.com or provided in conjunction with such TI products. TI’s provision of these resources does not expand or otherwise alter TI’s applicable
+warranties or warranty disclaimers for TI products. Unless TI explicitly designates a product as custom or customer-specified, TI products
+are standard, catalog, general purpose devices.
+TI objects to and rejects any additional or different terms you may propose.
+IMPORTANT NOTICE
+
+                                                Copyright © 2026, Texas Instruments Incorporated
+                                                                Last updated 10/2025
+

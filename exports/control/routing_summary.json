@@ -1,0 +1,30 @@
+{
+  "time_utc": "2026-10-09T22:50:02.860745+00:00",
+  "scope": "Experimental single-phase analog control, not the complete laboratory power supply",
+  "native_PCB": "design/control/control.kicad_pcb",
+  "components": 86,
+  "connected_pins": 211,
+  "nets": 41,
+  "board_mm": [
+    180,
+    150
+  ],
+  "copper_layers": 2,
+  "backside_components": [
+    "C1",
+    "C5",
+    "C6"
+  ],
+  "copper_objects": 2516,
+  "track_segments": 2362,
+  "vias": 154,
+  "unused_layer_transition_vias_removed": 14,
+  "router_failed_links": [],
+  "drc_violations": 0,
+  "drc_types": {},
+  "unconnected": 0,
+  "schematic_parity": 0,
+  "DRC_all_severities_pass": true,
+  "hardware_tests": "NOT PERFORMED",
+  "fabrication_release": false
+}

@@ -1,0 +1,14 @@
+{
+  "time_utc": "2026-10-09T19:09:07.701556+00:00",
+  "kicad_version": "9.0.2",
+  "target": "passive measurement board only",
+  "components": 29,
+  "connected_pads": 52,
+  "nets": 15,
+  "erc": "passed with all severities",
+  "drc": "passed with all severities and schematic parity",
+  "independent_pin_net_comparison": "passed",
+  "HV_rule_activation_negative_control": "passed",
+  "hardware_tests": "not performed",
+  "power_stage_4kW": "not designed or validated"
+}

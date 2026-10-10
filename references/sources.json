@@ -1,0 +1,164 @@
+[
+  {
+    "file": "LTC3895.pdf",
+    "official_url": "https://www.analog.com/media/en/technical-documentation/data-sheets/3895fa.pdf",
+    "bytes": 2286270,
+    "sha256": "33b389917fddb3be0e9e549217a41b791445c8acb34349dfe711a9e786105c09"
+  },
+  {
+    "file": "UCC21520.pdf",
+    "official_url": "https://www.ti.com/lit/ds/symlink/ucc21520.pdf",
+    "bytes": 2527695,
+    "sha256": "9fa909613e47da0f18592efd501b78b7eff435c289bcf2db1e84e7e3190085c3"
+  },
+  {
+    "file": "LTC3779.pdf",
+    "official_url": "https://www.analog.com/media/en/technical-documentation/data-sheets/ltc3779.pdf",
+    "bytes": 2576543,
+    "sha256": "f3726b2ba54a88947f210ca819dd426d4cdc04159579e40e4b352893925e194f"
+  },
+  {
+    "file": "LTC3779_DC2456AF.pdf",
+    "official_url": "https://www.analog.com/media/en/technical-documentation/user-guides/DC2456AF.PDF",
+    "bytes": 1758307,
+    "sha256": "1775a7973dc104237b4ff0bf3d991ddd7b8c04e819e9e11c70880dba736b68e6"
+  },
+  {
+    "file": "LTC3779_DC2456A4_schematic.pdf",
+    "official_url": "https://www.analog.com/media/en/technical-documentation/user-guides/DC2456A-4-SCH.PDF",
+    "bytes": 70375,
+    "sha256": "63abb1fd354eb4715dcaf7ba4ecf1a960c15098b68bc8b65fb4f3c52c3eb153e"
+  },
+  {
+    "file": "BSC110N15NS5.pdf",
+    "official_url": "https://www.infineon.com/assets/row/public/documents/24/49/infineon-bsc110n15ns5-datasheet-en.pdf",
+    "bytes": 1296808,
+    "sha256": "ba0b880c5ae9919b1b32bdae90ea848e70739c4be5f2247b96e3c1b86fa45576"
+  },
+  {
+    "file": "LTC4366.pdf",
+    "official_url": "https://www.analog.com/media/en/technical-documentation/data-sheets/436612fe.pdf",
+    "bytes": 1555198,
+    "sha256": "e55569b484d5e348bb3f796ce55e0090faa3a935df9501e00e0abb0be0279e17"
+  },
+  {
+    "file": "LTC4366_DC1850A.pdf",
+    "official_url": "https://www.analog.com/media/en/technical-documentation/user-guides/dc1850aabf.pdf",
+    "bytes": 335742,
+    "sha256": "5c7970364a901dbde8e924df889992bd54d20f85b548183865e04d36f6471c3a"
+  },
+  {
+    "file": "LTC4366_DC2150A.pdf",
+    "official_url": "https://www.analog.com/media/en/technical-documentation/user-guides/DC2150AF.PDF",
+    "bytes": 449680,
+    "sha256": "b1165ef5ed526474a1445b22c256180cc9bdebd88ca31125fddcec4bc9c61950"
+  },
+  {
+    "file": "TPSI3050.pdf",
+    "official_url": "https://www.ti.com/lit/ds/symlink/tpsi3050.pdf",
+    "bytes": 4420950,
+    "sha256": "b1f221f0b5bb596bfca766e4805ffb4e69809e5f19cee968f9b21fcc12fe8478"
+  },
+  {
+    "file": "TLV3501.pdf",
+    "official_url": "https://www.ti.com/lit/ds/symlink/tlv3501.pdf",
+    "bytes": 1074854,
+    "sha256": "fcfbeffce874629849fe7b2324fa40731a41453b587b8f50782f0ff42311b946"
+  },
+  {
+    "file": "IPP110N20N3G.pdf",
+    "official_url": "https://www.infineon.com/assets/row/public/documents/24/49/infineon-ipp-i-110n20n3g-datasheet-en.pdf",
+    "bytes": 706972,
+    "sha256": "8c1716f069120302d15eb52e4742664de3512a05989ef68ee1a82d8662d85418"
+  },
+  {
+    "file": "INFINEON_LINEAR_SOA.pdf",
+    "official_url": "https://www.infineon.com/assets/row/public/documents/24/42/infineon-applicationnote-linear-mode-operation-safe-operation-diagram-mosfets-applicationnotes-en.pdf",
+    "bytes": 1115625,
+    "sha256": "3343c04705ccfc20bcfb64ef2cce44705b693c9699453cff1414ca67a0a26339"
+  },
+  {
+    "file": "MEANWELL_ICL_INSTALL.pdf",
+    "official_url": "https://meanwell.com/Upload/PDF/ICL%20AC%20inrush%20current%20limiter.pdf",
+    "bytes": 1704628,
+    "sha256": "39b8139a22999a103e121a82a7d3d088c7a54079dae4ef9df54d3c224b3ccbc4"
+  },
+  {
+    "file": "MEANWELL_RSP3000_48_REPORT.pdf",
+    "official_url": "https://meanwell.com/Upload/PDF/RSP-3000/RSP-3000-48-RPT.PDF",
+    "bytes": 469793,
+    "sha256": "06764d3027c22420b9a9f4cfa5c8e95f95b608be47a61ee5d659c1728d55fd67"
+  },
+  {
+    "file": "OPA192.pdf",
+    "official_url": "https://www.ti.com/lit/ds/symlink/opa192.pdf",
+    "bytes": 3340107,
+    "sha256": "3c01472f1a6a157c7503f5a07083d19359bd7641bc0971f60aafd572141a87f0"
+  },
+  {
+    "file": "INA240.pdf",
+    "official_url": "https://www.ti.com/lit/ds/symlink/ina240.pdf",
+    "bytes": 1935924,
+    "sha256": "c9d26e72ebdb52a169cbaca8f47d3811833c0afb765335a14f53f05c1a8b1854"
+  },
+  {
+    "file": "LM4040.pdf",
+    "official_url": "https://www.ti.com/lit/ds/symlink/lm4040-n.pdf",
+    "bytes": 1980947,
+    "sha256": "f3977fc3d89b4f25699e699ca2c89e0c00f45c84fc04e35692758b5390ac3880"
+  },
+  {
+    "file": "TLV1704.pdf",
+    "official_url": "https://www.ti.com/lit/ds/symlink/tlv1704.pdf",
+    "bytes": 1946071,
+    "sha256": "b971c8ca9ae7da43d67fa3486f202e6e688d8f5cc4b220268473fc0b4904c42b"
+  },
+  {
+    "file": "TPS3808.pdf",
+    "official_url": "https://www.ti.com/lit/ds/symlink/tps3808.pdf",
+    "bytes": 2046179,
+    "sha256": "74d889c0f68af88032f1633c26381817cc03e10d9fd3b4c177a044ad3ed86eed"
+  },
+  {
+    "file": "TPS3700.pdf",
+    "official_url": "https://www.ti.com/lit/ds/symlink/tps3700.pdf",
+    "bytes": 682718,
+    "sha256": "3bb7daed20b154bf22ded78e23269c6437eb587400b89bce0f543813df94ebf0"
+  },
+  {
+    "file": "MEANWELL_RSP-3000_SPEC.pdf",
+    "official_url": "https://meanwell.com/Upload/PDF/RSP-3000/RSP-3000-SPEC.PDF",
+    "bytes": 1300856,
+    "sha256": "1dd3a8d722ecb0de772aac083baca471db785b7f5e90079450b290bc0e7fc7a9"
+  },
+  {
+    "file": "MEANWELL_Enclosed_Type_EN.pdf",
+    "official_url": "https://meanwell.com/Upload/PDF/Enclosed_Type_EN.pdf",
+    "bytes": 1032314,
+    "sha256": "3e40e59123e5c23d498a468e851f89e5a9d89d99fdbdc82fe8c19348294e4940"
+  },
+  {
+    "file": "MEANWELL_FAQ.html",
+    "official_url": "https://meanwell.com/qa.aspx",
+    "bytes": 2841968,
+    "sha256": "d51fe7c94abcf1bc5e79f84d2a4b2a3dfe12851cdfd7c388ddb58ce1ae916c8a"
+  },
+  {
+    "file": "INA190.pdf",
+    "official_url": "https://www.ti.com/lit/ds/symlink/ina190.pdf",
+    "bytes": 1586290,
+    "sha256": "6ed9c2cc41d6c5ba4f36ce33d9d829b2f0c51e376583e94e2c63be4d950b39af"
+  },
+  {
+    "file": "AMC3302.pdf",
+    "official_url": "https://www.ti.com/lit/ds/symlink/amc3302.pdf",
+    "bytes": 1615172,
+    "sha256": "05b135fd3a272b6753d7a94f477a2fb377b013acad1c401db350ae603b3614c6"
+  },
+  {
+    "file": "CSD13381F4.pdf",
+    "official_url": "https://www.ti.com/lit/ds/symlink/csd13381f4.pdf",
+    "bytes": 1452620,
+    "sha256": "5fb60dce7844767dc43e4ada4e02bb0172c3f689ebbed5b785293b96a03eeecc"
+  }
+]

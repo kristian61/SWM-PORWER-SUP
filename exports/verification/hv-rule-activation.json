@@ -1,0 +1,7 @@
+{
+  "result": "PASS",
+  "temporary_minimum_mm": 100,
+  "detected_HV_violations": 499,
+  "temporary_DRC_exit": 5,
+  "original_project_modified": false
+}

@@ -1,0 +1,32 @@
+{
+  "time_utc": "2026-10-09T17:56:06.846215+00:00",
+  "scope": "Single fixed 99.6 V,10 A target research phase; not requested 0..100 V40 A complete PSU",
+  "erc_violations": 0,
+  "drc_violations": 22,
+  "drc_types": {
+    "clearance": 22
+  },
+  "drc_unconnected": 137,
+  "drc_schematic_parity": 0,
+  "pin_agreement": {
+    "status": "PASS",
+    "components": 75,
+    "pins": 175,
+    "nets": 38,
+    "controller_connected_pins": 32,
+    "controller_removed_positions": [
+      23,
+      25,
+      27,
+      29,
+      31,
+      33,
+      35
+    ],
+    "board_tracks": 0,
+    "scope": "Logicalpinagreement only;unroutednotworkingpowerboard"
+  },
+  "board_tracks": 0,
+  "fabrication_release": false,
+  "hardware_tests": "NOT PERFORMED"
+}

@@ -1,0 +1,451 @@
+                                 5                                                                        4                                                                                  3                                                                                 2                                                                                1
+
+                                                                                                                                                                                                                                                                                                                                                 REVISION HISTORY
+                                                                                                                                                                                                                                                                                                                 ECO      REV                 DESCRIPTION                        DATE           APPROVED
+                                                                                                                                             VIN+
+                                                                                                                                                                                                                                       VIN+                                                                        -          4                 PROD                            07/13/17         ]A jA
+                                                                                                                                                                                                                         R50 OPT
+                                            V5                                                                                                        R5
+                                                                                                                                                      5.1                                        Q1           C58 1206
+
+
+
+
+                                                                                                                                                                                             5
+                                                                                                                                                     0805                                        OPT          OPT
+                                                                                                                                                                        Q10                                   1210
+                                                 R7                                                                                                        C15
+
+
+
+
+                                                                                                                                                                               3
+                                                                                                                                                                        OPT
+                                                 100k                                                                                                     0.1uF                        4
+             E4                                  1%                                                                                                        250V                                                                                                                                                                                                                            E3
+D                                                                                                                                                                                                                                                                                                                                                                                                             D
+                                                                                                                                                                        1
+    PGOOD                                                                                                                                                 0805                                                                                                                                                                                                                                  VIN+
+                                                                                                                                                                                                                         VIN+
+
+
+
+
+                                                                                                                                                                                             1
+                                                                                                                                                                                                 2
+                                                                                                                                                                                                      3
+                                                                                                                                                                               2
+             E9                                                                                                                                                                                           Q2                                                                                             R20 0
+                                                                                    VOS+                                                                                                                  Q6                                                                                                                                                                                 VIN
+     SGND                                                                                                                                                                                                                                                                                                                                                                           J1
+
+
+
+
+                                                                                                                                                                                                                         5
+                                                                                                                                                                        R49 0                    BSC110N15NS5                                                                       C9          C14                                                                     CIN2
+                                                                                                                                                                                                                                                        C42         C54             C25         C35                                                   + CIN1        +
+                                                                                                                                                                                                                                                                                                                                                       10uF             10uF          16V - 120V
+                                                                                                                                                                                                                                          R28           C43         C55             C26         C36
+                                                                                                                                                      V5                1206       DRVCC                                                                0.1uF       OPT                                                                                125V             125V
+                                                                                       RFB1                                                                                                           TG1       4                         OPT                                       C27         C37
+                                                                                       475K                            U1                                                                                                                               250V        250V                        1uF                                                                                              GND
+                                                                                                                                                                                                                                          0805          0805        0805            1uF                                                                                             J2
+                                                                                                                                                                                                                                                                                                250V
+
+
+
+
+                                                                                                                                             34
+                                                                           RFB2        1%                             LTC3779EFE38                                                                                                                                                  250V
+
+
+
+
+                                                                                                                                                      8
+                                                                                       0805                                                                                                                                                                                                     2220
+
+
+
+
+                                                                                                                                                                                                                         1
+                                                                                                                                                                                                                             2
+                                                                                                                                                                                                                                 3
+                                                                                                                                                                                                                                          C12                                       2220                                                                                                   E7
+
+
+
+
+                                                                                                                                              VIN
+
+                                                                                                                                                       V5
+                                                                          12.1K 1%                                    18                                           6                                                                      OPT
+                                                                                                                           PGOOD                            NDRV                                      SW1                                                                                                                                                                                       GND
+                                                                            CF1                                                                                                                                                           0805                                       IINSENSEN
+                                                                                                                      10                                           7                                 C4
+                                                                                                                           VFB                            DRVCC                                      0.22uF              DRVCC                                                       IINSENSEP
+             E5                                                             OPT                                                                                                                                                                             L1
+                                                                                                                       9                                           37          R23 0                 25V
+       SS                                                                                                                  SS                                TG1                                                    D4                                     15uH
+                                                                                                                                                                                                     R35
+                                                          CSS                         R10          100                12                                           38                                                                            WURTH 7443641500
+                                                          0.1uF                                                            SENSEN                           SW1                                       0
+             E6                                                                                                C11                                                                                            DFLS1200-7
+                            R15 0                                                      R9          100        220pF                                                            R11 0
+                                                                                                                      11                                           36
+       ITH                                                                                                                 SENSEP                      BOOST1
+                                                                                                                                                                                                        Q4                      Q7
+
+
+
+
+                                                                                                                                                                                                                         5
+                                                                                                                      13                                                                     BSC093N15NS5                       OPT               Q3                                Q8                                                                                    VOS+
+                   VIN+
+
+
+
+
+                                                                                                                                                                                                                                                                     1
+                                                                                                                                                                                                                                                                         2
+                                                                                                                                                                                                                                                                             3
+C                                                                                                                          ITH                                                                                                                  BSC028N06NS                         OPT                                                                                                    E2                 C
+                                                              V5                                                                                                                                                                        D10
+                                                  MODE                          CC1           CC2        RC                                                                    R27 0                                                                                                                                                                                                            VOS+
+                                                                                                                      14                                           1                                  BG1       4                       OPT                   4
+               R30                                        1                    100pF                                       SGND                              BG1                                                                                                                                                                                            VOUT
+                                 PULSE SKIP                                                 10nF         10K                                                                                                                                                                         D11                                                                                       10
+              41.2K                                       2                                                           15                                                                                                                                                             OPT
+               1%                                                                                                          MODE                                                                           DRVCC                                                                                          VOUT1                                                                 R8
+
+
+
+
+                                                                                                                                                                                                                         1
+                                                                                                                                                                                                                             2
+                                                                                                                                                                                                                                 3
+              0805                                                                                                                                                                                                                                                                                                                                                                         J3
+                                            CCM           3                                        R21 56.2k                                                                                                                                                                                                              R2 0.004
+                                                                                                                                                                                                 D7
+
+
+
+
+                                                                                                                                                                                                                                                                     5
+                                                                                                                      17                                                               R36                           C18 10uF                                                                                                                                                          VOUT
+                                                                                                                           FREQ                                    22
+                                                    JP2                                             200kHz                                             BOOST2                                                                                                                      C44         C28         C32                     1W                                    C40
+                           RUN                                                                                                                                                 C22    0                             25V                                                                                    C31                                   COUT1
+                                                                                                                 RUN 24                                                                      DFLS1200-7                                                        C46                 C45         C21                                2512         +
+                                                                                                                                                                                                                                                                                                                                                 56uF                    0.1uF 48V AT 10A MAX
+                       4         1 ON                                                                                      RUN                                                 0.22uF                                 1206                                     C47                                         C30
+                                                                                                                                                                   20          25V                                                                                                 0.1uF       C20                                               63V                     250V
+                                                       R31                R13 1k                                                                                                                                                 SW2                           OPT                 250V                                                                                  0805
+             RUN       5         2                C57 3K                                                              32                                    SW2                                                                                                                                C19         C29                                                                      J4
+                                                                   VIN+                                                    VINSNS                                                                                                                              250V                0805
+                                                  OPT 1%                                                                                                                                         R17 0                                                         0805                            C17         C23
+         R48           6         3 OFF                                    R14 1k                                                                                   21                                                            TG2                                                                                                                                                             GND
+                                                  0805 0805                                                           30                                     TG2                                                                                                                               C16         C53                                COUT2             C41
+           0                                                       VOUT                                                    VOUTSNS                                                                                                                                                                         3.3uF                             + 56uF
+                                                                                                                                                                   19                            D9       OPT                                                                                  3.3uF                                                            OPT
+                                                                             C8         C7                                                                                                                                       BG2                                                                       100V                                                 250V                       E1
+                          SW1                                                                                          2                                     BG2                                                                                                                               100V                                           63V
+      RUN                                                                   OPT        OPT                                 VINOV                                                                                                                                                                           1210                                                 0805                            VOS-
+                      JS202011CQN
+             E11                                                            0805       0805                                                                             EXTVCC                                                                                                                 1210
+                                                                                                                      26                                           5                             R1 0
+                           EXTVCC            VOUT                            R22                                           IAVGSNSP                    EXTVCC                                                                                                                         C13
+                                                                                                                                                                         C24
+
+
+
+
+                                                                                                                                                                                                                                                                     5
+                                                                                                              C10
+             E10                                                          124K 1%                                     28                                                 1uF                                                                                                          OPT
+                                 R32 OPT                           VIN+                                                    IAVGSNSN                                                                                                                                                   0805
+    EXTVCC                                                                  0805                                                                                        0805
+
+                                                                                                                                              PGND
+                                                                                                              4.7uF                                                                R41 0
+                                                                                                                                     PLLIN
+                                     0805                                                                              4                                           3                                                                                    4                             R29
+                                             VBIAS                            R25             D8                           SGND                        DRVSET                                    V5
+B
+                                                                                                                                                                                                                                                        Q5                            OPT                                                                                                                     B
+                                                                            1.21K    BZX84C5V1                                                                                                                                                   BSC066N06NS
+                                     R39                                                                                                                                    R40       OPT                                                                                             0805
+                                                                                                                                    16
+
+                                                                                                                                             39
+
+
+
+
+                                                                                                                                                                                                                                                                     1
+                                                                                                                                                                                                                                                                         2
+                                                                                                                                                                                                                                                                             3
+                                                                              1%
+                                      10                                                                                                                                                                                                                             Q9 BSC066N06NS
+                                                                                                                                                                                                            CS
+             E8                       R16                                                                                                    R34 OPT                                                              R18          R19
+     PLLIN                                                                                                                                                                                                      0.008        0.008
+                                     OPT                                                                                                                                                                           2W           2W
+                                                                                                                                                                                                                 2512         2512
+                                                                                                                                                                                                                                                                                                                                                                                            TG1
+                                                                                                                                                                                                                                                                                                                                                                                            SW1
+                                                                                                                                                                                     R6 OPT                                                                                                                                                                                                 BG1
+                                                                                                                                                                                                                                           IINSENSEN
+                                                                                                                                                                                                                                                                                                                                                                                            BG2
+                                                                                                                                                                                     R12 OPT
+                                                                                                                                                                                                                                           IINSENSEP
+                                                                                                                                                                                                                                                                                                                                                                                            SW2
+                                                                                                                                                                                     R4 100                                                                                                                                                                                                 TG2
+                                                                                                                                                                                     R3 100                                                                                                                                                                                                 CS
+
+
+                                                                                                                                                                                                                                                                                                                                                               1630 McCarthy Blvd.
+A
+                                                                                                                                                                                                 V5                                              CUSTOMER NOTICE                                APPROVALS                                                      Milpitas, CA 95035                     A
+                                                                                                                                                                                                                                        LINEAR TECHNOLOGY HAS MADE A BEST EFFORT TO DESIGN A                                                                   Phone: (408)432-1900 www.linear.com
+                                                                                                                                                                                                                                        CIRCUIT THAT MEETS CUSTOMER-SUPPLIED SPECIFICATIONS;                                                                   Fax: (408)434-0507
+                                                                                                                                                                                                      C56                               HOWEVER, IT REMAINS THE CUSTOMER'S RESPONSIBILITY TO                                                TECHNOLOGY
+                                                                                                                                                                                                      1uF                               VERIFY PROPER AND RELIABLE OPERATION IN THE ACTUAL
+                                                                                                                                                                                                                                                                                              PCB DES.   `A \A                                                 LTC Confidential-For Customer Use Only
+                                                                                                                                                                                                                                        APPLICATION. COMPONENT SUBSTITUTION AND PRINTED                                TITLE: SCHEMATIC
+                                                                                                                                                                                                      25V                               CIRCUIT BOARD LAYOUT MAY SIGNIFICANTLY AFFECT CIRCUIT
+                                                                                                                                                                                                                                                                                              APP ENG.   ]A jA
+                                                                                                                                                                                                                                        PERFORMANCE OR RELIABILITY. CONTACT LINEAR
+                                                                                                                                                                                                                                                                                                                                            HIGH EFFICIENCY HIGH VOLTAGE
+        NOTE: UNLESS OTHERWISE SPECIFIED,                                                                                                                                                                                               TECHNOLOGY APPLICATIONS ENGINEERING FOR ASSISTANCE.                                                    BUCK-BOOST CONVERTER
+              1. ALL RESISTORS AND CAPACITORS ARE 0603.
+                                                                                                                                                                                                                                                                                                                       SIZE        IC NO.                                                              REV.
+                                                                                                                                                                                                                                                                                                                                                    LTC3779EFE38
+                                                                                                                                                                                                                                                                                                                       N/A                    DEMO CIRCUIT 2456A                                         4
+                                                                                                                                                                                                                                        THIS CIRCUIT IS PROPRIETARY TO LINEAR TECHNOLOGY AND
+                                                                                                                                                                                                                                        SUPPLIED FOR USE WITH LINEAR TECHNOLOGY PARTS.          SCALE = NONE           DATE: Thursday, July 20, 2017                                SHEET 1        OF 2
+                                 5                                                                        4                                                                                  3                                                                                 2                                                                                1
+                  5                                              4                                              3                                                               2                                                          1
+
+
+
+
+                          VIN+             VIN+                          VIN+             VIN+
+                                                                                                                                          VIN+     VOUT
+
+
+
+
+                          3
+
+
+
+
+                                           2
+
+
+
+
+                                                                         3
+
+
+
+
+                                                                                          2
+                                 Q11              Q13                           Q23              Q24
+    TG1               1                1                             1                1                                                       R43       R42
+                                 OPT              OPT                           OPT              OPT                                          0          OPT                                                                                               VBIAS
+                                                                                                                                                                       U2                                              L3
+
+
+
+
+                          2
+
+
+
+
+                                           3
+
+
+
+
+                                                                         2
+
+
+
+
+                                                                                          3
+D
+                                                                                                                                              0805      0805                                                                                                            D
+
+                                                                                                        L2                                                             LTC3639EMSE                                    220uH                    12V / 100mA
+    SW1                                                                                                                                                    C48
+                                                                                                       OPT                                    R44                                                                   CDRH105R
+                                                                                                                                              150k         1uF     3                                          1                          C50        C51
+
+                          3
+
+
+
+
+                                           2
+
+
+
+
+                                                                         3
+
+
+
+
+                                                                                          2
+                                                                                                                                                                          VIN                          SW                       R46
+                                                           D12                                                                                1%           250V                                                                          22uF       22uF        C52
+                                 Q12              Q14      OPT                  Q25              Q26                                          0805         2220                                                                 113k     25V        25V         0.1uF
+    BG1               1                1                             1                1                                                                                                                                         1%       1210       1210
+                                                                                                                                                                                                              9
+                                 OPT              OPT                           OPT              OPT                                                              14                                   VFB
+                                                                                                                                                                          RUN
+                          2
+
+
+
+
+                                           3
+
+
+
+
+                                                                         2
+
+
+
+
+                                                                                          3
+                                                                                                                                                                                                              12                R47
+                                                                                                                                             R45                                                  OVLO
+     CS                                                                                                                                                                                                                         8.06k
+                                                                                                                                             12.1K
+                                                                                                        R37 R38                              1%                                                               7                 1%
+                          VOUT1            VOUT1        VOUT1            VOUT1            VOUT1                                                                                                  VPRG1
+                                                                                                       OPT OPT
+                                                                                                        1W   1W
+                          3
+
+
+
+
+                                           2
+
+
+
+
+                                                                         3
+
+
+
+
+                                                                                          2
+                                                                                                       2512 2512                                                                                              6
+                                 Q15              Q16      D13                  Q20              Q19                                                               5                             VPRG2
+                      1                1                   OPT       1                1                                                                                   FBO
+    TG2                                                                                                                                                                                                            C49
+C                                OPT              OPT                           OPT              OPT                                                              11                                          10                                                        C
+                                                                                                                                                                          ISET                           SS
+                          2
+
+
+
+
+                                           3
+
+
+
+
+                                                                         2
+
+
+
+
+                                                                                          3
+
+
+
+
+                                                                                                                                                                                    GND
+                                                                                                                                                                                           GND
+
+                                                                                                                                                                                                   GND
+                                                                                                                                                                                                                   47nF
+    SW2
+                          3
+
+
+
+
+                                           2
+
+
+
+
+                                                                         3
+
+
+
+
+                                                                                          2
+
+
+
+
+                                                                                                                                                                                    8
+                                                                                                                                                                                          16
+
+                                                                                                                                                                                                  17
+                                 Q17              Q18                           Q21              Q22
+    BG2               1                1                             1                1
+                                 OPT              OPT                           OPT              OPT
+                          2
+
+
+
+
+                                           3
+
+
+
+
+                                                                         2
+
+
+
+
+                                                                                          3
+B                                                                                                                                                                                                                                                                       B
+
+    OPTIONAL DPAK/D2PAK
+    MOSFETS FOR AUTOMOTIVE
+    APPLICATION
+
+
+
+
+                                                                                                                                                                                                                                 1630 McCarthy Blvd.
+                                                                                                                    CUSTOMER NOTICE                               APPROVALS                                                      Milpitas, CA 95035
+                                                                                                         LINEAR TECHNOLOGY HAS MADE A BEST EFFORT TO DESIGN A                                                                    Phone: (408)432-1900 www.linear.com
+                                                                                                         CIRCUIT THAT MEETS CUSTOMER-SUPPLIED SPECIFICATIONS;                                                                    Fax: (408)434-0507
+                                                                                                         HOWEVER, IT REMAINS THE CUSTOMER'S RESPONSIBILITY TO PCB DES.                                             TECHNOLOGY
+A                                                                                                        VERIFY PROPER AND RELIABLE OPERATION IN THE ACTUAL                 `A \A                                                LTC Confidential-For Customer Use Only A
+                                                                                                         APPLICATION. COMPONENT SUBSTITUTION AND PRINTED       APP ENG.                   TITLE: SCHEMATIC
+                                                                                                         CIRCUIT BOARD LAYOUT MAY SIGNIFICANTLY AFFECT CIRCUIT              ]A jA
+                                                                                                         PERFORMANCE OR RELIABILITY. CONTACT LINEAR
+                                                                                                                                                                                                                   HIGH EFFICIENCY HIGH VOLTAGE
+                                                                                                         TECHNOLOGY APPLICATIONS ENGINEERING FOR ASSISTANCE.                                                          BUCK-BOOST CONVERTER
+                                                                                                                                                                                           SIZE          IC NO.                                                  REV.
+                                                                                                                                                                                                                          LTC3779EFE38
+                                                                                                                                                                                           N/A                       DEMO CIRCUIT 2456A                            4
+                                                                                                         THIS CIRCUIT IS PROPRIETARY TO LINEAR TECHNOLOGY AND
+                                                                                                         SUPPLIED FOR USE WITH LINEAR TECHNOLOGY PARTS.         SCALE = NONE               DATE: Thursday, July 20, 2017                           SHEET 2     OF 2
+                  5                                              4                                              3                                                               2                                                          1
+

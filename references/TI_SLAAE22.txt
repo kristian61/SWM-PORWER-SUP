@@ -1,0 +1,403 @@
+www.ti.com                                                                                                                                            Design Objective
+
+Analog Engineer's Circuit
+Voltage Margining and Scaling Circuit with a Voltage
+Output Smart DAC
+
+
+
+Smart DAC                                                                                                                                           Katlynne Jones
+
+
+Design Objective
+              Key Input Parameter                                 Key Output Signal                                      Recommended Device
+             SPI or I2C communication        0V to 1.2V analog DAC output, 3.3V ±10%                         DAC53204, DAC63204, DAC43204,
+                                                           SMPS output                                                 DAC53004
+
+
+Objective: Provide a margin voltage for an SMPS output of ±10% the nominal value
+
+Design Description
+This circuit uses a four-channel buffered voltage output DAC to voltage margin a switch-mode power supply
+(SMPS). A voltage margining circuit is used to trim, scale, or test the output of a power converter. Adjustable
+power supplies, such as low dropout regulators (LDOs), DC/DC converters, or SMPS provide a feedback (FB)
+input that is used to control the desired output. A precision smart DAC, such as the DAC53204 or DAC53004,
+provides linear control of the power supply output when the DAC is supplied and the output is powered on. Most
+DACs include an internal pull-down resistor at the voltage output when the DAC is supplied but the output is in
+power down mode. Also, when most DACs are completely powered off, the ESD cells on the output pin conduct
+current if the output is pulled away from ground which is the case in voltage margining circuits. The DAC53204
+or DAC53004 provides a high impedance (Hi-Z) output when the DAC is powered off or when the output channel
+is in power down mode, meaning that the DACs draw very little current through the FB pin of the SMPS and the
+output is set at the nominal voltage. The DAC53204 and DAC53004 have a general-purpose input (GPI) pin that
+allows the DAC output to be toggled between a high and low voltage output. This allows the SMPS to be toggled
+within ±10% of the nominal output value. All register settings can be saved using the non-volatile memory (NVM)
+on the DAC53204 and DAC53004 meaning that the devices can be used without a processor, even after a
+power cycle. This circuit can be used in applications such as Communications Equipment, Enterprise Systems,
+Test and Measurement, and general-purpose power-supply modules.
+                                                                                   VDD       VDD     100nF         1.5F
+
+
+                                                                                      10kΩ
+
+                                                                                      16 VREF   15 VDD          13 CAP
+  VDD
+                                                                                                             LDO
+                                        L
+        IN                   SW                                  VOUT
+                                                                                          Internal
+                                                                                                       NVM
+                                                                                         Reference
+                SMPS / LDO                             R1
+                                            CL
+                                                                              11   OUT0      DAC     DAC
+                             FB
+                                                 VFB                          12    FB0      REG     BUF
+                   GND                                           R3                                                                    8 SDA/SCLK
+                                                                                                                   Digital Interface
+
+
+
+
+                                                            R2                10             DAC     DAC
+                                                                                   OUT1                                                7 A0/SDI
+                                                                               9    FB1      REG     BUF
+
+                                                                              3              DAC     DAC                               6 SCL/SYNC
+                                                                                   OUT2
+                                                                              4     FB2      REG     BUF                                              HIGH
+                                                                                                                                       5 GPIO/SDO
+                                                                              2    OUT3      DAC     DAC                                                         LOW
+                                                                              1     FB3      REG     BUF
+
+                                                                                      Output Configuration
+                                                                                             Logic
+
+                                                                                                      14 AGND
+
+
+
+
+SLAAE22A – JUNE 2021 – REVISED APRIL 2024                                  Voltage Margining and Scaling Circuit with a Voltage Output Smart DAC                    1
+Submit Document Feedback
+                                            Copyright © 2024 Texas Instruments Incorporated
+Design Notes                                                                                                                        www.ti.com
+
+
+Design Notes
+1. The DACx3204 12-Bit, 10-Bit, and 8-Bit, Quad Voltage and Current Output Smart DACs With Auto-Detected
+   I2C, PMBus™, or SPI Interface Data Sheet recommends using a 100nF decoupling capacitor for the VDD
+   pin and a 1.5µF or greater bypass capacitor for the CAP pin. The CAP pin is connected to the internal LDO.
+   Place these capacitors close to the device pins.
+2. There are three reference options for the DAC53204:
+   a. An external reference of 1.7V to VDD can be applied to the VREF pin of the device. Connect a 100nF
+        capacitor between the VREF pin and the AGND pin when using the external reference. Use a pullup
+        resistor to VDD when the external reference is not used.
+   b. There is a precision 1.21V reference with ×1.5, ×2, ×3, and ×4 gain options.
+   c. VDD can be used as a reference.
+3. The nominal voltage of the SMPS is set by resistors R1 and R2. The SMPS uses an internal 600mV
+   reference voltage at the FB pin to determine the voltage at the output. Calculate R1 and R2 using the
+   following equations:
+              V        − VFB
+          R1 = NOMINAL
+                 I    NOMINAL
+
+                    R1 × VFB
+          R2 = V
+                  NOMINAL − VFB
+
+     A nominal current of 100µA through R1 and R2 and 3.3V nominal output voltage is used. With these values
+     the equations become:
+
+          R1 = 3.3V − 0.6V
+                  100μA    = 27kΩ
+
+
+          R2 = 27kΩ × 0.6V
+               3.3V − 0.6V = 6kΩ
+
+4. To achieve the desired margin, the DAC53204 must sink or source additional current through R1. This
+   current (IMARGIN) is calculated by:
+                         VNOMINAL × 1 + MARGIN − VFB
+          IMARGIN =                  R1              − INOMINAL
+
+     For a ±10% margin, the equation becomes:
+                         3.3V × 1 + 0.10 − 0.6V
+          IMARGIN =              27kΩ           − 100μA = 12μA
+
+5. The voltage output of the DAC53204 is turned into a current through the series resistor R3. R3 is calculated
+   by:
+              V    − VFB
+          R3 = DAC
+                I  MARGIN
+
+     Avoid DAC codes near zero- and full-scale when determining the DAC output voltage range to avoid the
+     zero- and full-scale errors at these codes. This design uses the internal 1.21V reference with a gain of
+     ×1.5 giving a full-scale voltage of 1.82V. The DAC53204 has a max zero-code error of 15mV, so a 20mV
+     minimum output is a safe choice. IMARGIN is considered positive and is being sourced from the DAC when
+     VDAC > VFB. IMARGIN is considered negative and is being sunk by the DAC53204 when VDAC < VFB. R3 is
+     calculated to be 48.3kΩ:
+
+          R3 = 20mV − 0.6V
+                 −12μA     = 48.3kΩ
+
+     The maximum output becomes:
+          VDAC, MAX = R3 × IMARGIN + VFB
+
+          VDAC, MAX = 48.3kΩ × 12μA + 0.6V = 1.18V
+
+
+
+
+2     Voltage Margining and Scaling Circuit with a Voltage Output Smart DAC                           SLAAE22A – JUNE 2021 – REVISED APRIL 2024
+                                                                                                                       Submit Document Feedback
+                                                    Copyright © 2024 Texas Instruments Incorporated
+www.ti.com                                                                                                                       Design Notes
+
+6. The DAC codes for VDAC,MAX and VDAC,MIN are stored in the DAC-MARGIN-HIGH and DAC-MARGIN-LOW
+   registers. The codes programmed to these registers, in decimal, is calculated using:
+                                   V
+          DAC_MARGIN_HIGH = V DAC,×MAX
+                                   GAIN × 1024
+                                   REF
+
+                                  V
+          DAC_MARGIN_LOW = V DAC, MIN
+                               × GAIN × 1024
+                                  REF
+
+     The equations become:
+                               1.18V
+          DAC_MARGIN_HIGH = 1.21V × 1.5 × 1024 = 665.7d
+
+                              20mV
+          DAC_MARGIN_LOW = 1.21V × 1.5 × 1024 = 11.2d
+
+   This is rounded to 666d and 11d to give a VDAC,MAX of 1.18V and a VDAC,MIN of 19.5mV.
+7. Using a 1.21V reference with a ×1.5 gain and the 10-bit DAC53204, the LSB size, or step size between
+   each code, is about 1.8mV. Using lower reference voltages decreases the LSB size and thus increases the
+   resolution of VDAC,MAX and VDAC,MIN.
+8. In this design, GPI is used for Margin High, Low function. A high on GPI sets the DAC output to VDAC,MAX
+   and the SMPS VOUT to margin low, or 2.97V. A low on GPI sets the DAC output to VDAC,MIN and the SMPS
+   VOUT to margin high, or 3.63V.
+9. The DAC53204 can be programmed with the initial register settings described in the Register Settings
+   section using I2C or SPI. The initial register settings can be saved in the NVM by writing a 1 to the
+   NVM-PROG field of the COMMON-TRIGGER register. After programming the NVM, the device loads all
+   registers with the values stored in the NVM after a reset or a power cycle.
+
+
+
+
+SLAAE22A – JUNE 2021 – REVISED APRIL 2024                           Voltage Margining and Scaling Circuit with a Voltage Output Smart DAC   3
+Submit Document Feedback
+                                            Copyright © 2024 Texas Instruments Incorporated
+Design Simulations                                                                                                                                                              www.ti.com
+
+
+Design Simulations
+This schematic is used for the following simulation of the DAC53204.
+                                                                                                       VDD       VDD     100nF         1.5F
+
+
+                                                                                                         10k
+
+                                                                                                        16 VREF       15 VDD        13 CAP
+    VDD
+                                                                                                                                 LDO
+                                                L
+            IN                    SW                                          VOUT         DAC_OUT            Internal
+                                                                                                                           NVM
+                                                                                                             Reference
+                    SMPS / LDO                                      R1
+                                                         CL
+                                                                                                11     OUT0     DAC      DAC
+                                  FB
+                                                              VFB                               12      FB0     REG      BUF
+                       GND                                                    R3                                                                           8 SDA/SCLK
+
+
+
+
+                                                                                                                                       Digital Interface
+                                                                         R2                     10               DAC     DAC
+                                                                                                       OUT1                                                7 A0/SDI
+                                                                                                 9      FB1      REG     BUF
+
+                                                                                                 3               DAC     DAC                               6 SCL/SYNC
+                                                                                                       OUT2
+                                                                                                 4      FB2      REG     BUF                                             HIGH
+                                                                                                                                                           5 GPIO/SDO
+                                                                                                 2     OUT3      DAC     DAC                                                         LOW
+                                                                                                 1      FB3      REG     BUF
+
+                                                                                                         Output Configuration
+                                                                                                                Logic
+
+                                                                                                                          14 AGND
+
+
+
+
+Transient Simulation Results
+The simulation shows the SMPS output (VOUT) responding to the changes on the DAC53204 output
+(DAC_OUT). When DAC_OUT is at VDAC,MAX the SMPS VOUT goes to margin low, or 2.97V. When DAC_OUT is
+at VDAC,MIN the SMPS VOUT goes to margin high, or 3.63V.
+    1.5V
+
+    1.0V
+
+    0.5V
+
+     0V
+            V(DAC_OUT)
+
+
+600mV
+
+SEL>>
+   0V
+            V(FB)
+    4.0V
+    3.0V
+    2.0V
+    1.0V
+     0V
+       0s    0.1ms       0.3ms         0.5ms     0.7ms         0.9ms               1.1ms       1.3ms          1.5ms        1.7ms                   1.9ms         2.1ms     2.3ms    2.5ms
+            V(VOUT)
+                                                                                             Time
+
+
+
+
+4          Voltage Margining and Scaling Circuit with a Voltage Output Smart DAC                                                SLAAE22A – JUNE 2021 – REVISED APRIL 2024
+                                                                                                                                                 Submit Document Feedback
+                                                         Copyright © 2024 Texas Instruments Incorporated
+www.ti.com                                                                                                                   Register Settings
+
+
+Register Settings
+                                  Register Settings for DAC53204 Voltage Margining
+ Register Address        Register Name              Setting         Description
+       0x1F             COMMON-CONFIG               0x1249          [15] 0b0: Write 0b1 to set window-comparator output to a latching
+                                                                    output
+                                                                    [14] 0b0: Write 0b1 to lock device. Unlock by writing 0b0101 to DEV-
+                                                                    UNLOCK field in the COMMON-TRIGGER register
+                                                                    [13] 0b0: Write 0b1 to set fault-dump read enable at address 0x01
+                                                                    [12] 0b1: Enables the internal reference
+                                                                    [11:10] 0b00: Powers-up VOUT3
+                                                                    [9] 0b1: Powers-down IOUT3
+                                                                    [8:7] 0b00: Powers-up VOUT2
+                                                                    [6] 0b1: Powers-down IOUT2
+                                                                    [5:4] 0b00: Powers-up VOUT1
+                                                                    [3] 0b1: Powers-down IOUT1
+                                                                    [2:1] 0b00: Powers-up VOUT0
+                                                                    [0] 0b1: Powers-down IOUT0
+       0x24               GPIO-CONFIG               0x01F5          [15] 0b0: Write 0b1 to enable glitch filter on GPI
+                                                                    [14] 0b0: Don't care
+                                                                    [13] 0b0: Write 0b1 to enable output mode on GPIO pin
+                                                                    [12:9] 0b0000: Selects the STATUS function setting mapped to GPIO
+                                                                    as output
+                                                                    [8:5] 0b1111: Enables GPI function on all channels
+                                                                    [4:1] 0b1010: Selects GPI to trigger margin-high, margin-low
+                                                                    [0] 0b1: Enables input mode for GPIO pin
+       0x20            COMMON-TRIGGER               0x0002          [15:12] 0b0000: Write 0b0101 to unlock the device
+                                                                    [11:8] 0b0000: Write 0b1010 to trigger a POR reset
+                                                                    [7] 0b0: Write 0b1 to trigger LDAC operation if the respective SYNC-
+                                                                    CONFIG-X bit in the DAC-X-FUNC-CONFIG register is 1
+                                                                    [6] 0b0: Write 0b1 to set the DAC registers and outputs to zero-code
+                                                                    or mid-code based on the respective CLR-SEL-X bit in the DAC-X-
+                                                                    FUNC-CONFIG register
+                                                                    [5] 0b0: Don't care
+                                                                    [4] 0b0: Write 0b1 to trigger fault-dump sequence
+                                                                    [3] 0b0: Write 0b1 to trigger PROTECT function
+                                                                    [2] 0b0: Write 0b1 to read one row of NVM for fault-dump
+                                                                    [1] 0b1: Write 0b1 to store applicable register settings to the NVM
+                                                                    [0] 0b0: Write 0b1 to reload applicable registers with existing NVM
+                                                                    settings
+ 0x01, 0x07, 0x0D,    DAC-X-MARGIN-HIGH             0xA680          [15:6] 0x29A: 10-bit data updates the MARGIN-HIGH code
+       0x13
+                                                                    [5:0] 0b000000: Don't care
+ 0x02, 0x08, 0x0E,    DAC-X-MARGIN-LOW              0x02C0          [15:6] 0x00B: 10-bit data updates the MARGIN-LOW code
+       0x14
+                                                                    [5:0] 0b000000: Don't care
+
+
+
+
+SLAAE22A – JUNE 2021 – REVISED APRIL 2024                           Voltage Margining and Scaling Circuit with a Voltage Output Smart DAC   5
+Submit Document Feedback
+                                            Copyright © 2024 Texas Instruments Incorporated
+Pseudo Code Example                                                                                                                       www.ti.com
+
+
+Pseudo Code Example
+The following shows a pseudo code sequence to program the initial register values to the NVM of the
+DAC53204. The values given here are for the design choices made in the Design Notes.
+
+Pseudo Code Example
+    //SYNTAX: WRITE <REGISTER NAME (Hex code)>, <MSB DATA>, <LSB DATA>
+    //Power-up voltage output on all channels, enables internal reference
+    WRITE COMMON-CONFIG(0x1F), 0x12, 0x49
+    //Configure GPI for Margin-High, Low function
+    WRITE GPIO-CONFIG(0x24), 0x01, 0xF5
+    //Write DAC margin high code (repeat for all channels)
+    WRITE DAC-0-MARGIN-HIGH(0x01), 0xA6, 0x80
+    //Write DAC margin low code (repeat for all channels)
+    WRITE DAC-0-MARGIN-LOW(0x02), 0x02, 0xC0
+    //Save settings to NVM
+    WRITE COMMON-TRIGGER(0x20), 0x00, 0x02
+
+
+Design Featured Devices
+       Device                                            Key Features                                                        Link
+                      4-channel, 10-bit, VOUT and IOUT smart DAC with I2C, SPI and Hi-Z out during power
+      DAC53204                                                                                                    www.ti.com/product/DAC53204
+                      off
+      DAC63204        4-channel, 12-bit, VOUT and IOUT smart DAC with I2C, SPI and Hi-Z out during power          www.ti.com/product/DAC63204
+                      off
+                      4-channel, 8-bit, VOUT and IOUT smart DAC with I2C, SPI and Hi-Z out during power
+      DAC43204                                                                                                    www.ti.com/product/DAC43204
+                      off
+      DAC53004        Ultra-low-power, 4-channel, 10-bit, VOUT and IOUT smart DAC with I2C, SPI and Hi-Z          www.ti.com/product/DAC53004
+                      out during power off
+
+
+
+Find other possible devices using the Parametric search tool.
+Design References
+See Analog Engineer's Circuit Cookbooks for TI's comprehensive circuit library.
+Additional Resources
+•    Texas Instruments, Smart DAC Python Examples
+•    Texas Instruments, DAC63204 Evaluation Module
+•    Texas Instruments, DAC63204 EVM User’s Guide
+•    Texas Instruments, Precision Labs - DACs
+For direct support from TI Engineers, use the E2E™ forums:
+e2e.ti.com
+
+
+
+
+6      Voltage Margining and Scaling Circuit with a Voltage Output Smart DAC                               SLAAE22A – JUNE 2021 – REVISED APRIL 2024
+                                                                                                                            Submit Document Feedback
+                                                     Copyright © 2024 Texas Instruments Incorporated
+                                       IMPORTANT NOTICE AND DISCLAIMER
+TI PROVIDES TECHNICAL AND RELIABILITY DATA (INCLUDING DATA SHEETS), DESIGN RESOURCES (INCLUDING REFERENCE
+DESIGNS), APPLICATION OR OTHER DESIGN ADVICE, WEB TOOLS, SAFETY INFORMATION, AND OTHER RESOURCES “AS IS”
+AND WITH ALL FAULTS, AND DISCLAIMS ALL WARRANTIES, EXPRESS AND IMPLIED, INCLUDING WITHOUT LIMITATION ANY
+IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE OR NON-INFRINGEMENT OF THIRD
+PARTY INTELLECTUAL PROPERTY RIGHTS.
+These resources are intended for skilled developers designing with TI products. You are solely responsible for (1) selecting the appropriate
+TI products for your application, (2) designing, validating and testing your application, and (3) ensuring your application meets applicable
+standards, and any other safety, security, regulatory or other requirements.
+These resources are subject to change without notice. TI grants you permission to use these resources only for development of an
+application that uses the TI products described in the resource. Other reproduction and display of these resources is prohibited. No license
+is granted to any other TI intellectual property right or to any third party intellectual property right. TI disclaims responsibility for, and you
+will fully indemnify TI and its representatives against, any claims, damages, costs, losses, and liabilities arising out of your use of these
+resources.
+TI’s products are provided subject to TI’s Terms of Sale or other applicable terms available either on ti.com or provided in conjunction with
+such TI products. TI’s provision of these resources does not expand or otherwise alter TI’s applicable warranties or warranty disclaimers for
+TI products.
+TI objects to and rejects any additional or different terms you may have proposed. IMPORTANT NOTICE
+
+                             Mailing Address: Texas Instruments, Post Office Box 655303, Dallas, Texas 75265
+                                            Copyright © 2024, Texas Instruments Incorporated
+

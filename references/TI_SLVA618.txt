@@ -1,0 +1,240 @@
+                                                                                                             Application Report
+                                                                                                                  SLVA618 – October 2013
+
+
+                                                  Building Your Own Battery Simulator
+
+Rushil KK
+
+                                                                  ABSTRACT
+       Use a power amplifier circuit with TI™ single-cell Li-ion battery chargers to quickly characterize their
+       charge profile. With an RIN × CIN time constant at its input, the output of the power amplifier simulates a
+       battery charging. The power amplifier both sources and sinks current. One can characterize the entire
+       charging profile of the charger by tying the output of the battery charger to the power amplifier output.
+
+
+                                                                   Contents
+       1      Operating Principle of the Circuit .........................................................................................     1
+       2      Explanation of the Circuit ..................................................................................................    2
+              2.1    Stage One ...........................................................................................................     2
+              2.2    Stage Two ...........................................................................................................     2
+              2.3    Stage Three .........................................................................................................     3
+       3      Test Procedure ..............................................................................................................    3
+       4      Test Results .................................................................................................................   4
+              4.1    bq24090 Charger With ICHG of 1 A, Battery Simulator RIN × CIN Time Constant of 2 s ..................                     4
+              4.2    bq24157 Charger With ICHG of 850 mA, Battery Regulation Voltage 4.2 V, Battery Simulator
+                     Time Constant of 2 s ..............................................................................................       4
+       5      Conclusion ...................................................................................................................   4
+
+                                                                 List of Figures
+       1      Battery Simulator Circuit ...................................................................................................    2
+       2      Charge Profile Obtained Using the Battery Simulator Circuit With bq24090 Charger .............................                   4
+       3      Charge Profile Obtained Using Battery Simulator Circuit With bq24157 Charger ..................................                  4
+
+
+1      Operating Principle of the Circuit
+       Batteries are rated in mAHrs. A 2-A battery charger requires approximately one hour to charge a 2000-
+       mAHr battery, longer when including the effects of the connector resistance and the internal resistance of
+       the battery. It is inefficient to evaluate charger performance by waiting one hour to charge and additional
+       time to discharge the battery for additional testing. This application note explains how to make a circuit
+       that can provide an observably slow output dv/dt, while sinking the entire 2-A charge current that the
+       charger supplies. Figure 1 shows the power operation amplifier and additional circuitry needed to make
+       the battery simulator.
+
+
+
+
+SLVA618 – October 2013                                                                           Building Your Own Battery Simulator           1
+Submit Documentation Feedback
+                                              Copyright © 2013, Texas Instruments Incorporated
+Explanation of the Circuit                                                                                         www.ti.com
+
+
+                                                                                       t12 V
+
+
+
+
+                                                                                      t
+                                                                                      +a
+                                                            +12 V
+                                                                                     10 uF
+                               RIN           RBASE
+                             200 kO          1 kO
+                    VIN+                                                            100 nF
+                                                Q1
+                                         CIN FMMT2222A
+                    VIN-                10 µF                                                         BAT+
+                                                                            +         U1
+                                                       RE                           OPA544
+                                                      50 kO                         100 nF           BATt
+
+
+                                                                                     10 µF
+                                                                        R1
+                                                                      980 kO
+
+
+
+
+                                                                                         +
+                                                                                         t
+                                                           VBIAS
+                                                                        R2
+                                                                                         +12 V
+                                                                      220 kO
+
+
+
+                                             Figure 1. Battery Simulator Circuit
+
+
+2      Explanation of the Circuit
+
+2.1    Stage One
+       The first stage of the circuit comprises a charging circuit of RIN × CIN. In Figure 1, the values chosen are
+       RIN = 200 kΩ and CIN = 10 µF, giving a time constant of RIN × CIN = 2 s. Users can change these values for
+       their convenience. For slower charging, increase the value of RIN × CIN, and for faster charging, decrease
+       the value of RIN × CIN.
+
+2.2    Stage Two
+       The voltage developed across the capacitor CIN is fed to an emitter follower. NPN bipolar transistor
+       FMMT2222A makes the follower. The collector terminal of the transistor connects to the +12-V supply.
+       The emitter connects through an emitter resistance RE of 50 kΩ to create a biasing voltage, VBIAS. This
+       bias voltage simulates the internal protection mechanism of most LiIon batteries to ensure that the battery
+       voltage never falls below a certain level (usually 2 to 2.5 V). The user can adjust the VBIAS voltage
+       through the resistor divider formed by R1 and R2.
+                                 R2
+       VBIAS          12 u
+                               R1  R2                                                                                     (1)
+       Change the value of VBIAS by varying R2. R2 can be a potentiometer to facilitate changing the bias
+       voltage.
+
+           NOTE: A Zener diode and series resistor with breakdown voltage of about 4.4 V (for example
+                 PMLL5230B) can be connected from the junction of R1 and R2 to ground. This connection
+                 prevents the voltage at BAT+ from exceeding the maximum voltage of the battery charger.
+
+
+
+2      Building Your Own Battery Simulator                                                              SLVA618 – October 2013
+                                                                                                 Submit Documentation Feedback
+                                             Copyright © 2013, Texas Instruments Incorporated
+www.ti.com                                                                                                           Test Procedure
+
+2.3    Stage Three
+       The output of the source follower is fed to the non-inverting terminal of the OPA544 unity-gain, stable-
+       power amplifier, which can comfortably source and sink currents of up to 4 A. This unity-gain configured
+       OPA544 amplifier is supplied with +12 V and –12 V. The output of the OPA544 is connected to the BAT+
+       terminal of the battery charger.
+
+3      Test Procedure
+       1. Power the OP-AMP circuit with +12 V and –12 V. The output voltage must be almost equal to VBIAS.
+       2. Apply DC voltage between the VIN+ and VIN– terminals. For the example circuit, an input DC voltage
+          of about 5.5 V is required in order to get a final output voltage of 4.3 V. The user may have to find the
+          exact value of VIN by trial and error, to provide the exact final output voltage that the user desires. VIN
+          changes slightly according to the choice of transistor and other components.
+       3. When the input voltage is applied, the voltage across capacitor CIN starts rising from 0 V. The output
+          voltage should not follow the voltage across capacitor CIN, until it exceeds VBIAS (plus voltage across
+          base-emitter junction).
+       4. After the voltage across the capacitor does exceed VBIAS (plus voltage across base-emitter junction),
+          the output voltage BAT+ follows CIN up to the final output voltage.
+       5. Connect the BAT+ and BAT– terminals to a battery charger to observe the charge current with an
+          oscilloscope and the behavior of the charger at different battery voltages.
+
+
+
+
+SLVA618 – October 2013                                                                     Building Your Own Battery Simulator    3
+Submit Documentation Feedback
+                                        Copyright © 2013, Texas Instruments Incorporated
+Test Results                                                                                                     www.ti.com
+
+4      Test Results
+
+4.1    bq24090 Charger With ICHG of 1 A, Battery Simulator RIN × CIN Time Constant of 2 s
+
+
+
+
+       Figure 2. Charge Profile Obtained Using the Battery Simulator Circuit With bq24090 Charger
+
+
+4.2    bq24157 Charger With ICHG of 850 mA, Battery Regulation Voltage 4.2 V, Battery
+       Simulator Time Constant of 2 s
+
+
+
+
+          Figure 3. Charge Profile Obtained Using Battery Simulator Circuit With bq24157 Charger
+
+
+5      Conclusion
+       Use the circuit described in this application note to create the charge profile for single-cell battery
+       chargers, as shown in the previous examples.
+
+
+
+
+4      Building Your Own Battery Simulator                                                             SLVA618 – October 2013
+                                                                                                Submit Documentation Feedback
+                                             Copyright © 2013, Texas Instruments Incorporated
+                                                              IMPORTANT NOTICE
+Texas Instruments Incorporated and its subsidiaries (TI) reserve the right to make corrections, enhancements, improvements and other
+changes to its semiconductor products and services per JESD46, latest issue, and to discontinue any product or service per JESD48, latest
+issue. Buyers should obtain the latest relevant information before placing orders and should verify that such information is current and
+complete. All semiconductor products (also referred to herein as “components”) are sold subject to TI’s terms and conditions of sale
+supplied at the time of order acknowledgment.
+TI warrants performance of its components to the specifications applicable at the time of sale, in accordance with the warranty in TI’s terms
+and conditions of sale of semiconductor products. Testing and other quality control techniques are used to the extent TI deems necessary
+to support this warranty. Except where mandated by applicable law, testing of all parameters of each component is not necessarily
+performed.
+TI assumes no liability for applications assistance or the design of Buyers’ products. Buyers are responsible for their products and
+applications using TI components. To minimize the risks associated with Buyers’ products and applications, Buyers should provide
+adequate design and operating safeguards.
+TI does not warrant or represent that any license, either express or implied, is granted under any patent right, copyright, mask work right, or
+other intellectual property right relating to any combination, machine, or process in which TI components or services are used. Information
+published by TI regarding third-party products or services does not constitute a license to use such products or services or a warranty or
+endorsement thereof. Use of such information may require a license from a third party under the patents or other intellectual property of the
+third party, or a license from TI under the patents or other intellectual property of TI.
+Reproduction of significant portions of TI information in TI data books or data sheets is permissible only if reproduction is without alteration
+and is accompanied by all associated warranties, conditions, limitations, and notices. TI is not responsible or liable for such altered
+documentation. Information of third parties may be subject to additional restrictions.
+Resale of TI components or services with statements different from or beyond the parameters stated by TI for that component or service
+voids all express and any implied warranties for the associated TI component or service and is an unfair and deceptive business practice.
+TI is not responsible or liable for any such statements.
+Buyer acknowledges and agrees that it is solely responsible for compliance with all legal, regulatory and safety-related requirements
+concerning its products, and any use of TI components in its applications, notwithstanding any applications-related information or support
+that may be provided by TI. Buyer represents and agrees that it has all the necessary expertise to create and implement safeguards which
+anticipate dangerous consequences of failures, monitor failures and their consequences, lessen the likelihood of failures that might cause
+harm and take appropriate remedial actions. Buyer will fully indemnify TI and its representatives against any damages arising out of the use
+of any TI components in safety-critical applications.
+In some cases, TI components may be promoted specifically to facilitate safety-related applications. With such components, TI’s goal is to
+help enable customers to design and create their own end-product solutions that meet applicable functional safety standards and
+requirements. Nonetheless, such components are subject to these terms.
+No TI components are authorized for use in FDA Class III (or similar life-critical medical equipment) unless authorized officers of the parties
+have executed a special agreement specifically governing such use.
+Only those TI components which TI has specifically designated as military grade or “enhanced plastic” are designed and intended for use in
+military/aerospace applications or environments. Buyer acknowledges and agrees that any military or aerospace use of TI components
+which have not been so designated is solely at the Buyer's risk, and that Buyer is solely responsible for compliance with all legal and
+regulatory requirements in connection with such use.
+TI has specifically designated certain components as meeting ISO/TS16949 requirements, mainly for automotive use. In any case of use of
+non-designated products, TI will not be responsible for any failure to meet ISO/TS16949.
+Products                                                           Applications
+Audio                                www.ti.com/audio              Automotive and Transportation      www.ti.com/automotive
+Amplifiers                           amplifier.ti.com              Communications and Telecom         www.ti.com/communications
+Data Converters                      dataconverter.ti.com          Computers and Peripherals          www.ti.com/computers
+DLP® Products                        www.dlp.com                   Consumer Electronics               www.ti.com/consumer-apps
+DSP                                  dsp.ti.com                    Energy and Lighting                www.ti.com/energy
+Clocks and Timers                    www.ti.com/clocks             Industrial                         www.ti.com/industrial
+Interface                            interface.ti.com              Medical                            www.ti.com/medical
+Logic                                logic.ti.com                  Security                           www.ti.com/security
+Power Mgmt                           power.ti.com                  Space, Avionics and Defense        www.ti.com/space-avionics-defense
+Microcontrollers                     microcontroller.ti.com        Video and Imaging                  www.ti.com/video
+RFID                                 www.ti-rfid.com
+OMAP Applications Processors         www.ti.com/omap               TI E2E Community                   e2e.ti.com
+Wireless Connectivity                www.ti.com/wirelessconnectivity
+
+
+                             Mailing Address: Texas Instruments, Post Office Box 655303, Dallas, Texas 75265
+                                            Copyright © 2013, Texas Instruments Incorporated
+

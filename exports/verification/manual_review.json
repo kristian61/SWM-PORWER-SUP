@@ -1,0 +1,28 @@
+{
+  "time_utc": "2026-10-10T06:57:39.600179+00:00",
+  "status": "PASS",
+  "scope": "Independent Codex read-only software/artifact review; not a qualified hardware or safety approval",
+  "manual_pdf": "exports/manual_da.pdf",
+  "manual_pdf_sha256": "0e1a5100178d48770b40474cb93807ed1c3b63b6c70aa74cd25a5c6e0b1d9fe9",
+  "manual_pages": 134,
+  "visual_pages_checked": [
+    2,
+    3,
+    121,
+    134
+  ],
+  "visual_findings": [],
+  "BOM_rows": {
+    "main": 206,
+    "critical": 85,
+    "phase_study": 47
+  },
+  "low_current_transfer_function_spotcheck": {
+    "assumed_cases": 24,
+    "independent_evaluation_max_difference": 4.46e-16,
+    "verified_hardware_plant": false
+  },
+  "six_status_categories_consistent": true,
+  "physical_tests_performed": false,
+  "fabrication_or_energization_approved": false
+}

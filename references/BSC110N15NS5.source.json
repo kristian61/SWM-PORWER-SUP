@@ -1,0 +1,15 @@
+{
+  "manufacturer": "Infineon Technologies",
+  "part": "BSC110N15NS5",
+  "document": "Final Data Sheet",
+  "revision": "2.6",
+  "revision_date": "2022-11-07",
+  "product_url": "https://www.infineon.com/part/BSC110N15NS5",
+  "download_url": "https://www.infineon.com/assets/row/public/documents/24/49/infineon-bsc110n15ns5-datasheet-en.pdf",
+  "downloaded_utc": "2026-10-09T18:32:13.620360+00:00",
+  "sha256": "ba0b880c5ae9919b1b32bdae90ea848e70739c4be5f2247b96e3c1b86fa45576",
+  "size_bytes": 1296808,
+  "pdf_file": "BSC110N15NS5.pdf",
+  "text_file": "BSC110N15NS5.txt",
+  "retrieval": "Normal HTTPS with certificate verification; link from official product page"
+}

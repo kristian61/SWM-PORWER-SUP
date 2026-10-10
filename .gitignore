@@ -1,0 +1,7 @@
+.runtime/
+exports/*.lck
+*.lck
+*-backups/
+*.kicad_prl
+__pycache__/
+exports/*.zip

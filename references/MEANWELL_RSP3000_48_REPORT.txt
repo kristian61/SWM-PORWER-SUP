@@ -1,0 +1,402 @@
+                  3000W Single Output Power Supply                                                RSP-3000 series
+MODEL：RSP-3000-48
+OUTPUT FUNCTION TEST
+ NO   TEST ITEM         SPECIFICATION                   TEST CONDITION          RESULT                                          VERDICT
+ 1    RIPPLE & NOISE    V1： 200        mVp-p (Max )     I/P： 230VAC                 V1：            95         mVp-p (Max )
+                                                        O/P：FULL LOAD
+                                                        Ta：25℃                                                                         P
+
+
+ 2    OUTPUT VOLTAGE    CH1： 43 V~56V                   I/P： 230 VAC            38.97      V~       57.84        V/ 230 VAC
+      ADJUST RANGE                                      O/P：MIN LOAD            38.96      V~       57.84        V/ 180 VAC
+                                                        Ta：25℃
+                                                                                                                                       P
+
+
+ 3    OUTPUT VOLTAGE    V1： 1 %~ -1 % (Max)             I/P： 180VAC / 264 VAC   V1：        0.03   %~     -0.03        %
+      TOLERANCE                                         O/P：FULL/ MIN LOAD
+                                                        Ta：25℃                                                                         P
+
+
+ 4    LINE REGULATION   V1： 0.5 %~ -0.5 % (Max)         I/P：180VAC ~ 264 VAC    V1：        0.02   %~     -0.02        %
+                                                        O/P：FULL LOAD
+                                                        Ta：25℃
+                                                                                                                                       P
+
+
+ 5    LOAD REGULATION   V1： 0.5 %~ -0.5 % (Max)         I/P： 230 VAC            V1：        0.02   %~     -0.02        %
+                                                        O/P：FULL ~MIN LOAD
+                                                        Ta：25℃
+                                                                                                                                       P
+
+
+ 6    SET UP TIME       230VAC：       1000   ms (Max)   I/P： 230 VAC                    230VAC/         494           ms
+                                                        O/P：FULL LOAD
+                                                                                                                                       P
+                                                        Ta：25℃
+
+ 7    RISE TIME         230VAC：       80     ms (Max)   I/P： 230 VAC                    230VAC/         51            ms
+                                                        O/P：FULL LOAD
+                                                                                                                                       P
+                                                        Ta：25℃
+
+
+ 8    HOLD UP TIME      230VAC：       10     ms (TYP)   I/P： 230 VAC                    230VAC/         31            ms
+                                                        O/P：FULL LOAD
+                                                                                                                                       P
+                                                        Ta：25℃
+
+ 9    OVER/UNDERSHOOT         < +5%                     I/P： 230 VAC                    TEST：           <5            %
+      TEST                                              O/P：FULL LOAD                                                                  P
+                                                        Ta：25℃
+ 10   DYNAMIC LOAD      V1：       4800       mVp-p      I/P： 230 VAC                                    302      mVp-p
+                                                        O/P：FULL /Min LOAD
+                                                                                                                                       P
+                                                           90%DUTY/1KHZ
+                                                        Ta：25℃
+
+
+
+
+                                                                                        Model: RSP-3000-48               Test Report   1 / 7
+                   3000W Single Output Power Supply                                                                   RSP-3000 series
+INPUT FUNCTION TEST
+ NO   TEST ITEM                     SPECIFICATION                     TEST CONDITION                           RESULT                                  VERDICT
+ 1    INPUT VOLTAGE RANGE           180VAC~264 VAC                    I/P：TESTING                                               172V~264V
+                                                                      O/P：FULL LOAD
+                                                                      Ta：25℃
+                                                                      I/P：                                     TEST： OK
+                                                                          LOW-LINE-3V= 177 V                                                                  P
+                                                                          HIGH-LINE+15%=300 V
+                                                                          O/P：FULL/MIN LOAD
+                                                                          ON： 30 Sec . OFF： 30 Sec 10MIN
+                                                                          ( AC POWER ON/OFF NO DAMAGE )
+
+ 2    INPUT FREQUENCY RANGE             47HZ ~63 HZ                   I/P： 180 VAC ~ 264 VAC                   TEST： OK
+                                    NO DAMAGE OSC                     O/P：FULL~MIN LOAD                                                                       P
+                                                                      Ta：25℃
+ 3    POWER FACTOR                      0.95        / 230 VAC(TYP)    I/P： 230 VAC                             PF=         0.989          / 230 VAC
+                                                                      O/P：FULL LOAD                                                                           P
+                                                                      Ta：25℃
+
+ 4    EFFICIENCY                        90.5% (TYP)                   I/P： 230 VAC                                          91.8 %
+                                                                      O/P：FULL LOAD                                                                           P
+                                                                      Ta：25℃
+ 5    INPUT CURRENT                 230V/      16           A (TYP)   I/P： 230 VAC                             I=          14.40        A/ 230 VAC
+                                    180V/      20           A (TYP)   I/P： 180 VAC                             I=          18.10        A/ 180 VAC
+                                                                      O/P：FULL LOAD
+                                                                                                                                                              P
+                                                                      Ta：25℃
+ 6    INRUSH CURRENT                230V/      60           A (TYP)   I/P： 230 VAC                             I=          52            A/ 230 VAC
+                                                                      O/P：FULL LOAD
+                                                                                                                                                              P
+                                    COLD START                        Ta：25℃
+
+ 7    LEAKAGE CURRENT               <          2       mA / 240 VAC   I/P： 264 VAC                             L-FG：             1.25            mA
+                                                                      O/P：Min LOAD                             N-FG：             1.25            mA           P
+                                                                      Ta：25℃
+
+
+
+PROTECTION FUNCTION TEST
+ NO   TEST ITEM                         SPECIFICATION                        TEST CONDITION                RESULT                                     VERDICT
+ 1    OVER LOAD PROTECTION              100%~112 %                           I/P： 230 VAC                           107.5 %/ 230 VAC
+                                                                             O/P：TESTING                   Constant Current Limiting                          P
+                                                                             Ta：25℃
+ 2    OVER VOLTAGE PROTECTION           CH1：57.6V~ 67.2V                     I/P： 230 VAC                       62.98V/ 230 VAC
+                                                                             O/P：MIN LOAD                  Shut down Re- power ON                             P
+                                                                             Ta：25℃
+
+ 3    OVER TEMPERATURE PROTECTION       SPEC：                                I/P： 230 VAC                     O.T.P. Active
+                                        TSW1： 105 + 5℃ O.T.P                 O/P：FULL LOAD                 Shut down o/p voltage，recovers
+                                        detect on heatsink of power                                        automatically     after      temperature
+                                        transistor                                                         goes down
+                                                                                                                                                              P
+                                        TSW2： 75 + 5℃ O.T.P
+                                        detect on heatsink of O/P diode
+                                        NO DAMAGE
+ 4    SHORT PROTECTION                  SHORT EVERY OUTPUT                   I/P： 264 VAC                  NO DAMAGE
+                                        1 HOUR NO DAMAGE                     O/P：FULL LOAD                 CN3 PIN9-10 SHORT:
+                                                                             Ta：25℃                        Shut down Re-power ON                              P
+                                                                                                           CN3 PIN9-10 OPEN:
+                                                                                                           Current Limit
+
+                                                                                                           Model: RSP-3000-48                   Test Report       2 / 7
+                  3000W Single Output Power Supply                                                                                 RSP-3000 series
+CONTROL FUNCTION TEST
+ NO   TEST ITEM           SPECICATION                                            TEST CONDITION     RESULT                                                            VERDICT
+ 1    AUXILIARY   POWER   12V @ 0.1A                                             I/P： 230 VAC                            11.838V
+      (AUX)               (Only for Remote ON/OFF control )                      O/P：FULL LOAD                                                                               P
+                                                                                 Ta：25℃
+ 2    REMOTE CONTROL      Table1.1 Fig1.2(a)(b)(c)                               I/P： 230 VAC
+                          Specification of Remote ON/OFF                         O/P：FULL LOAD          Connection
+                                                                                                                           Fig1.2(a)     Fig1.2(b)   Fig1.2(c)
+                                                                                 Ta：25℃                   Method
+                                                                                                                Output
+                                                                                                                           SW Open SW Open SW Close                          P
+                                                                                                                   on
+                                                                                                    SW Logic
+                                                                                                                Output
+                                                                                                                           SW Close SW Close SW Open
+                                                                                                                   off
+
+
+ 3    ALARM SIGNAL               Table2.1 Explanation of alarm                   I/P： 230 VAC
+       OUTPUT             Function      Description                              O/P：FULL LOAD          Output of alarm                  Output of alarm
+                          P OK          The signal is "Low" when the power       Ta：25℃              (P OK, relay contact)             (P OK2, TTL Signal)
+                                        supply is                                                   Low                            Low
+
+                                        80% of the rated output                                     (0.5V max at 500mA)            (0.5V max at 10mA)
+
+                                         voltage-Power OK                                           High or open                   High or open
+                                                                                                    (External applied voltage      (External applied voltage
+                                                                                                                                                                             P
+                                                                                                    500mA max.)                    10mA max.)
+                                        The signal turns to be "High" when the
+                                        power supply
+                                        is under 80% of the rated output
+                                        voltage-Power Fail
+
+
+ 4    OUTPUT VOLTAGE      (1)    Adjustment of output voltage is possible        I/P： 230 VAC       PV=1V , Vout= 9.790         V
+      PROGRAMMABLE(PV)           between 20~110%(Typ.) of the rated output       O/P：NOL LOAD       PV=3V , Vout=29.06          V
+                                 which is shown in Fig. 3.1
+                                                                                 Ta：25℃             PV=5V , Vout=48.29          V
+                          (2)    Connecting a resistor externally                                                                                                            P
+                                 between PV and-S on CN1 or CN2 that is                             PV=5.83,Vout=56.18          V
+                                 shown in Fig. 3.2
+
+
+ 5    CURRENT SHARING     PSU1-PSU2 < 10%                                        I/P： 230 VAC       O/P：90% LOAD
+                                                                                 O/P ： 90%/50%      PSU1： 56A
+                                                                                 LOAD               PSU2： 55.1A
+                                                                                 Ta：25℃             PSU3： 57.1A
+                                                                                                    O/P：50%                                                                  P
+                                                                                                    PSU1： 31.5A
+                                                                                                    PSU2： 30A
+                                                                                                    PSU3： 32.2A
+
+ 6    REMOTE SENSE                   >0.25V                                      I/P： 230 VAC       > 0.25 V
+                                                                                 O/P：FULL LOAD                                                                               P
+                                                                                 Ta：25℃
+ 7    FAN SPEED            -------                                               I/P： 230 VAC       NO LOAD Fan Voltage= 7.351 V
+      CONTROL                                                                    O/P   ：     FULL   100% LOAD Fan Voltage=12.480 V
+                                                                                                                                                                             P
+                                                                                 /NOLOAD
+                                                                                 Ta：25℃
+
+
+
+
+                                                                                                                   Model: RSP-3000-48                          Test Report   3 / 7
+                3000W Single Output Power Supply                                               RSP-3000 series
+
+
+ENVIRONMENT TEST
+ NO   TEST ITEM               SPECIFICATION                TEST CONDITION          RESULT                      VERDICT
+ 1    TEMPERATURE RISE TEST   MODEL：RSP-3000-24
+                               1. ROOM AMBIENT BURN-IN： 2 HRS
+                                        I/P： 230VAC O/P： FULL LOAD Ta= 45.4 ℃
+                               2. HIGH AMBIENT BURN-IN： 2 HRS
+                                        I/P： 230VAC O/P： FULL LOAD Ta= 51.2 ℃
+
+
+
+                                                                   ROOM AMBIENT HIGH AMBIENT
+                                                NO      Position
+                                                                    Ta= 45.4  ℃ Ta= 51.2 ℃
+                                                 1        LF1         89.8℃         96.8℃
+                                                 2       BD1           86.5℃        94.2℃
+                                                 3      T1 3-4         51.4℃        57.8℃
+                                                 4        L1           80.3℃        88.4℃
+                                                 5      T1 1-2         49.0℃        55.5℃
+                                                 6        D2           72.5℃        77.0℃
+                                                 7        Q5           61.3℃        70.1℃
+                                                 8        C7           64.7℃        70.7℃
+                                                 9       U900          60.8℃        67.3℃
+                                                10       C83           67.4℃        80.4℃
+                                                11        U1           76.0℃        82.3℃
+                                                12       C82           72.3℃        74.3℃
+                                                13       ZD80          77.9℃        84.4℃
+                                                14        T2           81.9℃        88.0℃
+                                                15       C306          72.9℃        80.3℃
+                                                16       RG1           74.2℃        84.4℃
+                                                17       U223          63.1℃        70.1℃                             P
+                                                18        T6           72.7℃        80.7℃
+                                                19        T7           71.3℃        78.9℃
+                                                20       Q51           82.4℃        87.8℃
+                                                21       D980          66.7℃        73.4℃
+                                                22        L2           90.6℃        97.6℃
+                                                23       D981          75.9℃        79.0℃
+                                                24        T5           99.9℃        106.2℃
+                                                25       D100          67.0℃        72.1℃
+                                                26       D104          78.8℃        84.1℃
+                                                27       L101          69.7℃        76.4℃
+                                                28       C110          70.4℃        78.0℃
+                                                29       C114          75.0℃        81.4℃
+                                                30       C116          73.2℃        79.9℃
+                                                31       C118          71.8℃        78.2℃
+                                                32       C253          68.6℃        75.3℃
+                                                33       C257          68.5℃        75.6℃
+                                                34       C510          73.3℃        81.5℃
+                                                35       C512          73.6℃        82.2℃
+                                                36       Q530          78.1℃        85.0℃
+                                                37       C701          49.4℃        55.5℃
+                                                38       Q702          50.8℃        57.1℃
+                                                39      TSW2           67.3℃        73.1℃
+                                                40       U530          67.0℃        73.4℃
+                                                41      TSW1           76.8℃        82.6℃
+
+
+                                                                                   Model: RSP-3000-48   Test Report       4 / 7
+              3000W Single Output Power Supply                                                        RSP-3000 series
+2   OVER LOAD BURN-IN TEST   NO DAMAGE                                   I/P： 230 VAC            TEST：OK
+                             1 HOUR ( MIN )                              O/P： 104 ﹪LOAD                                           P
+                                                                         Ta：25℃
+3   LOW TEMPERATURE          TURN ON AFTER 2 HOUR                        I/P：230 VAC             TEST：OK
+    TURN ON TEST                                                         O/P：100﹪LOAD
+                                                                                                                                  P
+                                                                         Ta= -25℃
+
+4   HIGH HUMIDITY            AFTER 12 HOURS                              I/P： 272 VAC            TEST：OK
+    HIGH TEMPERATURE         IN CHAMBER ON                               O/P：FULL LOAD
+                                                                                                                                  P
+    HIGH VOLTAGE             CONTROL 50 ℃                                Ta= 50 ℃
+    TURN ON TEST             NO DAMAGE                                   HUMIDITY= 95 %R.H
+5   TEMPERATURE               + 0.05 %(0~50℃)                            I/P： 230 VAC            + 0.003 %(0~50℃)
+                                                                         O/P：FULL LOAD
+                                                                                                                                  P
+    COEFFICIENT
+6   VIBRATION TEST           1 Carton & 1 Set                                                    TEST：OK
+                             (1) Waveform： Sine Wave
+                             (2) Frequency：10~500Hz
+                             (3) Sweep Time：10min/sweep cycle                                                                     P
+                             (4) Acceleration：2G
+                             (5) Test Time：1 hour in each axis (X.Y.Z)
+                             (6) Ta：25℃
+
+
+
+
+                                                                                             Model: RSP-3000-48     Test Report       5 / 7
+                   3000W Single Output Power Supply                                                                RSP-3000 series
+SAFETY TEST
+ NO   TEST ITEM                     SPECIFICATION                     TEST CONDITION                   RESULT                                VERDICT
+  1   WITHSTAND VOLTAGE             I/P-O/P： 3 KVAC/min               I/P-O/P： 3.6 KVAC/min            I/P-O/P：          11.25   mA
+                                    I/P-FG： 2 KVAC/min                I/P-FG： 2.4 KVAC/min             I/P-FG：           10.30   mA
+                                    O/P-FG： 0.5 KVAC/min              O/P-FG： 0.6 KVAC/min             O/P-FG：
+                                                                                                                                                    P
+                                                                                                                           8     mA
+                                                                      Ta：25℃
+                                                                                                       NO DAMAGE
+
+  2   ISOLATION RESISTANCE          I/P-O/P：500VDC>100MΩ              I/P-O/P： 500 VDC                 I/P-O/P：          7.16    GΩ
+                                    I/P-FG： 500VDC>100MΩ              I/P-FG： 500 VDC                  I/P-FG：           6.26    GΩ
+                                    O/P-FG：500VDC>100MΩ               O/P-FG： 500 VDC                  O/P-FG：           2.49    GΩ                 P
+                                                                      Ta：25℃/70%RH
+                                                                                                       NO DAMAGE
+
+  3   GROUNDING CONTINUITY          FG(PE) TO CHASSIS                 40 A / 2min                                 20     mΩ
+                                                                                                                                                    P
+                                    OR TRACE < 100 mΩ                 Ta：25℃ / 70%RH
+  4   APPROVAL                      TUV： Certificate NO ：
+                                                                                                                                                    N/A
+                                    UL： File NO ：
+
+
+
+E.M.C TEST
+ NO   TEST ITEM                     SPECIFICATION                     TEST CONDITION                   RESULT                              VERDICT
+  1   HARMONIC                      EN61000-3-2,-3                    I/P： 230 VAC/50HZ                PASS
+                                    CLASS A                           O/P：FULL LOAD                                                                 P
+                                                                      Ta：25℃
+  2   CONDUCTION                    EN55022                           I/P： 230 VAC (50HZ)              PASS
+                                    CLASS B                           O/P：FULL/50% LOAD                Test by certified Lab                        P
+                                                                      Ta：25℃
+  3   RADIATION                     EN55022                           I/P： 230 VAC (50HZ)              PASS
+                                    CLASS A                           O/P：FULL LOAD                    Test by certified Lab                        P
+                                                                      Ta：25℃
+  4   E.S.D                         EN61000-4-2                       I/P： 230 VAC/50HZ                CRITERIA A
+                                    LIGHT INDUSTRY                    O/P：FULL LOAD
+                                                                                                                                                    P
+                                    AIR：8KV / Contact：4KV             Ta：25℃
+
+  5   E.F.T                         EN61000-4-4                       I/P： 230 VAC/50HZ                CRITERIA A
+                                    LIGHT INDUSTRY                    O/P：FULL LOAD                                                                 P
+                                      INPUT： 1KV                      Ta：25℃
+  6   SURGE                         IEC61000-4-5                      I/P： 230 VAC/50HZ                CRITERIA A
+                                    LIGHT INDUSTRY                    O/P：FULL LOAD
+                                      L-N ：1KV                        Ta：25℃                                                                        P
+                                      L,N-PE：2KV
+
+  7   Test by certified Lab ＆ Test Report Prepare
+
+
+M.T.B.F & LIFE CYCLE CALCULATION
+ NO   TEST ITEM                     SPECIFICATION                     TEST CONDITION                        RESULT                         VERDICT
+  1   CAPACITOR                     RSP-3000-24：SUPPOSE C116 IS THE MOST CRITICAL COMPONENT
+      LIFE CYCLE                    I/P： 230VAC O/P：FULL LOAD Ta= 25 ℃ LIFE TIME= 448730 HRS                                                        P
+                                    I/P： 230VAC O/P：FULL LOAD Ta= 50 ℃ LIFE TIME= 74527 HRS
+  2   MTBF                          Conducted by Parts Stress Analysis Prediction
+                                                                                                                                                    P
+                                    223.8K hrs min. Telcordia SR-332 (Bellcore) ; 75.1K hrs min. MIL-HDBK-217F (25℃)
+  3   DMTBF/Accelerated Life Test   Demonstration Mean Time Between Failure : Above 50,000 hours @ TA 50℃
+                                                                                                                                                    P
+
+
+
+
+                                                                                                      Model: RSP-3000-48              Test Report       6 / 7
+                    3000W Single Output Power Supply                                                                       RSP-3000 series
+COMPONENT STRESS TEST
+ NO   TEST ITEM                               SPECIFICATION                  TEST CONDITION                         RESULT                          VERDICT
+ 1    Power Transistor                        Q50 Rated                      I/P：High-Line +3V = 267 V              (1)        496       V
+      ( D to S) or (C to E) Peak Voltage      FCH47N60F 47A/600V             O/P：(1)Full Load Turn on               (2)        512       V
+                                                                                                                                                           P
+                                                                                (2) Output Short
+                                                                             Ta：25℃
+ 2    Diode Peak Voltage                      D100 Rated                     I/P：High-Line +3V = 267 V              (1)        195       V
+                                              S20LC30 20A/300V               O/P：(1)Full Load Turn on               (2)        190       V
+                                                                                                                                                           P
+                                                                                (2)Output Short
+                                                                             Ta：25℃
+ 3    Input Capacitor Voltage                 C5 Rated                       I/P：High-Line +3V = 267 V              (1)        396.4     V
+                                              470u/420V 105℃ 30*45 HU        O/P：(1)Full Load Turn on /Off          (2)        396.3     V
+                                                                                (2) Min load Turn on /Off           (3)        396.3     V
+                                                                                (3)Full Load /Min load Change
+                                                                             Ta：25℃                                                                        P
+
+
+
+
+ 4    Control IC Voltage Test                 U223 Rated                     I/P：High-Line +3V = 267 V              (1)       12.872     V
+                                              UCC2895DW：11.8V~17V            O/P：(1)Full Load Turn on /Off          (2)       12.877     V
+                                                                                  (2) Min load Turn on /Off         (3)       12.878     V                 P
+                                                                                  (3)Full Load /Min load Change
+                                                                                  Ta：25℃
+
+ 5    Power Transistor                        Q5 Rated                       I/P：High-Line +3V = 267 V              (1)        568       V
+      ( D to S) or (C to E) Peak Voltage      TK40J60T 40A/600V              O/P：(1)Full Load Turn on               (2)        434       V
+                                                                                                                                                           P
+                                                                                (2) Output Short
+                                                                             Ta：25℃
+
+
+
+
+                DATE                         SAMPLE                     TEST RESULT                          TESTER                      APPROVAL
+
+      2008/12/3                            RD SAMPLE                      PASS                       SANFORD SU                        VINCENT TSENG
+                                  PRODUCT SAMPLE
+      2009/3/11                                                           PASS                       SANFORD SU                        VINCENT TSENG
+                                     W0812E52
+                                  PRODUCT SAMPLE
+      2009/6/10                                                           PASS                       SANFORD SU                        VINCENT TSENG
+                                     W0904A38
+                                                                                                                               2003/12/12 A50-F023
+
+
+
+
+                                                                                                                  Model: RSP-3000-48         Test Report       7 / 7
+

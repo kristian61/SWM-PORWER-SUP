@@ -1,0 +1,90 @@
+{
+  "scope": "algebraic design assumptions only; no measured performance",
+  "inputs": {
+    "Vout_V": 100,
+    "Iout_A": 40,
+    "bus_V": 110.0,
+    "mains_V": 230.0,
+    "DC_efficiency_assumption": 0.95,
+    "AC_efficiency_typical_datasheet": 0.915,
+    "power_factor_typical_datasheet": 0.95,
+    "phase_L_H": 0.00015,
+    "phase_fs_Hz": 101800.0,
+    "phase_count_hypothesis": 4
+  },
+  "power": {
+    "output_W": 4000.0,
+    "bus_W": 4210.526315789474,
+    "AC_input_W": 4601.668104687949,
+    "AC_current_A": 21.060265925345306,
+    "bus_current_A": 38.277511961722496,
+    "module_W": 2105.263157894737,
+    "DC_loss_W": 210.5263157894742,
+    "AC_loss_W": 391.14178889847517,
+    "total_heat_W": 601.6681046879494
+  },
+  "single_phase": {
+    "L_uH": 150.0,
+    "frequency_kHz": 101.8,
+    "buck_ripple_max_at_120V_A_pp": 1.9646365422396859,
+    "worst_valley_A": 18.51851851851852,
+    "worst_buck_peak_A": 20.483155060758204,
+    "native_average_limit_nominal_A": 12.5,
+    "native_average_limit_low_A": 11.757425742574258,
+    "native_average_limit_high_A": 13.257575757575758
+  },
+  "OVP": {
+    "module_threshold_low_V": 57.6,
+    "module_threshold_high_V": 67.2,
+    "two_module_threshold_sum_V": 134.4,
+    "static_threshold_is_transient_clamp": false,
+    "power_prototype_procedural_input_max_V": 120
+  },
+  "stored_energy_at_100V_J": {
+    "10uF_after_limiter_example": 0.05,
+    "single_phase_96uF_nominal": 0.48000000000000004,
+    "four_96uF_phases_example": 1.9200000000000002,
+    "1880uF_original_system_example": 9.4
+  },
+  "conditional_bus_disconnect_addition": {
+    "scope": "Unimplemented fixed-R plus hot-switchbank estimate; all efficiencies and R bounds unqualified",
+    "DC95percent_boundary": "Original regulator including its own power stage; new bus disconnect loss added separately",
+    "not_included": [
+      "Extra auxiliary/fan power not already in module data",
+      "Actual buck/boost efficiency and hot RDS/SOA",
+      "Assembly/contact resistance and dynamic fault energy"
+    ],
+    "cases": [
+      {
+        "case": "nominal_series_R",
+        "fixed_series_R_ohm": 0.05,
+        "switchbank_hot_R_assumption_ohm": 0.011,
+        "source_current_A": 39.12645418387879,
+        "regulator_input_V": 107.61328629478339,
+        "series_resistor_heat_W": 76.54397085015832,
+        "switchbank_heat_W": 16.839673587034827,
+        "additional_bus_heat_W": 93.38364443719314,
+        "AC_input_W": 4703.72673248816,
+        "AC_current_at230V_PF095_A": 21.527353466765035,
+        "system_heat_including_new_bus_stage_W": 703.7267324881605,
+        "ideal100V_duty": 0.9292532868671213,
+        "buck_only_9167pct_exceeded": true
+      },
+      {
+        "case": "maximum_series_R_budget",
+        "fixed_series_R_ohm": 0.052500000000000005,
+        "switchbank_hot_R_assumption_ohm": 0.011,
+        "source_current_A": 39.16289375919731,
+        "regulator_input_V": 107.51315624629098,
+        "series_resistor_heat_W": 80.52094299869422,
+        "switchbank_heat_W": 16.87105472353593,
+        "additional_bus_heat_W": 97.39199772223014,
+        "AC_input_W": 4708.107446460879,
+        "AC_current_at230V_PF095_A": 21.547402500965124,
+        "system_heat_including_new_bus_stage_W": 708.1074464608791,
+        "ideal100V_duty": 0.930118726780936,
+        "buck_only_9167pct_exceeded": true
+      }
+    ]
+  }
+}

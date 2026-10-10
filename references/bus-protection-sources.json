@@ -1,0 +1,83 @@
+[
+  {
+    "file": "LTC4366.pdf",
+    "official_url": "https://www.analog.com/media/en/technical-documentation/data-sheets/436612fe.pdf",
+    "download_date": "2026-10-09",
+    "http_status": 200,
+    "document_revision": "LTC4366 Rev. F",
+    "bytes": 1555198,
+    "sha256": "e55569b484d5e348bb3f796ce55e0090faa3a935df9501e00e0abb0be0279e17"
+  },
+  {
+    "file": "LTC4366_DC1850A.pdf",
+    "official_url": "https://www.analog.com/media/en/technical-documentation/user-guides/dc1850aabf.pdf",
+    "download_date": "2026-10-09",
+    "http_status": 200,
+    "document_revision": "DC1850A-A/DC1850A-B demo manual",
+    "bytes": 335742,
+    "sha256": "5c7970364a901dbde8e924df889992bd54d20f85b548183865e04d36f6471c3a"
+  },
+  {
+    "file": "LTC4366_DC2150A.pdf",
+    "official_url": "https://www.analog.com/media/en/technical-documentation/user-guides/DC2150AF.PDF",
+    "download_date": "2026-10-09",
+    "http_status": 200,
+    "document_revision": "DC2150A demo manual",
+    "bytes": 449680,
+    "sha256": "b1165ef5ed526474a1445b22c256180cc9bdebd88ca31125fddcec4bc9c61950"
+  },
+  {
+    "file": "TPSI3050.pdf",
+    "official_url": "https://www.ti.com/lit/ds/symlink/tpsi3050.pdf",
+    "download_date": "2026-10-09",
+    "http_status": 200,
+    "document_revision": "SLVSGO9C, August 2023",
+    "bytes": 4420950,
+    "sha256": "b1f221f0b5bb596bfca766e4805ffb4e69809e5f19cee968f9b21fcc12fe8478"
+  },
+  {
+    "file": "TLV3501.pdf",
+    "official_url": "https://www.ti.com/lit/ds/symlink/tlv3501.pdf",
+    "download_date": "2026-10-09",
+    "http_status": 200,
+    "document_revision": "SBOS321E, April 2016",
+    "bytes": 1074854,
+    "sha256": "fcfbeffce874629849fe7b2324fa40731a41453b587b8f50782f0ff42311b946"
+  },
+  {
+    "file": "IPP110N20N3G.pdf",
+    "official_url": "https://www.infineon.com/assets/row/public/documents/24/49/infineon-ipp-i-110n20n3g-datasheet-en.pdf",
+    "download_date": "2026-10-09",
+    "http_status": 200,
+    "document_revision": "Rev. 2.3, 2011-07-14",
+    "bytes": 706972,
+    "sha256": "8c1716f069120302d15eb52e4742664de3512a05989ef68ee1a82d8662d85418"
+  },
+  {
+    "file": "INFINEON_LINEAR_SOA.pdf",
+    "official_url": "https://www.infineon.com/assets/row/public/documents/24/42/infineon-applicationnote-linear-mode-operation-safe-operation-diagram-mosfets-applicationnotes-en.pdf",
+    "download_date": "2026-10-09",
+    "http_status": 200,
+    "document_revision": "AP99007: Linear mode operation and safe operating diagram of power MOSFETs, V1.1 May 2017",
+    "bytes": 1115625,
+    "sha256": "3343c04705ccfc20bcfb64ef2cce44705b693c9699453cff1414ca67a0a26339"
+  },
+  {
+    "file": "MEANWELL_ICL_INSTALL.pdf",
+    "official_url": "https://meanwell.com/Upload/PDF/ICL%20AC%20inrush%20current%20limiter.pdf",
+    "download_date": "2026-10-09",
+    "http_status": 200,
+    "document_revision": "AC inrush current limiter installation manual, 2026.01.12",
+    "bytes": 1704628,
+    "sha256": "39b8139a22999a103e121a82a7d3d088c7a54079dae4ef9df54d3c224b3ccbc4"
+  },
+  {
+    "file": "MEANWELL_RSP3000_48_REPORT.pdf",
+    "official_url": "https://meanwell.com/Upload/PDF/RSP-3000/RSP-3000-48-RPT.PDF",
+    "download_date": "2026-10-09",
+    "http_status": 200,
+    "document_revision": "Historical RD report, 2008-2009 samples; not current revision qualification",
+    "bytes": 469793,
+    "sha256": "06764d3027c22420b9a9f4cfa5c8e95f95b608be47a61ee5d659c1728d55fd67"
+  }
+]

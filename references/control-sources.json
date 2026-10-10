@@ -1,0 +1,44 @@
+[
+  {
+    "file": "OPA192.pdf",
+    "official_url": "https://www.ti.com/lit/ds/symlink/opa192.pdf",
+    "sha256": "3c01472f1a6a157c7503f5a07083d19359bd7641bc0971f60aafd572141a87f0",
+    "bytes": 3340107,
+    "retrieval_verified": "original snapshot matches normal HTTPS download"
+  },
+  {
+    "file": "INA240.pdf",
+    "official_url": "https://www.ti.com/lit/ds/symlink/ina240.pdf",
+    "sha256": "c9d26e72ebdb52a169cbaca8f47d3811833c0afb765335a14f53f05c1a8b1854",
+    "bytes": 1935924,
+    "retrieval_verified": "original snapshot matches normal HTTPS download"
+  },
+  {
+    "file": "LM4040.pdf",
+    "official_url": "https://www.ti.com/lit/ds/symlink/lm4040-n.pdf",
+    "sha256": "f3977fc3d89b4f25699e699ca2c89e0c00f45c84fc04e35692758b5390ac3880",
+    "bytes": 1980947,
+    "retrieval_verified": "original snapshot matches normal HTTPS download"
+  },
+  {
+    "file": "TLV1704.pdf",
+    "official_url": "https://www.ti.com/lit/ds/symlink/tlv1704.pdf",
+    "sha256": "b971c8ca9ae7da43d67fa3486f202e6e688d8f5cc4b220268473fc0b4904c42b",
+    "bytes": 1946071,
+    "retrieval_verified": "original snapshot matches normal HTTPS download"
+  },
+  {
+    "file": "TPS3808.pdf",
+    "official_url": "https://www.ti.com/lit/ds/symlink/tps3808.pdf",
+    "sha256": "74d889c0f68af88032f1633c26381817cc03e10d9fd3b4c177a044ad3ed86eed",
+    "bytes": 2046179,
+    "retrieval_verified": "original snapshot matches normal HTTPS download"
+  },
+  {
+    "file": "TPS3700.pdf",
+    "official_url": "https://www.ti.com/lit/ds/symlink/tps3700.pdf",
+    "sha256": "3bb7daed20b154bf22ded78e23269c6437eb587400b89bce0f543813df94ebf0",
+    "bytes": 682718,
+    "retrieval_verified": "original snapshot matches normal HTTPS download"
+  }
+]

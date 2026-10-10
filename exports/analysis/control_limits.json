@@ -1,0 +1,129 @@
+{
+  "scope": "Static KCL and arithmetic tolerance checks only; not startup/rail-off/loop simulation",
+  "hardware_tests": 0,
+  "R13_bias_ohm": 2490.0,
+  "reference_nominal_load_A_at_VCMD0": 0.0006942109020662162,
+  "reference_nominal_shunt_current_A_at_AUX5V": 0.0003098051621908118,
+  "reference_nominal_shunt_current_A_at_AUX4p75V": 0.0002094035557651091,
+  "conservative_brownout_scenario": {
+    "AUX_threshold_low_V": 4.557,
+    "reference_upper_assumption_V": 2.525,
+    "bias_resistor_upper_ohm": 2514.9,
+    "load_upper_A": 0.0007036838133212523,
+    "remaining_shunt_A": 0.00010430059957786911,
+    "LM4040_required_minimum_A": 6.5e-05,
+    "reserve_A": 3.930059957786912e-05
+  },
+  "windows": {
+    "VCMD_HI": {
+      "nominal_V": 1.2315270935960592,
+      "low_bound_V": 1.2234456298456993,
+      "high_bound_V": 1.2396110937381661,
+      "scope": "25 C reference initial accuracy plus full-temperature comparator offset; not full system bound"
+    },
+    "ISET_LO": {
+      "nominal_V": 0.11061946902654868,
+      "low_bound_V": 0.10460665332930538,
+      "high_bound_V": 0.11663309309817287,
+      "scope": "25 C reference initial accuracy plus full-temperature comparator offset; not full system bound"
+    },
+    "ISET_HI": {
+      "nominal_V": 0.625,
+      "low_bound_V": 0.6177889055472264,
+      "high_bound_V": 0.6322139069534767,
+      "scope": "25 C reference initial accuracy plus full-temperature comparator offset; not full system bound"
+    },
+    "IMON_LO": {
+      "nominal_V": 0.0748502994011976,
+      "low_bound_V": 0.06893650005754927,
+      "high_bound_V": 0.08076466222808124,
+      "scope": "25 C reference initial accuracy plus full-temperature comparator offset; not full system bound"
+    },
+    "VDIFF_LO": {
+      "nominal_V": 1.146788990825688,
+      "low_bound_V": 1.1387938108384454,
+      "high_bound_V": 1.1547868587836432,
+      "scope": "25 C reference initial accuracy plus full-temperature comparator offset; not full system bound"
+    },
+    "VDIFF_HI": {
+      "nominal_V": 1.3550135501355014,
+      "low_bound_V": 1.3468268969468071,
+      "high_bound_V": 1.363202477134892,
+      "scope": "25 C reference initial accuracy plus full-temperature comparator offset; not full system bound"
+    }
+  },
+  "ISET_low_window_equivalent_current_A": {
+    "nominal_V": 0.21238938053097345,
+    "low_bound_V": 0.09213306658610754,
+    "high_bound_V": 0.3326618619634572
+  },
+  "cold_output_zero_static_states": [
+    {
+      "VFB_V": 0.004056061497015135,
+      "VCMD_V": 0.0,
+      "INJ_NODE_V": 0.004056061497015135,
+      "VMID_V": 1.245853913723417,
+      "VDIFF_V": 1.245853913723417,
+      "VOUT_V": 5.551115123125783e-17
+    },
+    {
+      "VFB_V": 0.5949625694773656,
+      "VCMD_V": 0.6,
+      "INJ_NODE_V": 1.1949625694773656,
+      "VMID_V": 1.2478321637366734,
+      "VDIFF_V": 1.2478321637366734,
+      "VOUT_V": 6.994405055138486e-15
+    },
+    {
+      "VFB_V": 1.1858690774577159,
+      "VCMD_V": 1.2,
+      "INJ_NODE_V": 2.385869077457716,
+      "VMID_V": 1.2498104137499297,
+      "VDIFF_V": 1.2498104137499297,
+      "VOUT_V": -7.941564073021823e-15
+    }
+  ],
+  "CV_nominal_examples": [
+    {
+      "VFB_V": 1.2,
+      "VCMD_V": 0,
+      "INJ_NODE_V": 1.2,
+      "VMID_V": 1.2478405315614618,
+      "VDIFF_V": 1.2478405315614618,
+      "VOUT_V": 100.40692358803986
+    },
+    {
+      "VFB_V": 1.2,
+      "VCMD_V": 0.004914,
+      "INJ_NODE_V": 1.204914,
+      "VMID_V": 1.2478486943521596,
+      "VDIFF_V": 1.2478486943521596,
+      "VOUT_V": 100.00061545687707
+    },
+    {
+      "VFB_V": 1.2,
+      "VCMD_V": 1.153876,
+      "INJ_NODE_V": 2.3538759999999996,
+      "VMID_V": 1.2497572691029901,
+      "VDIFF_V": 1.2497572691029901,
+      "VOUT_V": 5.000085746445184
+    },
+    {
+      "VFB_V": 1.2,
+      "VCMD_V": 1.2,
+      "INJ_NODE_V": 2.4,
+      "VMID_V": 1.2498338870431893,
+      "VDIFF_V": 1.2498338870431893,
+      "VOUT_V": 1.1863787375415311
+    }
+  ],
+  "ENABLE_default_V": 0.022727272727272728,
+  "ENABLE_armed_V_with_internal_pullup": 2.392857142857143,
+  "not_checked": [
+    "AUX rail backfeed",
+    "opamp saturation and startup timing",
+    "actual loop dynamics",
+    "bus protection",
+    "complete fault coverage"
+  ]
+}

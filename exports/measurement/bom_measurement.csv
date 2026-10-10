@@ -1,0 +1,30 @@
+Reference,Value,Footprint,Quantity,Description,Release_status
+J1,VOLTAGE SENSE 0..120V,TerminalBlock_RND:TerminalBlock_RND_205-00241_1x02_P10.16mm_Horizontal,1,RND 205-00241 footprint candidate; mechanical and voltage rating require manufacturer verification. Pin1 positive sense; pin2 negative sense. No load current.,DRAFT - MPN and datasheet review pending
+R1,130k 0.1%,Resistor_SMD:R_1206_3216Metric,1,130 kohm ±0.1%; >=0.25W; >=100V working voltage; 1206. Maximum ~39V drop and12mW at120V input. Final MPN pending datasheet verification.,DRAFT - MPN and datasheet review pending
+R2,130k 0.1%,Resistor_SMD:R_1206_3216Metric,1,130 kohm ±0.1%; >=0.25W; >=100V working voltage; 1206. Maximum ~39V drop and12mW at120V input. Final MPN pending datasheet verification.,DRAFT - MPN and datasheet review pending
+R3,130k 0.1%,Resistor_SMD:R_1206_3216Metric,1,130 kohm ±0.1%; >=0.25W; >=100V working voltage; 1206. Maximum ~39V drop and12mW at120V input. Final MPN pending datasheet verification.,DRAFT - MPN and datasheet review pending
+R4,10k 0.1%,Resistor_SMD:R_1206_3216Metric,1,10 kohm ±0.1%; >=0.125W; 1206. Divider lower leg; total nominal ratio1/40.,DRAFT - MPN and datasheet review pending
+R5,130k 0.1%,Resistor_SMD:R_1206_3216Metric,1,130 kohm ±0.1%; >=0.25W; >=100V working voltage; 1206. Maximum ~39V drop and12mW at120V input. Final MPN pending datasheet verification.,DRAFT - MPN and datasheet review pending
+R6,130k 0.1%,Resistor_SMD:R_1206_3216Metric,1,130 kohm ±0.1%; >=0.25W; >=100V working voltage; 1206. Maximum ~39V drop and12mW at120V input. Final MPN pending datasheet verification.,DRAFT - MPN and datasheet review pending
+R7,130k 0.1%,Resistor_SMD:R_1206_3216Metric,1,130 kohm ±0.1%; >=0.25W; >=100V working voltage; 1206. Maximum ~39V drop and12mW at120V input. Final MPN pending datasheet verification.,DRAFT - MPN and datasheet review pending
+R8,10k 0.1%,Resistor_SMD:R_1206_3216Metric,1,10 kohm ±0.1%; >=0.125W; 1206. Divider lower leg; total nominal ratio1/40.,DRAFT - MPN and datasheet review pending
+R9,1k 1%,Resistor_SMD:R_0603_1608Metric,1,"Voltage monitor series filter resistor; 1 kohm ±1%,0603.",DRAFT - MPN and datasheet review pending
+R10,1k 1%,Resistor_SMD:R_0603_1608Metric,1,"Voltage monitor series filter resistor;1 kohm ±1%,0603.",DRAFT - MPN and datasheet review pending
+C1,10nF C0G 50V,Capacitor_SMD:C_0603_1608Metric,1,"10nF ±5%,C0G/NP0,50V,0603. Combined with divider Thevenin9.75k and1k filter gives nominal~1.48kHz pole.",DRAFT - MPN and datasheet review pending
+C2,10nF C0G 50V,Capacitor_SMD:C_0603_1608Metric,1,"10nF ±5%,C0G/NP0,50V,0603. Same filtering asC1.",DRAFT - MPN and datasheet review pending
+J2,EXTERNAL SHUNT KELVIN,"TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-3-5.08_1x03_P5.08mm_Horizontal",1,"Phoenix MKDS1.5 3pos5.08mm footprint candidate; pin1 externalshunt high Kelvin,pin2lowKelvin,pin3analogground. Shunt1mohm >=10W outsidePCB; no40A current throughPCB.",DRAFT - MPN and datasheet review pending
+R11,1k 1%,Resistor_SMD:R_0603_1608Metric,1,"Kelvin shunt monitor series resistor;1 kohm ±1%,0603.",DRAFT - MPN and datasheet review pending
+R12,1k 1%,Resistor_SMD:R_0603_1608Metric,1,"Kelvin shunt monitor series resistor;1 kohm ±1%,0603.",DRAFT - MPN and datasheet review pending
+C3,10nF C0G 50V,Capacitor_SMD:C_0603_1608Metric,1,"10nF ±5%,C0G/NP0,50V,0603. Differential shunt filter;2k total seriesresistance gives nominal7.96kHzpole.",DRAFT - MPN and datasheet review pending
+J3,MONITOR OUTPUT - NO ADC,Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical,1,"Low current analog output. High input impedance >=10Mohm required for voltage monitors. No clamps,isolation,ADC,orcurrentgainprovided; external frontend must be powered and rated beforeconnection.",DRAFT - MPN and datasheet review pending
+TP1,POS_SENSE,TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm,1,"HV optional test location; guarded fixture only, no hand probing energized.",DRAFT - MPN and datasheet review pending
+TP2,NEG_SENSE,TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm,1,"HV optional test location; guarded fixture only, no hand probing energized.",DRAFT - MPN and datasheet review pending
+TP3,AGND,TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm,1,Analog measurement/test point; reference to floating secondaryAGND.,DRAFT - MPN and datasheet review pending
+TP4,VS_PLUS,TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm,1,Analog measurement/test point; reference to floating secondaryAGND.,DRAFT - MPN and datasheet review pending
+TP5,VS_MINUS,TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm,1,Analog measurement/test point; reference to floating secondaryAGND.,DRAFT - MPN and datasheet review pending
+TP6,VMON_PLUS,TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm,1,Analog measurement/test point; reference to floating secondaryAGND.,DRAFT - MPN and datasheet review pending
+TP7,VMON_MINUS,TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm,1,Analog measurement/test point; reference to floating secondaryAGND.,DRAFT - MPN and datasheet review pending
+TP8,KELVIN_PLUS,TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm,1,Analog measurement/test point; reference to floating secondaryAGND.,DRAFT - MPN and datasheet review pending
+TP9,KELVIN_MINUS,TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm,1,Analog measurement/test point; reference to floating secondaryAGND.,DRAFT - MPN and datasheet review pending
+TP10,IMON_PLUS,TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm,1,Analog measurement/test point; reference to floating secondaryAGND.,DRAFT - MPN and datasheet review pending
+TP11,IMON_MINUS,TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm,1,Analog measurement/test point; reference to floating secondaryAGND.,DRAFT - MPN and datasheet review pending

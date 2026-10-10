@@ -1,0 +1,794 @@
+                    3000W Power Supply with Single Output                                                                 R S P - 3 0 0 0 series
+                                                                                                                                                             User’s Manual
+
+   
+         
+        
+                                                                                                                                             Click Me
+
+
+
+
+                                                     Bauar t gepruft
+                                                     Sicherheit
+                                                                                      IS 13252
+                                                      egel ma ge
+                                                       od     o s
+                                                      be wac      g                       THOMAS SAMUEL
+                                                                                                          THOMAS SAMUEL
+
+
+
+
+                                                     www. tuv.com
+                                                     ID 2000000000
+
+                         
+                              UL62368-1   BS EN/EN62368-1 TPTC004   IEC62368-1   ( except
+                                                                                          48V
+                                                                                              for
+                                                                                                  (
+
+ ■                                                                                                ■ 
+‧                                                                                      ‧ 
+‧                                                                             ‧
+‧                                                                              ‧
+‧                                                                   ‧ 
+‧                                                                              ‧ 
+‧                                                                 ‧ 
+‧
+                                                                     ■ 
+‧                                                                     https://www.meanwell.com/serviceGTIN.aspx
+
+‧
+‧
+
+
+■ 
+    
+    
+    ℃
+    
+    
+
+
+■ 
+      
+
+                                     
+                                     
+                                     
+                                                                                                                                            File Name:RSP-3000-SPEC 2026-07-20
+                       3000W Power Supply with Single Output                                                              R S P - 3 0 0 0 series
+SPECIFICATION
+MODEL                                      RSP-3000-12                                    RSP-3000-24                                    RSP-3000-48
+             DC VOLTAGE                    12V                                            24V                                            48V
+             RATED CURRENT                 200A                                           125A                                           62.5A
+             CURRENT RANGE                 0 ~ 200A                                       0 ~ 125A                                       0 ~ 62.5A
+             RATED POWER                   2400W                                          3000W                                          3000W
+             RIPPLE & NOISE (max.) Note.2 150mVp-p                                        150mVp-p                                       200mVp-p
+OUTPUT       VOLTAGE ADJ. RANGE       10.8 ~ 13.2V                                        22 ~ 28V                                       43 ~ 56V
+             VOLTAGE TOLERANCE Note.3 ±1.0%                                               ±1.0%                                          ±1.0%
+             LINE REGULATION               ±0.5%                                          ±0.5%                                          ±0.5%
+             LOAD REGULATION               ±0.5%                                          ±0.5%                                          ±0.5%
+             SETUP, RISE TIME              1000ms, 80ms at full load
+             HOLD UP TIME (Typ.)           10ms at full load
+             VOLTAGE RANGE                 180 ~ 264VAC         254 ~ 370VDC
+             FREQUENCY RANGE               47 ~ 63Hz
+             POWER FACTOR (Typ.)           0.95/230VAC at full load
+INPUT        EFFICIENCY (Typ.)             87.5%                                          90%                                            91.5%
+             AC CURRENT (Typ.)             20A/180VAC          16A/230VAC
+             INRUSH CURRENT (Typ.)         60A/230VAC
+             LEAKAGE CURRENT               <2.0mA / 240VAC
+                                           100 ~ 112% rated output power
+             OVERLOAD
+                                           User adjustable continuous constant current limiting or constant current limiting with delay shutdown after 5 seconds, re-power on to recover
+PROTECTION                                 13.8 ~ 16.8V                                   28.8 ~ 33.6V                                   57.6 ~ 67.2V
+             OVER VOLTAGE
+                                           Protection type : Shut down o/p voltage, re-power on to recover
+             OVER TEMPERATURE              Shut down o/p voltage, recovers automatically after temperature goes down
+             OUTPUT VOLTAGE                2.4 ~ 13.2V                                  4.8 ~ 28V                                        9.6 ~ 56V
+             PROGRAMMABLE(PV)              Please refer to the Function Manual.
+             CURRENT SHARING               Up to 9000W or (2+1) units. Please refer to the Function Manual.
+FUNCTION AUXILIARY POWER(AUX)              12V@0.1A(Only for Remote ON/OFF control)
+             REMOTE ON-OFF CONTROL         Please refer to the Function Manual
+             REMOTE SENSE                  Compensate voltage drop on the load wiring up to 0.25V. Please refer to the Function Manual.
+             ALARM SIGNAL OUTPUT           Power OK signal. Please refer to the Function Manual
+             WORKING TEMP.                 -20 ~ +70℃ (Refer to "Derating Curve")
+            WORKING HUMIDITY               20 ~ 90% RH non-condensing
+ENVIRONMENT STORAGE TEMP., HUMIDITY        -40 ~ +85℃, 10 ~ 95% RH non-condensing
+             TEMP. COEFFICIENT             ±0.05%/℃ (0 ~ 50℃)
+             VIBRATION                     10 ~ 500Hz, 2G 10min./1cycle, 60min. each along X, Y, Z axes
+                                           UL62368-1, CSA C22.2 No. 62368-1, TUV BS EN/EN62368-1, BSMI CNS15598-1, AS/NZS62368.1, IS13252(Part1)/IEC60950-1
+             SAFETY STANDARDS
+                                           (except for 48V), EAC TP TC 004 approved
+             WITHSTAND VOLTAGE             I/P-O/P:3KVAC       I/P-FG:2KVAC      O/P-FG:0.5KVAC
+             ISOLATION RESISTANCE          I/P-O/P, I/P-FG, O/P-FG:100M Ohms / 500VDC / 25℃/ 70% RH
+                                           Parameter                               Standard                                               Test Level / Note
+                                           Conducted                                      BS EN/ EN55032 (CISPR32), CNS15936              Class B
+             EMC EMISSION                  Radiated                                       BS EN/ EN55032 (CISPR32), CNS15936              Class A
+                                           Harmonic Current                               BS EN/ EN61000-3-2                              -----
+                                           Voltage Flicker                                BS EN/ EN61000-3-3                              -----
+SAFETY &
+                                           BS EN/ EN55035, BS EN/ EN61000-6-2, BSMI CNS13438
+EMC
+(Note 4)                                   Parameter                                      Standard                                        Test Level / Note
+                                           ESD                                            BS EN/ EN61000-4-2                              Level 3, 8KV air ; Level 2, 4KV contact
+                                           Radiated                                       BS EN/ EN61000-4-3                              Level 3
+                                           EFT / Burst                                    BS EN/ EN61000-4-4                              Level 3
+             EMC IMMUNITY
+                                           Surge                                          BS EN/ EN61000-4-5                              Level 3, 2KV/Line-Earth ; Level 2, 1KV/Line-Line
+                                           Conducted                                      BS EN/ EN61000-4-6                              Level 3
+                                           Magnetic Field                                 BS EN/ EN61000-4-8                              Level 4
+                                                                                                                                          >95% dip 0.5 periods, 30% dip 25 periods,
+                                           Voltage Dips and Interruptions                 BS EN/ EN61000-4-11
+                                                                                                                                          >95% interruptions 250 periods
+             MTBF                          677.3K hrs min. Telcordia SR-332 (Bellcore) ; 75.2K hrs min.            MIL-HDBK-217F (25℃)
+OTHERS       DIMENSION                     278*177.8*63.5mm (L*W*H)
+             PACKING                       4Kg; 4pcs/16Kg/2.04CUFT
+             ℃
+NOTE
+             
+             
+             
+               
+             
+             https://www.meanwell.com//Upload/PDF/EMI_statement_en.pdf)
+             ℃℃
+             ※：https://www.meanwell.com/serviceDisclaimer.aspx
+                                                                                                                                                    File Name:RSP-3000-SPEC 2026-07-20
+                                      3000W Power Supply with Single Output                                                                               R S P - 3 0 0 0 series
+   Block Diagram                                                                                                                                                               PFC fosc : 88KHz
+                                                                                                                                                                            PWM fosc : 100KHz
+                                                                                                                                                                                   +S
+                                                                ACTIVE                 RECTIFIERS                                           RECTIFIERS
+                                  EMI                           INRUSH                                     POWER                                                                   +V
+           I/P                                                 CURRENT                     &              SWITCHING                              &
+                                FILTER                                                    PFC                                                 FILTER                               -V
+                                                               LIMITING
+                                                                                                                                                                                   -S
+                                                                                          PFC                                                        O.V.P.
+                                                                                        CONTROL                             O.L.P.
+                                                                                                                                                                                PV
+                                                                                                         PWM
+                                                                                                                                                  DETECTION
+                                                                                         O.T.P.        CONTROL                                     CIRCUIT                      P OK
+                                                                                                                                                    REMOTE                         RC
+                                                                                                        LOAD                                        CONTROL
+                                                                                                       SHARING
+                                                                                                                                                                                   CS
+                                                                                                                                      FAN
+                                                                                               AUX                                                RECTIFIERS
+                                                                                              POWER                                                    &                           AUX POWER
+                                                                                                                                                    FILTER                         (12V/0.1A)
+
+
+
+
+   Static Characteristics
+
+
+
+
+            100
+                                                                                                                                            MODEL        12V      24V        48V
+             90                                                                                                                 INPUT
+
+             80                                                                                                                                       2400W      3000W      3000W
+                                                                                                                                     180~264VAC
+                                                                                                                                                         200A     125A      62.5A
+LOAD (%)
+
+
+
+
+             70
+
+             60
+
+             50
+
+
+                          180   185    190   195        200   210   220   230    240    250   264
+                                        INPUT VOLTAGE (V) 60Hz
+
+
+
+   Derating Curve                                                                                                           Efficiency vs Load (48V Model)
+
+
+                  100
+                                                                                                           EFFICIENCY (%)
+
+
+
+
+                   80
+
+
+                   60
+                   50
+LOAD (%)
+
+
+
+
+                   40
+
+
+                   20
+
+
+
+                    -20         0       10         20         30     40         50      60      70 (HORIZONTAL)
+
+                                      AMBIENT TEMPERATURE (℃)                                                                                                   LOAD
+
+                                                                                                                                            ※ The curve above is measured at 230VAC.
+             ◎ Load (%) typically represents the output power.
+               However, when the PV function is involved, Load (%) changes to
+               indicate the percentage of the output current.
+               For example, with the PV function used for the RSP-3000-24, 100A
+               corresponds to 80% of the load.
+
+
+
+                                                                                                                                                                          File Name:RSP-3000-SPEC 2026-07-20
+                                        3000W Power Supply with Single Output                                                                                R S P - 3 0 0 0 series
+Function Manual
+1. Remote Sense
+  ※ The Remote Sense compensates voltage drop on the load wiring up to 0.25V
+
+
+
+
+                                                                                                                 CN2
+
+                                                                                                                                                                                           +V
+                                                                                                    PIN7 -S               PIN8 +S
+                                                                                              +V                                                                                                      LOAD
+
+                                                                                                                                                                                           -V
+
+
+                                                                                   -V                                                                               Sense lines should be twisted in pairs to minimize
+                                                                                                                                                                    noise pick-up.
+  ※ Caution: The power supply, by factory default(also the assumption for other sections), is shipped with, -S & -V on CN2, as well as +S & +V, shorted by
+             connector. When activating the Remote Sense, the +S signal should be connected to the positive terminal of the load whereas -S signal to
+             the negative terminal of the load.
+2. Output Voltage Programming (or, PV / remote voltage programming / remote adjust / margin programming / dynamic voltage trim)
+   ※ In addition to the adjustment via the built-in potentiometer, the output voltage can be trimmed to 20~110%(Typ.) of the nominal voltage by applying
+     EXTERNAL VOLTAGE.
+
+
+
+
+                                                                                                                CN2
+
+                                                                                                    PIN7 -S                PIN8 +S
+                                                                                              +V
+
+
+                                                                                                                               PIN3 PV
+                                                                                                                                       EXTERNAL VOLTAGE (DC)
+                                                                                   -V
+                                                                                                                               PIN5 -S
+
+  ◎ Connecting an external DC source between PV & -S on CN2, and +S & +V, -S & -V also need to be connected .
+
+
+                         Vout
+                                                                 OVP >120%
+                       120
+
+                       100                                                                                                                                         100
+                                                                                                                                              OUTPUT CURRENT (%)
+
+
+
+
+                       80                                                                                                                                          80
+  OUTPUT VOLTAGE (%)
+
+
+
+
+                                      Non-Linear
+                                                                                    MODEL        12V            24V          48V
+                       60                                                                                                                                          60
+                                                                                   PV Range   2.4 ~ 13.2V     4.8 ~ 28V    9.6 ~ 56V
+                       40                                                                                                                                          40
+
+                       20                                                                                                                                          20
+
+
+                                                                               V                                                                                                                                         V
+                                1        2         3   4     5    6                                                                                                     20   40   60     80     100     120
+                                          EXTERNAL VOLTAGE (DC)                                                                                                                    OUTPUT VOLTAGE (%)
+
+                             ◎ Please do not adopt PWM signal as the EXTERNAL VOLTAGE.                                                                               ◎ The rated current should change with the
+                                                                                                                                                                       Output Voltage Programming accordingly.
+     ※ Caution: (1)By factory default, the Output Voltage Programming is not activated, and PV(PIN3) and PS(PIN4) of CN2 are shorted by connector. Whenever
+                                       this function is not needed to activate, as assumed in other sections’ diagrams, please keep PV(PIN3) and PS(PIN4) of CN2 shorted ; otherwise,
+                                       the power supply will have no output.
+                                    (2)PV(PIN3) and PS(PIN4) of CN1 or CN2 must be disconnected if “Output Voltage Programming” function is used; otherwise, the internal
+                                       electrical components may be damaged, and the power supply unit may thus be out of order.
+
+                                                                                                                                                                                        File Name:RSP-3000-SPEC 2026-07-20
+                  3000W Power Supply with Single Output                                                        R S P - 3 0 0 0 series
+3.Remote ON-OFF
+  ※ Remote ON-OFF is activated by the configuration with respect to CN1,CN2 and CN3 as shown in the following diagram.
+
+                                                                                    CN2
+
+
+
+
+                                                                        PIN1 RCG                PIN2 RC
+
+
+
+                                                                                    CN3
+
+
+                                                                       PIN7 AUXG           PIN8 AUX
+
+
+                                                                                                  ◎ By factory default, PV(PIN3) and PS(PIN4) on CN2 are
+                                                                                                     shorted by connector; likewise, OLP(PIN9) and OL-SD(PIN10)
+                                                                                                     on CN3 are shorted when shipped.
+
+
+   Example 3.2(A): Using external voltage source
+
+
+                                                                                          AUX
+
+
+                                                                          1KΩ                       12V
+                                                                                          RC
+                                                Internal
+                                                12V typ.
+                                                                                                          SW
+                                                                                          RCG
+
+
+
+                                                                                          AUXG
+
+
+   Example 3.2(B): Using internal 12V auxiliary output
+
+                                                                                          AUX
+
+
+
+                                                                          1KΩ             RC
+                                                Internal
+                                                12V typ.
+                                                                                          RCG
+
+                                                                                           SW
+
+                                                                                          AUXG
+
+
+   Example 3.2(C): Using internal 12V auxiliary output
+
+
+                                                                                        AUX
+
+                                                                                                    1KΩ
+                                                                          1KΩ           RC
+                                               Internal
+                                               12V typ.                                    SW
+
+                                                                                        RCG
+
+
+                                                                                        AUXG
+   ◎ Connection Method
+                                                                       Example 3.2(A)        Example 3.2(B)     Example 3.2(C)
+                                        Power supply output ON         SW Open               SW Open            SW Close
+                               SW Logic
+                                        Power supply output OFF        SW Close              SW Close           SW Open
+
+
+
+                                                                                                                                   File Name:RSP-3000-SPEC 2026-07-20
+                     3000W Power Supply with Single Output                                                               R S P - 3 0 0 0 series
+4.Alarm Signal Output
+  ※ Alarm signal is sent out through "P OK" & "P OK GND" and P OK2 & P OK GND2 pins on CN3. Please acknowledge an external voltage source is required for this function.
+
+
+
+
+                                                                                             CN3
+
+
+
+                                                                                                      PIN3 P OK GND2       PIN4 P OK2
+                                                                                                      PIN1 P OK GND        PIN2 P OK
+
+
+                                                                                                    ◎ By factory default, OLP(PIN9) and OL-SD(PIN10)
+                                                                                                       on CN3 are shorted by connector when shipped.
+
+
+
+
+   Function                         Description                                Output of alarm(P OK, Relay Contact)       Output of alarm(P OK2, TTL Signal)
+                 The signal is "Low" when the power supply is above           Low                                        Low
+                 80% of the rated output voltage, or, say, Power OK           (0.5V max at 500mA)                        (0.5V max at 10mA)
+    P OK
+                 The signal turns to be "High" when the power supply
+                                                                              High or open                           High or open
+                 is under 80% of the rated output voltage, or, say,
+                                                                              (External applied voltage, 500mA max.) (External applied voltage, 10mA max.)
+                 Power Fail
+
+                                             Table 3.1 Explanation of alarm
+
+
+
+                   P OK                                                                                       P OK2
+
+
+                                               R                                                                                        R
+                                                          V                                                            0.1uF                       V
+
+
+
+
+                   P OK GND               External voltage and R                                              P OK GND2            External voltage and R
+                                          (The max. sink is 500mA and 20V)                                                         (The max. sink is 10mA and 30V)
+
+      Fig. 4.2 Internal circuit of P OK (Relay, total is 10W)                                  Fig. 4.3 Internal circuit of P OK2 (Open collector method)
+
+
+
+
+                                                                                                                                                  File Name:RSP-3000-SPEC 2026-07-20
+                     3000W Power Supply with Single Output                                                           R S P - 3 0 0 0 series
+5.Select Overload Protection Type
+ (1)Insert the shorting connector on CN3 that is shown in Fig 5.2, the Overload Protection Type will be "constant current limiting with delay shutdown after 5 seconds,
+    re-power on to recover". This is the factory default.
+ (2)Remove the shorting connector on CN3 that is shown in Fig 5.1, the Overload Protection Type will be "continuous constant current limiting".
+
+
+
+
+             OL-SD                                                                                                          OL-SD
+
+                OLP                                                                                                           OLP
+
+
+   Fig. 5.1 Insert the CN3                                                                                        Fig. 5.2 Remove the CN3
+   Overload Protection Type : constant current limiting with delay shutdown after 5 seconds             Overload Protection Type : constant current limiting
+
+6.Current Sharing with Remote Sense
+  RSP-3000 has the built-in active current sharing function and can be connected in parallel, up to 3 units, to provide higher output power as exhibited below :
+  ※ The power supplies should be paralleled using short and large diameter wiring and then connected to the load.
+  ※ Difference of output voltages among parallel units should be less than 0.2V.
+  ※ The total output current must not exceed the value determined by the following equation:
+     Maximum output current at parallel operation=(Rated current per unit)×(Number of unit)×0.9
+  ※ When the total output current is less than 3% of the total rated current, or say (3% of Rated current per unit)×(Number of unit)
+     the current shared among units may not be fully balanced.
+
+
+     No.1(Master)
+
+
+
+
+                                                                                            ◎ When remote sensing is used in parallel operation, the sensing wire must be
+                                                                                               connected only to the master unit
+                                                                            +V
+                                                                                            ◎ Sense lines should be twisted in pairs to minimize noise pick-up.
+
+
+
+                                                                   -V
+                    AC/L AC/N
+
+                                                                                                 +S
+     No.2(Slave)                                                                                      +V
+                                                                                                           Load
+                                                                                                      -V
+                                                                                                 -S
+
+
+
+
+                                                                            +V
+
+
+
+
+                                                                   -V
+                    AC/L AC/N
+
+
+     No.3(Slave)
+
+
+
+
+                                                                            +V
+
+
+
+
+                                                                   -V
+                    AC/L AC/N
+
+
+ ◎ +S,-S and CS on CN1 or CN2are connected mutually in parallel.
+ ◎ Under parallel operation, the "output voltage programming" function is not available.
+
+
+                                                                                                                                            File Name:RSP-3000-SPEC 2026-07-20
+                   3000W Power Supply with Single Output                                                        R S P - 3 0 0 0 series
+7.Three Phase Connect
+  Users can exploit three units of RSP-3000(unit 1 ,unit 2,unit 3) to work with 3ψpower system. Please refer to following diagrams for configuration.
+
+         FIG. A: 3ψ3W 220VAC SYSTEM
+                                                                                R
+
+                                                                                                                     unit 1
+                                                                                                                    L1
+                                                                                                                        FG1
+                                                                                                                    N1
+                                                                                                                     unit 2
+
+
+
+
+                                                                         220V
+                                                                                                                    L2
+                                                                                                                        FG2
+                                                                                                                    N2
+                                                                                                                     unit 3
+                                                                                                                    L3
+                                                                                S                                       FG3
+                                                                                                                    N3
+
+                                                                        220V
+                                                                                                                                   FG
+                                                                                T
+
+
+
+
+         FIG. B: 3ψ4W 220/380VAC SYSTEM
+
+                                                                                R                                    unit 1
+                                                                                                                    L1
+                                                                                                                        FG1
+                                                                                                                    N1
+                                                                                                                     unit 2
+                                                                      220V
+
+
+
+
+                                                                                                                    L2
+                                                                                                                        FG2
+                                                                                                                    N2
+                                                                                N                                    unit 3
+                                                                                                                    L3
+                                                                                                                        FG3
+                                                                                                                    N3
+                                                                                S
+
+                                                                                                                                   FG
+                                                                      380V
+
+
+
+
+                                                                                T
+
+
+
+
+         FIG. C: 3ψ4W 190/110VAC SYSTEM
+                                                                                R
+
+                                                                                                                     unit 1
+                                                                                                                    L1
+                                                                                                                        FG1
+                                                                      110V
+
+
+
+
+                                                                                                                    N1
+                                                                                                                     unit 2
+                                                                                                                    L2
+                                                                                N                                       FG2
+                                                                                    (N.C.)                          N2
+                                                                                                                     unit 3
+                                                                                                                    L3
+                                                                                S                                       FG3
+                                                                                                                    N3
+                                                                      190V
+
+
+
+
+                                                                                                                                   FG
+                                                                                T
+
+
+
+
+                                                                                                                                        File Name: RSP-3000-SPEC 2026-07-20
+                 3000W Power Supply with Single Output                                                               R S P - 3 0 0 0 series
+Mechanical Specification
+(Unit: mm , tolerance ±0.5mm)                                                                                                                                    Case No.982B
+
+                                                                                278
+                                                                            236.3                                 27           40
+
+
+
+
+                                                                                                                  12.5
+                                                                                                                                   2-M4
+                                                                                                                                          ψ8 .5
+
+
+
+
+                                                                                                                                                  63.5
+                                                                                                                                                                       CN1 CN2                          CN3
+
+
+
+
+                                                                                                                  38
+                                          1                                                                   1
+                                                                                                                                                                 8 64 2             8 6 4 2 10 8 6 4 2
+
+
+
+
+                                                                                                                                           20
+                                                                                                                                                                 7 53 1             7 5 31 9 75 31
+                                              8-M4(Both Sides) L=5mm
+                                                                                                                                     M3
+
+                                                                            236.3                                 27
+
+
+
+
+                                                                                                        7.9
+                                                                                                                             OUTPUT
+                                              4-M4 L=5mm                                                                                   +V
+                                          1                                                                   1
+
+
+
+
+                                                                                                                                     4
+                                                                                                                                           -V
+                                                                                                                                                                            CN1 CN2          CN3
+                                                                                                                                                                           8 642   8 6 4 2 10 8 6 4 2
+                                                                                                                                                                           7 531   7 5 31 97 5 31
+
+
+
+
+                                                                                                                                                                 SVR
+                                                                                                                                                          LED
+
+
+                                                                                                                                                                       +
+                                                                                                                                                  177.8
+                         Air flow
+
+
+
+
+                                                                                                        162
+                                                                        (TOP View)
+                         direction
+
+                                                                                                                           INPUT
+
+
+
+
+                                                                                                                                10
+
+
+
+
+                                                                                                                                                                                                        3
+                                                                                                                                                                                                        2
+                                                                                                                                13
+                                          1                                                                   1
+
+
+
+
+                                                                                                                                                                                                        1
+                                                                                                                                                                                             TB1
+                                                                                                                               16max.
+
+
+
+
+※ Mounting Instruction                                                                                                                                          Chassis of RSP-3000
+ Hole No. Recommended Screw Size        MAX. Penetration Depth L          Recommended mounting torque                Mounting Surface
+    1             M4                             5mm                                  7~10Kgf-cm
+
+
+※ Control Pin No. Assignment (CN1,CN2) : HRS DF11-8DP-2DS or equivalent
+                                                                                                                         Mounting Screw
+     8      2
+                              Mating Housing      HRS DF11-8DS or equivalent
+                                 Terminal         HRS DF11-**SC or equivalent
+
+     7      1
+
+
+
+◎ CN1 and CN2 are connected internally.
+
+  Pin No.       Function             Description
+     1            RCG                Remote ON-OFF Ground
+     2            RC                 Remote ON-OFF
+     3             PV                Connection for output voltage programming
+     4             PS                Reference Voltage Terminal
+    5,7            -S                Negative sensing for remote sense
+     6      CS(Current Share)        Current Share
+     8             +S                Postive sensing for remote sense
+
+
+
+
+                                                                                                                                                     File Name: RSP-3000-SPEC 2026-07-20
+                    3000W Power Supply with Single Output                                    R S P - 3 0 0 0 series
+※Control Pin No. Assignment (CN3) : HRS DF11-10DP-2DS or equivalent
+
+     10        2
+                              Mating Housing   HRS DF11-10DS or equivalent
+                                Terminal       HRS DF11-**SC or equivalent
+      9        1
+
+  Pin No.          Function        Description
+     1             P OK GND        Power OK Ground
+     2               P OK          Power OK Signal (Relay Contact)
+     3          P OK GND2          Power OK Ground
+     4              P OK2          Power OK Signal (TTL Signal)
+     5               RCG           Remote ON-OFF Ground
+     6               RC            Remote ON-OFF
+     7              AUXG           Auxiliary Ground
+     8               AUX           Auxiliary Output
+     9               OLP
+                                   Overload(OLP) type select
+     10             OL-SD
+
+
+
+
+※AC Input Terminal Pin No. Assignment
+ Pin No.    Assignment               Diagram                       Maximum mounting torque
+    1         AC/L
+    2         AC/N                                                           18Kgf-cm
+    3         FG
+
+
+
+
+Installation Manual
+Please refer to : http://www.meanwell.com/manual.html
+
+
+
+
+                                                                                                     File Name: RSP-3000-SPEC 2026-07-20
+

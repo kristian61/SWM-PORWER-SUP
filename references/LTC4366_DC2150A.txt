@@ -1,0 +1,798 @@
+                                                                      DEMO MANUAL DC2150A
+                                                               LTC4366-2/LT4363-2
+                                                 28V MIL-STD-1275D Surge Stopper
+
+DESCRIPTION
+Demonstration circuit 2150A uses the LTC®4366-2 and                 MIL-STD-1275D’s one minute ripple ride-through require-
+LT4363-2 surge stoppers to satisfy MIL-STD-1275D. This              ment. DC2150A’s MOSFETs are protected against output
+specification, created by the United States Department of           overloads by current limiting. Sustained overvoltage or
+Defense, sets down requirements of electrical systems               overcurrent conditions cause the circuit to turn off after a
+powered from a military vehicle’s 28V power supply.                 timer delay. It automatically retries after a cooldown cycle.
+DC2150A’s output voltage is limited to 44V when faced                  DANGER! HIGH VOLTAGE TESTING SHOULD BE
+with MIL-STD-1275D’s onerous surge, spike, and ripple                  PERFORMED BY QUALIFIED PERSONNEL ONLY.
+conditions. In most circumstances, satisfying MIL-STD-                 AS A SAFETY PRECAUTION AT LEAST TWO PEOPLE
+1275D is as simple as placing this circuit in front of a 44V           SHOULD BE PRESENT DURING HIGH VOLTAGE
+tolerant device. The default version, DC2150A-C, provides              TESTING.
+a minimum of 4A to the output in all conditions except the
+±7V ripple condition (14Vpeak-to-peak). During the ripple           Design files for this circuit board are available at
+condition, DC2150A-C provides a minimum of 2.8A to the              http://www.linear.com/demo/DC2150A
+load. Exceeding 2.8A during the input ripple condition              L, LT, LTC, LTM, Linear Technology and the Linear logo are registered trademarks of Linear
+may cause DC2150A-C to timeout and shutoff in less than             Technology Corporation. All other trademarks are the property of their respective owners.
+
+
+
+
+PERFORMANCE SUMMARY                                    Specifications for DC2150A-C are at TA = 25°C
+PARAMETER                                  CONDITIONS                                                     MIN            TYP           MAX               UNITS
+Input Supply                               Operating                                                       8              28             40                      V
+                                           500ms Surge                                                    100                                                    V
+                                           Survival (with Optional TVS Removed)                          –250                           250                      V
+Output Regulation Voltage                                                                                  41           43.6             46                      V
+Current Limit                                                                                             4.4             5             5.6                      A
+
+
+
+
+                                                                                                                                                        dc2150af
+
+
+
+
+                                                                                                                                                           1
+DEMO MANUAL DC2150A
+QUICK START PROCEDURE
+Connect a 28V supply to the input and connect a load at             lower voltages, but component tolerances, especially the
+the output. A good output load choice is a 10Ω power                MOSFET threshold voltages, prevent guaranteed opera-
+resistor rated at more than 200W. If the banana jacks are           tion below 8V.
+used, no connections are necessary at the turrets. The              Next, raise the input voltage above 50V. The output shuts
+green LED turns on to indicate that the output is powered.          off as the circuit detects a high input voltage. Once the input
+If the load at the output sinks less than 28mA, place               is brought back to 28V, the output power is automatically
+jumper JP1 in the 1kΩ position to preload the output (be            reapplied after a cooldown timer cycle. Be patient, it can
+aware that preload resistors R34 and R35 may become                 take 30 seconds for power to be reapplied.
+hot as they dissipate nearly 2W when the input is at 44V).
+With less than 28mA of load current, MIL-STD-1275D’s                MIL-STD-1275D Requirements
+repeated 100V/50ms input surge test causes capacitors               Refer to Linear Technology Journal article, High Voltage
+C1-C12 to remain charged at 67V for an extended period              Surge Stoppers Ease MIL-STD-1275D Compliance by
+of time while the output voltage is regulated to 44V. This          Replacing Bulky Passive Components, and the MIL-STD-
+is not harmful, but it may cause the LT4363 to timeout              1275D, Characteristics of 28 Volt DC Electrical Systems in
+and shutoff Q4.                                                     Military Vehicles, United States Department of Defense In-
+Now, lower the input voltage to 8V. The output remains              terface Standard for a thorough description of requirements.
+powered. In fact, the output remains powered to even
+
+
+ASSEMBLY OPTIONS
+DC2150A is available from Linear Technology as                      and ride through the 100V/50ms repeated surges specified
+DC2150A-C. This C version provides 4A to the load dur-              in the MIL-STD-1275D recommended tests. These versions
+ing all conditions except the ripple condition, where 2.8A          are not guaranteed to ride through the worst-case 500ms
+is available to the load for up to one minute. Exceeding            envelope in the MIL-STD-1275D specifications. No dam-
+2.8A during the ripple condition may cause the circuit to           age will occur, but these versions may shut off when faced
+timeout in less than one minute. DC2150A-C provides un-             with the full 100V/500ms worst-case envelope. Versions
+interrupted power to the load during both the 100V/500ms            DC2150A-C and DC2150A-D provide at least 4A of current
+worst-case surge envelope of MIL-STD-1275D and the                  to the load and ride through the 100V/50ms repeated surges
+repeated 100V/50ms recommended test. (Figure 1 shows                and the full worst-case 100V/500ms surge. (Refer to the
+DC2150A-C riding through the 100V/500ms surge. Figure               MIL-STD-1275D standard and Linear Technology Journal
+2 shows it riding through the repeated 100V/50ms surges.            article, High Voltage Surge Stoppers Ease MIL-STD-1275D
+Figure 5 shows DC2150A-C providing uninterrupted power              Compliance by Replacing Bulky Passive Components, for a
+during a ±7V input ripple event.)                                   more thorough description of these requirements.) Versions
+Schematics and a bill of materials are provided for three           DC2150A-A and DC2150A-C provide 1A and 2.8A during
+additional assembly options. Versions DC2150A-A and                 the ripple condition, respectively. Versions DC2150A-B
+DC2150A-B provide a minimum of 2A of current to the load            and DC2150A-D shutoff immediately when ripple occurs
+                                                                    on the input, but they have a reduced bill of materials cost.
+Table 1. DC2150A Assembly Options
+                                                                                   100V/50ms SURGE
+STUFFING OPTION                 MAX LOAD         MAX LOAD DURING RIPPLE             (FIVE REPEATS)           100V/500ms SURGE
+DC2150A-A                           2A                       1A                           Yes                       No
+DC2150A-B                           2A                       N/A                          Yes                       No
+DC2150A-C                           4A                       2.8A                         Yes                       Yes
+DC2150A-D                           4A                       N/A                          Yes                       Yes
+                                                                                                                            dc2150af
+
+
+
+
+2
+                                                             DEMO MANUAL DC2150A
+CIRCUIT OPERATION
+Unless otherwise specified, the description of circuit      testing. The oscilloscope waveform in Figure 1 shows this
+operation that follows applies to the default assembly      circuit operating through the full 100V/500ms MIL-STD-
+option DC2150A-C.                                           1275D surge requirement. Figure 2 shows this circuit
+                                                            operating through the less stringent 100V/50ms pulses
+100V/500ms Surge                                            described in MIL-STD-1275D’s recommended tests.
+In MIL-STD-1275D, the worst-case MOSFET power dis-
+sipation condition occurs during the 100V input surge.      ±250V Spike and Reverse Input Protection
+The circuit shown in the schematic diagram regulates the    The 250V spike condition is handled by MOSFET Q3. It
+output voltage to 44V. As a result, the circuit must drop   is rated to withstand over 300V from drain to source,
+56V from the 100V input to the 44V output. In this MIL-     blocking the 250V spike condition seen at the input. MIL-
+STD-1275D solution, to increase power available at the      STD-1275D specifies that the input energy is limited to
+output, two series MOSFETs are used. The first MOSFET’s     15mJ which is easily handled by this MOSFET. Figure 3
+(Q3’s) source is regulated to 66V by the LTC4366, while     shows the results of the 250V spike measured during
+the second MOSFET’s (Q4’s) source is regulated to 44V       MIL-STD-1275D testing.
+by the LT4363. This reduces the power that must be dis-     Similarly, the –250V spike test result is shown in Figure 4.
+sipated in either single MOSFET.
+                                                            In this condition, diode D4 is reverse biased during the
+Figures 1 and 2 show the results measured during surge      –250V spike, blocking the spike from Q4 and the output.
+
+                                                                                                    RLOAD = 10Ω
+                      100V
+
+
+                                                                                  250V SPIKE
+
+
+           VIN
+               28V 43V
+       20V/DIV
+                                                                       VIN
+         VOUT 27V                                                          28V
+                                                                   50V/DIV
+                    4.3A
+       20V/DIV
+                                                                     VOUT 27V
+          IOUT
+                                                                   50V/DIV
+        2A/DIV 2.7A
+                                                                      IOUT 2.7A
+                                          RLOAD = 10Ω               5A/DIV
+                              100ms/DIV                                                   1µs/DIV
+
+      Figure 1. MIL-STD-1275D 100V/500ms Surge Test                          Figure 3. Positive Input Spike
+
+                                                                      IOUT 2.7A
+                                                                    5A/DIV
+                       100V                                           VOUT 27V
+                                                                   50V/DIV
+                                                                       V   28V
+                                                                        IN
+                                                                   50V/DIV
+
+           VIN
+               28V
+       20V/DIV
+                       43V                                                         −250V SPIKE
+         VOUT 27V
+       20V/DIV
+                       4.3A
+          IOUT
+        2A/DIV 2.7A
+                                          RLOAD = 10Ω                                               RLOAD = 10Ω
+                              500ms/DIV                                                   1µs/DIV
+
+         Figure 2. MIL-STD-1275D 100V/50ms Surge                             Figure 4. Negative Input Spike
+         Repeated Five Times
+                                                                                                                  dc2150af
+
+
+
+
+                                                                                                                    3
+DEMO MANUAL DC2150A
+CIRCUIT OPERATION
+D4 additionally provides reverse polarity protection,                                                       35V
+preventing negative input voltages from showing up at                        VIN
+the output. (The LTC4366 surge stopper in front of D4 is                  5V/DIV
+                                                                                   28V
+capable of withstanding reverse voltages and the –250V                                           21V
+spike without additional protection.)                                                                       34V
+
+
+An optional bidirectional TVS (Transient Voltage Suppres-                  VOUT
+                                                                          5V/DIV 27.15V
+sor) is present at the input to provide extra protection. Its                                    20.3V
+150V breakdown voltage does not affect circuit operation                    IOUT
+below 100V. For applications where a TVS is not desirable                 1A/DIV 2.715A
+
+at the input, this optional component can be removed.                              RLOAD = 10Ω   10ms/DIV
+Note that the output voltage trace (VOUT) during the MIL-
+                                                                              Figure 5. 14VP-P Input Ripple Condition
+STD-1275D spike tests in Figures 3 and 4 shows high
+frequency ringing which is a measurement artifact of the
+                                                                  Finally, thermal protection is implemented by components
+large currents that flow in supply and ground traces when
+                                                                  R25, R26, R27, Q6-1, Q6-2,Q5-1 and thermistor R29. If the
+the 0.1µF test circuit capacitor is discharged directly at the
+                                                                  temperature at Q4’s heat sink exceeds 105°C, the LT4363’s
+circuit input with all resistances and inductances minimized.
+                                                                  UV pin is pulled down by Q5-1 to force off MOSFET Q4
+±7V Ripple                                                        and limit its maximum temperature.
+
+Satisfying the ripple specification of MIL-STD-1275D              Starting Mode Initial Engagement Surge
+requires several more components. Diode D4 in combi-
+                                                                  It should also be noted that with the specified components,
+nation with capacitors C1-C12 form an AC rectifier. This
+                                                                  this circuit is only guaranteed to work down to a minimum
+rectified signal appears at the RIPCAP node. The LT4363
+                                                                  of 8V during the starting mode initial engagement surge
+in combination with sense resistor R3 limits the maximum
+                                                                  rather than the minimum 6V specified in MIL-STD-1275D.
+current to 5A (typical). If the rising edge of the input ripple
+waveform attempts to pull up the output capacitor with            DC2150A Assembly Options
+more than 5A, the LT4363 momentarily limits the current
+by pulling down on Q4’s gate. To quickly restore the gate         Assembly options DC2150A-B and DC2150A-D eliminate
+voltage, the small charge pump formed by components               capacitors C1-C12 to reduce total solution cost. In those
+D5, D6, C24, C25, and C26 supplements the LT4363’s                assembly options, C25, C27, R31, R32, D7-1, and D7-2
+internal charge pump to quickly pull up MOSFET Q4’s gate.         inject a small current into the LT4363’s TIMER on each
+Even still, the available load current must be reduced to         rising edge of the input ripple (which appears at the
+2.8A during this ripple condition. Figure 5 shows that the        SOURCE1 node). In the face of ripple, those components
+output remains powered during ripple testing.                     will force the LT4363 to timeout quickly and turn off Q4.
+
+
+
+
+                                                                                                                        dc2150af
+
+
+
+
+4
+                                                             DEMO MANUAL DC2150A
+PCB LAYOUT
+DC2150A is designed to withstand input voltages from        Upstream of the RIPCAP node, spacings and component
+250V to –250V when the optional 150V bidirectional TVS      package sizes have been chosen to support the high
+DP1 is removed. The maximum positive input voltage is       voltages that may be present. Traces and components
+limited by the 300V BVDSS rating of the input MOSFET        downstream of the RIPCAP node are limited to less than
+(Q1 on DC2150A-A/DC2150A-B, and Q3 on DC2150A-C/            67V by Q1/Q3 and the LTC4366. Negative voltages are
+DC2150A-D). The negative input voltage is limited by the    blocked from traces and components downstream of the
+series diode (D1 on DC2150A-A/DC2150A-B, and D4 on          RIPCAP node by D1/D4.
+DC2150A-C/DC2150A-D).
+
+
+
+
+                                                   Top Silkscreen
+
+
+
+
+                                                                                                            dc2150af
+
+
+
+
+                                                                                                              5
+DEMO MANUAL DC2150A
+PARTS LIST
+ ITEM     QTY    REFERENCE            PART DESCRIPTION                              MANUFACTURER/PART NUMBER
+Required Circuit Components
+   1        1    C13                  CAP., X7R, 0.1µF, 100V 10% 1210               KEMET, C1210C104K1RAC7025
+   2        1    C14                  CAP., X7R, 0.1µF, 500V 10% 1210               KEMET, C1210C104KCRACTU
+   3        0    C15, C28             CAP., OPT, 2220                               OPTION
+   4        1    C17                  CAP., X7R, 0.047µF, 100V 10% 0805             TDK, C2012X7R2A473K125AA
+   5        1    C18                  CAP., ALUM., 68µF 50V 20% SMT                 SUN ELECT., 50CE68LX
+   6        1    C19                  CAP., X7R, 0.1µF, 100V 10% 0805               TDK, C2012X7R2A104K125AA
+   7        1    C20                  CAP., X7R, 0.47µF, 100V 10% 0805              AVX, 08051C474KAZ2A
+   8        1    C22                  CAP., X7R, 1µF, 16V 10% 0805                  TDK, C2012X7R1C105K085AC
+   9        1    C25                  CAP., X7R, 1µF, 250V 10% 2220                 TDK, C5750X7R2E105K230KA
+   10       1    DP1                  DIODE, TVS, OPT., SMB                         VISHAY, P65MB150CA-E3/52
+   11       0    DP2                  DIODE, TVS, OPT., SMC                         OPTION
+   12       1    D2                   DIODE, SWITCHING, SOT-323                     DIODES INC., BAS21W-7-F
+   13       1    D3                   DIODE, SCHOTTKY, 30V 200mA, SOT-23            DIODES INC., BAT54-7-F
+   14       1    D9                   LED, GREEN, DIFFUSED, 0805                    AVAGO, HSMG-C170
+   15       4    E1, E3, E6, E7       BANANA JACK, NON-INSULATED                    KEYSTONE, 575-4
+   16       3    E2, E5, E11          TEST POINT, TURRET, 0.061, PBF                MILL-MAX, 2308-2-00-80-00-00-07-0
+   17       4    E4, E8, E9, E10      TEST POINT, TURRET, 0.094, PBF                MILL-MAX, 2501-2-00-80-00-00-07-0
+   18       1    JP1                  HEADER, 2X2 PIN, 0.079CC                      SULLINS, NRPN022PAEN-RC
+   19       4    MP1, MP2, MP3, MP4   STANDOFF, NYLON 0.5"                          KEYSTONE, 8833 (SNAP ON)
+   20       2    Q5, Q6               TRANSISTOR, DUAL NPN, SOT-363                 DIODES INC., MMDT5551-7-F
+   21       2    R1, R2               RES., CHIP, HIGH POWER, 100Ω, 3/4W, 5% 1210   VISHAY, CRCW1210100RJNEAHP
+   22       1    R4                   RES., CHIP, 237k, 1/4W, 1% 1206               VISHAY, CRCW1206237KFKEA
+   23       1    R5                   RES., CHIP, 100Ω, 1/8W, 1% 0805               YAGEO, RC0805FR-07100RL
+   24       1    R6                   RES., CHIP, 10Ω, 1/8W, 5% 0805                VISHAY, CRCW080510R0JNEA
+   25       1    R7                   RES., CHIP, 10k, 1/4W, 5% 1206                PANASONIC, ERJ-8GEYJ103V
+   26       1    R8                   RES., CHIP, 30.1Ω, 1/8W, 1% 0805              VISHAY, CRCW080530R1FKEA
+   27       1    R9                   RES., CHIP, 12.1k, 1/8W, 1% 0805              VISHAY, CRCW080512K1FKEA
+   28       1    R10                  RES., CHIP, 1k, 1/2W, 1% 1210                 VISHAY, CRCW1210KOOFKEA
+   29       2    R11, R13             RES., CHIP, 332k, 1/8W, 1% 0805               VISHAY, CRCW0805332KFKEA
+   30       1    R12                  RES., CHIP, 649k, 1/4W, 1% 1206               VISHAY, CRCW1206649KFKEA
+   31       3    R14, R26, R27        RES., CHIP, 301k, 1/8W, 1% 0805               VISHAY, CRCW0805301KFKEA
+   32       2    R15, R19             RES., CHIP, 10k, 1/8W, 1% 0805                VISHAY, CRCW080510K0FKEA
+   33       3    R16, R17, R18        RES., CHIP, 18.2k, 1/2W, 1% 1210              VISHAY, CRCW121018K2FKEA
+   34       1    R20                  RES., CHIP, 100k, 1/8W, 1% 0805               VISHAY, CRCW0805100KFKEA
+   35       0    R23                  RES., CHIP, OPT, 0805                         OPTION
+   36       1    R28                  RES., CHIP, 1k, 1/8W, 5% 0805                 NIC, NRC10J102TRF
+   37       1    R33                  RES., CHIP, 9.31k, 1/2W, 1% 1210              PANASONIC, ERJ-14NF9311U
+
+
+
+
+                                                                                                                   dc2150af
+
+
+
+
+6
+                                                                      DEMO MANUAL DC2150A
+PARTS LIST
+ ITEM     QTY    REFERENCE              PART DESCRIPTION                                   MANUFACTURER/PART NUMBER
+   38      2     R34, R35               RES., CHIP, 2k, 1W, 1% 2010                        VISHAY, CRCW20102K00FKEFHP
+   39      0     R36                    RES., CHIP, 10M, 1/4W, 5% 1206, OPTION             PANASONIC, ERJ-8GEYJ106V (OPTION)
+   40      1     U1                     IC, HIGH VOLTAGE SURGE STOPPER, TS8                LINEAR TECH., LTC4366HTS8-2#TRMPBF
+   41      1     U2                     IC, HIGH VOLTAGE SURGE STOPPER WITH CURRENT        LINEAR TECH., LT4363HS-2#PBF
+                                        LIMIT, SOIC
+   42      1     XJP1                   SHUNT, 2mm                                         SAMTEC, 25N-BK-G
+DC2150A-A Required Circuit Components
+   1       1     DC2150A                DC2150A GENERAL BOM
+   2       12    C1-C12                 CAP., X7S, 10µF, 100V 20% 2220                     TDK, C5750X7S2A106M230KB
+   3       1     C16                    CAP., X7R, 0.022µF, 100V 10% 1206                  KEMET, C1206C223K1RACTU
+   4       1     C21                    CAP., X7R, 0.22µF, 25V 10% 0805                    KEMET, C0805C224K3RACTU
+   5       0     C23, C27               NOT USED
+   6       2     C24, C26               CAP., X7R, 1µF, 250V 10% 2220                      TDK, C5750X7R2E105K230KA
+   7       1     D1                     DIODE ARRAY, TO-263                                VISHAY, UHB20FCT-E3/4W
+   8       0     D4, D7, D8             NOT USED
+   9       2     D5, D6, D10            DIODE ARRAY, SOT23                                 DIODES INC., MMBD3004S-7-F
+   10      0     HS1, HS2, HS3          NOT USED
+   11      1     Q1                     TRANS., MOSFET N-CH., 300V, TO-263                 IXYS, IXTA36N30P
+   12      1     Q2                     TRANS., MOSFET N-CH., 75V, TO-263                  FAIRCHILD, FDB045AN08A0
+   13      0     Q3, Q4                 NOT USED
+   14      1     R3                     RES., CHIP, CURRENT SENSE, 0.020Ω, 1/2W, 1% 1206   IRC, LRC-LRF-1206LF-01-R020F
+   15      1     R21                    RES., CHIP, 5.6M, 1/8W, 5% 0805                    PANASONIC, ERJ-6GEYJ565V
+   16      1     R22                    RES., CHIP, 0Ω, 1/8W, 0805                         YAGEO, RC0805JR-070RL
+   17      1     R24                    RES., CHIP, 20k, 1/8W, 5% 0805                     VISHAY, CRCW080520K0JNEA
+   18      1     R25                    RES., CHIP, 4.75k, 1/8W, 1% 0805                   VISHAY, CRCW08054K75FKEA
+   19      1     R30                    THERMISTOR, PTC, 470Ω , 0603                       EPCOS, B59601A0105A062
+   20      0     R29, R31, R32          NOT USED
+
+
+
+
+                                                                                                                          dc2150af
+
+
+
+
+                                                                                                                            7
+DEMO MANUAL DC2150A
+PARTS LIST
+ ITEM     QTY    REFERENCE              PART DESCRIPTION                                   MANUFACTURER/PART NUMBER
+DC2150A-B Required Circuit Components
+   1       1     DC2150A                DC2150A GENERAL BOM
+   2       0     C1-C12                 NOT USED
+   3       1     C16                    CAP., X7R, 0.022µF, 100V 10% 1206                  KEMET, C1206C223K1RACTU
+   4       1     C21                    CAP., X7R, 0.22µF, 25V 10% 0805                    KEMET, C0805C224K3RACTU
+   5       0     C23, C24, C26          NOT USED
+   6       1     C27                    CAP., X7R, 0.033µF, 16V 10% 0805                   KEMET, C0805C333K4RACTU
+   7       1     D1                     DIODE ARRAY, TO-263                                VISHAY, UHB20FCT-E3/4W
+   8       0     D4, D5, D6, D10        NOT USED
+   9       1     D7                     DIODE ARRAY, SOT23                                 CENTRAL SEMI., CMPSH-3SE
+   10      1     D8                     DIODE, ZENER 3.3V 500mW SOD-123                    DIODES INC., MMSZ5226B-7-F
+   11      0     HS1, HS2, HS3          NOT USED
+   12      1     Q1                     TRANS., MOSFET N-CH., 300V, TO-263                 IXYS, IXTA36N30P
+   13      1     Q2                     TRANS., MOSFET N-CH., 75V, TO-263                  FAIRCHILD, FDB045AN08A0
+   14      0     Q3, Q4                 NOT USED
+   15      1     R3                     RES., CHIP, CURRENT SENSE, 0.020Ω, 1/2W, 1% 1206   IRC, LRC-LRF-1206LF-01-R020F
+   16      0     R21, R22, R24, R29     NOT USED
+   17      1     R25                    RES., CHIP, 4.75k, 1/8W, 1% 0805                   VISHAY, CRCW08054K75FKEA
+   18      1     R30                    THERMISTOR, PTC, 470Ω , 0603                       EPCOS, B59601A0105A062
+   19      1     R31                    RES., CHIP, 10k, 1/2W, 5% 1210                     PANASONIC, ERJ-14YJ103U
+   20      1     R32                    RES., CHIP, 100k, 1/8W, 5% 0805                    YAGEO, RC0805JR-07100KL
+
+
+
+
+                                                                                                                          dc2150af
+
+
+
+
+8
+                                                                   DEMO MANUAL DC2150A
+PARTS LIST
+ ITEM     QTY    REFERENCE              PART DESCRIPTION                                   MANUFACTURER/PART NUMBER
+DC2150A-C Required Circuit Components
+   1       1     DC2150A                DC2150A GENERAL BOM
+   2       12    C1-C12                 CAP., X7S, 22µF, 100V 20% 2220                     TDK, CKG57NX7S2A226M500JH
+   3       1     C16                    CAP., X7R, 0.015µF, 100V 10% 1206                  KEMET, C1206C153K1RACTU
+   4       1     C21                    CAP., X7R, 2.2µF, 25V 10% 0805                     TDK, CGA4J3X7R1E225K125AB
+   5       1     C23                    CAP., X7R, 10µF, 16V 10% 0805                      SAMSUNG, CL21B106KOQNNNE
+   6       2     C24, C26               CAP., X7R, 1µF, 250V 10% 2220                      TDK, C5750X7R2E105K230KA
+   7       0     C27                    NOT USED
+   8       0     D1, D7, D8             NOT USED
+   9       1     D4                     DIODE ARRAY, TO-247                                VISHAY, FEP30GP-E3/45
+   10      3     D5, D6, D10            DIODE ARRAY, SOT23                                 DIODES INC., MMBD3004S-7-F
+   11      3     HS1, HS2, HS3          HEATSINK, VERTICAL MOUNT                           ASSMANN WSW COMPONENTS, V8813X
+   12      0     Q1, Q2                 NOT USED
+   13      1     Q3                     TRANS., MOSFET N-CH., 300V, TO-3P                  IXYS, IXTQ88N30P
+   14      1     Q4                     TRANS., MOSFET N-CH., 100V, TO-3P                  IXYS, IXTQ170N10P
+   15      1     R3                     RES., CHIP, CURRENT SENSE, 0.010Ω, 1/2W, 1% 1206   IRC, LRC-LRF-1206LF-01-R010F
+   16      1     R21                    RES., CHIP, 5.6M, 1/8W, 5% 0805                    PANASONIC, ERJ-6GEYJ565V
+   17      1     R22                    RES., CHIP, 6.19k, 1/8W, 1% 0805                   VISHAY, CRCW08056K19FKEA
+   18      1     R24                    RES., CHIP, 20k, 1/8W, 5% 0805                     VISHAY, CRCW080520K0JNEA
+   19      1     R25                    RES., CHIP, 1k, 1/8W, 1% 0805                      VISHAY, CRCW08051K00FKEA
+   20      1     R29                    THERMISTOR, PTC, 100Ω, RADIAL LEAD                 EPCOS, B59901D100A40
+   21      0     R30, R31, R32          NOT USED
+
+
+
+
+                                                                                                                          dc2150af
+
+
+
+
+                                                                                                                            9
+DEMO MANUAL DC2150A
+PARTS LIST
+ ITEM     QTY    REFERENCE              PART DESCRIPTION                                   MANUFACTURER/PART NUMBER
+DC2150A-D Required Circuit Components
+   1       1     DC2150A                DC2150A GENERAL BOM
+   2       0     C1-C12, C24, C26       NOT USED
+   3       1     C16                    CAP., X7R, 0.015µF, 100V 10% 1206                  KEMET, C1206C153K1RACTU
+   4       1     C21                    CAP., X7R, 2.2µF, 25V 10% 0805                     TDK, CGA4J3X7R1E225K125AB
+   5       1     C23                    CAP., X7R, 10µF, 16V 10% 0805                      SAMSUNG, CL21B106KOQNNNE
+   6       1     C27                    CAP., X7R, 0.033µF, 16V 10% 0805                   KEMET, C0805C333K4RACTU
+   7       0     D1, D5, D6, D10        NOT USED
+   8       1     D4                     DIODE ARRAY, TO-247                                VISHAY, FEP30GP-E3/45
+   9       1     D7                     DIODE ARRAY, SOT23                                 CENTRAL SEMI., CMPSH-3SE
+   10      1     D8                     DIODE, ZENER 3.3V 500mW SOD-123                    DIODES INC., MMSZ5226B-7-F
+   11      3     HS1, HS2, HS3          HEATSINK, VERTICAL MOUNT                           ASSMANN WSW COMPONENTS, V8813X
+   12      0     Q1, Q2                 NOT USED
+   13      1     Q3                     TRANS., MOSFET N-CH., 300V, TO-3P                  IXYS, IXTQ88N30P
+   14      1     Q4                     TRANS., MOSFET N-CH., 100V, TO-3P                  IXYS, IXTQ170N10P
+   15      1     R3                     RES., CHIP, CURRENT SENSE, 0.010Ω, 1/2W, 1% 1206   IRC, LRC-LRF-1206LF-01-R010F
+   16      1     R22                    RES., CHIP, 6.19k, 1/8W, 1% 0805                   VISHAY, CRCW08056K19FKEA
+   17      1     R25                    RES., CHIP, 1k, 1/8W, 1% 0805                      VISHAY, CRCW08051K00FKEA
+   18      1     R29                    THERMISTOR, PTC, 100Ω, RADIAL LEAD                 EPCOS, B59901D100A40
+   19      1     R31                    RES., CHIP, 10k, 1/2W, 5% 1210                     PANASONIC, ERJ-14YJ103U
+   20      1     R32                    RES., CHIP, 100k, 1/8W, 5% 0805                    YAGEO, RC0805JR-07100KL
+   21      0     R21, R24, R30          NOT USED
+
+
+
+
+                                                                                                                          dc2150af
+
+
+
+
+10
+                                                                                                                                                                 5                                                                                          4                                                                                     3                                                                       2                                                                                              1
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       REVISION HISTORY
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ECO         REV                 DESCRIPTION                  APPROVED              DATE
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                        -          2           PRODUCTION                          DAN EDDLEMAN 04/25/2014
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       JP1
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     PRELOAD
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     1             2
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        1K
+                                                                                                                                                                                                                                                                                                                                                                                     R24 *
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     3             4
+
+
+
+
+                                                                                                                                                                                                                                1
+                                                                                                                                                                                                                                    2
+                                                                                                                            D                                                                                                                                                                                                                                                                                                                                                                                                           NONE                         D
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                       1
+                                                                                                                                                                                                                                                                                                                                                                            2
+                                                                                                                                   HIGH VOLTAGE THIS SIDE
+                                                                                                                                                                                                                                                                                                                                                                D6 *
+                                                                                                                                                                                                                      D5 *
+                                                                                                                                                                                                                                                                                                                                                      HS2*                                                                           C13 0.1uF
+                                                                                                                                                         HS1 *                           C14 0.1uF                                                                                                                                                                                                                                                                                                                   R33
+
+
+
+
+                                                                                                                                                                                                                                 3
+                                                                                                                                                                                                                                                                                                                       R31 *                                                                                                                                                                                         9.31K                    R34         R35
+                                                                                                                                                                 2
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                        3
+                                                                                                                                                                                                                                         C24*                                                                          1210                                                                                                                                                                                          1210                     2K          2K
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                  1
+                                                                                                                                                                                                                                                                                                                                                          2
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 2
+
+                                                                                                                                                                                                                                                                  R32 *                                                                                                                                                                                                                                                                       2010        2010
+                                                                                                                                                                 1                                                                                                                                                                                                            C26*                                             R2
+                                                                                                                                                                                                                                                                              D7 *
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                     1
+                                                                                                                                                                                                                                                                                                                                                                                         2
+                                                                                                                                                                             R1                                                                    C25                                                  C27 *                                                                                             HS3*                 100                                                                                       D9
+                                                                                                                                                                             100                                                                   1.0uF                  1
+                                                                                                                                 INPUT                                                                                                                                                       3
+                                                                                                                                                                                                                                                                                                                                           D4*                                                                   2
+                                                                                                                                                                                                                                                                                                                                                                                                                               1210                                                                                      GREEN
+                                                                                                                                                                             1210                                                                                         2                                                            1
+                                                                                                                                                                                                                                                                                                                                                                                                                                             Q4 *
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         SCHEMATIC DIAGRAM
+
+
+
+
+                                                                                                                                   E9                                                        Q3*                                                                                                                  1
+                                                                                                                                         INPUT                                                                                                                                                                                                        2                                                          1                   2                    3
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 1
+
+
+
+
+                                                                                                                                                                                     2                    3               SOURCE1                                                                                                      3                                                        D10 *                                                                                                                    OUTPUT
+                                                                                                                                                                                                                                    E5                                                                                                                          RIPCAP
+                                                                                                                                                                                                                                                                                                   D8 *                                                                E2
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                     3
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             E8
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                               1
+                                                                                                                                INPUT                                                                                                                                                                             2                        D1*                                                                                                                                                                                                 OUTPUT
+
+
+
+
+                                                                                                                                                                                              1
+                                                                                                                                 E6                                       Q1 *                                                                                                                                                                                                                                                Q2 *                                                     R3 *
+                                                                                                                                                                                                                                                                                                                                       2                                                                                                                                                                                                             E1
+                                                                                                                                                                      3                  2                                                                                                                                                            3                                                               3                  2
+                                                                                                                                                                                                                                                                                                                                       1
+
+
+
+
+                                                                                                                                         1
+                                                                                                                                                     1
+                                                                                                                                               DP1        DP2                                                                                                                                                                                                                                                                                                                       1206                                          C15
+                                                                                                                                               TVS        OPT                                                                                                                                                                                                                                                                                                                                                                     OPT
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                +
+
+
+
+
+                                                                                                                                                                             1
+                                                                                                                                                                                                                                                                                                                                                                                                                               1
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  2220               C18
+                                                                                                                            C   GND                                                                                             R36                                                                                                                                                                                                                                                                                                                  68uF            C
+                                                                                                                                 E7                                                                                             10M                                                                                                                                                              C28
+
+
+
+
+                                                                                                                                         2
+                                                                                                                                                     2
+                                                                                                                                                                                                                                1206                                                                                                                                                             OPT
+                                                                                                                                                                                                                                (OPTION)                                                                                                                                                         2220                                            R6
+                                                                                                                                                                                                                                                                                     C1 *        C2 *           C3 *                                                                                                                          10 OHM                                                      R11
+                                                                                                                                                                                                                                                                                                                                                                                                            C17 0.047uF                                                                                   332K           R23
+                                                                                                                                                                                                         R5                                                                                                                                                                                                                            D2                                                                                OPT                          GND
+                                                                                                                                 GND                                                                     100                                                                                                                                                                                                                         BAS21W
+                                                                                                                                 E10                        R4                                                                                                                                                                                                                                                                                                                                                                      E4               E3
+                                                                                                                                                          237K                                                                                                                                                                             R26                 R27                                                                   3                1
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              GND
+                                                                                                                                                          1206                                                            R7                                                                                                               301K                301K
+                                                                                                                                                                                                                          10K             C16*                                       C4 *        C5 *           C6 *
+                                                                                                                                                                                                                          1206                                                                                                                                                                                                       R8 30.1                                                     R15
+                                                                                                                                                                                                                                                                                                                                                                                                          R10                                                                                    10K
+                                                                                                                                                                                                                                                                                                                                                                                                          1K 1210
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                   6
+                                                                                                                                                                                                                                                                                                                                                          3
+                                                                                                                                                                                                                                                                                                                                                                                                              C19
+                                                                                                                                                                                                                                                                                     C7 *        C8 *           C9 *                                                                              R14         0.1uF
+                                                                                                                                                                                                                                                                                                                               Q6-2          2        5       Q6-1                                301K
+
+
+
+
+                                                                                                                                                                                              1
+                                                                                                                                                                                                               8
+                                                                                                                                                                                                                       7
+                                                                                                                                                                                                                                                                                                                                                                                                                                               6
+                                                                                                                                                                                                                                                                                                                                                                                                                                                              4
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                            2
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        1
+
+
+
+
+                                                                                                                                                                                                                                                        R9                                                                                                                                                R13
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                   1
+                                                                                                                                                                                                                                                                                                                                                          4
+                                                                                                                                                                                                                                                      12.1K                                                                                                     TP2                                       332K
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                             SNS
+
+
+
+
+                                                                                                                                                                                                 VDD
+                                                                                                                                                                                                                         OUT
+                                                                                                                                                                                                                                                                                                                                                                                                                                                VCC
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         OUT
+
+
+
+
+                                                                                                                                                                                                               GATE
+                                                                                                                                                                                                                                                                                                                                                                                                                                                               GATE
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                 8                                                                   16
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                     3
+                                                                                                                                                                                                                                                                                                                                                                                                    TP3                                  SHDN                                                  FB
+                                                                                                                                                                                 2                                                        6                                          C10 *       C11 *          C12 *          R25 *
+                                                                                                                                                                                         SHDN                                       FB                                                                                                                                          5        Q5-1
+                                                                                                                            B                                                                                                                                                                                                                                                                                                   10                                     U2                            13                                                              B
+                                                                                                                                                                                                                                                                                                                                                                                                                                         UV                                                 ENOUT
+                                                                                                                                                                                                                                                                                                                                                                                     4
+                                                                                                                                                                 U1                                                                                                                                                                                                                                                                                            LT4363HS-2
+
+
+
+
+                                                                                                                                                                                                 TIMER
+                                                                                                                                                                                                               VSS
+                                                                                                                                                                                                                         BASE
+                                                                                                                                                          LTC4366HTS8-2                                                                                   R12                                                                                     T            T
+                                                                                                                                                                                                                                                          649K                                                                                                                                                                   9
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  E11
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     12
+
+
+
+
+                                                                                                                                                                                              3
+                                                                                                                                                                                                               4
+                                                                                                                                                                                                                       5
+                                                                                                                                                                                                                                              3
+                                                                                                                                                                                                                                                          1206                                                                         R29 *                           R30*                                                              OV                                                    FLT                                      FLT
+                                                                                                                                                                             TP1                                                                                                                                                   THRU-HOLE                           0603               R28
+                                                                                                                                                                                                                                                                                                                                                                                                                                                GND
+                                                                                                                                                                                                                                                                                                                                                                                                                                                               TIMER
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                NC
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                NC
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                NC
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                NC
+
+
+
+
+                                                                                                                                                                                                                                 D3                   C20                                                                                                                                 1K      R20     R19
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                               3
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                               5
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                               7
+
+
+
+
+                                                                                                                                                                                     C21 *                                       BAT54               0.47uF                                                                    R29 AFFIXED TO HS3                                                 100K    10K
+                                                                                                                                                                                                                                                                                                                                                                                                                                               11
+                                                                                                                                                                                                                                                                                                                                                                                                                                                              15
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                              14
+
+
+
+
+                                                                                                                                                                                                                                              1
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                       TP4
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                              R22 *              R21 *
+
+                                                                                                                                                                                                                        R16              R17      R18
+                                                                                                                                                                                                                        18.2K            18.2K    18.2K                                                                                                                                                                                                    C22
+                                                                                                                                                                                                                        1210             1210     1210                                                                                                                                                                                                     1.0uF                               C23 *
+                                                                                                                                                                                                                                                                NOTES:
+                                                                                                                                                                                                                                                                 1. FOR COMPONENTS DESIGNATED WITH *, REFER
+                                                                                                                                                                                                                                                                    TO BOM FOR APPROPRIATE PART NUMBER
+
+
+
+
+tion that the interconnection of its circuits as described herein will not infringe on existing patent rights.
+Information furnished by Linear Technology Corporation is believed to be accurate and reliable.
+However, no responsibility is assumed for its use. Linear Technology Corporation makes no representa-
+                                                                                                                                                        ASSEMBLY TYPES                                                                                              FOR EACH ASSEMBLY TYPE.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             1630 McCarthy Blvd.
+                                                                                                                                             STUFFING         MAX LOAD   5X                                                                                      2. ALL RESISTORS ARE 0805 PACKAGE U.O.N.                                                                   CUSTOMER NOTICE                                                                                                                  Milpitas, CA 95035
+                                                                                                                                              OPTION     IL    DURING 100V/50ms 100V/500ms
+                                                                                                                                                                                                                                                                                                                                                               LINEAR TECHNOLOGY HAS MADE A BEST EFFORT TO DESIGN A
+                                                                                                                                                                                                                                                                                                                                                                                                                      APPROVALS
+                                                                                                                                                               RIPPLE  SURGE      SURGE                                                                                                                                                                                                                                                                                                                      Phone: (408)432-1900 www.linear.com
+                                                                                                                            A                                                                                                                                                                                                                                  CIRCUIT THAT MEETS CUSTOMER-SUPPLIED SPECIFICATIONS;                                                                                          Fax: (408)434-0507                     A
+                                                                                                                                               -A        2A     1A                                                                                                                                                                                             HOWEVER, IT REMAINS THE CUSTOMER'S RESPONSIBILITY TO PCB DES. M.HAWKINS                                                  TECHNOLOGY
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            LTC Confidential-For Customer Use Only
+                                                                                                                                                                                                                                                                                                                        6
+
+
+                                                                                                                                                                                                                                                           MP1      MP2   MP3         MP4                                                                      VERIFY PROPER AND RELIABLE OPERATION IN THE ACTUAL
+                                                                                                                                               -B        2A     N/A                                                                                                                                                                                                                                                  APP ENG.   DAN                       TITLE: SCHEMATIC
+                                                                                                                                                                                                                                                                                                                                 2                            APPLICATION. COMPONENT SUBSTITUTION AND PRINTED                EDDLEMAN
+                                                                                                                                                                                                                                                                                                                  Q5-2                                         CIRCUIT BOARD LAYOUT MAY SIGNIFICANTLY AFFECT CIRCUIT
+                                                                                                                                               -C        4A    2.8A                                                                                                                                                                                          PERFORMANCE OR RELIABILITY. CONTACT LINEAR
+                                                                                                                                                                                                                                                                                                                        1
+
+
+
+
+                                                                                                                                               -D        4A    N/A                                                                                                                                                                                             TECHNOLOGY APPLICATIONS ENGINEERING FOR ASSISTANCE.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            MIL-STD-1275D
+                                                                                                                                                                                                                                                         STANDOFFS, 4 PLCS
+                                                                                                                                                                                                                                                                                                                                                                                                                                                          SIZE          IC NO. LTC4366HTS8-2                                                                 REV.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                          N/A                                    DEMO CIRCUIT 2150A                                              2
+                                                                                                                                                                                                                                                                                                                                                               THIS CIRCUIT IS PROPRIETARY TO LINEAR TECHNOLOGY AND
+                                                                                                                                                                                                                                                                                                                                                               SUPPLIED FOR USE WITH LINEAR TECHNOLOGY PARTS.         SCALE = NONE                        DATE:              04/25/2014                                                   SHEET 1         OF 1
+                                                                                                                                                                 5                                                                                          4                                                                                     3                                                                       2                                                                                              1
+
+
+
+
+11
+                                                                                                                 dc2150af
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             DEMO MANUAL DC2150A
+DEMO MANUAL DC2150A
+                                                DEMONSTRATION BOARD IMPORTANT NOTICE
+Linear Technology Corporation (LTC) provides the enclosed product(s) under the following AS IS conditions:
+This demonstration board (DEMO BOARD) kit being sold or provided by Linear Technology is intended for use for ENGINEERING DEVELOPMENT
+OR EVALUATION PURPOSES ONLY and is not provided by LTC for commercial use. As such, the DEMO BOARD herein may not be complete
+in terms of required design-, marketing-, and/or manufacturing-related protective considerations, including but not limited to product safety
+measures typically found in finished commercial goods. As a prototype, this product does not fall within the scope of the European Union
+directive on electromagnetic compatibility and therefore may or may not meet the technical requirements of the directive, or other regulations.
+If this evaluation kit does not meet the specifications recited in the DEMO BOARD manual the kit may be returned within 30 days from the date
+of delivery for a full refund. THE FOREGOING WARRANTY IS THE EXCLUSIVE WARRANTY MADE BY THE SELLER TO BUYER AND IS IN LIEU
+OF ALL OTHER WARRANTIES, EXPRESSED, IMPLIED, OR STATUTORY, INCLUDING ANY WARRANTY OF MERCHANTABILITY OR FITNESS
+FOR ANY PARTICULAR PURPOSE. EXCEPT TO THE EXTENT OF THIS INDEMNITY, NEITHER PARTY SHALL BE LIABLE TO THE OTHER FOR
+ANY INDIRECT, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES.
+The user assumes all responsibility and liability for proper and safe handling of the goods. Further, the user releases LTC from all claims
+arising from the handling or use of the goods. Due to the open construction of the product, it is the user’s responsibility to take any and all
+appropriate precautions with regard to electrostatic discharge. Also be aware that the products herein may not be regulatory compliant or
+agency certified (FCC, UL, CE, etc.).
+No License is granted under any patent right or other intellectual property whatsoever. LTC assumes no liability for applications assistance,
+customer product design, software performance, or infringement of patents or any other intellectual property rights of any kind.
+LTC currently services a variety of customers for products around the world, and therefore this transaction is not exclusive.
+Please read the DEMO BOARD manual prior to handling the product. Persons handling this product must have electronics training and
+observe good laboratory practice standards. Common sense is encouraged.
+This notice contains important safety information about temperatures and voltages. For further safety concerns, please contact a LTC applica-
+tion engineer.
+                                                                    Mailing Address:
+                                                                   Linear Technology
+                                                               1630 McCarthy Blvd.
+                                                                   Milpitas, CA 95035
+                                               Copyright © 2004, Linear Technology Corporation
+
+
+
+
+                                                                                                                                          dc2150af
+
+
+
+
+12 Linear Technology Corporation
+                                                                                                                          LT 0714 • PRINTED IN USA
+
+           1630 McCarthy Blvd., Milpitas, CA 95035-7417
+           (408) 432-1900 ● FAX: (408) 434-0507 ● www.linear.com                                            LINEAR TECHNOLOGY CORPORATION 2014
+

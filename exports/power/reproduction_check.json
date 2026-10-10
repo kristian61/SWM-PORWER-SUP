@@ -1,0 +1,153 @@
+{
+  "status": "PASS",
+  "time_utc": "2026-10-10T06:51:11.739650+00:00",
+  "scope": "Isolated complete CAD regeneration and deterministic copper replay after TG1 shortening; no hardware/fabrication qualification",
+  "tested_isolated_workspace": "/tmp/power_regen_review",
+  "tested_commands": [
+    "bin/kicad-env /usr/bin/python3 scripts/power_symbols_gen.py",
+    "bin/kicad-env /usr/bin/python3 -u scripts/power_phase_gen.py",
+    "bin/kicad-env /usr/bin/python3 scripts/power_signal_route.py --capture"
+  ],
+  "generator_exit_code": 0,
+  "normal_reproduction_commands": [
+    "bin/kicad-env /usr/bin/python3 scripts/power_symbols_gen.py",
+    "bin/kicad-env /usr/bin/python3 scripts/power_phase_gen.py",
+    "bin/kicad-env /usr/bin/python3 scripts/power_layout_budget.py"
+  ],
+  "normal_reproduction_note": "power_phase_gen.py invokes --replay automatically; --capture above is an isolated verification step, not needed for normal regeneration.",
+  "kicad_version": "9.0.2",
+  "original_checks": {
+    "status": "CAD ROUTING COMPLETE - DRC PASS; HARDWARE UNVALIDATED",
+    "hardware_validated": false,
+    "fabrication_released": false,
+    "board_size_mm": [
+      135,
+      90
+    ],
+    "copper_layers": 4,
+    "copper_thickness_um": [
+      70,
+      35,
+      35,
+      70
+    ],
+    "track_segments": 1551,
+    "vias": 111,
+    "track_objects": 1662,
+    "components": 75,
+    "erc_violations": 0,
+    "drc_geometry_violations": 0,
+    "drc_geometry_types": {},
+    "unconnected_items": 0,
+    "schematic_parity_issues": 0,
+    "drc_exit_code": 0,
+    "unconnected_detail": "remaining_connections.json",
+    "note": "CAD connectivity/geometry checks do not qualify switching, current, thermal or isolation performance."
+  },
+  "isolated_checks": {
+    "status": "CAD ROUTING COMPLETE - DRC PASS; HARDWARE UNVALIDATED",
+    "hardware_validated": false,
+    "fabrication_released": false,
+    "board_size_mm": [
+      135,
+      90
+    ],
+    "copper_layers": 4,
+    "copper_thickness_um": [
+      70,
+      35,
+      35,
+      70
+    ],
+    "track_segments": 1551,
+    "vias": 111,
+    "track_objects": 1662,
+    "components": 75,
+    "erc_violations": 0,
+    "drc_geometry_violations": 0,
+    "drc_geometry_types": {},
+    "unconnected_items": 0,
+    "schematic_parity_issues": 0,
+    "drc_exit_code": 0,
+    "unconnected_detail": "remaining_connections.json",
+    "note": "CAD connectivity/geometry checks do not qualify switching, current, thermal or isolation performance."
+  },
+  "native_pcb_sha256": "c5d31c5a7548d6c99ff0cc91551d68afe9a5ac6ff7d355384abc6721fb22e30a",
+  "generator_sha256": "bafdb5f7a27187044ccdfe383e2baec7a7e116e440bbe09aeb36417dd2ad6b3c",
+  "routing_plan_sha256": "14124715a5bab242a2b1eecbad12f5121d582b51df61fac6b5953f044476f59c",
+  "isolated_recaptured_routing_plan_sha256": "14124715a5bab242a2b1eecbad12f5121d582b51df61fac6b5953f044476f59c",
+  "isolated_native_pcb_sha256": "c5d31c5a7548d6c99ff0cc91551d68afe9a5ac6ff7d355384abc6721fb22e30a",
+  "reproduction_log": "reproduction_run.log",
+  "reproduction_log_sha256": "490c2694e296760cc9d603e26dde4e44f60840f3b5f0a452b8c63f91b0aae6fd",
+  "same_copper_geometry": true,
+  "logical_pad_net_pairs_checked_before_replay": true,
+  "comparison_note": "The routing-plan snapshot ignores regenerating schematic/copper UUIDs; exact geometry hash is compared. Capture was performed only in the isolated validation workspace. The validated regenerated PCB was copied into the deliverable.",
+  "tg1_optimisation_integrity": {
+    "all_non_TG1_copper_objects_unchanged": true,
+    "all_physical_pad_net_pairs_unchanged": true,
+    "component_placement_unchanged": true,
+    "clearance_rules_unchanged": true,
+    "previous_routing_plan_sha256": "50b81d5fc1d1ab9626d4e32df3f6ff1c109477aa80a1016d0274604c2e64880b"
+  },
+  "gate_path_review": {
+    "TG1_U1_pin37_to_R11_pad1_native_track_length_mm": 28.38269735848488,
+    "TG1_previous_native_track_length_mm": 43.462500000000006,
+    "TG1_reduction_percent": 34.696123420224616,
+    "TG1_testpoint_branches": 0,
+    "TG1_In2_width_mm": 0.3,
+    "TG1_In2_path_mm": [
+      [
+        72.5,
+        27
+      ],
+      [
+        72.3,
+        25.6
+      ],
+      [
+        70,
+        23.8
+      ],
+      [
+        67.3,
+        22
+      ],
+      [
+        61,
+        20.1
+      ],
+      [
+        58.2,
+        20.1
+      ],
+      [
+        57,
+        20.2
+      ],
+      [
+        50.175,
+        23.5
+      ]
+    ],
+    "TG1_path_note": "F.Cu short pin37 escape and both existing through-vias retained; In2.Cu detour at y=16 mm removed.",
+    "R11_pad2_to_Q1_gate_mm": 3.595,
+    "GA_total_track_length_including_TP16_mm": 21.873910524340097,
+    "GA_TP16_branch_track_length_mm": 18.278910524340098,
+    "driver_to_Q1_total_routed_track_length_excluding_resistor_internal_mm": 31.97769735848488,
+    "driver_to_Q1_pad_center_path_excluding_resistor_internal_mm": 32.06519735848488,
+    "note": "Native copper-centreline sums are not a measured gate/source-loop inductance. GA contains a TP16 branch; TG1 has none. The old first track point lies 0.0875 mm away from the corrected U1 pad centre. Source return, ringing and appropriate gate resistance require independent physical review."
+  },
+  "HV_negative_control": {
+    "status": "PASS",
+    "purpose": "Prove custom HV clearance providers are active; this does not qualify hardware or fabrication performance.",
+    "isolated_rule_min_mm": 5,
+    "caught_clearance_violations": 499,
+    "negative_DRC_exit": 5,
+    "source_CAD_hashes_unchanged": true,
+    "original_hashes_sha256": {
+      "/workspace/SWM-PORWER-SUP/design/power/power_phase.kicad_pcb": "c5d31c5a7548d6c99ff0cc91551d68afe9a5ac6ff7d355384abc6721fb22e30a",
+      "/workspace/SWM-PORWER-SUP/design/power/power_phase.kicad_pro": "9f114c19c3929c1f2da0af1b8051beecfb6b0d07c52eef891b388098184e60d7",
+      "/workspace/SWM-PORWER-SUP/design/power/power_phase.kicad_dru": "a2e5c2ae3051fb64f9b8007d0beb286641f095a530d0a1f52c94b587e23f94f3"
+    }
+  }
+}

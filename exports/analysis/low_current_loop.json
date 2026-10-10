@@ -1,0 +1,743 @@
+{
+  "scope": "Assumed linear small-signal post-bulk current stage; not implemented",
+  "hardware_tests_performed": false,
+  "transistor_device_model": false,
+  "implemented_in_CAD": false,
+  "sensor_bandwidth_Hz": 35000.0,
+  "sensor_bandwidth_status": "INA190A3 TYPICAL ONLY, SBOS863D p6",
+  "controller_zero_Hz": 1000.0,
+  "controller_rolloff_Hz": 10000.0,
+  "minimum_phase_margin_deg": 55.690237718286866,
+  "maximum_1pct_settling_s": 0.29369999999999996,
+  "cases": [
+    {
+      "range_max_A": 0.02,
+      "shunt_ohm": 1.0,
+      "assumed_gm_A_per_V": 0.05,
+      "assumed_gate_pole_Hz": 100.0,
+      "controller_integral_per_s": 3.141592653589793,
+      "controller_proportional_V_per_V": 0.0005,
+      "unity_crossover_Hz": 2.499227318652424,
+      "phase_margin_deg": 88.69313008560592,
+      "closed_loop_poles_per_s": [
+        [
+          -219912.0978627154,
+          0.0
+        ],
+        [
+          -62829.85384472797,
+          0.0
+        ],
+        [
+          -613.6209762436717,
+          0.0
+        ],
+        [
+          -16.0846701119318,
+          0.0
+        ]
+      ],
+      "normalized_step_peak": 0.9999340455985835,
+      "small_signal_1pct_settling_s": 0.2879
+    },
+    {
+      "range_max_A": 0.02,
+      "shunt_ohm": 1.0,
+      "assumed_gm_A_per_V": 0.05,
+      "assumed_gate_pole_Hz": 1000.0,
+      "controller_integral_per_s": 3.141592653589793,
+      "controller_proportional_V_per_V": 0.0005,
+      "unity_crossover_Hz": 2.499999915497424,
+      "phase_margin_deg": 89.98158349848275,
+      "closed_loop_poles_per_s": [
+        [
+          -219917.7685057974,
+          0.0
+        ],
+        [
+          -62809.85730206019,
+          0.0
+        ],
+        [
+          -6283.185307179587,
+          0.0
+        ],
+        [
+          -15.713015223580184,
+          0.0
+        ]
+      ],
+      "normalized_step_peak": 0.999919524589639,
+      "small_signal_1pct_settling_s": 0.29309999999999997
+    },
+    {
+      "range_max_A": 0.02,
+      "shunt_ohm": 1.0,
+      "assumed_gm_A_per_V": 0.05,
+      "assumed_gate_pole_Hz": 20000.0,
+      "controller_integral_per_s": 3.141592653589793,
+      "controller_proportional_V_per_V": 0.0005,
+      "unity_crossover_Hz": 2.5000077085043264,
+      "phase_margin_deg": 90.11766105241247,
+      "closed_loop_poles_per_s": [
+        [
+          -220194.9684566005,
+          0.0
+        ],
+        [
+          -124964.8762580094,
+          0.0
+        ],
+        [
+          -63231.524495335565,
+          0.0
+        ],
+        [
+          -15.675756727379804,
+          0.0
+        ]
+      ],
+      "normalized_step_peak": 0.9999179005057062,
+      "small_signal_1pct_settling_s": 0.29369999999999996
+    },
+    {
+      "range_max_A": 0.02,
+      "shunt_ohm": 1.0,
+      "assumed_gm_A_per_V": 0.2,
+      "assumed_gate_pole_Hz": 100.0,
+      "controller_integral_per_s": 3.141592653589793,
+      "controller_proportional_V_per_V": 0.0005,
+      "unity_crossover_Hz": 9.951337523178935,
+      "phase_margin_deg": 84.81385613473786,
+      "closed_loop_poles_per_s": [
+        [
+          -219913.93414848205,
+          0.0
+        ],
+        [
+          -62823.85578252806,
+          0.0
+        ],
+        [
+          -563.8425486510835,
+          0.0
+        ],
+        [
+          -70.02487413766656,
+          0.0
+        ]
+      ],
+      "normalized_step_peak": 0.9999999999998814,
+      "small_signal_1pct_settling_s": 0.0676
+    },
+    {
+      "range_max_A": 0.02,
+      "shunt_ohm": 1.0,
+      "assumed_gm_A_per_V": 0.2,
+      "assumed_gate_pole_Hz": 1000.0,
+      "controller_integral_per_s": 3.141592653589793,
+      "controller_proportional_V_per_V": 0.0005,
+      "unity_crossover_Hz": 9.99999459184274,
+      "phase_margin_deg": 89.92633404412715,
+      "closed_loop_poles_per_s": [
+        [
+          -219936.61160228224,
+          0.0
+        ],
+        [
+          -62743.814393584136,
+          0.0
+        ],
+        [
+          -6283.185307179583,
+          0.0
+        ],
+        [
+          -62.91282721482979,
+          0.0
+        ]
+      ],
+      "normalized_step_peak": 1.000000000000553,
+      "small_signal_1pct_settling_s": 0.07329999999999999
+    },
+    {
+      "range_max_A": 0.02,
+      "shunt_ohm": 1.0,
+      "assumed_gm_A_per_V": 0.2,
+      "assumed_gate_pole_Hz": 20000.0,
+      "controller_integral_per_s": 3.141592653589793,
+      "controller_proportional_V_per_V": 0.0005,
+      "unity_crossover_Hz": 10.000493378020167,
+      "phase_margin_deg": 90.47064812435435,
+      "closed_loop_poles_per_s": [
+        [
+          -221029.68484779808,
+          0.0
+        ],
+        [
+          -122835.27392499465,
+          0.0
+        ],
+        [
+          -64479.76721201501,
+          0.0
+        ],
+        [
+          -62.31898186544129,
+          0.0
+        ]
+      ],
+      "normalized_step_peak": 0.99999999999966,
+      "small_signal_1pct_settling_s": 0.07379999999999999
+    },
+    {
+      "range_max_A": 0.02,
+      "shunt_ohm": 1.0,
+      "assumed_gm_A_per_V": 1.0,
+      "assumed_gate_pole_Hz": 100.0,
+      "controller_integral_per_s": 3.141592653589793,
+      "controller_proportional_V_per_V": 0.0005,
+      "unity_crossover_Hz": 45.54881549549786,
+      "phase_margin_deg": 67.78371000653291,
+      "closed_loop_poles_per_s": [
+        [
+          -219923.72644358533,
+          0.0
+        ],
+        [
+          -62791.85645512569,
+          0.0
+        ],
+        [
+          -328.0372275441547,
+          299.8306269798211
+        ],
+        [
+          -328.0372275441547,
+          -299.8306269798211
+        ]
+      ],
+      "normalized_step_peak": 1.0322399701633276,
+      "small_signal_1pct_settling_s": 0.014799999999999999
+    },
+    {
+      "range_max_A": 0.02,
+      "shunt_ohm": 1.0,
+      "assumed_gm_A_per_V": 1.0,
+      "assumed_gate_pole_Hz": 1000.0,
+      "controller_integral_per_s": 3.141592653589793,
+      "controller_proportional_V_per_V": 0.0005,
+      "unity_crossover_Hz": 49.99932401012866,
+      "phase_margin_deg": 89.63167738748879,
+      "closed_loop_poles_per_s": [
+        [
+          -220036.97753266356,
+          0.0
+        ],
+        [
+          -62390.15835665337,
+          0.0
+        ],
+        [
+          -6283.185307179595,
+          0.0
+        ],
+        [
+          -316.20293376422177,
+          0.0
+        ]
+      ],
+      "normalized_step_peak": 1.0000000000002567,
+      "small_signal_1pct_settling_s": 0.014599999999999998
+    },
+    {
+      "range_max_A": 0.02,
+      "shunt_ohm": 1.0,
+      "assumed_gm_A_per_V": 1.0,
+      "assumed_gate_pole_Hz": 20000.0,
+      "controller_integral_per_s": 3.141592653589793,
+      "controller_proportional_V_per_V": 0.0005,
+      "unity_crossover_Hz": 50.061779999230936,
+      "phase_margin_deg": 92.35373749254143,
+      "closed_loop_poles_per_s": [
+        [
+          -225138.63257294265,
+          0.0
+        ],
+        [
+          -109845.82012022322,
+          0.0
+        ],
+        [
+          -73120.93610158208,
+          0.0
+        ],
+        [
+          -301.6561719252361,
+          0.0
+        ]
+      ],
+      "normalized_step_peak": 1.0000000000001283,
+      "small_signal_1pct_settling_s": 0.015199999999999998
+    },
+    {
+      "range_max_A": 0.02,
+      "shunt_ohm": 1.0,
+      "assumed_gm_A_per_V": 2.0,
+      "assumed_gate_pole_Hz": 100.0,
+      "controller_integral_per_s": 3.141592653589793,
+      "controller_proportional_V_per_V": 0.0005,
+      "unity_crossover_Hz": 78.78937332882734,
+      "phase_margin_deg": 55.690237718286866,
+      "closed_loop_poles_per_s": [
+        [
+          -219935.96390302436,
+          0.0
+        ],
+        [
+          -62751.83436311664,
+          0.0
+        ],
+        [
+          -341.92954382911716,
+          527.5677988449669
+        ],
+        [
+          -341.92954382911716,
+          -527.5677988449669
+        ]
+      ],
+      "normalized_step_peak": 1.1312274204884376,
+      "small_signal_1pct_settling_s": 0.013699999999999999
+    },
+    {
+      "range_max_A": 0.02,
+      "shunt_ohm": 1.0,
+      "assumed_gm_A_per_V": 2.0,
+      "assumed_gate_pole_Hz": 1000.0,
+      "controller_integral_per_s": 3.141592653589793,
+      "controller_proportional_V_per_V": 0.0005,
+      "unity_crossover_Hz": 99.9945928153199,
+      "phase_margin_deg": 89.26339921220494,
+      "closed_loop_poles_per_s": [
+        [
+          -220162.12711091986,
+          0.0
+        ],
+        [
+          -61944.619313436575,
+          0.0
+        ],
+        [
+          -6283.185307179586,
+          0.0
+        ],
+        [
+          -636.5923987247996,
+          0.0
+        ]
+      ],
+      "normalized_step_peak": 1.0000000000000484,
+      "small_signal_1pct_settling_s": 0.007299999999999999
+    },
+    {
+      "range_max_A": 0.02,
+      "shunt_ohm": 1.0,
+      "assumed_gm_A_per_V": 2.0,
+      "assumed_gate_pole_Hz": 20000.0,
+      "controller_integral_per_s": 3.141592653589793,
+      "controller_proportional_V_per_V": 0.0005,
+      "unity_crossover_Hz": 100.49695576366078,
+      "phase_margin_deg": 94.71058294639899,
+      "closed_loop_poles_per_s": [
+        [
+          -229647.61824343196,
+          0.0
+        ],
+        [
+          -89089.79142576538,
+          16001.191968927218
+        ],
+        [
+          -89089.79142576538,
+          -16001.191968927218
+        ],
+        [
+          -579.8438717101809,
+          0.0
+        ]
+      ],
+      "normalized_step_peak": 1.0000000000000175,
+      "small_signal_1pct_settling_s": 0.0078
+    },
+    {
+      "range_max_A": 0.2,
+      "shunt_ohm": 0.1,
+      "assumed_gm_A_per_V": 0.05,
+      "assumed_gate_pole_Hz": 100.0,
+      "controller_integral_per_s": 31.41592653589793,
+      "controller_proportional_V_per_V": 0.005,
+      "unity_crossover_Hz": 2.4992273186524234,
+      "phase_margin_deg": 88.69313008560592,
+      "closed_loop_poles_per_s": [
+        [
+          -219912.0978627154,
+          0.0
+        ],
+        [
+          -62829.85384472797,
+          0.0
+        ],
+        [
+          -613.6209762436717,
+          0.0
+        ],
+        [
+          -16.0846701119318,
+          0.0
+        ]
+      ],
+      "normalized_step_peak": 0.9999340455985835,
+      "small_signal_1pct_settling_s": 0.2879
+    },
+    {
+      "range_max_A": 0.2,
+      "shunt_ohm": 0.1,
+      "assumed_gm_A_per_V": 0.05,
+      "assumed_gate_pole_Hz": 1000.0,
+      "controller_integral_per_s": 31.41592653589793,
+      "controller_proportional_V_per_V": 0.005,
+      "unity_crossover_Hz": 2.4999999154974235,
+      "phase_margin_deg": 89.98158349848275,
+      "closed_loop_poles_per_s": [
+        [
+          -219917.7685057974,
+          0.0
+        ],
+        [
+          -62809.85730206019,
+          0.0
+        ],
+        [
+          -6283.185307179587,
+          0.0
+        ],
+        [
+          -15.713015223580184,
+          0.0
+        ]
+      ],
+      "normalized_step_peak": 0.999919524589639,
+      "small_signal_1pct_settling_s": 0.29309999999999997
+    },
+    {
+      "range_max_A": 0.2,
+      "shunt_ohm": 0.1,
+      "assumed_gm_A_per_V": 0.05,
+      "assumed_gate_pole_Hz": 20000.0,
+      "controller_integral_per_s": 31.41592653589793,
+      "controller_proportional_V_per_V": 0.005,
+      "unity_crossover_Hz": 2.500007708504327,
+      "phase_margin_deg": 90.11766105241247,
+      "closed_loop_poles_per_s": [
+        [
+          -220194.9684566005,
+          0.0
+        ],
+        [
+          -124964.8762580094,
+          0.0
+        ],
+        [
+          -63231.524495335565,
+          0.0
+        ],
+        [
+          -15.675756727379804,
+          0.0
+        ]
+      ],
+      "normalized_step_peak": 0.9999179005057062,
+      "small_signal_1pct_settling_s": 0.29369999999999996
+    },
+    {
+      "range_max_A": 0.2,
+      "shunt_ohm": 0.1,
+      "assumed_gm_A_per_V": 0.2,
+      "assumed_gate_pole_Hz": 100.0,
+      "controller_integral_per_s": 31.41592653589793,
+      "controller_proportional_V_per_V": 0.005,
+      "unity_crossover_Hz": 9.95133752317894,
+      "phase_margin_deg": 84.81385613473786,
+      "closed_loop_poles_per_s": [
+        [
+          -219913.93414848205,
+          0.0
+        ],
+        [
+          -62823.85578252806,
+          0.0
+        ],
+        [
+          -563.8425486510835,
+          0.0
+        ],
+        [
+          -70.02487413766656,
+          0.0
+        ]
+      ],
+      "normalized_step_peak": 0.9999999999998814,
+      "small_signal_1pct_settling_s": 0.0676
+    },
+    {
+      "range_max_A": 0.2,
+      "shunt_ohm": 0.1,
+      "assumed_gm_A_per_V": 0.2,
+      "assumed_gate_pole_Hz": 1000.0,
+      "controller_integral_per_s": 31.41592653589793,
+      "controller_proportional_V_per_V": 0.005,
+      "unity_crossover_Hz": 9.99999459184274,
+      "phase_margin_deg": 89.92633404412715,
+      "closed_loop_poles_per_s": [
+        [
+          -219936.61160228224,
+          0.0
+        ],
+        [
+          -62743.814393584136,
+          0.0
+        ],
+        [
+          -6283.185307179583,
+          0.0
+        ],
+        [
+          -62.91282721482979,
+          0.0
+        ]
+      ],
+      "normalized_step_peak": 1.000000000000553,
+      "small_signal_1pct_settling_s": 0.07329999999999999
+    },
+    {
+      "range_max_A": 0.2,
+      "shunt_ohm": 0.1,
+      "assumed_gm_A_per_V": 0.2,
+      "assumed_gate_pole_Hz": 20000.0,
+      "controller_integral_per_s": 31.41592653589793,
+      "controller_proportional_V_per_V": 0.005,
+      "unity_crossover_Hz": 10.000493378020167,
+      "phase_margin_deg": 90.47064812435435,
+      "closed_loop_poles_per_s": [
+        [
+          -221029.68484779808,
+          0.0
+        ],
+        [
+          -122835.27392499465,
+          0.0
+        ],
+        [
+          -64479.76721201501,
+          0.0
+        ],
+        [
+          -62.31898186544129,
+          0.0
+        ]
+      ],
+      "normalized_step_peak": 0.99999999999966,
+      "small_signal_1pct_settling_s": 0.07379999999999999
+    },
+    {
+      "range_max_A": 0.2,
+      "shunt_ohm": 0.1,
+      "assumed_gm_A_per_V": 1.0,
+      "assumed_gate_pole_Hz": 100.0,
+      "controller_integral_per_s": 31.41592653589793,
+      "controller_proportional_V_per_V": 0.005,
+      "unity_crossover_Hz": 45.54881549549786,
+      "phase_margin_deg": 67.78371000653291,
+      "closed_loop_poles_per_s": [
+        [
+          -219923.72644358533,
+          0.0
+        ],
+        [
+          -62791.85645512569,
+          0.0
+        ],
+        [
+          -328.0372275441547,
+          299.8306269798211
+        ],
+        [
+          -328.0372275441547,
+          -299.8306269798211
+        ]
+      ],
+      "normalized_step_peak": 1.0322399701633276,
+      "small_signal_1pct_settling_s": 0.014799999999999999
+    },
+    {
+      "range_max_A": 0.2,
+      "shunt_ohm": 0.1,
+      "assumed_gm_A_per_V": 1.0,
+      "assumed_gate_pole_Hz": 1000.0,
+      "controller_integral_per_s": 31.41592653589793,
+      "controller_proportional_V_per_V": 0.005,
+      "unity_crossover_Hz": 49.99932401012866,
+      "phase_margin_deg": 89.63167738748879,
+      "closed_loop_poles_per_s": [
+        [
+          -220036.97753266356,
+          0.0
+        ],
+        [
+          -62390.15835665337,
+          0.0
+        ],
+        [
+          -6283.185307179595,
+          0.0
+        ],
+        [
+          -316.20293376422177,
+          0.0
+        ]
+      ],
+      "normalized_step_peak": 1.0000000000002567,
+      "small_signal_1pct_settling_s": 0.014599999999999998
+    },
+    {
+      "range_max_A": 0.2,
+      "shunt_ohm": 0.1,
+      "assumed_gm_A_per_V": 1.0,
+      "assumed_gate_pole_Hz": 20000.0,
+      "controller_integral_per_s": 31.41592653589793,
+      "controller_proportional_V_per_V": 0.005,
+      "unity_crossover_Hz": 50.061779999230914,
+      "phase_margin_deg": 92.35373749254143,
+      "closed_loop_poles_per_s": [
+        [
+          -225138.63257294265,
+          0.0
+        ],
+        [
+          -109845.82012022322,
+          0.0
+        ],
+        [
+          -73120.93610158208,
+          0.0
+        ],
+        [
+          -301.6561719252361,
+          0.0
+        ]
+      ],
+      "normalized_step_peak": 1.0000000000001283,
+      "small_signal_1pct_settling_s": 0.015199999999999998
+    },
+    {
+      "range_max_A": 0.2,
+      "shunt_ohm": 0.1,
+      "assumed_gm_A_per_V": 2.0,
+      "assumed_gate_pole_Hz": 100.0,
+      "controller_integral_per_s": 31.41592653589793,
+      "controller_proportional_V_per_V": 0.005,
+      "unity_crossover_Hz": 78.78937332882734,
+      "phase_margin_deg": 55.690237718286866,
+      "closed_loop_poles_per_s": [
+        [
+          -219935.96390302436,
+          0.0
+        ],
+        [
+          -62751.83436311664,
+          0.0
+        ],
+        [
+          -341.92954382911716,
+          527.5677988449669
+        ],
+        [
+          -341.92954382911716,
+          -527.5677988449669
+        ]
+      ],
+      "normalized_step_peak": 1.1312274204884376,
+      "small_signal_1pct_settling_s": 0.013699999999999999
+    },
+    {
+      "range_max_A": 0.2,
+      "shunt_ohm": 0.1,
+      "assumed_gm_A_per_V": 2.0,
+      "assumed_gate_pole_Hz": 1000.0,
+      "controller_integral_per_s": 31.41592653589793,
+      "controller_proportional_V_per_V": 0.005,
+      "unity_crossover_Hz": 99.99459281531999,
+      "phase_margin_deg": 89.26339921220494,
+      "closed_loop_poles_per_s": [
+        [
+          -220162.12711091986,
+          0.0
+        ],
+        [
+          -61944.619313436575,
+          0.0
+        ],
+        [
+          -6283.185307179586,
+          0.0
+        ],
+        [
+          -636.5923987247996,
+          0.0
+        ]
+      ],
+      "normalized_step_peak": 1.0000000000000484,
+      "small_signal_1pct_settling_s": 0.007299999999999999
+    },
+    {
+      "range_max_A": 0.2,
+      "shunt_ohm": 0.1,
+      "assumed_gm_A_per_V": 2.0,
+      "assumed_gate_pole_Hz": 20000.0,
+      "controller_integral_per_s": 31.41592653589793,
+      "controller_proportional_V_per_V": 0.005,
+      "unity_crossover_Hz": 100.49695576366078,
+      "phase_margin_deg": 94.71058294639899,
+      "closed_loop_poles_per_s": [
+        [
+          -229647.61824343196,
+          0.0
+        ],
+        [
+          -89089.79142576538,
+          16001.191968927218
+        ],
+        [
+          -89089.79142576538,
+          -16001.191968927218
+        ],
+        [
+          -579.8438717101809,
+          0.0
+        ]
+      ],
+      "normalized_step_peak": 1.0000000000000175,
+      "small_signal_1pct_settling_s": 0.0078
+    }
+  ],
+  "energy_bypass_warning": "A capacitor after the pass element can discharge directly into DUT; current-loop stability cannot prevent this.",
+  "excluded": [
+    "Large signal startup, OFF tracking, saturation, anti-windup and CV/CC handover",
+    "Transistor gm dependence on bias/temperature, high-side drive and SOA",
+    "Guaranteed sensor delay, enable settling, noise, offset and fault clamp",
+    "Physical disconnection, interlock, reverse blocking and shorted pass element",
+    "Load capacitance/inductance, cable parasitics and sensor placement"
+  ],
+  "source_sha256": "6ed9c2cc41d6c5ba4f36ce33d9d829b2f0c51e376583e94e2c63be4d950b39af"
+}

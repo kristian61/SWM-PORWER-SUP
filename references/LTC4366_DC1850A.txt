@@ -1,0 +1,388 @@
+                                                                                DEMO MANUAL
+                                                                          DC1850A-A/DC1850A-B
+                                                      LTC4366HTS8-1/LTC4366HTS8-2
+                                                  Very High Voltage Surge Stopper
+
+Description
+Demonstration Circuit 1850A showcases the LTC®4366               DC1850A-A features latchoff behavior after a fault and is
+high voltage surge stopper in a 28V vehicular application.       reset by asserting the SHUTDOWN input high for at least
+DC1850A withstands inputs of up to 100VDC and input              100µs. DC1850A-B features auto-retry 9 seconds after
+transients of up to 250V while maintaining the output at         tripping off in an overvoltage fault condition. The 9 second
+43.1V. Reverse battery and errant inputs of up to –100VDC        delay can be interrupted by pulsing the SHUTDOWN input.
+are blocked from reaching the output.                            Design files for this circuit board are available at
+                                                                 http://www.linear.com/demo
+                                                                 L, LT, LTC, LTM, Linear Technology and the Linear logo are registered trademarks of Linear
+                                                                 Technology Corporation. All other trademarks are the property of their respective owners.
+
+
+
+
+Performance Summary                                Specifications are at TA = 25°C
+PARAMETER                           CONDITIONS                                           MIN                 TYP                MAX                   UNITS
+Input Range                         Load = 1.5A
+   Operating                                                                              18                  28                  41                           V
+   DC Survival                                                                          –100                                     100                           V
+   1ms Transient                                                                         250                                                                   V
+Output Regulation                                                                         41                 43.1               45.3                           V
+Surge Timer                         Input = 100V (DC1850A-B)                             1.2                 2.8                 4.9                          ms
+Cool-Down Timer                                                                          5.9                  9                  16                            s
+
+
+
+
+                                                                                                                                                   dc1850aabf
+
+
+
+
+                                                                                                                                                        1
+DEMO MANUAL
+DC1850A-A/DC1850A-B
+Overview
+The LTC4366 surge stopper operates in a floating topol-        −100V Reverse Voltage Protection Circuit
+ogy, permitting the design of circuits capable of operating
+                                                               Reverse polarity inputs of up to −100V are blocked from
+at virtually unlimited input voltage. DC1850A has been
+                                                               reaching the load by M2, whose associated circuitry is
+designed to protect against ±100VDC and 250V for 1ms,
+                                                               located on the bottom of the board. This circuit blocks
+in 28V vehicle applications. The input start-up range is
+                                                               reverse inputs of up to −250VDC, provided the input is
+18V to 41V, while after start-up the input can fall to ap-
+                                                               applied from a cold start. If DC1850A is already on and
+proximately 7V while still passing 1.5A load current.
+                                                               operating with a positive input voltage, instantaneous
+Careful attention has been paid to the layout to provide at    spikes must not exceed −100V.
+least 87mil (2.2mm) clearance between input and output,
+and input and ground. This wide clearance is capable of        SHUTDOWN Turret
+withstanding 100VDC and spikes to 250V without arcing.
+                                                               If the SHUTDOWN turret is left open, DC1850A defaults
+The operating ranges are shown in silkscreen on the top        to the ON state and turns on when an input supply is
+of the board. The bottom shows the U1 part number, top         connected. Pulling SHUTDOWN to 1.8V or higher causes
+mark and behavior associated with the –A and –B ver-           the LTC4366 to enter its shutdown state. The circuit
+sions of DC1850A. This same information is shown on            board layout limits the maximum SHUTDOWN voltage to
+the schematic.                                                 60VDC, while R2 limits the peak applied transient voltage
+Three ancillary circuits are located on the bottom of the      capability to 100V.
+board.
+                                                               Optional Components
+Shutdown Level Shifter
+                                                               Two optional components, CX and RX are made available
+Since the LTC4366 operates in a floating topology, it is       for those who wish to experiment with the frequency
+necessary to level shift ground-referred shutdown signal-      response of the overvoltage regulation loop.
+ling. A simple NPN circuit provides level shifting between
+the SHUTDOWN turret and the LTC4366’s SD pin.
+                                                               How to Operate DC1850A
+Wide Voltage Range Constant Current LED Driver                 Operation of DC1850A is straightforward: connect an
+Making an LED operate at constant brightness over a            input supply of 18V to 41V, and an output load of up to
+wide operating range is made possible by a simple, two-        1.5A. If the SHUTDOWN turret is open circuit the output
+transistor circuit. Input LED (D6) current is held constant    will power up. If the input voltage is increased above
+from 18V to 250V, and emits some light as low as 7V.           ≈ 43.1V, the output will limit and shut off after 2.8ms. DC
+                                                               inputs of up to ±100V may be applied. The basic hookup
+Output LED (D5) is biased with a 9.1k resistor (R7, on bot-    is shown in Figure 1.
+tom of board). Its brightness will vary with output voltage.
+
+
+
+
+                                                                                                                  dc1850aabf
+
+
+
+
+2
+                                               DEMO MANUAL
+                                         DC1850A-A/DC1850A-B
+Overview
+
+
+
+
+     18V TO 41V                                     0A TO 1.5A
+          INPUT                                     LOAD
+
+
+
+
+                  Figure 1. DC1850A Basic Hookup
+
+
+
+
+                                                                 dc1850aabf
+
+
+
+
+                                                                     3
+DEMO MANUAL
+DC1850A-A/DC1850A-B
+Parts List
+ ITEM   QTY   REFERENCE                PART DESCRIPTION                    MANUFACTURER/PART NUMBER
+    1    1    CF                       CAP., X7R, 1000pF 100V, 10%, 0603   AVX, 06031C102KAT2A
+    2    2    CT, CG                   CAP., X7R, 0.01µF 100V, 10%, 0603   AVX, 06031C103KAT2A
+    3    1    CLOAD                    CAP., ALUM. 100µF 50V, 20%          SUN ELECT, 50CE100LX
+    4    1    C1                       CAP., X7R, 0.47µF 25V, 10%, 0603    AVX, 06033C474KAT2A
+    5    0    CX (OPT)                 CAP., X7R, 0.01µF 100V, 10%, 0603
+    6    1    CSNUB                    CAP., X7R, 0.01µF 500V, 20%, 1210   AVX, 12107C103MAT2A
+    7    5    D1, D2, D3, D4, D7       DIODE, SWITCH 300V 400MW SOD123     DIODES INC, BAV3004W-7-F
+    8    2    D5, D6                   LED, GREEN S-GW TYPE SMD            PANASONIC, LN1371SGTRP
+    9    6    E1, E3, E4, E5, E6, E8   TESTPOINT, TURRET, .094"            MILL-MAX, 2501-2-00-80-00-00-07-0
+  10     4    E18, E19, E20, E21       JACK, BANANA                        KEYSTONE, 575-4
+  11     2    M1, M2                   MOSFET, N-CH 250V 33A D2PAK         FAIRCHILD, FDB33N25TM
+  12     3    Q1, Q2, Q3               TRANSISTOR, GP NPN AMP SOT-23       DIODES INC, MMBT3904-7-F
+  13     1    Q4                       TRANS., AMP NPN GP 300V SOT-223     FAIRCHILD, PZTA42 TR
+  14     1    RFB1                     RES., CHIP, 12.4k, 1%, 0603         NIC, NRC06F1242TRF
+  15     1    RFB2                     RES., CHIP, 422k, 1%, 0603          NIC, NRC06F4223TRF
+  16     1    RG                       RES., CHIP, 10, 5%, 0603            NIC, NRC06J100TRF
+  17     1    RSS                      RES., CHIP, 34k, 1%, 0603           VISHAY, CRCW060334K0FKEA
+  18     1    RIN                      RES., CHIP, 392k, 1%, 1206          VISHAY, CRCW1206392KFKEA
+  19     4    R1, R2, R3, R5           RES., CHIP, 470k, 5%, 0603          NIC, NRC06J474TRF
+  20     3    R4, R6, R9               RES., CHIP, 270k, 5%, 1206          NIC, NRC12J274TRF
+  21     1    R7                       RES., CHIP, 9.1k, 5%, 1206          NIC, NRC12J912TRF
+  22     1    R8                       RES., CHIP, 4.7k, 5%, 0603          NIC, NRC06J472TRF
+  23     1    R10                      RES., CHIP, 200, 5%, 0603           NIC, NRC06J201TRF
+  24     0    RX (OPT)                 RES., CHIP, 100k, 1%, 0603
+  25     1    RSNUB                    RES., CHIP,100Ω, 5%, 1210           NIC, NRCP25J101TRF
+  26     4    STAND OFF                STAND OFF 0.375"                    KEYSTONE, 8832
+
+
+
+
+                                                                                                          dc1850aabf
+
+
+
+
+4
+                                                                                                                                                    5                                                          4                                                        3                                                            2                                                     1
+
+                                                                                                                                                                                                                                                                                                                                                                       REVISION HISTORY
+                                                                                                                                                                                                                                                                                                                                           ECO      REV                DESCRIPTION         APPROVED             DATE
+                                                                                                                                                                                                                                                                                                                                            __
+                                                                                                                                                                                                                                                                                                                                                     3                 PRODUCTION              Mitchell L.     6-5-12
+                                                                                                                                     E6
+                                                                                                                                                                                                 M2
+                                                                                                                                                                                                     S                 D
+                                                                                                                                   INPUT                                                      FDB33N25
+                                                                                                                                  18V - 41V                                                                                      D1              RIN
+                                                                                                                              D                                                                                                                                                                                                                                                                                           D
+                                                                                                                                                                                                                               BAV3004W         392k
+
+
+
+
+                                                                                                                                                                                                             G
+                                                                                                                                                                                                                   R4 270k
+                                                                                                                                                                                              2          3                     1      2
+
+
+
+
+                                                                                                                                                                                2
+                                                                                                                                                                                                                           1
+                                                                                                                                     E21
+                                                                                                                                                                                                         Q2
+
+
+
+
+                                                                                                                                                                                                   1
+                                                                                                                                                                       D3                               MMBT3904                D2
+                                                                                                                                                                    BAV3004W             R5                                    BAV3004W
+
+
+
+
+                                                                                                                                                                                1
+                                                                                                                                                                                                                           2
+                                                                                                                                                                                         470k
+
+
+
+
+                                                                                                                                                                                1
+                                                                                                                                                                       D4                    -100V REVERSE VOLTAGE                                                                                                                                               RSNUB
+                                                                                                                                                                                                                                                                                                                                                                                                                              Schematic Diagram
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                           D
+                                                                                                                                                                    BAV3004W                                                                                                                                                                                     100
+                                                                                                                                                                                             PROTECTION CIRCUIT
+
+
+
+
+                                                                                                                                                                                2
+                                                                                                                                                                                                                                                                                                                                                  M1
+                                                                                                                                                                                                                                                                                                                RG       10
+                                                                                                                                                                                                                                                          1                       U1*                8                           G               FDB33N25
+                                                                                                                                                                             R6                           SHUTDOWN                                            VDD                          GATE                                                                  CSNUB
+                                                                                                                                                                             270k                                                                                                                           CG
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                           S
+                                                                                                                                                                                                          LEVEL SHIFTER                  CF                                                                                                                      10nF          E3
+                                                                                                                                                                                                                                        1nF                                                                 10nF                                                 500V
+                                                                                                                              C                                                                                                                                                                             100V                                                                       OUTPUT                             C
+                                                                                                                                                                                                                                        100V
+                                                                                                                                                                                                                                                                                                                                                                                     1.5A MAXIMUM
+                                                                                                                                                                                                                                  R1 470k                                                                                                                                           CLAMPED AT 43.1V
+                                                                                                                                                                                                                                                          2                                          7
+
+
+
+
+                                                                                                                                                          2
+                                                                                                                                                                                                                                                              SD                               OUT
+                                                                                                                                                                    D7                                                                                                                                                                   RFB1        R7          +   CLOAD     E18
+                                                                                                                                                                                                                                                                                                              C1
+
+
+
+
+                                                                                                                                                                                                                             3
+                                                                                                                                                                    BAV3004W                      E1                                                                                                                                     12.4k       9.1k
+                                                                                                                                                                                                        R2 470k                   Q1                                                                                                                                 100uF
+                                                                                                                                                                                                                       1                                                                                     470nF
+
+
+
+
+                                                                                                                                                          1
+                                                                                                                                                                                    SHUTDOWN                                     MMBT3904                                                                     25V                                                     50V
+                                                                                                                                                                                                                                                          3                                          6
+                                                                                                                                                                                                                                                              TIMER                             FB
+
+
+
+
+                                                                                                                                                                                                                             2
+                                                                                                                                                                                                                      R3                                                                                                                              D5
+                                                                                                                                                                                                  E8                                           CT                                                                         RX             RFB2        GREEN
+                                                                                                                                                                      R8                                              470k                    10nF                                                                        OPT            422k
+                                                                                                                                                         R9           4.7k              GND                                                                                                                                                          OUTPUT
+                                                                                                                                                         270k                                                                                 100V                                                                        100k
+                                                                                                                                                                                                                                                          4                                          5
+                                                                                                                                                                                                                                                              VSS                          BASE                           CX
+
+
+
+
+                                                                                                                                                                  4
+                                                                                                                                                                                                                                                                                                                          10nF
+                                                                                                                                                          1            Q4                                                                                                                                                 100V
+                                                                                                                                                                      PZTA42                                                                                                                                              OPT
+
+
+
+
+                                                                                                                                                                  3
+                                                                                                                              B
+                                                                                                                                                                        D6                                                                                                                                                                                                                                                B
+
+
+
+
+                                                                                                                                                    3
+                                                                                                                                                                       GREEN
+                                                                                                                                              MMBT3904        1        INPUT
+                                                                                                                                                                                                                                                                                   RSS
+                                                                                                                                               Q3
+
+
+
+
+                                                                                                                                                    2
+                                                                                                                                                                      R10                                                                                                          34k
+                                                                                                                                                                      200
+                                                                                                                                                                                                                                                                                                                                         INPUT RANGE
+                                                                                                                                                                                                                                                                                  GND
+                                                                                                                                                 WIDE VOLTAGE RANGE                                                                                                                                                      DC OPERATING                18V - 41V               OUTPUT CLAMP              43.1V
+                                                                                                                                                 CONSTANT CURRENT
+                                                                                                                                                 LED DRIVER                                                                                                        E5       E19     E20   E4                             DC SURVIVAL                     +/- 100V            SURGE TIMER               2.8ms
+
+
+
+
+tion that the interconnection of its circuits as described herein will not infringe on existing patent rights.
+Information furnished by Linear Technology Corporation is believed to be accurate and reliable.
+However, no responsibility is assumed for its use. Linear Technology Corporation makes no representa-
+                                                                                                                                                                                                                                                                                                                         1ms TRANSIENT                    250V               MAXIMUM LOAD              1.5A
+                                                                                                                                                                                                                                                                                                                                                                             1630 McCarthy Blvd.
+                                                                                                                                                              *                              U1                                                        CUSTOMER NOTICE                                   APPROVALS                                                           Milpitas, CA 95035
+                                                                                                                                                                   ASSY        PART NUMBER        PART MARKING             BEHAVIOR         LINEAR TECHNOLOGY HAS MADE A BEST EFFORT TO DESIGN A                                                                             Phone: (408)432-1900 www.linear.com
+                                                                                                                                                                                                                                            CIRCUIT THAT MEETS CUSTOMER-SUPPLIED SPECIFICATIONS;                                                                             Fax: (408)434-0507
+                                                                                                                                                                                                                                            HOWEVER, IT REMAINS THE CUSTOMER'S RESPONSIBILITY TO     PCB DES.       HZ
+                                                                                                                                                                                                                                                                                                                                                          TECHNOLOGY
+                                                                                                                              A                                   DC1850A-A LTC4366HTS8-1              LTFMC            LATCH OFF                                                                                                                                            LTC Confidential-For Customer Use Only A
+                                                                                                                                                                                                                                            VERIFY PROPER AND RELIABLE OPERATION IN THE ACTUAL
+                                                                                                                                                                                                                                            APPLICATION. COMPONENT SUBSTITUTION AND PRINTED          APP ENG.      Mitchell L.   TITLE: SCHEMATIC
+                                                                                                                                                                  DC1850A-B LTC4366HTS8-2              LTFMF           AUTO RETRY           CIRCUIT BOARD LAYOUT MAY SIGNIFICANTLY AFFECT CIRCUIT
+                                                                                                                                                                                                                                            PERFORMANCE OR RELIABILITY. CONTACT LINEAR                                                              VERY HIGH VOLTAGE SURGE STOPPER
+                                                                                                                                                                                                                                            TECHNOLOGY APPLICATIONS ENGINEERING FOR ASSISTANCE.
+                                                                                                                                                                                                                                                                                                                                 SIZE       IC NO.            LTC4366HTS8 FAMILY                                   REV.
+                                                                                                                                                                                                                                                                                                                                 N/A                          DEMO CIRCUIT 1850A                                    3
+                                                                                                                                                                                                                                            THIS CIRCUIT IS PROPRIETARY TO LINEAR TECHNOLOGY AND
+                                                                                                                                                                                                                                            SUPPLIED FOR USE WITH LINEAR TECHNOLOGY PARTS.               SCALE = NONE            DATE:            Wednesday, June 20, 2012                       SHEET 1        OF 1
+                                                                                                                                                    5                                                          4                                                        3                                                            2                                                     1
+
+
+
+
+5
+                                                                                                                 dc1850aabf
+                                                                                                                                                                                                                                                                                                                                                                                                                                                  DC1850A-A/DC1850A-B
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        DEMO MANUAL
+DEMO MANUAL
+DC1850A-A/DC1850A-B
+                                                DEMONSTRATION BOARD IMPORTANT NOTICE
+Linear Technology Corporation (LTC) provides the enclosed product(s) under the following AS IS conditions:
+This demonstration board (DEMO BOARD) kit being sold or provided by Linear Technology is intended for use for ENGINEERING DEVELOPMENT
+OR EVALUATION PURPOSES ONLY and is not provided by LTC for commercial use. As such, the DEMO BOARD herein may not be complete
+in terms of required design-, marketing-, and/or manufacturing-related protective considerations, including but not limited to product safety
+measures typically found in finished commercial goods. As a prototype, this product does not fall within the scope of the European Union
+directive on electromagnetic compatibility and therefore may or may not meet the technical requirements of the directive, or other regulations.
+If this evaluation kit does not meet the specifications recited in the DEMO BOARD manual the kit may be returned within 30 days from the date
+of delivery for a full refund. THE FOREGOING WARRANTY IS THE EXCLUSIVE WARRANTY MADE BY THE SELLER TO BUYER AND IS IN LIEU
+OF ALL OTHER WARRANTIES, EXPRESSED, IMPLIED, OR STATUTORY, INCLUDING ANY WARRANTY OF MERCHANTABILITY OR FITNESS
+FOR ANY PARTICULAR PURPOSE. EXCEPT TO THE EXTENT OF THIS INDEMNITY, NEITHER PARTY SHALL BE LIABLE TO THE OTHER FOR
+ANY INDIRECT, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES.
+The user assumes all responsibility and liability for proper and safe handling of the goods. Further, the user releases LTC from all claims
+arising from the handling or use of the goods. Due to the open construction of the product, it is the user’s responsibility to take any and all
+appropriate precautions with regard to electrostatic discharge. Also be aware that the products herein may not be regulatory compliant or
+agency certified (FCC, UL, CE, etc.).
+No License is granted under any patent right or other intellectual property whatsoever. LTC assumes no liability for applications assistance,
+customer product design, software performance, or infringement of patents or any other intellectual property rights of any kind.
+LTC currently services a variety of customers for products around the world, and therefore this transaction is not exclusive.
+Please read the DEMO BOARD manual prior to handling the product. Persons handling this product must have electronics training and
+observe good laboratory practice standards. Common sense is encouraged.
+This notice contains important safety information about temperatures and voltages. For further safety concerns, please contact a LTC applica-
+tion engineer.
+                                                                    Mailing Address:
+
+
+                                                                   Linear Technology
+                                                               1630 McCarthy Blvd.
+                                                                   Milpitas, CA 95035
+
+
+
+                                               Copyright © 2004, Linear Technology Corporation
+
+
+
+
+                                                                                                                                        dc1850aabf
+
+
+
+
+6          Linear Technology Corporation                                                                                  LT 1012 • PRINTED IN USA
+
+           1630 McCarthy Blvd., Milpitas, CA 95035-7417
+           (408) 432-1900 ● FAX: (408) 434-0507 ● www.linear.com                                            LINEAR TECHNOLOGY CORPORATION 2012
+

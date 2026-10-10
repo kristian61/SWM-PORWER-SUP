@@ -1,0 +1,18 @@
+{
+  "time_utc": "2026-10-10T06:22:12.025950+00:00",
+  "scope": "CAD consistency for experimental single-phase control; no hardware functionality or complete PSU",
+  "erc_violations": 0,
+  "drc_violations": 0,
+  "drc_types": {},
+  "drc_unconnected": 0,
+  "drc_parity": 0,
+  "logical_pin_agreement": "PASS",
+  "components": 86,
+  "connected_pins": 211,
+  "nets": 41,
+  "tracks": 2516,
+  "hardware_tests": "NOT PERFORMED",
+  "fabrication_release": false,
+  "stage": "Current routed native PCB validation",
+  "source_report": "exports/control/layout_validation.json"
+}

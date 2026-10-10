@@ -1,0 +1,5 @@
+(version 1)
+(rule "HV copper separation" (condition "A.NetClass == 'HV' || B.NetClass == 'HV'") (constraint clearance (min 3.0mm)))
+(rule "R42 intended 1206 terminal gap" (condition "A.intersectsCourtyard('R42') && B.intersectsCourtyard('R42') && ((A.NetName == 'VOUT_SENSE' && B.NetName == 'HV1') || (A.NetName == 'HV1' && B.NetName == 'VOUT_SENSE'))") (constraint clearance (min 1.5mm)))
+(rule "R43 intended 1206 terminal gap" (condition "A.intersectsCourtyard('R43') && B.intersectsCourtyard('R43') && ((A.NetName == 'HV1' && B.NetName == 'HV2') || (A.NetName == 'HV2' && B.NetName == 'HV1'))") (constraint clearance (min 1.5mm)))
+(rule "R44 intended 1206 terminal gap" (condition "A.intersectsCourtyard('R44') && B.intersectsCourtyard('R44') && ((A.NetName == 'HV2' && B.NetName == 'VMON') || (A.NetName == 'VMON' && B.NetName == 'HV2'))") (constraint clearance (min 1.5mm)))

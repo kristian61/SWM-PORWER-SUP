@@ -1,0 +1,535 @@
+{
+  "scope": "Independent per-phase servo proposal; assumed averaged plant only",
+  "hardware_tests": 0,
+  "LTC3779_device_model": false,
+  "integrated_four_phase_hardware_implemented": false,
+  "shared_ITH_connection": false,
+  "proposed_measurement": {
+    "IC": "AMC3302DWE",
+    "shunt_ohm": 0.002,
+    "gain_V_per_V": 41,
+    "nominal_output_differential_V_per_A": 0.082,
+    "linear_input_range_V": [
+      -0.05,
+      0.05
+    ],
+    "linear_current_range_A": [
+      -25,
+      25
+    ],
+    "bandwidth_min_Hz": 290000,
+    "offset_max_25C_V": 5e-05,
+    "offset_drift_max_V_per_C": 5e-07,
+    "gain_error_max_25C_fraction": 0.002,
+    "gain_drift_max_per_C": 3.5e-05,
+    "startup_settling_max_s": 0.0014
+  },
+  "PI_study_values": {
+    "input_R_ohm": 47000.0,
+    "series_R_ohm": 22000.0,
+    "series_C_F": 2.2e-08,
+    "measurement_P_V_per_V": 1.4680851063829787,
+    "command_P_V_per_V": 0.46808510638297873,
+    "integral_per_s": 967.1179883945841,
+    "measurement_filter_tau_s": 0.0001
+  },
+  "assumed_model_parameters": {
+    "switch_frequency_Hz": 101800.0,
+    "sample_delay_s": 4.911591355599214e-06,
+    "actuator_free_current_A": 15,
+    "actuator_gate_offset_V": 0.5,
+    "gate_limits_V": [
+      0,
+      5
+    ],
+    "native_average_limit_scenario_A": 13.26,
+    "output_C_F_assumption": 0.000384,
+    "global_ready_delay_s_assumption": 0.02,
+    "outer_CV_P_A_per_V": 0.4,
+    "outer_CV_I_A_per_V_s": 20,
+    "outer_CC_P_A_per_A": 0.1,
+    "outer_CC_I_per_s": 20,
+    "outer_backcalculation_per_s": 50,
+    "total_current_measurement_is_ideal": true,
+    "load_resistance_scenarios_ohm": [
+      2.5,
+      1
+    ]
+  },
+  "limitations": [
+    "Gate/ITH/current plant gain and poles are assumed, not LTC3779 specifications.",
+    "The 15A/.5V operating-point model and13.26A clamp are illustrative approximations.",
+    "Actual PWM, buck/boost transition, shared output parasitics and nonlinear MOSFET dynamics are absent.",
+    "Anti-windup, OFF tracking, reset/latch and signal gating require concrete hardware implementation.",
+    "Low-current and active0V function require another stage; this model switches high-current phasesOFF.",
+    "Output capacitor discharge after a load step is ideal and omits ESL; peak is not a physical prediction."
+  ],
+  "sources": [
+    {
+      "file": "references/AMC3302.pdf",
+      "sha256": "05b135fd3a272b6753d7a94f477a2fb377b013acad1c401db350ae603b3614c6"
+    },
+    {
+      "file": "references/CSD13381F4.pdf",
+      "sha256": "5fb60dce7844767dc43e4ada4e02bb0172c3f689ebbed5b785293b96a03eeecc"
+    },
+    {
+      "file": "references/LTC3779.pdf",
+      "sha256": "f3726b2ba54a88947f210ca819dd426d4cdc04159579e40e4b352893925e194f"
+    },
+    {
+      "file": "references/OPA192.pdf",
+      "sha256": "3c01472f1a6a157c7503f5a07083d19359bd7641bc0971f60aafd572141a87f0"
+    }
+  ],
+  "sensor_only_tolerance_scenarios": [
+    {
+      "total_command_A": 0.04,
+      "delta_T_from25C_C": 0,
+      "combined_sensor_gain_bound_fraction": 0.003,
+      "sensor_input_offset_equivalent_A": 0.025,
+      "phase_min_A_if_linear_bipolar_control": -0.014955134596211369,
+      "phase_max_A_if_linear_bipolar_control": 0.03510531594784353,
+      "excludes_diff_amp_reference_command_filter_errors": true
+    },
+    {
+      "total_command_A": 0.5,
+      "delta_T_from25C_C": 0,
+      "combined_sensor_gain_bound_fraction": 0.003,
+      "sensor_input_offset_equivalent_A": 0.025,
+      "phase_min_A_if_linear_bipolar_control": 0.09970089730807578,
+      "phase_max_A_if_linear_bipolar_control": 0.15045135406218654,
+      "excludes_diff_amp_reference_command_filter_errors": true
+    },
+    {
+      "total_command_A": 40,
+      "delta_T_from25C_C": 0,
+      "combined_sensor_gain_bound_fraction": 0.003,
+      "sensor_input_offset_equivalent_A": 0.025,
+      "phase_min_A_if_linear_bipolar_control": 9.945164506480559,
+      "phase_max_A_if_linear_bipolar_control": 10.055165496489469,
+      "excludes_diff_amp_reference_command_filter_errors": true
+    },
+    {
+      "total_command_A": 0.04,
+      "delta_T_from25C_C": 75,
+      "combined_sensor_gain_bound_fraction": 0.00675,
+      "sensor_input_offset_equivalent_A": 0.04375,
+      "phase_min_A_if_linear_bipolar_control": -0.03352371492426123,
+      "phase_max_A_if_linear_bipolar_control": 0.05411527812735968,
+      "excludes_diff_amp_reference_command_filter_errors": true
+    },
+    {
+      "total_command_A": 0.5,
+      "delta_T_from25C_C": 75,
+      "combined_sensor_gain_bound_fraction": 0.00675,
+      "sensor_input_offset_equivalent_A": 0.04375,
+      "phase_min_A_if_linear_bipolar_control": 0.08070523963248076,
+      "phase_max_A_if_linear_bipolar_control": 0.16989680342310598,
+      "excludes_diff_amp_reference_command_filter_errors": true
+    },
+    {
+      "total_command_A": 40,
+      "delta_T_from25C_C": 75,
+      "combined_sensor_gain_bound_fraction": 0.00675,
+      "sensor_input_offset_equivalent_A": 0.04375,
+      "phase_min_A_if_linear_bipolar_control": 9.889495902657066,
+      "phase_max_A_if_linear_bipolar_control": 10.112006040775233,
+      "excludes_diff_amp_reference_command_filter_errors": true
+    }
+  ],
+  "loop_sensitivity_scenarios": [
+    {
+      "gate_to_current_gain_A_per_V_assumption": 2.0,
+      "plant_tau_s_assumption": 0.0001,
+      "crossovers": [
+        {
+          "gain_crossover_Hz": 26.00085663164732,
+          "phase_margin_deg": 102.0100931315461,
+          "above_fs_div10": false
+        }
+      ]
+    },
+    {
+      "gate_to_current_gain_A_per_V_assumption": 2.0,
+      "plant_tau_s_assumption": 0.0004,
+      "crossovers": [
+        {
+          "gain_crossover_Hz": 25.94606201410948,
+          "phase_margin_deg": 99.18894530186986,
+          "above_fs_div10": false
+        }
+      ]
+    },
+    {
+      "gate_to_current_gain_A_per_V_assumption": 2.0,
+      "plant_tau_s_assumption": 0.001,
+      "crossovers": [
+        {
+          "gain_crossover_Hz": 25.65330046011485,
+          "phase_margin_deg": 93.62366159220265,
+          "above_fs_div10": false
+        }
+      ]
+    },
+    {
+      "gate_to_current_gain_A_per_V_assumption": 10.0,
+      "plant_tau_s_assumption": 0.0001,
+      "crossovers": [
+        {
+          "gain_crossover_Hz": 739.4625696781611,
+          "phase_margin_deg": 120.78171076351265,
+          "above_fs_div10": false
+        }
+      ]
+    },
+    {
+      "gate_to_current_gain_A_per_V_assumption": 10.0,
+      "plant_tau_s_assumption": 0.0004,
+      "crossovers": [
+        {
+          "gain_crossover_Hz": 300.36369536378766,
+          "phase_margin_deg": 112.49040001774996,
+          "above_fs_div10": false
+        }
+      ]
+    },
+    {
+      "gate_to_current_gain_A_per_V_assumption": 10.0,
+      "plant_tau_s_assumption": 0.001,
+      "crossovers": [
+        {
+          "gain_crossover_Hz": 161.95409607845448,
+          "phase_margin_deg": 95.48580346438487,
+          "above_fs_div10": false
+        }
+      ]
+    },
+    {
+      "gate_to_current_gain_A_per_V_assumption": 30.0,
+      "plant_tau_s_assumption": 0.0001,
+      "crossovers": [
+        {
+          "gain_crossover_Hz": 2573.4350806720013,
+          "phase_margin_deg": 56.58641951284396,
+          "above_fs_div10": false
+        }
+      ]
+    },
+    {
+      "gate_to_current_gain_A_per_V_assumption": 30.0,
+      "plant_tau_s_assumption": 0.0004,
+      "crossovers": [
+        {
+          "gain_crossover_Hz": 1113.6273354940338,
+          "phase_margin_deg": 67.33282162886076,
+          "above_fs_div10": false
+        }
+      ]
+    },
+    {
+      "gate_to_current_gain_A_per_V_assumption": 30.0,
+      "plant_tau_s_assumption": 0.001,
+      "crossovers": [
+        {
+          "gain_crossover_Hz": 532.2963438959696,
+          "phase_margin_deg": 76.06993323647038,
+          "above_fs_div10": false
+        }
+      ]
+    }
+  ],
+  "dynamic_scenarios": [
+    {
+      "case": "forty_amp",
+      "model_only": true,
+      "dt_s": 5e-06,
+      "gate_to_current_gain_A_per_V_assumption": [
+        8.0,
+        10.0,
+        12.0,
+        9.0
+      ],
+      "plant_time_constants_s_assumption": [
+        0.0004,
+        0.0005,
+        0.0003,
+        0.0006
+      ],
+      "sensor_gain_factors_assumption": [
+        1.003,
+        0.997,
+        1.002,
+        0.998
+      ],
+      "sensor_output_offsets_V_assumption": [
+        0.002,
+        -0.002,
+        0.001,
+        -0.001
+      ],
+      "max_phase_current_A": [
+        9.945772438781141,
+        10.054553905619075,
+        9.967869139769025,
+        10.032259641233463
+      ],
+      "max_total_phase_current_A": 40.0004551254027,
+      "final_phase_currents_A": [
+        9.945772438781141,
+        10.054553905619075,
+        9.967869139769025,
+        10.032259641233463
+      ],
+      "final_output_V": 0.0,
+      "fault_latched_in_model": false,
+      "anti_windup_and_OFF_tracking_are_assumed_implemented": true,
+      "initial_full_clamp_tracking_is_assumed_implemented": true,
+      "model_gate_max_V": 5.0
+    },
+    {
+      "case": "system_fault",
+      "model_only": true,
+      "dt_s": 5e-06,
+      "gate_to_current_gain_A_per_V_assumption": [
+        8.0,
+        10.0,
+        12.0,
+        9.0
+      ],
+      "plant_time_constants_s_assumption": [
+        0.0004,
+        0.0005,
+        0.0003,
+        0.0006
+      ],
+      "sensor_gain_factors_assumption": [
+        1.003,
+        0.997,
+        1.002,
+        0.998
+      ],
+      "sensor_output_offsets_V_assumption": [
+        0.002,
+        -0.002,
+        0.001,
+        -0.001
+      ],
+      "max_phase_current_A": [
+        9.94576925783927,
+        10.054551919485295,
+        9.967867541929825,
+        10.032257373724015
+      ],
+      "max_total_phase_current_A": 40.00044609297841,
+      "final_phase_currents_A": [
+        1.93e-322,
+        2.4e-322,
+        1.43e-322,
+        1.798817631955604e-290
+      ],
+      "final_output_V": 7.305877676632352e-180,
+      "fault_latched_in_model": true,
+      "anti_windup_and_OFF_tracking_are_assumed_implemented": true,
+      "initial_full_clamp_tracking_is_assumed_implemented": true,
+      "model_gate_max_V": 5.0,
+      "CV_before_load_step": {
+        "mean_voltage_V": 99.98130909741066,
+        "mean_DUT_current_A": 39.992523638964265,
+        "mean_phase_currents_A": [
+          9.943820509347926,
+          10.052601750718017,
+          9.96593448842645,
+          10.030304392669645
+        ]
+      },
+      "CC_1ohm": {
+        "mean_voltage_V": 39.999077604549505,
+        "mean_DUT_current_A": 39.999077604549505,
+        "mean_phase_currents_A": [
+          9.945429606862517,
+          10.054210431975717,
+          9.967528338152395,
+          10.031915888512769
+        ]
+      },
+      "CV_recovered": {
+        "mean_voltage_V": 100.00000031309091,
+        "mean_DUT_current_A": 40.00000012523636,
+        "mean_phase_currents_A": [
+          9.945659029141698,
+          10.054439813209166,
+          9.967755616506357,
+          10.032145663259465
+        ]
+      }
+    },
+    {
+      "case": "controlled_three",
+      "model_only": true,
+      "dt_s": 5e-06,
+      "gate_to_current_gain_A_per_V_assumption": [
+        8.0,
+        10.0,
+        12.0,
+        9.0
+      ],
+      "plant_time_constants_s_assumption": [
+        0.0004,
+        0.0005,
+        0.0003,
+        0.0006
+      ],
+      "sensor_gain_factors_assumption": [
+        1.003,
+        0.997,
+        1.002,
+        0.998
+      ],
+      "sensor_output_offsets_V_assumption": [
+        0.002,
+        -0.002,
+        0.001,
+        -0.001
+      ],
+      "max_phase_current_A": [
+        9.945772438781141,
+        10.054553905619075,
+        9.967869139769025,
+        10.026505046465852
+      ],
+      "max_total_phase_current_A": 39.97751761481962,
+      "final_phase_currents_A": [
+        9.945772438781141,
+        10.054553905619075,
+        9.967869139769025,
+        2.9e-322
+      ],
+      "final_output_V": 74.92048871042174,
+      "fault_latched_in_model": false,
+      "anti_windup_and_OFF_tracking_are_assumed_implemented": true,
+      "initial_full_clamp_tracking_is_assumed_implemented": true,
+      "model_gate_max_V": 5.0
+    },
+    {
+      "case": "low_load",
+      "model_only": true,
+      "dt_s": 5e-06,
+      "gate_to_current_gain_A_per_V_assumption": [
+        8.0,
+        10.0,
+        12.0,
+        9.0
+      ],
+      "plant_time_constants_s_assumption": [
+        0.0004,
+        0.0005,
+        0.0003,
+        0.0006
+      ],
+      "sensor_gain_factors_assumption": [
+        1.003,
+        0.997,
+        1.002,
+        0.998
+      ],
+      "sensor_output_offsets_V_assumption": [
+        0.002,
+        -0.002,
+        0.001,
+        -0.001
+      ],
+      "max_phase_current_A": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_total_phase_current_A": 0.0,
+      "final_phase_currents_A": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "final_output_V": 0.0,
+      "fault_latched_in_model": false,
+      "anti_windup_and_OFF_tracking_are_assumed_implemented": true,
+      "initial_full_clamp_tracking_is_assumed_implemented": true,
+      "model_gate_max_V": 5.0
+    },
+    {
+      "case": "clamp_authority",
+      "model_only": true,
+      "dt_s": 5e-06,
+      "gate_to_current_gain_A_per_V_assumption": [
+        2.0,
+        2.0,
+        2.0,
+        2.0
+      ],
+      "plant_time_constants_s_assumption": [
+        0.0004,
+        0.0005,
+        0.0003,
+        0.0006
+      ],
+      "sensor_gain_factors_assumption": [
+        1.003,
+        0.997,
+        1.002,
+        0.998
+      ],
+      "sensor_output_offsets_V_assumption": [
+        0.002,
+        -0.002,
+        0.001,
+        -0.001
+      ],
+      "max_phase_current_A": [
+        9.945772438781141,
+        10.054553905619214,
+        9.967869139769164,
+        10.032259641233605
+      ],
+      "max_total_phase_current_A": 40.00045512540312,
+      "final_phase_currents_A": [
+        9.945772438781141,
+        10.054553905619214,
+        9.967869139769164,
+        10.032259641233605
+      ],
+      "final_output_V": 0.0,
+      "fault_latched_in_model": false,
+      "anti_windup_and_OFF_tracking_are_assumed_implemented": true,
+      "initial_full_clamp_tracking_is_assumed_implemented": true,
+      "model_gate_max_V": 5.0
+    }
+  ],
+  "low_load_policy": {
+    "high_current_stages_OFF_below_total_command_A": 0.5,
+    "phase_shedding_not_claimed_to_provide_precision_mA": true,
+    "unexpected_phase_fault_action": "latched allOFF; no automatic reallocation",
+    "controlled_three_phase_capacity_A": 30
+  },
+  "clamp_authority_counterexample": {
+    "assumed_free_current_A": 15,
+    "assumed_gate_offset_V": 0.5,
+    "assumed_gate_to_current_gain_A_per_V": 2,
+    "maximum_gate_V": 5,
+    "lowest_controllable_current_with_RUN_enabled_A": 6,
+    "actual_LTC3779_value": false,
+    "requires_RUN_shutdown_for_lower_current_in_this_scenario": true
+  },
+  "checks": {
+    "passed": [
+      "sensor scale and full-scale conversion",
+      "allocator capacity and negative-command clamps",
+      "nonnegative phase currents",
+      "modeled native current ceiling",
+      "phase sums",
+      "latched allOFF after unexpected fault"
+    ],
+    "hardware_tests": 0
+  }
+}

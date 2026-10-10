@@ -1,0 +1,43 @@
+{
+  "time_utc": "2026-10-10T06:50:22.264032+00:00",
+  "checks": [
+    {
+      "project": "Målekort",
+      "inventory": "PASS",
+      "schematic_components": 29,
+      "offboard_requirements": 1,
+      "PCB_pin_net_comparison": "PASS",
+      "logical_pads": 52,
+      "physical_numbered_pads": 52,
+      "track_objects": 60
+    },
+    {
+      "project": "Effektfase",
+      "inventory": "PASS",
+      "schematic_components": 75,
+      "offboard_requirements": 0,
+      "PCB_pin_net_comparison": "PASS",
+      "logical_pads": 175,
+      "physical_numbered_pads": 191,
+      "track_objects": 1662
+    },
+    {
+      "project": "Netdel",
+      "inventory": "PASS",
+      "schematic_components": 14,
+      "offboard_requirements": 0,
+      "PCB": "not applicable; offboard chassis wiring only"
+    },
+    {
+      "project": "Styrekort",
+      "inventory": "PASS",
+      "schematic_components": 86,
+      "offboard_requirements": 1,
+      "PCB_pin_net_comparison": "PASS",
+      "logical_pads": 211,
+      "physical_numbered_pads": 211,
+      "track_objects": 2516
+    }
+  ],
+  "scope": "inventory/logical pin consistency only; see each DRC and hardware status"
+}

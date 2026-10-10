@@ -1,0 +1,19 @@
+{
+    "$schema": "https://schemas.kicad.org/erc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-10-10T06:21:35+0000",
+    "kicad_version": "9.0.2",
+    "sheets": [
+        {
+            "path": "/",
+            "uuid_path": "/22b8f1f0-55ef-44bf-9eb1-ca8700da5e99",
+            "violations": []
+        },
+        {
+            "path": "/Fault guard and output monitor/",
+            "uuid_path": "/22b8f1f0-55ef-44bf-9eb1-ca8700da5e99/45fdc5ef-abe5-49de-b8d0-7b2946c27faa",
+            "violations": []
+        }
+    ],
+    "source": "control.kicad_sch"
+}

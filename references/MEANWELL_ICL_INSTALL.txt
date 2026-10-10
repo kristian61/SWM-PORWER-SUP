@@ -1,0 +1,258 @@
+                                            Installation Manual
+ Type：ICL AC inrush current limiter（Series：ICL-16R, ICL-16L ,ICL-28R, ICL-28L）
+        ICL-16R     INPUT: 180-264VAC      50/60Hz   AC CURRENT: 16A (Continuous)
+        ICL-16L     INPUT: 180-264VAC      50/60Hz   AC CURRENT: 16A (Continuous)
+        ICL-28R     INPUT: 180-264VAC      50/60Hz   AC CURRENT: 28A (Continuous)
+        ICL-28L     INPUT: 180-264VAC      50/60Hz   AC CURRENT: 28A (Continuous)
+
+ Introduction
+   The ICL-R/L is an AC inrush current limiter that can be used to reduce the high starting current due to capacitive load
+   causing the circuit breaker to be false triggered. Several power supplies can be installed on the same AC line after the
+   implementation of an ICL-R/L.
+
+ Installation
+   ICL-R：
+   （1）Always allow good ventilation clearances, 5mm left and right, 40mm above and 20mm below, around the unit
+         in use to prevent it from overheating. Also a 10-15 cm clearance must be kept when the adjacent device is a
+         heat source.
+   （2）The appropriate mounting orientation for the unit is vertical, the input terminals at the bottom and output on
+         the top. Mounting orientations other than that, such as upside down, horizontal, or table-top mounting, is not
+         allowed.
+
+
+
+
+   （3）Use copper wire only, and recommended wires are shown as below.
+                       AWG                      18          16           14         12           10
+          Rated Current of Equipment
+                                                 7          10           15         25           32
+                      (Amp)
+                                     2
+          Cross-section of Lead(mm )           0.8          1.3         2.1         2.5           4
+         Note：Current each wire carries should be de-rated to 80% of the current suggested above
+                  when using 4-6 wires connected to the unit.
+      Make sure that all strands of each stranded wire enter the terminal connection and the screw terminals are
+      securely fixed to prevent poor contact. If the power supply possesses multi-output terminals, please make sure
+      each contact is connected to wires to prevent too much current stress on a single contact.
+   （4）Use wires that can withstand temperatures of at least 80°C, such as UL1007.
+   （5）Recommended wire strapping length is 6mm (0.236”).
+   （6）Recommended screwdriver is 3mm, slotted type.
+   （7）The recommended torque setting for terminals is shown as below.
+               Model                   I/P                       O/P
+              ICL-16R         6.9 kgf‐cm (6 Lb‐in)       6.9 kgf‐cm (6 Lb‐in)
+              ICL-28R        5.1kgf‐cm (4.43 Lb‐in)     5.1kgf‐cm (4.43 Lb‐in)
+                                       Installation Manual
+（8）Mounting Instruction：
+   Mount as shown in figure only, with input terminals down, or else sufficient cooling will not be possible.
+   Admissible DIN rail：TS35/7.5 or TS35/15
+   For rail fastening：
+
+      （a）Tilt the unit slightly rearwards.
+      （b）Fit the unit over top hat rail.
+      （c）Slide it downward until it hits the stop.
+      （d）Press against the bottom for locking.
+      （e）Shake the unit slightly to check the locking action.
+                                       2
+              1
+
+
+
+
+              3                            4
+
+
+
+
+                                                             "Click"
+
+
+
+
+（9）For other information about the products, please refer to www.meanwell.com for details.
+
+ICL-L：
+（1）Before any installation or maintenance work, please disconnect your system from the utility.
+    Ensure that it can’t be re-connected inadvertently!
+（2）Ventilation holes must be kept free from any obstructions. Also a 10-15 cm clearance must be kept when the
+    adjacent device is a heat source.
+（3）The recommended torque setting for terminals is shown as below.
+             Model                     I/P                     O/P
+            ICL-16L           5.7 kgf‐cm (5 Lb‐in)     5.7 kgf‐cm (5 Lb‐in)
+            ICL-28L           5.7 kgf‐cm (5 Lb‐in)     5.7 kgf‐cm (5 Lb‐in)
+（4）Use copper wire only, and recommended wires are shown as below.
+                     AWG                      18          16           14        12           10
+        Rated Current of Equipment
+                                               7          10           15        25           32
+                    (Amp)
+                                    2
+        Cross-section of Lead(mm )            0.8         1.3         2.1        2.5           4
+       Note：Current each wire carries should be de-rated to 80% of the current suggested above
+                when using 4-6 wires connected to the unit.
+   Make sure that all strands of each stranded wire enter the terminal connection and the screw terminals are
+   securely fixed to prevent poor contact. If the power supply possesses multi-output terminals, please make sure
+   each contact is connected to wires to prevent too much current stress on a single contact.
+（5）For other information about the products, please refer to www.meanwell.com for details.
+                                          Installation Manual
+ Warning / Caution !!
+   “CAUTION：FOR USE IN A CONTROLLED ENVIRONMENT. REFER TO MANUAL FOR ENVIRONMENTAL CONDITION”
+                ATTENTION: A UTILISER DANS UN ENVIRONNEMENT CONTROLE. REFEREZ VOUS AU MANUEL POUR LES
+                CONDITIONS D’ENVIRONNEMENT.
+   （1）Risk of electrical shock and energy hazard. All failure should be examined by a qualified technician. Please do
+        not remove the case of the power supply by yourself!
+   （2）Risk of electric arcs and electric shock (danger to life). Connecting both the primary and the secondary sides
+        together is not allowed.
+   （3）Risk of burn hazard. Do not touch the unit in operation and shortly after disconnection!
+   （4）Risk of fire and short circuit. The openings should be protected from foreign objects or dripping liquids.
+   （5）Only install the unit in a pollution degree 2 environment (Note.1).
+   （6）Please do not install the unit in places with high moisture or near the water.
+   （7）The maximum operating temperature is 70°C for the ICL-16R/16L and 60°C for the ICL-28R/28L, please do not
+        install the unit in places with high ambient temperature or near fire source.
+   （8）Disconnect system from supply voltage:
+        Before commencing any installation, maintenance or modification work: Disconnect your system from supply
+        voltage. Make sure that inadvertent connection in circuit will be impossible!
+
+     Note.1: Pollution Degree 2 applies where there is only non-conductive pollution that might temporarily become
+            conductive due to occasional condensation. Generally refer to dry, well-ventilated locations, such as
+            control cabinets.
+
+ Application Diagram
+   （1）ICL for Single phase application
+    ICL-R：
+
+
+
+
+     ICL-L：
+                                               Installation Manual
+    （2）ICL for Three phase application
+       The power grid with the neutral line:
+
+
+
+
+         The power grid without the neutral line: It should be noted that the voltage between each live wire must not exceed
+         264VAC.
+
+
+
+
+   Application Manual
+    The maximum capacitive load and maximum possible rated current limit the number of power supplies that can be
+    connected. Often, it is the rated currents that represent the decisive factor, because the inrush current limiters can
+    handle capacitive loads as high as 2500uF/6000uF.
+    The input capacity of the power supplies is largely determined by primary-side storage capacitors. With MEANWELL,
+    these capacitors are marked with the position code C5, and their capacitance can be found in the test report on the
+    MEANWELL's website.
+    Regarding the q’ty of PSU can be connected behind ICL-16/28R, you could quickly make an rough evaluation by
+    following process below.
+Installation Manual
+                                          Installation Manual
+
+
+
+
+     For other model, you can use the same method to calculate it.
+
+
+Manufacturer：
+MEAN WELL ENTERPRISES Co., LTD.
+No.28, Wuquan 3rd Rd., Wugu Dist.,
+New Taipei City 24891, Taiwan
+Tel: +886-2-2299-6100
+Web: www.meanwell.com
+
+Branch Office：
+ China                                  China
+ MEAN WELL (GUANGZHOU)                  SUZHOU MEAN WELL
+ ENTERPRISES Co., LTD.                  TECHNOLOGY Co., LTD.
+ No.11, Jingu South Road, Huadong       No.269 Changping Rd. , Huangdai
+ Town, Huadu Distric, Guangzhou,        Town, Xiangcheng District
+ Gungzhou, China                        Suzhou, Jiangsu Province, China
+ Tel: +86-20-3773-7100                  Post Code: 215152
+ Web: www.meanwell.com.cn               Tel: +86-512-6508-8600
+                                        Web: www.meanwell.cc
+
+ U.S.A.                                  Europe
+ MEAN WELL USA, INC.                     MEAN WELL EUROPE B.V.
+ 44030 Fremont Blvd., Fremont,           Langs de Werf 8, 1185XT Amstelveen, The
+ CA 94538, U.S.A.                        Netherlands
+ Tel: +1-510-683-8886                    Tel: +31-20-758-6000
+ Web: www.meanwellusa.com                Web: www.meanwell.eu
+                                                                                   2026.01.12
+                                            Declaration of China RoHS Conformity
+
+In order to reduce the impacts on the environment and take the more responsibility for protecting the earth, MEAN WELL is
+confirming and announcing the conformity to China RoHS, an Administrative Measures for the Restriction of the Use of
+Hazardous Substances in Electrical and Electronic Products.
+
+
+Environment Friendly Use Period Label
+
+                          Observing SJT 11364-2024, Marking for the Restricted Use of Hazardous
+                          Substances in Electronic and Electrical Products
+
+                          Observing SJ/Z 11388-2009, General Guidelines of Environment-friendly
+                          Use Period of Electronic Information Products Appendix B, adopting
+                          table look-up to verify the Environment Friendly Use Period
+
+
+Names and Contents of Hazardous Substances Lists
+
+                                                                    Hazardous Substances
+                 Lead    Mercury   Cadmium    Hexavalent   Polybrominated   Polybrominated    Bis(2-ethylhexyl)   Dibutyl     Dibutyl     Diisobutyl
+  Part Name
+                                              chromium       biphenyls      diphenyl ethers       phthalate       phthalate   phthalate   phthalate
+
+                 (Pb)     (Hg)       (Cd)       (Cr6+)         (PBB)           (PBDEs)             (DEHP)         (DBP)        (DBP)       (DIBP)
+
+  PCB and its
+                  X        O          O          O              O                 O                  O              O            O           O
+  components
+  Metal
+  structure       X        O          O          O              O                 O                  O              O            O           O
+  parts
+  Plastic
+  structure       O        O          O          O              O                 O                  O              O            O           O
+  parts
+  Accessories     O        O          O          O              O                 O                  O              O            O           O
+  Cables          X        O          O          O              O                 O                  O              O            O           O
+  O: The concentration of the hazardous substances within the homogeneous material of that product is less than the concentration limits set
+    by GB/T 26572-2011.
+  X: The concentration of the hazardous substances within the homogeneous material of that product is over the concentration limits set by
+    GB/T 26572-2011; however, it follows the standard advised by 2011/65/EU.
+          Declaration of China VOC Conformity
+In order to reduce the impacts on the environment and take the more responsibility
+for protecting the earth, MEAN WELL is confirming and announcing the conformity to
+China’s Standardization Administration Releases VOC Standards
+
+
+
+Standard No.      Name of the Standard
+
+GB 30981-2020     Limit of harmful substances of industrial protective coatings
+
+GB 33372-2020     Limits for volatile organic compounds content in adhesive
+
+GB 38507-2020     Limits for volatile organic compounds (VOCs) In printing ink
+
+GB 38508-2020     Limits for volatile organic compounds content in cleaning agents
+       Declaration of Five PBT TSCA Conformity
+In order to reduce the impacts on the environment and take the more responsibility
+for protecting the earth, MEAN WELL hereby confirms that MEAN WELL product
+series comply with Use and Risk Management for Five PBT Chemicals under TSCA
+section 6(h)
+
+
+
+CAS No.            Substance Name
+
+1163-19-5          Decabromodiphenyl ether (DecaBDE)
+                   Phenol, isopropylated, phosphate (3:1)
+68937-41-7
+                   PIP (3:1)
+732-26-3           2,4,6-Tris (tert-butyl) phenol (2,4,6-TTBP)
+
+133-49-3           Pentachlorothiophenol (PCTP)
+
+87-68-3            Hexachlorobutadiene (HCBD)
+

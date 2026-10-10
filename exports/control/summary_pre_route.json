@@ -1,0 +1,17 @@
+{
+  "time_utc": "2026-10-09T22:47:27.089252+00:00",
+  "scope": "Experimental single-phase control;notfull0..100V40Asupply",
+  "erc_violations": 0,
+  "drc_violations": 0,
+  "drc_types": {},
+  "drc_unconnected": 170,
+  "drc_parity": 0,
+  "logical_pin_agreement": "PASS",
+  "components": 86,
+  "connected_pins": 211,
+  "nets": 41,
+  "tracks": 0,
+  "hardware_tests": "NOT PERFORMED",
+  "fabrication_release": false,
+  "stage": "Generator placement before routing; historical, not current PCB"
+}

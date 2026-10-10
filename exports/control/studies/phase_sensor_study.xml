@@ -1,0 +1,1182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="E">
+  <design>
+    <source>/workspace/SWM-PORWER-SUP/design/control/studies/phase_sensor_study.kicad_sch</source>
+    <date>2026-10-10T06:45:02+0000</date>
+    <tool>Eeschema 9.0.2+dfsg-1</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title>STUDY ONLY: ONE PHASE SENSOR / ITH SINK</title>
+        <company/>
+        <rev/>
+        <date/>
+        <source>phase_sensor_study.kicad_sch</source>
+        <comment number="1" value="No PCB; no integrated four-phase hardware"/>
+        <comment number="2" value="Independent ITH / SS / V5 required for each phase"/>
+        <comment number="3" value="Anti-windup, RUN guard and fault latch missing"/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="C1">
+      <value>100nF 50V</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <datasheet>https://www.ti.com/lit/ds/symlink/amc3302.pdf</datasheet>
+      <description>AMC3302-afkobling efter originalt TI-datablad figur 9-1; endeligt capacitor-MPN og effektiv kapacitet mangler.</description>
+      <fields>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
+        <field name="Datasheet">https://www.ti.com/lit/ds/symlink/amc3302.pdf</field>
+        <field name="Description">AMC3302-afkobling efter originalt TI-datablad figur 9-1; endeligt capacitor-MPN og effektiv kapacitet mangler.</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="design/control/studies/phase_sensor_study.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>4297b1dc-05ac-47e6-9c1b-0be1da528794</tstamps>
+    </comp>
+    <comp ref="C2">
+      <value>1uF 25V</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <datasheet>https://www.ti.com/lit/ds/symlink/amc3302.pdf</datasheet>
+      <description>AMC3302-afkobling efter originalt TI-datablad figur 9-1; endeligt capacitor-MPN og effektiv kapacitet mangler.</description>
+      <fields>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
+        <field name="Datasheet">https://www.ti.com/lit/ds/symlink/amc3302.pdf</field>
+        <field name="Description">AMC3302-afkobling efter originalt TI-datablad figur 9-1; endeligt capacitor-MPN og effektiv kapacitet mangler.</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="design/control/studies/phase_sensor_study.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>c730eb9d-a85d-4959-982c-4e005633b63b</tstamps>
+    </comp>
+    <comp ref="C3">
+      <value>1nF 50V</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <datasheet>https://www.ti.com/lit/ds/symlink/amc3302.pdf</datasheet>
+      <description>AMC3302-afkobling efter originalt TI-datablad figur 9-1; endeligt capacitor-MPN og effektiv kapacitet mangler.</description>
+      <fields>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
+        <field name="Datasheet">https://www.ti.com/lit/ds/symlink/amc3302.pdf</field>
+        <field name="Description">AMC3302-afkobling efter originalt TI-datablad figur 9-1; endeligt capacitor-MPN og effektiv kapacitet mangler.</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="design/control/studies/phase_sensor_study.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>019b5a9b-1928-4c40-9919-3db86cee17b9</tstamps>
+    </comp>
+    <comp ref="C4">
+      <value>100nF 50V</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <datasheet>https://www.ti.com/lit/ds/symlink/amc3302.pdf</datasheet>
+      <description>AMC3302-afkobling efter originalt TI-datablad figur 9-1; endeligt capacitor-MPN og effektiv kapacitet mangler.</description>
+      <fields>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
+        <field name="Datasheet">https://www.ti.com/lit/ds/symlink/amc3302.pdf</field>
+        <field name="Description">AMC3302-afkobling efter originalt TI-datablad figur 9-1; endeligt capacitor-MPN og effektiv kapacitet mangler.</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="design/control/studies/phase_sensor_study.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>8e811771-ef9b-4c97-9c26-a013b90e6b6d</tstamps>
+    </comp>
+    <comp ref="C5">
+      <value>100nF 50V</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <datasheet>https://www.ti.com/lit/ds/symlink/amc3302.pdf</datasheet>
+      <description>AMC3302-afkobling efter originalt TI-datablad figur 9-1; endeligt capacitor-MPN og effektiv kapacitet mangler.</description>
+      <fields>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
+        <field name="Datasheet">https://www.ti.com/lit/ds/symlink/amc3302.pdf</field>
+        <field name="Description">AMC3302-afkobling efter originalt TI-datablad figur 9-1; endeligt capacitor-MPN og effektiv kapacitet mangler.</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="design/control/studies/phase_sensor_study.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>6f4a1564-8b78-465b-a0eb-147ff915604a</tstamps>
+    </comp>
+    <comp ref="C6">
+      <value>1nF 50V</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <datasheet>https://www.ti.com/lit/ds/symlink/amc3302.pdf</datasheet>
+      <description>AMC3302-afkobling efter originalt TI-datablad figur 9-1; endeligt capacitor-MPN og effektiv kapacitet mangler.</description>
+      <fields>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
+        <field name="Datasheet">https://www.ti.com/lit/ds/symlink/amc3302.pdf</field>
+        <field name="Description">AMC3302-afkobling efter originalt TI-datablad figur 9-1; endeligt capacitor-MPN og effektiv kapacitet mangler.</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="design/control/studies/phase_sensor_study.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>38c383a9-4ceb-4ebf-ae0b-4a92576ba163</tstamps>
+    </comp>
+    <comp ref="C7">
+      <value>1uF 25V</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <datasheet>https://www.ti.com/lit/ds/symlink/amc3302.pdf</datasheet>
+      <description>AMC3302-afkobling efter originalt TI-datablad figur 9-1; endeligt capacitor-MPN og effektiv kapacitet mangler.</description>
+      <fields>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
+        <field name="Datasheet">https://www.ti.com/lit/ds/symlink/amc3302.pdf</field>
+        <field name="Description">AMC3302-afkobling efter originalt TI-datablad figur 9-1; endeligt capacitor-MPN og effektiv kapacitet mangler.</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="design/control/studies/phase_sensor_study.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>82c24d2f-73a7-452d-9015-66ddb4da35f7</tstamps>
+    </comp>
+    <comp ref="C8">
+      <value>1nF 50V</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <datasheet>https://www.ti.com/lit/ds/symlink/amc3302.pdf</datasheet>
+      <description>AMC3302-afkobling efter originalt TI-datablad figur 9-1; endeligt capacitor-MPN og effektiv kapacitet mangler.</description>
+      <fields>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
+        <field name="Datasheet">https://www.ti.com/lit/ds/symlink/amc3302.pdf</field>
+        <field name="Description">AMC3302-afkobling efter originalt TI-datablad figur 9-1; endeligt capacitor-MPN og effektiv kapacitet mangler.</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="design/control/studies/phase_sensor_study.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>4b440f72-c748-41fb-95f6-c5376e866dc6</tstamps>
+    </comp>
+    <comp ref="C9">
+      <value>10nF 50V C0G</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <datasheet>https://www.ti.com/lit/ds/symlink/amc3302.pdf</datasheet>
+      <description>10 nF differentialt inputfilter med R1/R2; omtrent 796 kHz ideal pol.</description>
+      <fields>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
+        <field name="Datasheet">https://www.ti.com/lit/ds/symlink/amc3302.pdf</field>
+        <field name="Description">10 nF differentialt inputfilter med R1/R2; omtrent 796 kHz ideal pol.</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="design/control/studies/phase_sensor_study.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>f848a389-646a-444d-8418-8eb9a1e0f2d7</tstamps>
+    </comp>
+    <comp ref="C10">
+      <value>100nF 50V</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <description>100 nF outputfilter med R9; dæmper switchripple, omtrent 1,59 kHz pol.</description>
+      <fields>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">100 nF outputfilter med R9; dæmper switchripple, omtrent 1,59 kHz pol.</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="design/control/studies/phase_sensor_study.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>02b562d7-608b-4b0b-af03-3ae5c11675aa</tstamps>
+    </comp>
+    <comp ref="C11">
+      <value>22nF 50V C0G</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <description>22 nF PI-integrator. Anti-windup og OFF-tracking/reset er endnu ikke implementeret.</description>
+      <fields>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">22 nF PI-integrator. Anti-windup og OFF-tracking/reset er endnu ikke implementeret.</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="design/control/studies/phase_sensor_study.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>c1256646-133a-4425-97af-e2cda4ca3ae1</tstamps>
+    </comp>
+    <comp ref="C12">
+      <value>100nF 50V</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <description>100 nF lokal OPA4192-forsyningsafkobling.</description>
+      <fields>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">100 nF lokal OPA4192-forsyningsafkobling.</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="design/control/studies/phase_sensor_study.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>3da7c96b-d50c-4a6c-95ed-2afdfa83cdb1</tstamps>
+    </comp>
+    <comp ref="J1">
+      <value>PHASE OUTPUT / COMMON OUTPUT</value>
+      <description>Power-/shuntgrænseflade til én fases outputgren og fælles VOUT. Endeligt stik eller busbar med mindst 25 A og 200 V rating mangler.</description>
+      <fields>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">Power-/shuntgrænseflade til én fases outputgren og fælles VOUT. Endeligt stik eller busbar med mindst 25 A og 200 V rating mangler.</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x02" description="Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="design/control/studies/phase_sensor_study.kicad_sch"/>
+      <property name="exclude_from_board"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_1x??_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>971d249a-268b-48dc-a4a3-42bd44f85cfb</tstamps>
+    </comp>
+    <comp ref="J2">
+      <value>AUX5 / PGND / REF1V25 / ICMD</value>
+      <footprint>Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical</footprint>
+      <description>Eksternt kvalificeret AUX5, PGND, 1,25 V reference og individuel strømkommando. PGND tilhører flydende sekundærside.</description>
+      <fields>
+        <field name="Footprint">Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical</field>
+        <field name="Datasheet"/>
+        <field name="Description">Eksternt kvalificeret AUX5, PGND, 1,25 V reference og individuel strømkommando. PGND tilhører flydende sekundærside.</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x04" description="Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="design/control/studies/phase_sensor_study.kicad_sch"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_1x??_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>8c214c0c-d923-4e49-8543-c31e7316d663</tstamps>
+    </comp>
+    <comp ref="J3">
+      <value>ITH / RUN / DIAG / PGND</value>
+      <footprint>Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical</footprint>
+      <description>Kun denne fases ITH, RUN, DIAG og PGND. RUN-guard og fejllåsning er ikke tegnet; ITH må aldrig deles med andre faser.</description>
+      <fields>
+        <field name="Footprint">Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical</field>
+        <field name="Datasheet"/>
+        <field name="Description">Kun denne fases ITH, RUN, DIAG og PGND. RUN-guard og fejllåsning er ikke tegnet; ITH må aldrig deles med andre faser.</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x04" description="Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="design/control/studies/phase_sensor_study.kicad_sch"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_1x??_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>c5bfa0ba-1579-4fc4-8fdb-96a87e27d40d</tstamps>
+    </comp>
+    <comp ref="Q1">
+      <value>CSD13381F4 / LANDPATTERN TBD</value>
+      <datasheet>https://www.ti.com/lit/ds/symlink/csd13381f4.pdf</datasheet>
+      <description>Lokal 12 V N-MOSFET-kandidat til ITH-sink. Gate tåler højst 8 V. Fysisk G1/S2/D3-mapping er afledt af TI-views og kræver uafhængigt review; landpattern mangler.</description>
+      <fields>
+        <field name="Footprint"/>
+        <field name="Datasheet">https://www.ti.com/lit/ds/symlink/csd13381f4.pdf</field>
+        <field name="Description">Lokal 12 V N-MOSFET-kandidat til ITH-sink. Gate tåler højst 8 V. Fysisk G1/S2/D3-mapping er afledt af TI-views og kræver uafhængigt review; landpattern mangler.</field>
+      </fields>
+      <libsource lib="Transistor_FET" part="2N7002" description="0.115A Id, 60V Vds, N-Channel MOSFET, SOT-23"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="design/control/studies/phase_sensor_study.kicad_sch"/>
+      <property name="ki_keywords" value="N-Channel Switching MOSFET"/>
+      <property name="ki_fp_filters" value="SOT?23*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>9b3129aa-fe99-4758-898a-f4bb315915e9</tstamps>
+    </comp>
+    <comp ref="R1">
+      <value>10 0.1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <description>Matchet 10 Ω filter i positiv Kelvin-sensevej.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">Matchet 10 Ω filter i positiv Kelvin-sensevej.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="design/control/studies/phase_sensor_study.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>28c504ed-1163-40ce-92ad-50484cd34e23</tstamps>
+    </comp>
+    <comp ref="R2">
+      <value>10 0.1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <description>Matchet 10 Ω filter i negativ Kelvin-sensevej; HGND har separat retur til shunten.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">Matchet 10 Ω filter i negativ Kelvin-sensevej; HGND har separat retur til shunten.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="design/control/studies/phase_sensor_study.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>831dff23-5c4f-40b2-938b-4285ff7affad</tstamps>
+    </comp>
+    <comp ref="R3">
+      <value>0 / EMI FB TBD</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <description>Separat HGND-Kelvinlink; 0 Ω i studiet. Eventuel EMI-ferrit og dens DC-modstand skal verificeres.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">Separat HGND-Kelvinlink; 0 Ω i studiet. Eventuel EMI-ferrit og dens DC-modstand skal verificeres.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="design/control/studies/phase_sensor_study.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>972a15e4-730b-473b-b8cf-e9aa15760e54</tstamps>
+    </comp>
+    <comp ref="R4">
+      <value>47k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <description>47 kΩ pull-up for AMC3302s aktive-lave DIAG; ekstern latched fault-overvågning kræves.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">47 kΩ pull-up for AMC3302s aktive-lave DIAG; ekstern latched fault-overvågning kræves.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="design/control/studies/phase_sensor_study.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>8fc74520-b1b4-4057-82f8-e96173f160f9</tstamps>
+    </comp>
+    <comp ref="R5">
+      <value>10k 0.01% ratio</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <description>10 kΩ i differensforstærkerens positive input; matchet ratio-netværk med R6-R8 kræves.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">10 kΩ i differensforstærkerens positive input; matchet ratio-netværk med R6-R8 kræves.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="design/control/studies/phase_sensor_study.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>59f60a40-8257-4e39-89b5-5839d2459e02</tstamps>
+    </comp>
+    <comp ref="R6">
+      <value>10k 0.01% ratio</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <description>10 kΩ fra bufferet 1,25 V reference til positivt input.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">10 kΩ fra bufferet 1,25 V reference til positivt input.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="design/control/studies/phase_sensor_study.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>f02d33ec-4ba8-4a70-8338-371e22dd86b4</tstamps>
+    </comp>
+    <comp ref="R7">
+      <value>10k 0.01% ratio</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <description>10 kΩ fra OUTN til inverterende differensinput.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">10 kΩ fra OUTN til inverterende differensinput.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="design/control/studies/phase_sensor_study.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>115f9609-dd49-4622-8acc-9464d685fcc2</tstamps>
+    </comp>
+    <comp ref="R8">
+      <value>10k 0.01% ratio</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <description>10 kΩ differensfeedback; giver VMON_RAW = OUTP - OUTN + 1,25 V ved ideelle ratioer.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">10 kΩ differensfeedback; giver VMON_RAW = OUTP - OUTN + 1,25 V ved ideelle ratioer.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="design/control/studies/phase_sensor_study.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>427d5839-1499-485b-9c92-79bd8c5ff7fe</tstamps>
+    </comp>
+    <comp ref="R9">
+      <value>1k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <description>1 kΩ til strøm-feedbackfilter; C10 giver omtrent 1,59 kHz pol.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">1 kΩ til strøm-feedbackfilter; C10 giver omtrent 1,59 kHz pol.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="design/control/studies/phase_sensor_study.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>8855c48a-da52-42a1-9b97-53a80b21d20e</tstamps>
+    </comp>
+    <comp ref="R10">
+      <value>47k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <description>47 kΩ fra lokal ICMD til PI-input; ICMD = 1,25 + 0,082 × ønsket fasestrøm i A.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">47 kΩ fra lokal ICMD til PI-input; ICMD = 1,25 + 0,082 × ønsket fasestrøm i A.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="design/control/studies/phase_sensor_study.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>1bb3fdbc-ba0c-4e02-ad10-101ca6c4b0a0</tstamps>
+    </comp>
+    <comp ref="R11">
+      <value>22k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <description>22 kΩ seriegren i lokal PI; startværdi til studie.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">22 kΩ seriegren i lokal PI; startværdi til studie.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="design/control/studies/phase_sensor_study.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>db915fca-fd11-4773-a613-16568041f7d5</tstamps>
+    </comp>
+    <comp ref="R12">
+      <value>100</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <description>100 Ω serie på NMOS-gate; gateforløb og opampstabilitet skal verificeres.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">100 Ω serie på NMOS-gate; gateforløb og opampstabilitet skal verificeres.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="design/control/studies/phase_sensor_study.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>74b1deba-13c9-4332-8d33-80d1bc6e2777</tstamps>
+    </comp>
+    <comp ref="R13">
+      <value>100k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <description>100 kΩ gate-pulldown; gate er lav uden AUX5. RUN skal uafhængigt være slukket.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">100 kΩ gate-pulldown; gate er lav uden AUX5. RUN skal uafhængigt være slukket.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="design/control/studies/phase_sensor_study.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>f9b72df6-4d9f-49bf-9071-961e749dc97f</tstamps>
+    </comp>
+    <comp ref="R14">
+      <value>470</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <description>470 Ω mellem lokal ITH og NMOS-drain. Kan kun trække ITH ned; faktisk clampmyndighed er ukendt.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">470 Ω mellem lokal ITH og NMOS-drain. Kan kun trække ITH ned; faktisk clampmyndighed er ukendt.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="design/control/studies/phase_sensor_study.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>88aca58f-be1b-4384-b5d2-ca469121b0e5</tstamps>
+    </comp>
+    <comp ref="R15">
+      <value>100k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <description>100 kΩ ICMD-pulldown ved åben kommando. Kommando-guard skal samtidig holde RUN lav.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">100 kΩ ICMD-pulldown ved åben kommando. Kommando-guard skal samtidig holde RUN lav.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="design/control/studies/phase_sensor_study.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>be486f15-f438-4cdb-9fd3-b10b9f832f6f</tstamps>
+    </comp>
+    <comp ref="R16">
+      <value>10k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <description>10 kΩ lokal RUN-pulldown; controllerens 2,5 µA giver omtrent 25 mV før hysterese.</description>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description">10 kΩ lokal RUN-pulldown; controllerens 2,5 µA giver omtrent 25 mV før hysterese.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="design/control/studies/phase_sensor_study.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>52a6c031-c945-4ff5-b9e4-87b468718e53</tstamps>
+    </comp>
+    <comp ref="SH1">
+      <value>2m 0.1% / &gt;=3W / 4-terminal</value>
+      <description>Ekstern 2 mΩ fireterminal-shunt pr. fase, 0,1 %, mindst 3 W, mindst 25 A, højst 15 ppm/°C og mindst 200 V arbejdsrating som krav. MPN og Kelvin-montage mangler.</description>
+      <fields>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">Ekstern 2 mΩ fireterminal-shunt pr. fase, 0,1 %, mindst 3 W, mindst 25 A, højst 15 ppm/°C og mindst 200 V arbejdsrating som krav. MPN og Kelvin-montage mangler.</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="design/control/studies/phase_sensor_study.kicad_sch"/>
+      <property name="exclude_from_board"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>c751e1c5-b296-40b1-91f0-744b49f26d31</tstamps>
+    </comp>
+    <comp ref="TP1">
+      <value>PHASE_OUT</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <description>Studietestpunkt for PHASE_OUT. HV/HGND kræver passende differentialmåling; der findes intet studie-PCB.</description>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description">Studietestpunkt for PHASE_OUT. HV/HGND kræver passende differentialmåling; der findes intet studie-PCB.</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="design/control/studies/phase_sensor_study.kicad_sch"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>5ec0ee90-9ddf-42d8-bf9d-9d2a4960888d</tstamps>
+    </comp>
+    <comp ref="TP2">
+      <value>VOUT_COMMON</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <description>Studietestpunkt for VOUT_COMMON. HV/HGND kræver passende differentialmåling; der findes intet studie-PCB.</description>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description">Studietestpunkt for VOUT_COMMON. HV/HGND kræver passende differentialmåling; der findes intet studie-PCB.</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="design/control/studies/phase_sensor_study.kicad_sch"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>428ad508-cc12-475c-8163-175bf0b14f97</tstamps>
+    </comp>
+    <comp ref="TP3">
+      <value>HGND</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <description>Studietestpunkt for HGND. HV/HGND kræver passende differentialmåling; der findes intet studie-PCB.</description>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description">Studietestpunkt for HGND. HV/HGND kræver passende differentialmåling; der findes intet studie-PCB.</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="design/control/studies/phase_sensor_study.kicad_sch"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b489bb1a-e697-40dd-b503-a45ac9fa52c0</tstamps>
+    </comp>
+    <comp ref="TP4">
+      <value>AUX5</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <description>Studietestpunkt for AUX5. HV/HGND kræver passende differentialmåling; der findes intet studie-PCB.</description>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description">Studietestpunkt for AUX5. HV/HGND kræver passende differentialmåling; der findes intet studie-PCB.</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="design/control/studies/phase_sensor_study.kicad_sch"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>2e1fc067-c064-4dcd-9617-e8501cacae28</tstamps>
+    </comp>
+    <comp ref="TP5">
+      <value>DIAG</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <description>Studietestpunkt for DIAG. HV/HGND kræver passende differentialmåling; der findes intet studie-PCB.</description>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description">Studietestpunkt for DIAG. HV/HGND kræver passende differentialmåling; der findes intet studie-PCB.</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="design/control/studies/phase_sensor_study.kicad_sch"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>bcb08013-542e-4e01-9d49-0d02a556d90d</tstamps>
+    </comp>
+    <comp ref="TP6">
+      <value>OUTP</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <description>Studietestpunkt for OUTP. HV/HGND kræver passende differentialmåling; der findes intet studie-PCB.</description>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description">Studietestpunkt for OUTP. HV/HGND kræver passende differentialmåling; der findes intet studie-PCB.</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="design/control/studies/phase_sensor_study.kicad_sch"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>bdbb45e8-5705-4300-afd9-fb5a7be21248</tstamps>
+    </comp>
+    <comp ref="TP7">
+      <value>OUTN</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <description>Studietestpunkt for OUTN. HV/HGND kræver passende differentialmåling; der findes intet studie-PCB.</description>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description">Studietestpunkt for OUTN. HV/HGND kræver passende differentialmåling; der findes intet studie-PCB.</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="design/control/studies/phase_sensor_study.kicad_sch"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>aac480d0-ac02-4200-9e85-18f6953e1685</tstamps>
+    </comp>
+    <comp ref="TP8">
+      <value>VMON</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <description>Studietestpunkt for VMON. HV/HGND kræver passende differentialmåling; der findes intet studie-PCB.</description>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description">Studietestpunkt for VMON. HV/HGND kræver passende differentialmåling; der findes intet studie-PCB.</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="design/control/studies/phase_sensor_study.kicad_sch"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>cfba564f-11a1-402a-b374-348636e0c0b5</tstamps>
+    </comp>
+    <comp ref="TP9">
+      <value>ICMD</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <description>Studietestpunkt for ICMD. HV/HGND kræver passende differentialmåling; der findes intet studie-PCB.</description>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description">Studietestpunkt for ICMD. HV/HGND kræver passende differentialmåling; der findes intet studie-PCB.</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="design/control/studies/phase_sensor_study.kicad_sch"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>6a998b8b-911c-420f-bada-60d39183ca42</tstamps>
+    </comp>
+    <comp ref="TP10">
+      <value>PI_DRIVE</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <description>Studietestpunkt for PI_DRIVE. HV/HGND kræver passende differentialmåling; der findes intet studie-PCB.</description>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description">Studietestpunkt for PI_DRIVE. HV/HGND kræver passende differentialmåling; der findes intet studie-PCB.</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="design/control/studies/phase_sensor_study.kicad_sch"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>f4890785-e010-44b6-8a0b-1ba1e3e27b06</tstamps>
+    </comp>
+    <comp ref="TP11">
+      <value>ITH_LOCAL</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <description>Studietestpunkt for ITH_LOCAL. HV/HGND kræver passende differentialmåling; der findes intet studie-PCB.</description>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description">Studietestpunkt for ITH_LOCAL. HV/HGND kræver passende differentialmåling; der findes intet studie-PCB.</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="design/control/studies/phase_sensor_study.kicad_sch"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>6a3857ca-6619-4427-b6f5-bb7c958e8094</tstamps>
+    </comp>
+    <comp ref="TP12">
+      <value>RUN_LOCAL</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <description>Studietestpunkt for RUN_LOCAL. HV/HGND kræver passende differentialmåling; der findes intet studie-PCB.</description>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description">Studietestpunkt for RUN_LOCAL. HV/HGND kræver passende differentialmåling; der findes intet studie-PCB.</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="design/control/studies/phase_sensor_study.kicad_sch"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>e1672fcd-a85a-476f-a2cc-9c0a9d3d3a40</tstamps>
+    </comp>
+    <comp ref="U1">
+      <value>AMC3302DWE</value>
+      <footprint>Package_SO:SOIC-16W_7.5x10.3mm_P1.27mm</footprint>
+      <datasheet>https://www.ti.com/lit/ds/symlink/amc3302.pdf</datasheet>
+      <description>Isoleret phasesensor med intern DC/DC. HGND følger den fælles positive udgang; PGND er den flydende sekundærretur. Originalt TI-pinout verificeret.</description>
+      <fields>
+        <field name="Footprint">Package_SO:SOIC-16W_7.5x10.3mm_P1.27mm</field>
+        <field name="Datasheet">https://www.ti.com/lit/ds/symlink/amc3302.pdf</field>
+        <field name="Description">Isoleret phasesensor med intern DC/DC. HGND følger den fælles positive udgang; PGND er den flydende sekundærretur. Originalt TI-pinout verificeret.</field>
+      </fields>
+      <libsource lib="PhaseBalanceStudy" part="AMC3302DWE" description=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="design/control/studies/phase_sensor_study.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>d566a0c5-1979-488b-b2b7-eb5ac2edce0d</tstamps>
+    </comp>
+    <comp ref="U2">
+      <value>OPA4192PW</value>
+      <footprint>Package_SO:TSSOP-14_4.4x5mm_P0.65mm</footprint>
+      <datasheet>https://www.ti.com/lit/ds/symlink/opa192.pdf</datasheet>
+      <description>OPA4192: A konverterer OUTP-OUTN til 1,25 V offset; B regulerer lokal strøm via PI og NMOS; C buffer referencen; D er ubrugt follower. PI-stabilitet er uverificeret.</description>
+      <fields>
+        <field name="Footprint">Package_SO:TSSOP-14_4.4x5mm_P0.65mm</field>
+        <field name="Datasheet">https://www.ti.com/lit/ds/symlink/opa192.pdf</field>
+        <field name="Description">OPA4192: A konverterer OUTP-OUTN til 1,25 V offset; B regulerer lokal strøm via PI og NMOS; C buffer referencen; D er ubrugt follower. PI-stabilitet er uverificeret.</field>
+      </fields>
+      <libsource lib="PhaseBalanceStudy" part="OPA4192" description="Low-Power, Quad-Operational Amplifiers, DIP-14/SOIC-14/SSOP-14"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="design/control/studies/phase_sensor_study.kicad_sch"/>
+      <property name="ki_keywords" value="quad opamp"/>
+      <property name="ki_fp_filters" value="SOIC*3.9x8.7mm*P1.27mm* DIP*W7.62mm* TSSOP*4.4x5mm*P0.65mm* SSOP*5.3x6.2mm*P0.65mm* MSOP*3x3mm*P0.5mm*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>9288d8d4-89b5-4d8e-a4f3-ff68a90b2e91 2b80b31e-e6e7-43f0-ae06-ca3bb132a957 4e69dd0e-1f12-4b63-ad42-c2b3fd986edf c9d50aec-1926-41c1-a0ab-7e6ee66f2142 223468e2-506c-4fce-a93a-c579b97c7c24</tstamps>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="Connector" part="TestPoint">
+      <description>test point</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Pin*</fp>
+        <fp>Test*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">TP</field>
+        <field name="Value">TestPoint</field>
+        <field name="Footprint"/>
+        <field name="Datasheet">~</field>
+        <field name="Description">test point</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Connector_Generic" part="Conn_01x02">
+      <description>Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Connector*:*_1x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_01x02</field>
+        <field name="Footprint"/>
+        <field name="Datasheet">~</field>
+        <field name="Description">Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Connector_Generic" part="Conn_01x04">
+      <description>Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Connector*:*_1x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_01x04</field>
+        <field name="Footprint"/>
+        <field name="Datasheet">~</field>
+        <field name="Description">Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+        <pin num="3" name="Pin_3" type="passive"/>
+        <pin num="4" name="Pin_4" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="C">
+      <description>Unpolarized capacitor</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>C_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">C</field>
+        <field name="Footprint"/>
+        <field name="Datasheet">~</field>
+        <field name="Description">Unpolarized capacitor</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="R">
+      <description>Resistor</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>R_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">R</field>
+        <field name="Footprint"/>
+        <field name="Datasheet">~</field>
+        <field name="Description">Resistor</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="PhaseBalanceStudy" part="AMC3302DWE">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">AMC3302DWE</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="DCDC_OUT" type="power_out"/>
+        <pin num="2" name="DCDC_HGND" type="power_in"/>
+        <pin num="3" name="HLDO_IN" type="power_in"/>
+        <pin num="4" name="NC" type="passive"/>
+        <pin num="5" name="HLDO_OUT" type="power_out"/>
+        <pin num="6" name="INP" type="input"/>
+        <pin num="7" name="INN" type="input"/>
+        <pin num="8" name="HGND" type="power_in"/>
+        <pin num="9" name="GND" type="power_in"/>
+        <pin num="10" name="OUTN" type="output"/>
+        <pin num="11" name="OUTP" type="output"/>
+        <pin num="12" name="VDD" type="power_in"/>
+        <pin num="13" name="LDO_OUT" type="power_out"/>
+        <pin num="14" name="DIAG" type="open_collector"/>
+        <pin num="15" name="DCDC_GND" type="power_in"/>
+        <pin num="16" name="DCDC_IN" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib="PhaseBalanceStudy" part="OPA4192">
+      <description>Low-Power, Quad-Operational Amplifiers, DIP-14/SOIC-14/SSOP-14</description>
+      <docs>http://www.ti.com/lit/ds/symlink/lm2902-n.pdf</docs>
+      <footprints>
+        <fp>SOIC*3.9x8.7mm*P1.27mm*</fp>
+        <fp>DIP*W7.62mm*</fp>
+        <fp>TSSOP*4.4x5mm*P0.65mm*</fp>
+        <fp>SSOP*5.3x6.2mm*P0.65mm*</fp>
+        <fp>MSOP*3x3mm*P0.5mm*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">OPA4192</field>
+        <field name="Footprint"/>
+        <field name="Datasheet">http://www.ti.com/lit/ds/symlink/lm2902-n.pdf</field>
+        <field name="Description">Low-Power, Quad-Operational Amplifiers, DIP-14/SOIC-14/SSOP-14</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="output"/>
+        <pin num="2" name="-" type="input"/>
+        <pin num="3" name="+" type="input"/>
+        <pin num="4" name="V+" type="power_in"/>
+        <pin num="5" name="+" type="input"/>
+        <pin num="6" name="-" type="input"/>
+        <pin num="7" name="" type="output"/>
+        <pin num="8" name="" type="output"/>
+        <pin num="9" name="-" type="input"/>
+        <pin num="10" name="+" type="input"/>
+        <pin num="11" name="V-" type="power_in"/>
+        <pin num="12" name="+" type="input"/>
+        <pin num="13" name="-" type="input"/>
+        <pin num="14" name="" type="output"/>
+      </pins>
+    </libpart>
+    <libpart lib="Transistor_FET" part="2N7002">
+      <description>0.115A Id, 60V Vds, N-Channel MOSFET, SOT-23</description>
+      <docs>https://www.onsemi.com/pub/Collateral/NDS7002A-D.PDF</docs>
+      <footprints>
+        <fp>SOT?23*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">Q</field>
+        <field name="Value">2N7002</field>
+        <field name="Footprint">Package_TO_SOT_SMD:SOT-23</field>
+        <field name="Datasheet">https://www.onsemi.com/pub/Collateral/NDS7002A-D.PDF</field>
+        <field name="Description">0.115A Id, 60V Vds, N-Channel MOSFET, SOT-23</field>
+      </fields>
+      <pins>
+        <pin num="1" name="G" type="input"/>
+        <pin num="2" name="S" type="passive"/>
+        <pin num="3" name="D" type="passive"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries/>
+  <nets>
+    <net code="1" name="AUX5" class="Default">
+      <node ref="C12" pin="1" pintype="passive"/>
+      <node ref="C7" pin="1" pintype="passive"/>
+      <node ref="C8" pin="1" pintype="passive"/>
+      <node ref="J2" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="R4" pin="1" pintype="passive"/>
+      <node ref="TP4" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U1" pin="12" pinfunction="VDD" pintype="power_in"/>
+      <node ref="U2" pin="4" pinfunction="V+" pintype="power_in"/>
+    </net>
+    <net code="2" name="CLAMP_DRAIN" class="Default">
+      <node ref="Q1" pin="3" pinfunction="D" pintype="passive"/>
+      <node ref="R14" pin="2" pintype="passive"/>
+    </net>
+    <net code="3" name="CLAMP_GATE" class="Default">
+      <node ref="Q1" pin="1" pinfunction="G" pintype="input"/>
+      <node ref="R12" pin="2" pintype="passive"/>
+      <node ref="R13" pin="1" pintype="passive"/>
+    </net>
+    <net code="4" name="DIAG" class="Default">
+      <node ref="J3" pin="3" pinfunction="Pin_3" pintype="passive"/>
+      <node ref="R4" pin="2" pintype="passive"/>
+      <node ref="TP5" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U1" pin="14" pinfunction="DIAG" pintype="open_collector"/>
+    </net>
+    <net code="5" name="DIFF_NEG" class="Default">
+      <node ref="R7" pin="2" pintype="passive"/>
+      <node ref="R8" pin="2" pintype="passive"/>
+      <node ref="U2" pin="2" pinfunction="-" pintype="input"/>
+    </net>
+    <net code="6" name="DIFF_POS" class="Default">
+      <node ref="R5" pin="2" pintype="passive"/>
+      <node ref="R6" pin="2" pintype="passive"/>
+      <node ref="U2" pin="3" pinfunction="+" pintype="input"/>
+    </net>
+    <net code="7" name="HGND" class="Default">
+      <node ref="C1" pin="2" pintype="passive"/>
+      <node ref="C2" pin="2" pintype="passive"/>
+      <node ref="C3" pin="2" pintype="passive"/>
+      <node ref="C5" pin="2" pintype="passive"/>
+      <node ref="C6" pin="2" pintype="passive"/>
+      <node ref="R3" pin="2" pintype="passive"/>
+      <node ref="TP3" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U1" pin="2" pinfunction="DCDC_HGND" pintype="power_in"/>
+      <node ref="U1" pin="4" pinfunction="NC" pintype="passive"/>
+      <node ref="U1" pin="8" pinfunction="HGND" pintype="power_in"/>
+    </net>
+    <net code="8" name="ICMD" class="Default">
+      <node ref="J2" pin="4" pinfunction="Pin_4" pintype="passive"/>
+      <node ref="R10" pin="1" pintype="passive"/>
+      <node ref="R15" pin="1" pintype="passive"/>
+      <node ref="TP9" pin="1" pinfunction="1" pintype="passive"/>
+    </net>
+    <net code="9" name="INN" class="Default">
+      <node ref="C9" pin="2" pintype="passive"/>
+      <node ref="R2" pin="2" pintype="passive"/>
+      <node ref="U1" pin="7" pinfunction="INN" pintype="input"/>
+    </net>
+    <net code="10" name="INP" class="Default">
+      <node ref="C9" pin="1" pintype="passive"/>
+      <node ref="R1" pin="2" pintype="passive"/>
+      <node ref="U1" pin="6" pinfunction="INP" pintype="input"/>
+    </net>
+    <net code="11" name="ISO_DC" class="Default">
+      <node ref="C1" pin="1" pintype="passive"/>
+      <node ref="C2" pin="1" pintype="passive"/>
+      <node ref="C3" pin="1" pintype="passive"/>
+      <node ref="U1" pin="1" pinfunction="DCDC_OUT" pintype="power_out"/>
+      <node ref="U1" pin="3" pinfunction="HLDO_IN" pintype="power_in"/>
+    </net>
+    <net code="12" name="ISO_LDO" class="Default">
+      <node ref="C5" pin="1" pintype="passive"/>
+      <node ref="C6" pin="1" pintype="passive"/>
+      <node ref="U1" pin="5" pinfunction="HLDO_OUT" pintype="power_out"/>
+    </net>
+    <net code="13" name="ITH_LOCAL" class="Default">
+      <node ref="J3" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="R14" pin="1" pintype="passive"/>
+      <node ref="TP11" pin="1" pinfunction="1" pintype="passive"/>
+    </net>
+    <net code="14" name="LV_DC" class="Default">
+      <node ref="C4" pin="1" pintype="passive"/>
+      <node ref="U1" pin="13" pinfunction="LDO_OUT" pintype="power_out"/>
+      <node ref="U1" pin="16" pinfunction="DCDC_IN" pintype="power_in"/>
+    </net>
+    <net code="15" name="OUTN" class="Default">
+      <node ref="R7" pin="1" pintype="passive"/>
+      <node ref="TP7" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U1" pin="10" pinfunction="OUTN" pintype="output"/>
+    </net>
+    <net code="16" name="OUTP" class="Default">
+      <node ref="R5" pin="1" pintype="passive"/>
+      <node ref="TP6" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U1" pin="11" pinfunction="OUTP" pintype="output"/>
+    </net>
+    <net code="17" name="PGND" class="Default">
+      <node ref="C10" pin="2" pintype="passive"/>
+      <node ref="C12" pin="2" pintype="passive"/>
+      <node ref="C4" pin="2" pintype="passive"/>
+      <node ref="C7" pin="2" pintype="passive"/>
+      <node ref="C8" pin="2" pintype="passive"/>
+      <node ref="J2" pin="2" pinfunction="Pin_2" pintype="passive"/>
+      <node ref="J3" pin="4" pinfunction="Pin_4" pintype="passive"/>
+      <node ref="Q1" pin="2" pinfunction="S" pintype="passive"/>
+      <node ref="R13" pin="2" pintype="passive"/>
+      <node ref="R15" pin="2" pintype="passive"/>
+      <node ref="R16" pin="2" pintype="passive"/>
+      <node ref="U1" pin="15" pinfunction="DCDC_GND" pintype="power_in"/>
+      <node ref="U1" pin="9" pinfunction="GND" pintype="power_in"/>
+      <node ref="U2" pin="11" pinfunction="V-" pintype="power_in"/>
+      <node ref="U2" pin="12" pinfunction="+" pintype="input"/>
+    </net>
+    <net code="18" name="PHASE_OUT" class="Default">
+      <node ref="J1" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="R1" pin="1" pintype="passive"/>
+      <node ref="SH1" pin="1" pintype="passive"/>
+      <node ref="TP1" pin="1" pinfunction="1" pintype="passive"/>
+    </net>
+    <net code="19" name="PI_CAP" class="Default">
+      <node ref="C11" pin="1" pintype="passive"/>
+      <node ref="R11" pin="2" pintype="passive"/>
+    </net>
+    <net code="20" name="PI_DRIVE" class="Default">
+      <node ref="R11" pin="1" pintype="passive"/>
+      <node ref="R12" pin="1" pintype="passive"/>
+      <node ref="TP10" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U2" pin="7" pintype="output"/>
+    </net>
+    <net code="21" name="PI_NEG" class="Default">
+      <node ref="C11" pin="2" pintype="passive"/>
+      <node ref="R10" pin="2" pintype="passive"/>
+      <node ref="U2" pin="6" pinfunction="-" pintype="input"/>
+    </net>
+    <net code="22" name="RUN_LOCAL" class="Default">
+      <node ref="J3" pin="2" pinfunction="Pin_2" pintype="passive"/>
+      <node ref="R16" pin="1" pintype="passive"/>
+      <node ref="TP12" pin="1" pinfunction="1" pintype="passive"/>
+    </net>
+    <net code="23" name="SPARE" class="Default">
+      <node ref="U2" pin="13" pinfunction="-" pintype="input"/>
+      <node ref="U2" pin="14" pintype="output"/>
+    </net>
+    <net code="24" name="VMON" class="Default">
+      <node ref="C10" pin="1" pintype="passive"/>
+      <node ref="R9" pin="2" pintype="passive"/>
+      <node ref="TP8" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U2" pin="5" pinfunction="+" pintype="input"/>
+    </net>
+    <net code="25" name="VMON_RAW" class="Default">
+      <node ref="R8" pin="1" pintype="passive"/>
+      <node ref="R9" pin="1" pintype="passive"/>
+      <node ref="U2" pin="1" pintype="output"/>
+    </net>
+    <net code="26" name="VOUT_COMMON" class="Default">
+      <node ref="J1" pin="2" pinfunction="Pin_2" pintype="passive"/>
+      <node ref="R2" pin="1" pintype="passive"/>
+      <node ref="R3" pin="1" pintype="passive"/>
+      <node ref="SH1" pin="2" pintype="passive"/>
+      <node ref="TP2" pin="1" pinfunction="1" pintype="passive"/>
+    </net>
+    <net code="27" name="VREF" class="Default">
+      <node ref="R6" pin="1" pintype="passive"/>
+      <node ref="U2" pin="8" pintype="output"/>
+      <node ref="U2" pin="9" pinfunction="-" pintype="input"/>
+    </net>
+    <net code="28" name="VREF_IN" class="Default">
+      <node ref="J2" pin="3" pinfunction="Pin_3" pintype="passive"/>
+      <node ref="U2" pin="10" pinfunction="+" pintype="input"/>
+    </net>
+  </nets>
+</export>

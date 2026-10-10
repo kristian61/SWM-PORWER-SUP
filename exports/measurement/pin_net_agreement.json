@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "components": 29,
+  "nets": 15,
+  "pins": 52,
+  "root_uuid": "0783751a-3331-4a9a-b58d-eb5b2553e729",
+  "schematic_xml": "measurement.xml",
+  "note": "Logical pin mapping agreement; electricalperformance not validated"
+}

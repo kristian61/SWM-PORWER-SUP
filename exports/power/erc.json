@@ -1,0 +1,19 @@
+{
+    "$schema": "https://schemas.kicad.org/erc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-10-10T06:46:52+0000",
+    "kicad_version": "9.0.2",
+    "sheets": [
+        {
+            "path": "/",
+            "uuid_path": "/231291f7-d8b3-49b1-9d6f-1dfc0d8b6eec",
+            "violations": []
+        },
+        {
+            "path": "/Controller and sensing/",
+            "uuid_path": "/231291f7-d8b3-49b1-9d6f-1dfc0d8b6eec/057b26b2-3ed1-42ef-b681-40201458ad2f",
+            "violations": []
+        }
+    ],
+    "source": "power_phase.kicad_sch"
+}

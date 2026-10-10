@@ -1,0 +1,252 @@
+{
+  "time_utc": "2026-10-10T06:53:26.172079+00:00",
+  "status": "INCOMPLETE DESIGN DRAFT; NOT A COMPLETE 0-100 V / 40 A PSU",
+  "requirements": {
+    "input_VAC": 230,
+    "input_circuit_A": 32,
+    "voltage_range_V": [
+      0,
+      100
+    ],
+    "current_range_A": [
+      0,
+      40
+    ],
+    "continuous_output_W": 4000,
+    "isolated_floating_output": true
+  },
+  "projects": [
+    {
+      "name": "Målekort",
+      "erc_report": "exports/verification/erc.json",
+      "erc_findings": 0,
+      "hardware_tests_performed": false,
+      "fabrication_released": false,
+      "drc_report": "exports/verification/drc.json",
+      "geometry_findings": 0,
+      "missing_connections": 0,
+      "schematic_parity_findings": 0,
+      "cad_pass": true,
+      "source_sha256": {
+        "design/measurement/fp-lib-table": "35f7927c8d3c22595455224963c68f848a7fe7df3d447d2da03aad4710ca72fe",
+        "design/measurement/measurement.kicad_dru": "0076ab71cca07043f198723340edc12fb87d261a695c2971a0b6a37463ae8f90",
+        "design/measurement/measurement.kicad_pcb": "46713b54b04609abe1a326f40a94e17fa489d208d9f3cfba002e9028031ebf70",
+        "design/measurement/measurement.kicad_pro": "895d2a92451d9fdadf786175167341deac225edf1078e872278e289a421b06c1",
+        "design/measurement/measurement.kicad_sch": "65b0bad43569a18f94d38e01bd88fd4f562fcbc089b6cd97955a4a2c4934e76e",
+        "design/measurement/sym-lib-table": "a80ba69a615a25677ca3e9070a383c2b776e794929829491a0abd355c441e8c6"
+      },
+      "inventory_report": "exports/verification/inventory.json",
+      "inventory": {
+        "project": "Målekort",
+        "inventory": "PASS",
+        "schematic_components": 29,
+        "offboard_requirements": 1,
+        "PCB_pin_net_comparison": "PASS",
+        "logical_pads": 52,
+        "physical_numbered_pads": 52,
+        "track_objects": 60
+      }
+    },
+    {
+      "name": "Effektfase",
+      "erc_report": "exports/power/erc.json",
+      "erc_findings": 0,
+      "hardware_tests_performed": false,
+      "fabrication_released": false,
+      "drc_report": "exports/power/drc.json",
+      "geometry_findings": 0,
+      "missing_connections": 0,
+      "schematic_parity_findings": 0,
+      "cad_pass": true,
+      "source_sha256": {
+        "design/power/PowerPhase.kicad_sym": "d0d1f3307216d9a0609921e22f563d4b27da5015b5f68ea681ace8de62bb498e",
+        "design/power/PowerPhase.pretty/LTC3779_FE38_31_EP.kicad_mod": "85d19ce8e866f11f7d360df83b4f81787c65a324e8ab3e2758f46caee7702fa6",
+        "design/power/control.kicad_sch": "f89e413f49318a0d564edda0ee8de5be025ed7dcfdf46019978fdf835fc1ca0e",
+        "design/power/fp-lib-table": "b23d3ceda62919dc4c0cfacfd8459f597b83cc0f5a3942f2f01c0963710ecd81",
+        "design/power/power_phase.kicad_dru": "a2e5c2ae3051fb64f9b8007d0beb286641f095a530d0a1f52c94b587e23f94f3",
+        "design/power/power_phase.kicad_pcb": "c5d31c5a7548d6c99ff0cc91551d68afe9a5ac6ff7d355384abc6721fb22e30a",
+        "design/power/power_phase.kicad_pro": "9f114c19c3929c1f2da0af1b8051beecfb6b0d07c52eef891b388098184e60d7",
+        "design/power/power_phase.kicad_sch": "b6a9f91e0322e54f4f1a554ac3778db213960289cbb02df19e8718d9bf10e9c6",
+        "design/power/sym-lib-table": "4996f9fe4fbda4fbd20d227a4f0a6c425d14d65e16096b8d814d031be5a38ddc"
+      },
+      "inventory_report": "exports/verification/inventory.json",
+      "inventory": {
+        "project": "Effektfase",
+        "inventory": "PASS",
+        "schematic_components": 75,
+        "offboard_requirements": 0,
+        "PCB_pin_net_comparison": "PASS",
+        "logical_pads": 175,
+        "physical_numbered_pads": 191,
+        "track_objects": 1662
+      }
+    },
+    {
+      "name": "Netdel",
+      "erc_report": "exports/frontend/erc.json",
+      "erc_findings": 0,
+      "hardware_tests_performed": false,
+      "fabrication_released": false,
+      "pcb": "not applicable; chassis wiring only",
+      "cad_pass": true,
+      "source_sha256": {
+        "design/frontend/Frontend.kicad_sym": "ec2cb274008e5139058a83c22ab5e4baf84c515ef3281777838adbf044cb4b48",
+        "design/frontend/control.kicad_sch": "db88ed2354178980111505826e294997fbdc9e8f75467b4db223db8181c4a774",
+        "design/frontend/frontend.kicad_pro": "153ffb76972d56d8f58308c88665a0ae07bf0b6712d16b2fa940611957cb0940",
+        "design/frontend/frontend.kicad_sch": "3e89ca5312b3f667faedaa55162bb307ac7112df1e54b0c82d62204102ab92db",
+        "design/frontend/sym-lib-table": "e05da2c35b867d1951049e4e4d64e9aa917ea73ad47199da952edc06e5d0df72"
+      },
+      "inventory_report": "exports/verification/inventory.json",
+      "inventory": {
+        "project": "Netdel",
+        "inventory": "PASS",
+        "schematic_components": 14,
+        "offboard_requirements": 0,
+        "PCB": "not applicable; offboard chassis wiring only"
+      }
+    },
+    {
+      "name": "Styrekort",
+      "erc_report": "exports/control/erc_routed.json",
+      "erc_findings": 0,
+      "hardware_tests_performed": false,
+      "fabrication_released": false,
+      "drc_report": "exports/control/drc_routed.json",
+      "geometry_findings": 0,
+      "missing_connections": 0,
+      "schematic_parity_findings": 0,
+      "cad_pass": true,
+      "source_sha256": {
+        "design/control/PSUControl.kicad_sym": "0b16486fe53d7828f4ee65e0aeb69f016c5547748174c8630f3fef4aed8b4364",
+        "design/control/control.kicad_dru": "9f2255a53f8d77fef4fbab3ac385d27a8478d2721ccdddcaf8f1b5d47d57cda7",
+        "design/control/control.kicad_pcb": "1b884ffd19b99a36e2399367586162a08945820e684e19225bf83025aaa46d50",
+        "design/control/control.kicad_pro": "4d05751370c66f068dd91eecc8696a9507d883558b798af903707bb0d435d6ff",
+        "design/control/control.kicad_sch": "88489f0bf190cbe3654805385f768fdb18c43f8205ddbbe2984076a51c8bc342",
+        "design/control/faults.kicad_sch": "5b508f7dd3ee09ccc4ba34c35c2632f4edc8c4559e24837ee3661f8300e65e64",
+        "design/control/fp-lib-table": "f9400bcf9a8340ccde085503758ed46942e223ec49782013a46d7efc6d154a76",
+        "design/control/studies/PhaseBalanceStudy.kicad_sym": "b9da6eb1e6291caa5cad9e208d70685a879db9fb17840cad2ab4093bd7481896",
+        "design/control/studies/phase_sensor_study.kicad_sch": "9b74f7143f84f5ca441822f243ec616d092c5ffeee6a37f92fa4fa41cad1d08e",
+        "design/control/studies/sym-lib-table": "091238de9bfd45bd8e5ccff2221ed2dabdca292893e115102dee711078e05b85",
+        "design/control/sym-lib-table": "197c1f120602e0c2ced1837f053b133d639a5044a16583883109f83184d7d529"
+      },
+      "inventory_report": "exports/verification/inventory.json",
+      "inventory": {
+        "project": "Styrekort",
+        "inventory": "PASS",
+        "schematic_components": 86,
+        "offboard_requirements": 1,
+        "PCB_pin_net_comparison": "PASS",
+        "logical_pads": 211,
+        "physical_numbered_pads": 211,
+        "track_objects": 2516
+      }
+    }
+  ],
+  "calculations": [
+    {
+      "name": "Effektbudget",
+      "report": "exports/analysis/design_budget.json",
+      "scope": "Nominal efficiency/power-factor assumptions; no measured efficiency.",
+      "sha256": "44de5d068e883ae8e886c04330ca35132e9b0003b53af332534a93b4521ccc6e"
+    },
+    {
+      "name": "Statiske styregrænser",
+      "report": "exports/analysis/control_limits.json",
+      "scope": "Ideal DC KCL and explicit tolerance assumptions; no dynamic rail-off validation.",
+      "sha256": "34392f23de8ab96699acf687c053bf3bd9c7a9f1647552e5dfb1839894e90ca3"
+    },
+    {
+      "name": "Tab, ripple, strømfordeling og loop",
+      "report": "exports/analysis/power_analysis.json",
+      "scope": "Analytical/ideal buck and assumed plant models; no LTC3779 device simulation.",
+      "sha256": "d8a395cca1e985f9ee83f9ec04e1ca378301fb472ba265c36bf99ceacccf73e3"
+    },
+    {
+      "name": "Lavstrøm og 0 V / 0 A",
+      "report": "exports/analysis/low_current.json",
+      "scope": "Unimplemented candidate range/stage and energy budgets; no hardware precision guarantee.",
+      "sha256": "d20ec8deaa7071f71395d61948922edbbd39b400808cdd2bf3cf12e7566f57dd"
+    },
+    {
+      "name": "Busbeskyttelse",
+      "report": "exports/analysis/bus_protection.json",
+      "scope": "Fault/transient and SOA scenarios; no selected/qualified 120 V protection circuit.",
+      "sha256": "80a6b4024bd6c3b0f65ac369fed628d885c4f706e654157d8f12d0c7104afd90"
+    },
+    {
+      "name": "Uafhængige fasestrømservoer",
+      "report": "exports/analysis/phase_balance.json",
+      "scope": "Native one-channel study and assumed averaged four-phase model; not integrated hardware.",
+      "sha256": "87ef82ead2b793a799841e79e3668a1941e0774715b06d713189b0e5db3c01fb"
+    },
+    {
+      "name": "Separat lavstrøms-loop",
+      "report": "exports/analysis/low_current_loop.json",
+      "scope": "24 assumed linear plant cases; no transistor SPICE model, compensation release or fast fault qualification.",
+      "sha256": "e2531be161c80f4db417cef68b8616d3a76eb5abb3956a5654f015196e218dbe"
+    },
+    {
+      "name": "Betinget fysisk busafbrydelse",
+      "report": "exports/analysis/bus_disconnect_envelope.json",
+      "scope": "RC/ESR/delay envelope with required hard bounds; switch SOA and actual source/parts are unqualified.",
+      "sha256": "bb967ac03be2364f9dfb4191895f2ebef9cd4b0e01b4e0d3a3089b17dd252e14"
+    }
+  ],
+  "automation_source_sha256": {
+    "scripts/bus_disconnect_envelope.py": "3355b16b7bf22e4aefb99e434656c99fb198929f3965a48b708ba04cf6a27c61",
+    "scripts/bus_protection_calcs.py": "7589a131625b08485e592f8a3d94a0a0eea8de9232e02c89edb857ea700a09ec",
+    "scripts/check_inventory.py": "e727e8d43a39b5f0d8d0759949e62af12eed634162bba8504913fdf16ce35453",
+    "scripts/control_gen.py": "427ec567559e345cc46c3c3f41cba5ac3174066fe66554174c7ef820b9935250",
+    "scripts/control_limits.py": "1ccb7e2a11d0f6a148752f0dd5e1802c2c8a8553d434c14f1acdb6e5fb48aaf2",
+    "scripts/control_route.py": "f9955e2d3ca15596eb3455e953897d3056688994f81b0dbdf1780990dbfc54d4",
+    "scripts/control_route_grid.cpp": "d4917b846d807b043226e35c7024706583118fa317a0a39783437e25e1308483",
+    "scripts/design_calcs.py": "795219848c3e4dca9c58885ff5958f269f039e4664cf030c346bb9e1edde1dfd",
+    "scripts/frontend_gen.py": "d00780329f44aa33ee4d67a6c1bfffc9c912ab2d8ac0d9a9e305d6412b27df62",
+    "scripts/kicad_helpers.py": "27feb0c7fb89be6e42bfb437b9820cc19951acc4b1ad8401e3344b9ee895bd88",
+    "scripts/low_current_calcs.py": "0518ddeeb51558e02b88cbdbee6ef4497d76f72cda2d90cbe787bed0034d1587",
+    "scripts/low_current_loop.py": "60de33a51a0ca0d3ffeb35ae00f7e3e5bc094b79701bdacb3918cbdbd236e20d",
+    "scripts/measurement_gen.py": "4ef4454064e4772a84518b1723569020137ffe84ce264974af9341ddab09c9ef",
+    "scripts/package_draft.py": "3d0c9d9a1c66e91bf6eb3b86b774500e1ecc9fe1c736d4e33450e1cad3bf5848",
+    "scripts/phase_balance_analysis.py": "9bedb2566503e6b4f7ae98480f266ab390da37b11329d079df623cde73609037",
+    "scripts/power_analysis.py": "41a364ef1875526916711a472851f46a7f406a71d1152c34d7e9d657a93e5ec3",
+    "scripts/power_layout_budget.py": "221b1bcb47e10fb588ecb99055cf06e4573f025a3177ac7bb1e0fe2ab419aaa3",
+    "scripts/power_phase_gen.py": "bafdb5f7a27187044ccdfe383e2baec7a7e116e440bbe09aeb36417dd2ad6b3c",
+    "scripts/power_route_grid.cpp": "1f9469fb716239cff6a15789afe016a67333996cacc4cdaa48527b32a0e04293",
+    "scripts/power_routing_plan.json": "14124715a5bab242a2b1eecbad12f5121d582b51df61fac6b5953f044476f59c",
+    "scripts/power_signal_route.py": "cbca844254af966fb3b6a9bfc55ce9cbbd5d1677221beb2a7422862831088507",
+    "scripts/power_symbols_gen.py": "baab50fed6ad671a4e677097abc6f08f4be7ecd96e28c24d5f130dfd0e134439",
+    "scripts/project_status.py": "a40e5e09ebad8d615bbd3208d3d7e0a3eb198cd09955b238be4889fd4817ed1f",
+    "scripts/render_manual.py": "5d1136466fcb19cefa5ee40960e8631f91c849b7403b26e7741c6bcff481fa4d",
+    "scripts/validate_control_layout.py": "99357cc89d85d26014f8015dfd57438082e5bfd33094c23768db34140b94ddb4",
+    "scripts/validate_kicad.py": "62194344c7782a30c4864886fd0a303af7b445142c5a9ad7bc8b7595ae04b557"
+  },
+  "CAD_main_projects_pass": true,
+  "critical_component_matrix": {
+    "report": "bom/critical-components.csv",
+    "rows": 85,
+    "procurement_released": false
+  },
+  "main_BOM_rows": 206,
+  "phase_study_BOM_rows": 47,
+  "native_phase_study": {
+    "schematic": "design/control/studies/phase_sensor_study.kicad_sch",
+    "checks": "exports/control/studies/summary.json",
+    "ERC_findings": 0,
+    "BOM_XML_refs_values_footprints_match": true,
+    "expected_pin_nodes_checked": 113,
+    "integrated_in_routed_PCBs": false,
+    "hardware_released": false
+  },
+  "physical_tests_performed": false,
+  "fabrication_released": false,
+  "remaining": [
+    "Qualify RSP-3000-48 series/floating operation and chassis/mains integration.",
+    "Resolve 134.4 V module OVP threshold budget versus 120 V regulator procedure limit before power testing.",
+    "Independently review power gate/source loops, Kelvin routing, current return and thermal implementation despite CAD PASS.",
+    "Select/verify exact power inductors, capacitors, shunts, diodes, terminals, fuses, auxiliary supplies and cooling.",
+    "Implement and qualify phase sharing and phase/rail fault behavior for continuous 40 A.",
+    "Integrate CV/CC, validate startup, rail-off and command/feedback faults; implement independent output disconnect.",
+    "Implement post-bulk precision low-current limiting, range interlock and defined output discharge/0 V behavior.",
+    "Validate control loops, transient/ringing/SOA, short circuit, efficiency, temperature, isolation and EMC on hardware."
+  ]
+}

@@ -1,0 +1,2560 @@
+                                                                                                                                                        TPSI3050
+                                                                                                        SLVSGO9C – APRIL 2022 – REVISED AUGUST 2023
+
+              TPSI3050 Isolated Switch Driver With Integrated 10-V Gate Supply
+                                                                       The TPSI3050 supports two modes of operation
+1 Features                                                             based on the number of input pins required. In
+•   No isolated secondary supply required                              two-wire mode, typically found in driving mechanical
+•   Drives external power transistors or SCRs                          relays, controlling the switch requires only two pins
+•   3-kVRMS basic isolation                                            and supports a wide voltage range of operation of 6.5
+•   10-V gate drive with 1.5/3-A peak source and sink                  V to 48 V. In three-wire mode, the primary supply of
+    current                                                            3 V to 5.5 V is supplied externally, and the switch
+•   Up to 50-mW supply for external auxiliary circuitry                is controlled through a separate enable. Available
+•   Supports AC or DC switching                                        in three-wire mode only, the TPSI3050S features a
+•   Supports two-wire or three-wire modes                              one-shot enable for the switch control. This feature is
+•   Seven levels of power transfer, resistor selectable                useful for driving SCRs that typically require only one
+•   Functional Safety-Capable                                          pulse of current to trigger.
+    – Documentation available to aid functional safety                 The secondary side provides a regulated, floating
+       system design                                                   supply rail of 10 V for driving a large variety
+•   Temperature range –40 to 125°C ambient                             of power switches with no need for a secondary
+•   Safety-Related Certifications                                      bias supply. The application can drive single power
+    – 4243-VPK basic isolation per DIN EN IEC                          switches for DC applications or dual back-to-back
+       60747-17 (VDE 0884-17)                                          power switches for AC applications, as well as various
+    – 3-kVRMS isolation for 1 minute per UL 1577                       types of SCR. The TPSI3050 integrated isolation
+2 Applications                                                         protection is extremely robust with much higher
+                                                                       reliability, lower power consumption, and increased
+•   Solid state relay (SSR)                                            temperature ranges than traditional mechanical relays
+•   Building automation                                                and optocouplers.
+•   Factory automation and control
+                                                                       The power transfer of the TPSI3050 can be adjusted
+3 Description                                                          by selecting one of seven power level settings using
+The TPSI3050 is a fully integrated, isolated switch                    an external resistor from the PXFR pin to VSSP. This
+driver, which when combined with an external power                     action allows for tradeoffs in power dissipation versus
+switch, forms a complete isolated solid state relay                    power provided on the secondary depending on the
+(SSR). With a nominal gate drive voltage of 10 V                       needs of the application.
+with 1.5/3.0-A peak source and sink current, a large                                                  Package Information
+variety of external power switches can be chosen to                      PART NUMBER                       PACKAGE(1)                    BODY SIZE (NOM)
+meet a wide range of applications. The TPSI3050
+                                                                       TPSI3050
+generates its own secondary bias supply from the                                                        SOIC 8-pin (DWZ)               7.50 mm × 5.85 mm
+                                                                       TPSI3050S
+power received from its primary side, so no isolated
+secondary supply bias is required. Additionally, the                   (1)      For all available packages, see the orderable addendum at
+TPSI3050 can optionally supply power to external                                the end of the data sheet.
+supporting circuitry for various application needs.                                                                                DC Link Pre-charge
+
+
+
+                                                                                                                            +
+                                                                                                                                                         DC Link
+                                                                                                                                                          Cap
+                                                                                                                            -
+                                                                             3–5.5 V
+
+                                                                              Micro              EN                             VDRV
+                                                                                                              PWR
+
+                                                                                                 PXFR        SIGNAL
+                                                                                                                                VDDH
+                                                                                                                ISOLATION
+
+
+
+
+                                                                                       3–5.5 V
+                                                                                                 VDDP
+                                                                                                                                VDDM
+
+                                                                                                                                VSSS
+                                                                                                 VSSP
+
+
+
+
+                                                                                             TPSI3050 Simplified Schematic
+
+
+
+
+     An IMPORTANT NOTICE at the end of this data sheet addresses availability, warranty, changes, use in safety-critical applications,
+     intellectual property matters and other important disclaimers. PRODUCTION DATA.
+TPSI3050
+SLVSGO9C – APRIL 2022 – REVISED AUGUST 2023                                                                                                                      www.ti.com
+
+
+                                                                        Table of Contents
+1 Features............................................................................1   8 Detailed Description......................................................16
+2 Applications..................................................................... 1       8.1 Overview................................................................... 16
+3 Description.......................................................................1       8.2 Functional Block Diagram......................................... 16
+4 Revision History.............................................................. 2          8.3 Feature Description...................................................16
+5 Pin Configuration and Functions...................................3                       8.4 Device Functional Modes..........................................23
+6 Specifications.................................................................. 4      9 Application and Implementation.................................. 24
+  6.1 Absolute Maximum Ratings........................................ 4                    9.1 Application Information............................................. 24
+  6.2 ESD Ratings............................................................... 4          9.2 Typical Application.................................................... 24
+  6.3 Recommended Operating Conditions.........................4                            9.3 Power Supply Recommendations.............................31
+  6.4 Thermal Information....................................................5              9.4 Layout....................................................................... 31
+  6.5 Power Ratings.............................................................5         10 Device and Documentation Support..........................34
+  6.6 Insulation Specifications............................................. 5              10.1 Related Links.......................................................... 34
+  6.7 Safety-Related Certifications...................................... 6                 10.2 Receiving Notification of Documentation Updates..34
+  6.8 Safety Limiting Values.................................................6              10.3 Support Resources................................................. 34
+  6.9 Electrical Characteristics.............................................7              10.4 Trademarks............................................................. 34
+  6.10 Switching Characteristics........................................10                  10.5 Electrostatic Discharge Caution..............................34
+  6.11 Insulation Characteristic Curves..............................11                     10.6 Glossary..................................................................34
+  6.12 Typical Characteristics............................................ 12             11 Mechanical, Packaging, and Orderable
+7 Parameter Measurement Information.......................... 14                            Information.................................................................... 34
+
+
+
+4 Revision History
+NOTE: Page numbers for previous revisions may differ from page numbers in the current version.
+Changes from Revision B (April 2023) to Revision C (August 2023)                                                    Page
+• Updated Safety-Related Certifications section with associated file and certificate numbers..............................4
+
+Changes from Revision A (April 2022) to Revision B (April 2023)                                                                           Page
+• Removed product preview for TPSI3050S ........................................................................................................ 1
+• Changed front page formatting to align with current TI data sheet standards....................................................1
+
+Changes from Revision * (April 2022) to Revision A (November 2022)                                                         Page
+• Changed device status from Advance Information to Production Data ............................................................. 1
+
+
+
+
+2       Submit Document Feedback                                                                                         Copyright © 2023 Texas Instruments Incorporated
+
+                                                                     Product Folder Links: TPSI3050
+                                                                                                                                     TPSI3050
+www.ti.com                                                                                      SLVSGO9C – APRIL 2022 – REVISED AUGUST 2023
+
+
+5 Pin Configuration and Functions
+                                                        EN      1            8       VDRV
+
+                                                    PXFR        2            7       VDDH
+
+                                                    VDDP        3            6       VDDM
+
+                                                    VSSP        4            5       VSSS
+
+
+                                     Figure 5-1. TPSI3050, TPSI3050S 8-Pin SOIC Top View
+
+                                                        Table 5-1. Pin Functions
+               PIN
+                                        I/O       TYPE(1)    DESCRIPTION
+      NO.            NAME
+       1               EN                 I         —        Active high driver enable
+                                                             Power transfer can be adjusted by selecting one of seven power level settings
+                                                             using an external resistor from the PXFR pin to VSSP. In three-wire mode, a
+                                                             given resistor setting sets the duty cycle of the power converter (see Table 8-1)
+       2              PXFR                I         —
+                                                             and hence the amount of power transferred. In two-wire mode, a given resistor
+                                                             setting adjusts the current limit of the EN pin (see Table 8-2) and hence the
+                                                             amount of power transferred.
+       3             VDDP                —          P        Power supply for primary side
+       4              VSSP               —         GND       Ground supply for primary side
+       5              VSSS               —         GND       Ground supply for secondary side
+       6             VDDM                —          P        Generated mid supply
+       7             VDDH                —          P        Generated high supply
+       8             VDRV                O          —        Active high driver output
+
+(1)    P = power, GND = ground, NC = no connect
+
+
+
+
+Copyright © 2023 Texas Instruments Incorporated                                                             Submit Document Feedback             3
+
+                                                        Product Folder Links: TPSI3050
+TPSI3050
+SLVSGO9C – APRIL 2022 – REVISED AUGUST 2023                                                                                                   www.ti.com
+
+
+6 Specifications
+6.1 Absolute Maximum Ratings
+over operating free-air temperature range (unless otherwise noted)(1)
+                                 PARAMETER(1)                                                     MIN                          MAX            UNIT
+                                            VDDP                                                 –0.3                              6           V
+    Primary Side Supply(2)                  EN                                                   –0.3                            60            V
+                                            PXFR                                                 –0.3                            60            V
+                                            VDRV                                                 –0.3                            12            V
+                                            VDDH                                                 –0.3                            12            V
+    Secondary Side Supply(3)
+                                            VDDM                                                 –0.3                              6           V
+                                            VDDH – VDDM                                          –0.3                              6           V
+    Junction temperature, TJ                                                                      –40                           150            °C
+    Storage temperature, Tstg                                                                     –65                           150            °C
+
+(1)      Operation outside the Absolute Maximum Ratings may cause permanent device damage. Absolute Maximum Ratings do not imply
+         functional operation of the device at these or any other conditions beyond those listed under Recommended Operating Conditions.
+         If used outside the Recommended Operating Conditions but within the Absolute Maximum Ratings, the device may not be fully
+         functional, and this may affect device reliability, functionality, performance, and shorten the device lifetime.
+(2)      All voltage values are with respect to VSSP.
+(3)      All voltage values are with respect to VSSS.
+
+
+6.2 ESD Ratings
+                                                                                                                                  VALUE         UNIT
+                                                   Human body model (HBM), per ANSI/ESDA/JEDEC JS-001(2)                           ±2000
+    V(ESD)        Electrostatic discharge          Charged device model (CDM), per ANSI/     Corner pins (1, 4, 5, and 8)          ±750             V
+                                                   ESDA/JEDEC JS-002(3)                      Other pins                            ±500
+
+(1)      JEDEC document JEP155 states that 500-V HBM allows safe manufacturing with a standard ESD control process.
+         Manufacturing with less than 500-V HBM is possible if necessary precautions are taken.
+(2)      JEDEC document JEP157 states that 250-V CDM allows safe manufacturing with a standard ESD control process.
+         Manufacturing with less than 250-V CDM is possible if necessary precautions are taken.
+
+
+6.3 Recommended Operating Conditions
+over operating free-air temperature range (unless otherwise noted)
+                                                                                                          MIN         NOM           MAX         UNIT
+    VDDP           Primary side supply voltage three-wire mode(1)                                         3.0                           5.5         V
+                   Enable in two-wire mode(1)                                                               0                          48.0         V
+    EN
+                   Enable in three-wire mode(1)                                                             0                           5.5         V
+    PXFR           Power transfer control(1)                                                                0                           5.5         V
+                   Decoupling capacitance on VDDP and VSSP, two-wire mode(3)                              220                          330         nF
+    CVDDP
+                   Decoupling capacitance on VDDP and VSSP, three-wire mode(3)                          0.22                            20         µF
+    CDIV1 (2)      Decoupling capacitance across VDDH and VDDM(3)                                     0.003                             40         µF
+    CDIV2   (2)    Decoupling capacitance across VDDM and VSSS(3)                                     0.003                             40         µF
+    TA             Ambient operating temperature                                                          –40                          125         °C
+    TJ             Operating junction temperature                                                         –40                          150         °C
+    |ΔVEN/Δt|      EN rise and fall rates, two-wire mode.                                                  65                                   V/ms
+
+(1)      All voltage values are with respect to VSSP.
+(2)      CDIV2 ≥ CDIV1. CDIV1 and CDIV2 should be of same type and tolerance.
+(3)      All capacitance values are absolute. Derating should be applied where necessary.
+
+
+
+
+4           Submit Document Feedback                                                                      Copyright © 2023 Texas Instruments Incorporated
+
+                                                            Product Folder Links: TPSI3050
+                                                                                                                                        TPSI3050
+www.ti.com                                                                                       SLVSGO9C – APRIL 2022 – REVISED AUGUST 2023
+
+
+6.4 Thermal Information
+                                                                                                          DEVICE
+                                    THERMAL METRIC(1)                                                   DWZ(SOIC)                       UNIT
+                                                                                                          8 PINS
+ RϴJA               Junction-to-ambient thermal resistance                                                  89.3                     °C/W
+ RϴJC(top)          Junction-to-case (top) thermal resistance                                               40.3                     °C/W
+ RΘJB               Junction-to-board thermal resistance                                                    45.2                     °C/W
+ ψJT                Junction-to-top characterization parameter                                              10.3                     °C/W
+ ΨJB                Junction-to-board characterization parameter                                            44.4                     °C/W
+
+(1)     For more information about traditional and new thermal metrics, see the Semiconductor and IC Package Thermal Metrics application
+        report.
+
+
+6.5 Power Ratings
+                      PARAMETER                                    TEST CONDITIONS                          MIN         TYP       MAX     UNIT
+                                                        VVDDP = 5 V,
+                                                        RPXFR = 20 kΩ, three-wire mode,
+                                                        CVDRV = 100 pF,
+             Maximum power dissipation, VDDP.                                                                                     250      mW
+                                                        CDIV1 = CDIV2 = 100 nF,
+                                                        fEN = 1-kHz square wave, VEN = 5 V peak
+ PD                                                     to peak.
+                                                        RPXFR = 20 kΩ, two-wire mode,
+                                                        CVDRV = 100 pF,
+             Maximum power dissipation, EN.             CDIV1 = CDIV2 = 100 nF,                                                   350      mW
+                                                        fEN = 1-kHz square wave, VEN = 48 V
+                                                        peak to peak.
+
+
+
+6.6 Insulation Specifications
+                                                                                                                          SPECIFIC
+                           PARAMETER                                              TEST CONDITIONS                                        UNIT
+                                                                                                                           ATION
+ GENERAL
+ CLR           External clearance(1)                               Shortest terminal-to-terminal distance through air ≥ 8.5               mm
+                                                                   Shortest terminal-to-terminal distance across the
+ CPG           External Creepage(1)                                                                                       ≥ 8.5           mm
+                                                                   package surface
+ DTI           Distance through the insulation                     Minimum internal gap (internal clearance)              ≥ 120           µm
+ CTI           Comparative tracking index                          DIN EN 60112 (VDE 0303-11); IEC 60112                  ≥ 600            V
+               Material Group                                      According to IEC 60664-1                               I
+                                                                   Rated mains voltage ≤ 600 VRMS                         I-IV
+               Overvoltage category per IEC 60664-1
+                                                                   Rated mains voltage ≤ 1000 VRMS                        I-III
+ DIN EN IEC 60747-17 (VDE 0884-17)
+ VIORM         Maximum repetitive peak isolation voltage           AC voltage (bipolar)                                   1414            VPK
+                                                                   AC voltage (sine wave)                                 1000           VRMS
+ VIOWM         Maximum isolation working voltage
+                                                                   DC voltage                                             1414            VDC
+                                                                   VTEST = VIOTM; t = 60 s (qualification test)           4243            VPK
+ VIOTM         Maximum transient isolation voltage                 VTEST = 1.2 × VIOTM; t = 1 s (100% production
+                                                                                                                          5091            VPK
+                                                                   test)
+                                                                   Tested in air;
+ VIMP          Maximum impulse voltage(3)                                                                                 4500            VPK
+                                                                   1.2/50-µs waveform per IEC 62638-1
+                                                                   Tested in oil (qualification test);
+ VIOSM         Maximum surge isolation voltage(3)                                                                         5850            VPK
+                                                                   1.2/50-µs waveform per IEC 62638-1
+
+
+
+
+Copyright © 2023 Texas Instruments Incorporated                                                                   Submit Document Feedback       5
+
+                                                        Product Folder Links: TPSI3050
+TPSI3050
+SLVSGO9C – APRIL 2022 – REVISED AUGUST 2023                                                                                                 www.ti.com
+
+6.6 Insulation Specifications (continued)
+                                                                                                                              SPECIFIC
+                              PARAMETER                                                TEST CONDITIONS                                          UNIT
+                                                                                                                               ATION
+                                                                       Method a: After input-output safety test
+                                                                       subgroups 2 and 3,
+                                                                                                                              ≤5
+                                                                       Vini = VIOTM, tini = 60 s;
+                                                                       Vpd(m) = 1.2 × VIORM, tm = 10 s.
+                                                                       Method a: After environmental tests subgroup 1,
+    qpd           Apparent charge(4)                                   Vini = VIOTM, tini = 60 s;                             ≤5                pC
+                                                                       Vpd(m) = 1.3 × VIORM, tm = 10 s.
+                                                                       Method b1: At routine test (100% production test)
+                                                                       and preconditioning (type test), Vini = VIOTM, tini =
+                                                                                                                             ≤5
+                                                                       1 s;
+                                                                       Vpd(m) = 1.5 × VIORM, tm = 1 s.
+    CIO           Barrier capacitance, input to output(5)              VIO = 0.4 × sin (2πft), f = 1 MHz                      3                  pF
+                                                                       VIO = 500 V, TA = 25°C                                 > 1012
+    RIO           Insulation resistance, input to output(5)            VIO = 500 V, 100°C ≤ TA ≤ 125°C                        > 1011             Ω
+                                                                       VIO = 500 V at TS = 150°C                              > 109
+                  Pollution degree                                                                                            2
+                  Climatic category                                                                                           40/125/21
+    UL 1577
+                                                                       VTEST = VISO = 3000 VRMS, t = 60 s (qualification
+    VISO          Withstand isolation voltage                          test), VTEST = 1.2 × VISO = 3600 VRMS, t = 1 s         3000              VRMS
+                                                                       (100% production test)
+
+(1)        Creepage and clearance requirements should be applied according to the specific equipment isolation standards of an application.
+           Care should be taken to maintain the creepage and clearance distance of a board design to ensure that the mounting pads of the
+           isolator on the printed-circuit board do not reduce this distance. Creepage and clearance on a printed-circuit board become equal
+           in certain cases. Techniques such as inserting grooves, ribs, or both on a printed-circuit board are used to help increase these
+           specifications.
+(2)        Testing is carried out in air to determine the intrinsic surge immunity of the package.
+(3)        Testing is carried out in oil to determine the intrinsic surge immunity of the isolation barrier.
+(4)        Apparent charge is electrical discharge caused by a partial discharge (pd).
+(5)        All pins on each side of the barrier tied together creating a two-pin device.
+
+
+6.7 Safety-Related Certifications
+                                       VDE                                                                        UL
+    Certified according to DIN EN IEC 60747-17 (VDE 0884-17)                 Recognized under UL 1577 Component Recognition Program
+    Basic insulation; Maximum transient isolation voltage, 4243 VPK;
+    Maximum repetitive peak isolation voltage, 1414 VPK; Maximum             Single protection, 3000 VRMS
+    surge isolation voltage, 5850 VPK
+    Certificate number: 40047657                                             File number: UL-US-2300613-0
+
+
+
+6.8 Safety Limiting Values
+                      PARAMETER(1) (2)                                  TEST CONDITIONS                           MIN       TYP        MAX      UNIT
+                                                              RθJA = 89.3°C/W, VVDDP = 5.5 V,
+                                                              TJ = 150°C, TA = 25°C,                                                    254
+                                                              three-wire mode.
+                                                              RθJA = 89.3°C/W, VEN = 24 V,
+    IS          Safety input, output, or supply current       TJ = 150°C, TA = 25°C,                                                      58     mA
+                                                              two-wire mode.
+                                                              RθJA = 89.3°C/W, VEN = 48 V,
+                                                              TJ = 150°C, TA = 25°C,                                                      29
+                                                              two-wire mode.
+                                                              RθJA = 89.3°C/W,
+    PS          Safety input, output, or total power                                                                                      1.4     W
+                                                              TJ = 150°C, TA = 25°C.
+
+
+6          Submit Document Feedback                                                                        Copyright © 2023 Texas Instruments Incorporated
+
+                                                              Product Folder Links: TPSI3050
+                                                                                                                                        TPSI3050
+www.ti.com                                                                                       SLVSGO9C – APRIL 2022 – REVISED AUGUST 2023
+
+6.8 Safety Limiting Values (continued)
+                   PARAMETER(1) (2)                                 TEST CONDITIONS                        MIN         TYP        MAX     UNIT
+ TS           Maximum safety temperature                                                                                          150      °C
+
+(1)    Safety limiting intends to minimize potential damage to the isolation barrier upon failure of input or output circuitry. A failure of the
+       I/O can allow low resistance to ground or the supply and, without current limiting, dissipate sufficient power to overheat the die and
+       damage the isolation barrier, potentially leading to secondary system failures.
+(2)    The safety-limiting constraint is the maximum junction temperature specified in the data sheet. The power dissipation and junction-
+       to-air thermal impedance of the device installed in the application hardware determines the junction temperature. The assumed
+       junction-to-air thermal resistance in the Thermal Information table is that of a device installed on a high-K test board for leaded
+       surface-mount packages. The power is the recommended maximum input voltage times the current. The junction temperature is then
+       the ambient temperature plus the power times the junction-to-air thermal resistance.
+
+
+6.9 Electrical Characteristics
+over operating free-air temperature range (unless otherwise noted). Typicals at TA = 25℃. CVDDP = 220 nF, CDIV1 = CDIV2 =
+3.3 nF, CVDRV = 100 pF, RPXFR = 7.32 kΩ ± 1%
+                            PARAMETER                                        TEST CONDITIONS                     MIN     TYP      MAX     UNIT
+ COMMON
+ VVDDP_UV_R                    VDDP undervoltage threshold rising VDDP rising                                  2.50      2.70      2.90     V
+                               VDDP undervoltage threshold
+ VVDDP_UV_F                                                          VDDP falling                              2.35      2.55      2.75     V
+                               falling
+                               VDDP undervoltage threshold
+ VVDDP_UV_HYS                                                                                                                75            mV
+                               hysterisis
+ TSD                           Temperature shutdown                                                                       173               ℃
+ TSDH                          Temperature shutdown hysteresis                                                               32             ℃
+ VVDDH_UV_R                    VDDH undervoltage threshold rising VDDH rising.                                   8.3      8.6       9.0     V
+                               VDDH undervoltage threshold
+ VVDDH_UV_F                    falling                               VDDH falling.                               6.3      6.6       6.9     V
+                               TPSI3050 only.
+                               VDDH undervoltage threshold
+                               falling
+ VVDDH_UV_F                    TPSI3050S only. One-shot enable       VDDH falling.                               7.2      7.5       7.8     V
+                               mode only available in three-wire
+                               operation.
+                               VDDH undervoltage threshold
+ VVDDH_UV_HYS                  hysterisis                                                                                    2              V
+                               TPSI3050 only.
+                               VDDH undervoltage threshold
+ VVDDH_UV_HYS                  hysterisis                                                                                 1.1               V
+                               TPSI3050S only.
+                               Internal quiescent current of VDDH
+ IQ_VDDH                                                                                                                     36            µA
+                               supply.
+                                                                     Force VVDDH = 10 V,
+                               Driver on resistance in low state                                                          1.7               Ω
+                                                                     sink IVDRV = 50 mA.
+ RDSON_VDRV
+                                                                     Force VVDDH = 10 V,
+                               Driver on resistance in high state                                                         2.5               Ω
+                                                                     source IVDRV = 50 mA.
+                                                                     VVDDH in steady state,
+                               VDRV peak output current during
+                                                                     transition EN from low to high,                      1.5               A
+                               rise
+                                                                     measure peak current.
+ IVDRV_PEAK
+                                                                     VVDDH in steady state,
+                               VDRV peak output current during
+                                                                     transition EN from high to low,                         3              A
+                               fall
+                                                                     measure peak current.
+ CMTI                          Common-mode transient immunity        |VCM| = 1000 V                              100                      V/ns
+ TWO-WIRE MODE
+                               Minimum voltage on EN to be
+ VIH_EN                                                                                                          6.5                        V
+                               detected as a valid logic high
+
+
+
+Copyright © 2023 Texas Instruments Incorporated                                                               Submit Document Feedback             7
+
+                                                         Product Folder Links: TPSI3050
+TPSI3050
+SLVSGO9C – APRIL 2022 – REVISED AUGUST 2023                                                                                        www.ti.com
+
+6.9 Electrical Characteristics (continued)
+over operating free-air temperature range (unless otherwise noted). Typicals at TA = 25℃. CVDDP = 220 nF, CDIV1 = CDIV2 =
+3.3 nF, CVDRV = 100 pF, RPXFR = 7.32 kΩ ± 1%
+                          PARAMETER                                       TEST CONDITIONS                   MIN       TYP       MAX     UNIT
+                            Maximum voltage on EN to be
+    VIL_EN                                                                                                                        2.0     V
+                            detected as a valid logic low
+    IEN_START               Enable current at startup              EN = 0 V → 6.5 V                                     27               mA
+                                                                   EN = 6.5 V,
+                                                                   RPXFR = 7.32 kΩ,
+                                                                                                                       1.9               mA
+                                                                   RPXFR ≥100 kΩ or RPXFR ≤1 kΩ,
+    IEN                     Enable current steady state            VVDDH in steady state.
+                                                                   EN = 6.5 V,
+                                                                   RPXFR = 20 kΩ,                                      6.8               mA
+                                                                   VVDDH in steady state.
+    VVDDP_RIPPLE            VDDP output voltage ripple             EN = 6.5 V, VVDDH in steady state.                  600               mV
+                                                                   EN = 6.5 V,
+    VVDDH                   VDDH output voltage                                                              9.4      10.2        11      V
+                                                                   VVDDH in steady state.
+                                                                   EN = 6.5 V,
+    VVDRV_H                 VDRV output voltage driven high        VVDDH in steady state,                    9.4      10.2        11      V
+                                                                   no DC loading.
+                                                                   EN = 6.5 V → 0 V,
+    VVDRV_L                 VDRV output voltage driven low         VVDDH in steady state,                                         0.1     V
+                                                                   sink 10 mA load.
+                                                                   EN = 6.5 V, steady state.
+                                                                   RPXFR = 7.32 kΩ,
+                                                                   RPXFR ≥ 100 kΩ or RPXFR ≤ 1 kΩ,
+                                                                                                             4.6                  5.5     V
+                                                                   CDIV1 = CDIV2 = 220 nF,
+                                                                   source 0.4 mA from VDDM,
+                            Average VDDM voltage when              measure VDDM voltage.
+    VVDDM_IAUX
+                            sourcing external current
+                                                                   EN = 6.5 V, steady state.
+                                                                   RPXFR = 20 kΩ,
+                                                                   CDIV1 = CDIV2 = 220 nF,                   4.6                  5.5     V
+                                                                   source 1.7 mA from VDDM,
+                                                                   measure VDDM voltage.
+    THREE-WIRE MODE
+                            Minimum voltage on EN to               VVDDP = 3 V                               2.1                          V
+                            be detected as a valid logic
+    VIH_EN
+                            high. VIH(min) = 0.7 x VVDDP           VVDDP = 5.5 V                            3.85                          V
+
+                            Maximum voltage on EN to be            VVDDP = 3 V                                                    0.9     V
+    VIL_EN
+                            detected as a valid logic low          VVDDP = 5.5 V                                                1.65      V
+
+
+
+
+8         Submit Document Feedback                                                                Copyright © 2023 Texas Instruments Incorporated
+
+                                                        Product Folder Links: TPSI3050
+                                                                                                                            TPSI3050
+www.ti.com                                                                                  SLVSGO9C – APRIL 2022 – REVISED AUGUST 2023
+
+6.9 Electrical Characteristics (continued)
+over operating free-air temperature range (unless otherwise noted). Typicals at TA = 25℃. CVDDP = 220 nF, CDIV1 = CDIV2 =
+3.3 nF, CVDRV = 100 pF, RPXFR = 7.32 kΩ ± 1%
+                            PARAMETER                                    TEST CONDITIONS                MIN      TYP    MAX     UNIT
+                                                                  EN = 3.3 V,
+                                                                  VVDDP = 3.3 V,
+                                                                  RPXFR = 7.32 kΩ,
+                                                                                                                  3.1
+                                                                  RPXFR ≥ 100 kΩ or RPXFR ≤ 1 kΩ,
+                                                                  VVDDH in steady state,
+                                                                  measure IVDDP.                                                mA
+                                                                  EN = 3.3 V,
+                                                                  VVDDP = 3.3 V,
+                                                                  RPXFR = 20 kΩ                                   26
+                                                                  VVDDH in steady state,
+                               VDDP average current in steady     measure IVDDP.
+ IVDDP
+                               state                              EN = 5 V,
+                                                                  VVDDP = 5 V,
+                                                                  RPXFR = 7.32 kΩ,
+                                                                                                                  4.8           mA
+                                                                  RPXFR ≥ 100 kΩ or RPXFR ≤ 1 kΩ,
+                                                                  VVDDH in steady state,
+                                                                  measure IVDDP.
+                                                                  EN = 5 V,
+                                                                  VVDDP = 5 V,
+                                                                  RPXFR = 20 kΩ,                                  37            mA
+                                                                  VVDDH in steady state,
+                                                                  measure IVDDP.
+                                                                  VVDDP = 3.3 V, EN = 0 V, steady
+                                                                  state,
+                                                                  RPXFR = 7.32 kΩ,
+                                                                                                         4.6              5.5     V
+                                                                  CDIV1 = CDIV2 = 220 nF,
+                                                                  source 0.4 mA from VDDM,
+                                                                  measure VVDDM.
+                                                                  VVDDP = 5.0 V, EN = 0 V, steady
+                                                                  state,
+                                                                  RPXFR = 7.32 kΩ,
+                                                                                                         4.6              5.5     V
+                                                                  CDIV1 = CDIV2 = 220 nF,
+                                                                  source 1.0 mA from VDDM,
+                               Average VDDM voltage when          measure VVDDM.
+ VVDDM_IAUX
+                               sourcing external current          VVDDP = 3.3 V, EN = 0 V, steady
+                                                                  state,
+                                                                  RPXFR =20 kΩ,
+                                                                                                         4.6              5.5     V
+                                                                  CDIV1 = CDIV2 = 220 nF,
+                                                                  source 5.5 mA from VDDM,
+                                                                  measure VVDDM.
+                                                                  VVDDP = 5.0 V, EN = 0 V, steady
+                                                                  state,
+                                                                  RPXFR = 20 kΩ,
+                                                                                                         4.6              5.5     V
+                                                                  CDIV1 = CDIV2 = 220 nF,
+                                                                  source 10 mA from VDDM,
+                                                                  measure VVDDM.
+                                                                  VVDDP = 3.0 V,
+ VVDDH                         VDDH output voltage                EN = 3.0 V,                            9.4     10.2      11     V
+                                                                  VVDDH in steady state.
+                                                                  VVDDP = 3.0 V,
+                                                                  EN = 3.0 V,
+ VVDRV_H                       VDRV output voltage driven high                                           9.4     10.2      11     V
+                                                                  VVDDH in steady state, no DC
+                                                                  loading.
+                                                                  VVDDP = 3.0 V,
+                                                                  EN = 0 V,
+ VVDRV_L                       VDRV output voltage driven low                                                             0.1     V
+                                                                  VVDDH in steady state,
+                                                                  VDRV sinking 10 mA.
+
+
+
+
+Copyright © 2023 Texas Instruments Incorporated                                                        Submit Document Feedback        9
+
+                                                       Product Folder Links: TPSI3050
+TPSI3050
+SLVSGO9C – APRIL 2022 – REVISED AUGUST 2023                                                                                     www.ti.com
+
+
+6.10 Switching Characteristics
+over operating free-air temperature range (unless otherwise noted). Typicals at TA = 25℃. CVDDP = 220 nF, CDIV1 = CDIV2 =
+3.3 nF, CVDRV = 100 pF, RPXFR = 7.32 kΩ ± 1%
+                          PARAMETER                                    TEST CONDITIONS                   MIN       TYP       MAX     UNIT
+ TWO-WIRE MODE
+ tLO_EN                     Low time of EN                                                                  5                         µs
+                            Propagation delay time from EN      EN = 0 V → 6.5 V,
+ tLH_VDDH                                                                                                            90               µs
+                            rising to VDDH at 50% level         VVDDH = 5.0 V.
+                            Propagation delay time from EN      EN = 0 V → 6.5 V,
+ tLH_VDRV                                                                                                           260               µs
+                            rising to VDRV at 90% level         VVDRV = 9.0 V.
+                            Propagation delay time from EN      EN = 6.5 V → 0 V,
+ tHL_VDRV                                                                                                           2.4          3    µs
+                            falling to VDRV at 10% level        VVDRV = 1.0 V.
+                            VDRV rise time from EN rising to    EN = 0 V → 6.5 V,
+ tR_VDRV                                                                                                               6              ns
+                            VDRV from 15% to 85% level          VVDRV = 1.5 V to 8.5 V.
+                            VDRV fall time from EN falling to   EN = 6.5 V → 0 V,
+ tF_VDRV                                                                                                               5              ns
+                            VDRV from 85% to 15% level          VVDRV = 8.5 V to 1.5 V.
+ THREE-WIRE MODE
+ tLO_EN                     Low time of EN                      VVDDP = 3.3 V, steady state.                5                         µs
+ tHI_EN                     High time of EN                     VVDDP = 3.3V, steady state.                 5                         µs
+                            High time of VDRV using one-shot
+                            enable.
+ tHI_VDRV                   TPSI3050S only.                     VVDDP = 3.3 V, steady state.                        2.5               µs
+                            One-shot enable only available in
+                            three-wire mode.
+                                                                EN = 0 V,
+                            Propagation delay time from VDDP
+ tLH_VDDH                                                       VVDDP = 0 V → 3.3 V at 1 V/µs,                       74               µs
+                            rising to VDDH at 50% level
+                                                                VVDDH = 5.0 V.
+                                                                VVDDP = 3.3 V,
+                            Propagation delay time from EN      VVDDH steady state,
+ tLH_VDRV                                                                                                              3       4.5    µs
+                            rising to VDRV at 90% level         EN = 0 V → 3.3 V,
+                                                                VVDRV = 9.0 V.
+                                                                VVDDP = 3.3 V,
+                            Propagation delay time from EN      VVDDH steady state,
+ tHL_VDRV                                                                                                           2.5          3    µs
+                            falling to VDRV at 10% level        EN = 3.3 V → 0 V,
+                                                                VVDRV = 1.0 V.
+                            Propagation delay time from VDDP    EN = 3.3 V,
+                            falling to VDRV at 10% level.       VVDDH steady state,
+ tHL_VDRV_PD                                                                                                        100               µs
+                            Timeout mechanism due to loss of    VVDDP = 3.3 V → 0 V at -1 V/µs,
+                            power on primary supply.            VVDRV = 1.0 V.
+                                                                VVDDP = 3.3 V,
+                            VDRV rise time from EN rising to    VVDDH steady state,
+ tR_VDRV                                                                                                               6              ns
+                            VDRV from 15% to 85% level          EN = 0 V → 3.3 V,
+                                                                VVDRV = 1.5 V to 8.5 V.
+                                                                VVDDP = 3.3 V,
+                            VDRV fall time from EN falling to   VVDDH steady state,
+ tF_VDRV                                                                                                               5              ns
+                            VDRV from 85% to 15% level          EN = 3.3 V → 0 V,
+                                                                VVDRV = 8.5 V to 1.5 V.
+
+
+
+
+10        Submit Document Feedback                                                             Copyright © 2023 Texas Instruments Incorporated
+
+                                                     Product Folder Links: TPSI3050
+                                                                                                                                                            TPSI3050
+www.ti.com                                                                                                             SLVSGO9C – APRIL 2022 – REVISED AUGUST 2023
+
+
+6.11 Insulation Characteristic Curves
+             300                                                                             80
+                                                                                                             VEN = 24 V
+             280
+                                                                                                             VEN = 48 V
+             260
+             240
+             220                                                                             60
+
+             200
+             180
+   IS (mA)
+
+
+
+
+                                                                                   IS (mA)
+             160
+                                                                                             40
+             140
+             120
+             100
+              80                                                                             20
+              60
+              40
+              20
+               0                                                                              0
+                   0   25      50       75                 100    125     150                     0         25            50           75      100    125        150
+                                      TA (C)                                                                                        TA (C)
+
+    Figure 6-1. Thermal Derating Curve for Limiting                                 Figure 6-2. Thermal Derating Curve for Limiting
+      Current per VDE and IEC, Three-Wire Mode                                         Current per VDE and IEC, Two-Wire Mode
+                                                    1500
+                                                    1400
+                                                    1300
+                                                    1200
+                                                    1100
+                                                    1000
+                                                    900
+                                          PS (mW)
+
+
+
+
+                                                    800
+                                                    700
+                                                    600
+                                                    500
+                                                    400
+                                                    300
+                                                    200
+                                                    100
+                                                      0
+                                                           0     25      50       75                  100        125           150
+                                                                                TA (C)
+
+                            Figure 6-3. Thermal Derating Curve for Limiting Power per VDE and IEC
+
+
+
+
+Copyright © 2023 Texas Instruments Incorporated                                                                                       Submit Document Feedback         11
+
+                                                                 Product Folder Links: TPSI3050
+TPSI3050
+SLVSGO9C – APRIL 2022 – REVISED AUGUST 2023                                                                                                                                                                                                     www.ti.com
+
+6.12 Typical Characteristics
+                                    12.0                                                                                                                       12.0
+
+                                    11.0                                                                                                                       11.0
+
+                                    10.0                                                                                                                       10.0
+
+                                     9.0                                                                                                                        9.0
+     VVDRV, VVDDH, VVDDH, VEN (V)
+
+
+
+
+                                                                                                                                VVDRV, VVDDH, VVDDH, VEN (V)
+                                     8.0                                                                                                                        8.0
+
+                                     7.0                                                                                                                        7.0
+
+                                     6.0                                                                                                                        6.0
+
+                                     5.0                                                                                                                        5.0
+
+                                     4.0                                                                                                                        4.0
+
+                                     3.0                                                                                                                        3.0
+
+                                     2.0                                                                                                                        2.0
+
+                                     1.0                                                                            VVDRV                                       1.0               VVDRV
+                                                                                                                    VEN                                                           VEN
+                                     0.0                                                                            VVDDH                                       0.0               VVDDH
+                                                                                                                    VVDDM                                                         VVDDM
+                                    -1.0                                                                                                                       -1.0
+                                        0.0      5.0      10.0     15.0   20.0    25.0     30.0   35.0     40.0   45.0   50.0                                      0.0      5.0      10.0      15.0    20.0     25.0     30.0   35.0     40.0   45.0   50.0
+                                                                               Time (s)                                                                                                                     Time (s)
+
+                                         Three-wire mode                   VDDP = 5.0 V                  RPXFR = 7.32 kΩ                                            Three-wire mode                    VDDP = 5.0 V                    RPXFR = 7.32 kΩ
+                                         CDIV1,2 = 3.3 nF                 CVDRV = 100 pF                   TA = 25°C                                                CDIV1,2 = 3.3 nF                  CVDRV = 100 pF                     TA = 25°C
+                                                  Figure 6-4. tLH_VDRV, Three-Wire Mode                                                                                      Figure 6-5. tHL_VDRV, Three-Wire Mode
+                                    4.5                                                                                                                           3
+                                                      TA = 25C                                                                                                2.96               TA = 25C
+                                    4.4
+                                                      TA = 125C                                                                                               2.92               TA = 125C
+                                    4.3                                                                                                                        2.88
+                                    4.2                                                                                                                        2.84
+                                    4.1                                                                                                                         2.8
+                                                                                                                                                               2.76
+                                     4                                                                                                                         2.72
+     tLH_VDRV, (s)
+
+
+
+
+                                                                                                                                tHL_VDRV, (s)
+
+
+
+
+                                    3.9                                                                                                                        2.68
+                                    3.8                                                                                                                        2.64
+                                                                                                                                                                2.6
+                                    3.7                                                                                                                        2.56
+                                    3.6                                                                                                                        2.52
+                                    3.5                                                                                                                        2.48
+                                                                                                                                                               2.44
+                                    3.4                                                                                                                         2.4
+                                    3.3                                                                                                                        2.36
+                                    3.2                                                                                                                        2.32
+                                                                                                                                                               2.28
+                                    3.1                                                                                                                        2.24
+                                     3                                                                                                                          2.2
+                                          0      10       20       30     40       50      60     70       80     90     100                                          0     10        20       30       40       50        60    70       80     90    100
+                                                                            CVDRV, (nF)                                                                                                                      CVDRV, (nF)
+
+                                         Three-wire mode                  VDDP = 3.3 V                   RPXFR = 7.32 kΩ                                            Three-wire mode                    VDDP = 3.3 V                    RPXFR = 7.32 kΩ
+                                          CDIV1 = 2.2 μF                  CDIV2 = 2.2 μF                                                                             CDIV1 = 2.2 μF                    CDIV2 = 2.2 μF
+                                                       Figure 6-6. tLH_VDRV versus CVDRV                                                                                          Figure 6-7. tHL_VDRV versus CVDRV
+                                    14                                                                                                                         14
+                                                  VEN                                                                                                                        VEN
+                                    13
+                                                  VVDRV                                                                                                                      VVDRV
+                                    12            VVDDM                                                                                                        12            VVDDM
+                                                  VVDDH                                                                                                                      VVDDH
+                                    11
+     VVDRV, VVDDH, VVDDM, VEN (V)
+
+
+
+
+                                                                                                                                VVDRV, VVDDH, VVDDM, VEN (V)
+
+
+
+
+                                    10                                                                                                                         10
+
+                                     9
+                                                                                                                                                                8
+                                     8
+                                     7
+                                                                                                                                                                6
+                                     6
+                                     5
+                                                                                                                                                                4
+                                     4
+                                     3                                                                                                                          2
+                                     2
+                                     1                                                                                                                          0
+                                     0
+                                    -1                                                                                                                         -2
+                                     -0.2 -0.1    0     0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9        1     1.1 1.2 1.3 1.4 1.5                                    -300      -240      -180    -120       -60       0       60     120      180    240    300
+                                                                                 t (ms)                                                                                                                        t (s)
+
+                                          Two-wire mode                     EN = 12 V                    RPXFR = 7.32 kΩ                                            Two-wire mode                       EN = 12 V                      RPXFR = 7.32 kΩ
+                                           CDIV1 = 30 nF                  CVDRV = 100 pF                   TA = 25°C                                                 CDIV1 = 30 nF                    CVDRV = 100 pF                     TA = 25°C
+                                          CDIV2 = 100 nF                                                                                                            CDIV2 = 100nF
+                                                      Figure 6-8. tLH_VDRV, Two-Wire Mode                                                                                        Figure 6-9. tHL_VDRV, Two-Wire Mode
+
+
+
+
+12                                  Submit Document Feedback                                                                                                                                        Copyright © 2023 Texas Instruments Incorporated
+
+                                                                                                            Product Folder Links: TPSI3050
+                                                                                                                                                                                                                       TPSI3050
+www.ti.com                                                                                                                                                SLVSGO9C – APRIL 2022 – REVISED AUGUST 2023
+
+
+6.12 Typical Characteristics (continued)
+                    4                                                                                                       10
+                  3.8             RPFXR = 7.32 k                                                                                                 RPFXR = 7.32 k
+                  3.6             RPFXR = 9.09 k                                                                            9                    RPFXR = 9.09 k
+                                  RPFXR = 11 k                                                                                                   RPFXR = 11 k
+                  3.4
+                                  RPFXR = 12.7 k                                                                                                 RPFXR = 12.7 k
+                  3.2             RPFXR = 14.7 k                                                                            8                    RPFXR = 14.7 k
+                    3             RPFXR = 16.5 k                                                                                                 RPFXR = 16.5 k
+                  2.8             RPFXR = 20 k                                                                              7                    RPFXR = 20 k
+                  2.6
+                  2.4                                                                                                        6
+   tSTART, (ms)
+
+
+
+
+                                                                                                             tSTART, (ms)
+                  2.2
+                    2                                                                                                        5
+                  1.8
+                  1.6                                                                                                        4
+                  1.4
+                  1.2                                                                                                        3
+                    1
+                  0.8                                                                                                        2
+                  0.6
+                  0.4                                                                                                        1
+                  0.2
+                    0                                                                                                        0
+                     25    75      125     175       225     275      325       375      425      475                         25       75          125       175        225       275       325     375         425       475
+                                                   CDIV1 = CDIV2, (nF)                                                                                               CDIV1 = CDIV2, (nF)
+
+                  tSTART represents the time from VDDP rising to VDDM and                                                   tSTART represents the time from VDDP rising to VDDM and
+                  VDDH fully discharged rails reaching > 95% of their final levels.                                         VDDH fully discharged rails reaching > 95% of their final levels.
+                    Three-wire mode                 VDDP = 5.0 V                      TA = 25°C                               Three-wire mode        VDDP = 3.3 V          TA = 25°C
+                      IAUX = 0 mA                                                                                                IAUX = 0 mA
+                            Figure 6-10. tSTART versus CDIV1, CDIV2                                                                        Figure 6-11. tSTART versus CDIV1, CDIV2
+                  105                                                                                                       75
+                                                                                                                                                     RPXFR = 7.32 k
+                                                                                                                            70
+                                                                                                                                                     RPXFR = 9.09 k
+                   90                                                                                                       65                       RPXFR = 11 k
+                                                                                                                                                     RPXFR = 12.7 k
+                                                                                                                            60                       RPXFR = 14.7 k
+                                                                                                                            55                       RPXFR = 16.5 k
+                   75                                                                                                                                RPXFR = 20 k
+                                                                                                                            50
+                                                                                                                            45
+   fEN, (kHz)
+
+
+
+
+                                                                                                             fEN, (kHz)
+
+
+
+
+                   60
+                                                                                                                            40
+                                                                                                                            35
+                   45
+                                                                                                                            30
+                                                                                                                            25
+                   30                                                                 RPXFR = 7.32 k
+                                                                                      RPXFR = 9.09 k                       20
+                                                                                      RPXFR = 11 k                         15
+                                                                                      RPXFR = 12.7 k
+                   15                                                                 RPXFR = 14.7 k                       10
+                                                                                      RPXFR = 16.5 k
+                                                                                                                             5
+                                                                                      RPXFR = 20 k
+                    0                                                                                                       0
+                    0.01   0.02     0.03    0.04      0.05    0.06       0.07    0.08      0.09        0.1                  0.001     0.002        0.003     0.004      0.005     0.006     0.007       0.008     0.009      0.01
+                                                    1/QLOAD, (nC)-1                                                                                                    1/QLOAD, (nC)-1
+
+                    Three-wire mode                 VDDP = 5.0 V                      TA = 25°C                                  Three-wire mode                       VDDP = 5.0 V                        TA = 25°C
+                   Figure 6-12. Max. fEN versus QLOAD = 10 nC to 100 nC                                                     Figure 6-13. Max. fEN versus QLOAD = 100 nC to 1000 nC
+                  5.5                                                                                                       5.5
+                                                                                        VDDP = 3.3 V                                                                                                            VDDP = 3.3 V
+                  5.0                                                                   VDDP = 5.0 V                        5.0                                                                                 VDDP = 5.0 V
+
+                  4.5                                                                                                       4.5
+
+                  4.0                                                                                                       4.0
+
+                  3.5                                                                                                       3.5
+                                                                                                             VVDDM (V)
+   VVDDM (V)
+
+
+
+
+                  3.0                                                                                                       3.0
+
+                  2.5                                                                                                       2.5
+
+                  2.0                                                                                                       2.0
+
+                  1.5                                                                                                       1.5
+
+                  1.0                                                                                                       1.0
+
+                  0.5                                                                                                       0.5
+
+                  0.0                                                                                                       0.0
+                     0.0   2.0      4.0     6.0       8.0    10.0      12.0      14.0      16.0    18.0                        0.0   0.5    1.0     1.5    2.0   2.5     3.0    3.5   4.0   4.5   5.0     5.5    6.0   6.5   7.0
+                                                      IAUX (mA)                                                                                                           IAUX (mA)
+
+                    Three-wire mode                RPXFR = 20 kΩ                  TA = 25°C                                      Three-wire mode                     RPXFR = 11 kΩ                        TA = 25°C
+                     CDIV1 = 470 nF                CDIV2 = 470 nF                CVDDP = 1 μF                                     CDIV1 = 470 nF                     CDIV2 = 470 nF                      CVDDP = 1 μF
+                                     Figure 6-14. VVDDM vs IAUX                                                                                      Figure 6-15. VVDDM vs IAUX
+
+
+
+
+Copyright © 2023 Texas Instruments Incorporated                                                                                                                                Submit Document Feedback                             13
+
+                                                                                      Product Folder Links: TPSI3050
+TPSI3050
+SLVSGO9C – APRIL 2022 – REVISED AUGUST 2023                                                                                                                www.ti.com
+
+
+7 Parameter Measurement Information
+
+                                     50%                                                              50%
+                     EN
+
+                                          tLH_VDDH
+                                                              50%
+
+                VDDH
+                                          tLH_VDRV
+                                                         90%
+                                                         85%                                                85%
+                                                                                                                         tF_VDRV
+                                                     15%                                                               15%
+                                                                                                                       10%
+                 VDRV
+                                              tR_VDRV                                                  tHL_VDRV
+
+                        Figure 7-1. Two-Wire Mode Timing, Standard Enable (TPSI3050 Only)
+
+                 50%                                                                                                        50%
+     VDDP
+                    tLH_VDDH
+
+                                    50%
+     VDDH                                            tHI_EN                             tLO_EN
+
+                                             50%                   50%                                50%
+        EN                                                                                                                                   tHL_VDRV_PD
+                                              tLH_VDRV                                      tF_VDRV
+                                                     90%
+                                                    85%                                  85%
+
+                                                   15%                                    15%
+     VDRV                                                                                 10%                                              10%
+                                              tR_VDRV                        tHL_VDRV
+
+
+                       Figure 7-2. Three-Wire Mode Timing, Standard Enable (TPSI3050 Only)
+
+                         50%                                                                                                  50%
+             VDDP
+
+                               tLH_VDDH
+                                              50%
+
+             VDDH
+                                                                         tHI_EN                  tLO_EN
+
+                                                     50%                                         50%         50%
+               EN                                                                                             tHL_VDRV_PD
+                                                         tLH_VDRV          tF_VDRV
+                                                              90%
+                                                             85%                        85%
+                                                            50%                         50%
+                                                           15%                           15%                                         10%
+             VDRV
+                                                        tR_VDRV
+                                                                         tHI_VDRV
+
+                     Figure 7-3. Three-Wire Mode Timing, One-Shot Enable (TPSI3050S Only)
+
+
+
+
+14    Submit Document Feedback                                                                                          Copyright © 2023 Texas Instruments Incorporated
+
+                                                                  Product Folder Links: TPSI3050
+                                                                                                                                                            TPSI3050
+www.ti.com                                                                                                             SLVSGO9C – APRIL 2022 – REVISED AUGUST 2023
+
+                       EN                                                                                                                   Pass/Fail criteria: Output
+                                                                                                                                            must remain stable.
+                   PXFR                                                                                                         VDRV
+
+              VDDP                                                                                                              VDDH                              +
+                                                                                                                                        CDIV1
+
+
+
+
+                                                             Isolation Barrier
+
+
+
+
+                                                                                 Demodulator
+                                                                                                                                                        CVDRV
+
+
+
+
+                                                                                                           Regulator
+      CVDDP
+
+
+
+
+                                                                                               Rectifier
+               RPXFR
+
+
+
+                               Control
+
+
+
+
+                                                                                                            Shunt
+                                                                                                                                VDDM                            VVDRV
+                                           Modulator
+                                                                                                                                        CDIV2
+
+                                                                                                                                                                  -
+              VSSP                                                                                                              VSSS
+
+
+
+
+        GNDI                                                                                                                              GNDO
+                                                          + VCM -
+
+                                         Figure 7-4. Common-Mode Transient Immunity Test Circuit
+
+
+
+
+Copyright © 2023 Texas Instruments Incorporated                                                                                   Submit Document Feedback               15
+
+                                                         Product Folder Links: TPSI3050
+TPSI3050
+SLVSGO9C – APRIL 2022 – REVISED AUGUST 2023                                                                                                                      www.ti.com
+
+
+8 Detailed Description
+8.1 Overview
+The TPSI3050 is a fully integrated, isolated power switch driver, which when combined with an external power
+switch, forms a complete isolated Solid State Relay (SSR). With a nominal gate drive voltage of 10 V and
+1.5/3.0-A peak source and sink current, a large variety of external power switches can be chosen to meet a
+wide range of applications. The TPSI3050 generates its own secondary supply from the power received from its
+primary side, so no isolated secondary bias supply is required.
+The Functional Block Diagram shows the primary side that includes a transmitter that drives an alternating
+current into the primary winding of an integrated transformer at a rate determined by the setting of the PXFR pin
+and the logic state of the EN pin. The transmitter operates at high frequency to optimally drive the transformer
+to its peak efficiency. In addition, the transmitter uses spread spectrum techniques to greatly improve EMI
+performance, allowing many applications to achieve CISPR 25 - Class 5. During transmission, data information
+transfers to the secondary side alongside with the power. On the secondary side, the voltage induced on the
+secondary winding of the transformer is rectified, and the shunt regulator regulates the output voltage level of
+VDDH. Lastly, the demodulator decodes the received data information and drives VDRV high or low based on
+the logic state of the EN pin.
+8.2 Functional Block Diagram
+                       EN
+                     PXFR                                                                                                                     VDRV
+
+                     VDDP                                                                                                                     VDDH
+
+
+
+
+                                                                                                              Shunt Regulator
+                                                                Isolation Barrier
+
+
+
+
+                                                                                    Demodulator
+
+
+
+                                                                                                  Rectifier
+                                 Control
+
+
+
+
+                                           Modulator                                                               10 V                       VDDM
+
+
+
+                     VSSP                                                                                                                     VSSS
+
+
+
+8.3 Feature Description
+8.3.1 Transmission of the Enable State
+The TPSI3050 and TPSI3050S use a modulation scheme to transmit the switch enable state information across
+the isolation barrier. The transmitter modulates the EN signal with an internally generated, high frequency carrier
+(89-MHz typical), and differentially drives the primary winding of the isolation transformer. The receiver on the
+secondary side demodulates the received signal and asserts VDRV high or low based on the data received.
+8.3.2 Power Transmission
+The TPSI3050 and TPSI3050S do not use an isolated supply for their power. The secondary side power is
+obtained by the transferring of the primary side input power across the isolation transformer. The modulation
+scheme uses spread spectrum of the high frequency carrier (89-MHz typical) to improve EMI performance
+assisting applications in meeting the CISPR 25 Class 5 standards.
+8.3.3 Gate Driver
+The TPSI3050 and TPSI3050S have an integrated gate driver that provides a nominal 10-V gate voltage
+with 1.5/3.0-A peak source and sink current sufficient for driving many power transistors or Silicon-Controlled
+Rectifiers (SCR). When driving external power transistors, TI recommends bypass capacitors (CDIV = CDIV1 =
+CDIV2) from VDDH to VDDM and VDDM to VSSS of 20 times the equivalent gate capacitance.
+The gate driver also includes an active clamp keep off circuit. This feature helps to keep the driver output, VDRV,
+low should power be lost on the secondary supply rails e.g. power loss on the VDDP supply prevents power
+transfer. Should power be lost, the active clamp keep off circuit will attempt to clamp the voltage of VDRV to
+under 2 V relative to VSSS.
+
+
+
+16    Submit Document Feedback                                                                                                  Copyright © 2023 Texas Instruments Incorporated
+
+                                                       Product Folder Links: TPSI3050
+                                                                                                                            TPSI3050
+www.ti.com                                                                                  SLVSGO9C – APRIL 2022 – REVISED AUGUST 2023
+
+
+8.3.4 Modes Overview
+The TPSI3050 and TPSI3050S have two modes of operation: two-wire mode and three-wire mode.
+In two-wire mode, the power on the primary side is provided directly by the EN pin. Setting EN high causes
+power transfer to the secondary side. As power transfers, the secondary rails, VDDM and VDDH, begin to rise.
+After sufficient power is available on the secondary side, VDRV is asserted high. Setting EN low causes VDRV
+to assert low and halts power transfer to the secondary side.
+In three-wire mode, the power on the primary side is provided by a dedicated, low output impedance supply
+connected to VDDP. In this case, power transfer is independent from the enable state. If VDDP power is present,
+power is transferred from the primary side to the secondary side regardless of the EN state. In steady state
+conditions, when sufficient power is available on the secondary side, setting EN high causes VDRV to assert
+high. Setting EN low causes VDRV to assert low.
+In standard enable, available only on the TPSI3050, VDRV follows the state of the EN pin and is used in most
+load switch applications. In one-shot enable mode, available only on the TPSI3050S in three-wire mode, when a
+rising transition occurs on EN, VDRV is asserted high momentarily and then automatically asserted low, forming
+a one-shot pulse on VDRV. This event is useful for driving SCR devices that require only one burst of power to
+trigger. To re-trigger VDRV, EN must first transition low, followed by another rising transition.
+8.3.5 Three-Wire Mode
+Three-wire mode is used for applications that require higher levels of power transfer or the shortest propagation
+delay TPSI3050 can offer. VDDP is supplied independently from the EN pin by a low output impedance external
+supply that can deliver the required power. In this mode, power from the primary side to the secondary side
+always occurs regardless of the state of the EN pin. Setting the EN pin logic high or low asserts or de-asserts
+VDRV, thereby enabling or disabling the external switch, respectively. Figure 8-1 shows the basic setup required
+for three-wire mode operation which requires EN, VDDP, and VSSP signals. EN can be driven up to 5.5 V
+which is normally driven from the circuitry residing on the same rail as VDDP. In this example, the TPSI3050
+is being used to drive back-to-back MOSFETs in a common-source configuration. CVDDP provides the required
+decoupling capacitance for the VDDP supply rail of the device. CDIV1 and CDIV2 provide the required decoupling
+capacitances of the VDDH and VDDM supply rails that provide the peak current to drive the external MOSFETs.
+Figure 8-2 and Figure 8-3 show the basic operation from start-up to steady-state conditions. Figure 8-2 shows
+operation using standard enable of the TPSI3050. After power up, the TPSI3050 begins to transfer power from
+VDDP to the secondary side for a fixed time period (25-μs typical) at a duty cycle rate determined by RPXFR,
+which begins to charge up the VDDH (and VDDM) secondary side rails. Power transfer continues as long as
+VDDP is present. The time required to fully charge VDDH depends on several factors including the values of
+VDDP, CDIV1, CDIV2, RPXFR, and the overall power transfer efficiency. When the application drives the EN pin
+to a logic high, the TPSI3050 signals information from the primary side to the secondary side to assert VDRV
+and drive it high. Similarly, setting EN pin to a logic low causes VDRV to be driven low. Figure 8-3 shows
+operation using one-shot enable of the TPSI3050S. The start-up behavior is identical. In one-shot enable, when
+the application drives the EN pin to a logic high, VDRV is asserted high (tHI_VDRV), then is automatically asserted
+low by the TPSI3050S. To assert VDRV high again, the EN pin must transition low first, followed by a transition
+high.
+                                 3–5.5 V
+
+                                  Micro             EN                             VDRV
+                                                                     PWR
+                                           RPXFR
+                                                    PXFR           SIGNAL
+                                                                                   VDDH
+                                                                      ISOLATION
+
+
+
+
+                                          3–5.5 V                                           CDIV1
+                                                    VDDP                           VDDM
+                                     CVDDP
+                                                                                            CDIV2
+                                                                                  VSSS
+                                                    VSSP
+
+
+
+                                        Figure 8-1. Three-Wire Mode Simplified Schematic
+
+
+Copyright © 2023 Texas Instruments Incorporated                                                        Submit Document Feedback     17
+
+                                                           Product Folder Links: TPSI3050
+TPSI3050
+SLVSGO9C – APRIL 2022 – REVISED AUGUST 2023                                                                     www.ti.com
+
+
+
+
+            VDDP
+
+            VVDDH
+
+
+
+
+            VDDH
+
+
+
+
+               EN
+
+
+
+           VVDRV_H
+
+
+
+
+            VDRV
+
+
+                          Figure 8-2. Three-Wire Mode with TPSI3050 (Standard Enable)
+
+
+
+
+            VDDP
+
+            VVDDH
+
+
+
+
+            VDDH
+
+
+
+
+               EN
+
+
+
+           VVDRV_H
+
+
+
+
+            VDRV
+
+
+                         Figure 8-3. Three-Wire Mode with TPSI3050S (One-shot Enable)
+
+To reduce average power, the TPSI3050 transfers power from the primary side to the secondary side in a
+burst fashion. The period of the burst is fixed while the burst on time is programmable by selecting one of
+seven appropriate resistor values, RPXFR, from the PXFR to VSSP pins, thereby changing the duty cycle of the
+power converter. This action provides flexibility in the application, allowing tradeoffs in power consumed versus
+power delivered. Higher power converter settings increase the burst on time which, in turn, increases average
+power consumed from the VDDP supply and increases the amount of power transferred to the secondary side
+VDDH and VDDM supplies. Similarly, lower power converter settings decrease the burst on time which, in turn,
+decreases average power consumed from the VDDP supply and decreases the amount of power transferred to
+the secondary side.
+Table 8-1 summarizes the three-wire mode power transfer selection.
+
+
+
+
+18    Submit Document Feedback                                                 Copyright © 2023 Texas Instruments Incorporated
+
+                                              Product Folder Links: TPSI3050
+                                                                                                                                      TPSI3050
+www.ti.com                                                                                      SLVSGO9C – APRIL 2022 – REVISED AUGUST 2023
+
+                                      Table 8-1. Three-Wire Mode Power Transfer Selection
+           (1) (2)      Power Converter Duty Cycle
+   RPXFR                                                                                        Description
+                        (Three-Wire Mode, Nominal)
+      7.32 kΩ                        13.3%
+      9.09 kΩ                        26.7%                  The device supports seven, fixed power transfer settings, by selection of a
+                                                            corresponding RPXFR value . Selecting a given power transfer setting adjusts the
+      11 kΩ                          40.0%
+                                                            duty cycle of the power converter and hence the amount of power transferred.
+      12.7 kΩ                        53.3%                  Higher power transfer settings leads to an increased duty cycle of the power
+                                                            converter leading to increased power transfer and consumption. During power
+      14.7 kΩ                        66.7%
+                                                            up, the power transfer setting is determined and remains fixed at that setting until
+      16.5 kΩ                        80.0%                  VDDP power cycles.
+      20 kΩ                          93.3%
+
+(1)    Standard resistor (EIA E96), 1% tolerance, nominal value.
+(2)    RPXFR ≥ 100 kΩ or RPXFR ≤ 1 kΩ sets the duty cycle of the power converter to 13.3%.
+
+8.3.6 Two-Wire Mode
+Figure 8-4 shows the basic setup required for two-wire mode operation, which requires the EN signal and VSSP
+ground signal. EN can be driven up to 48 V. No current limiting resistor is required on EN because the TPSI3050
+limits the input current based on the values set by the RPXFR resistor (see Table 8-2). In this example, the
+TPSI3050 is being used to drive back-to-back MOSFETs in a common-source configuration. CVDDP provides the
+required decoupling capacitance for the VDDP supply rail of the device. CDIV1 and CDIV2 provide the required
+decoupling capacitance of the VDDH and VDDM supply rails that provide the peak current to drive the external
+MOSFETs.
+Figure 8-5 shows the typical operation in two-wire mode configured for standard enable. The application drives
+EN to a logic high and the TPSI3050 begins its power-up sequence. During power up, the current provided
+by the EN pin, IEN, begins to charge up the external capacitance, CVDDP, and the voltage on VDDP begins
+to rise until it reaches VVDDP_H. After VDDP reaches its peak, VVDDP_H, the TPSI3050 transfers stored energy
+on CVDDP to the secondary side for a fixed time (3.3-μs typical) which begins to charge up the VDDH (and
+VDDM) secondary side rails thereby discharging the voltage on VDDP. In steady state, this results in an average
+voltage on VDDP, VVDDP_AVG. This cycle repeats until the VDDH (and VDDM) secondary side rails are fully
+charged. The time required to fully charge VDDH depends on several factors including the values of CVDDP,
+CDIV1, CDIV2, RPXFR, and the overall power transfer efficiency. After VDDH is fully charged, VDRV is asserted
+high and remains high while the EN pin remains at a logic high. When the application drives the EN pin to a logic
+low, the charge on VDDP begins to discharge. Prior to VDDP reaching its UVLO falling threshold, TPSI3050
+signals information from the primary side to the secondary side to de-assert VDRV and drive it low. Because
+power is no longer being transferred, all rails begin to fully discharge.
+
+                                    6.5–48 V
+                                                  EN                              VDRV
+                                                                  PWR
+                                        RPXFR
+                                                  PXFR           SIGNAL
+                                                                                 VDDH
+                                                                    ISOLATION
+
+
+
+
+                                                                                               CDIV1
+                                                  VDDP
+                                                                                 VDDM
+                                    CVDDP
+                                                                                               CDIV2
+                                                                                 VSSS
+                                                  VSSP
+
+
+
+                                         Figure 8-4. Two-Wire Mode Simplified Schematic
+
+
+
+
+Copyright © 2023 Texas Instruments Incorporated                                                               Submit Document Feedback         19
+
+                                                         Product Folder Links: TPSI3050
+TPSI3050
+SLVSGO9C – APRIL 2022 – REVISED AUGUST 2023                                                                                        www.ti.com
+
+            VVDDP_H
+                                   90%
+
+
+                                           tLH_VDDP_H
+
+
+
+             VDDP
+              VVDDH
+          VVDDH_UV_R
+
+
+
+
+              VDDH
+
+
+
+                       50%
+
+
+                EN
+
+            VVDRV_H
+
+
+
+
+             VDRV
+
+
+                             Figure 8-5. Two-Wire Mode with Standard Enable (TPSI3050 Only)
+
+In two-wire mode, power is supplied directly by the EN pin. When EN is asserted high, the TPSI3050 transfers
+power to the secondary side for a fixed time (3.3-μs nominal) while the time period varies. The period varies
+due to the hysteretic control of the power transfer that ensures the average current supplied through the EN pin
+is maintained. The amount of average current, and hence the amount of power transferred, is programmable
+by selecting one of seven appropriate resistor values, RPXFR, from the PXFR to VSSP pins. Higher settings of
+RPXFR increase IEN which increases the average power consumed from the EN pin and increases the amount
+of power transferred to the secondary side VDDH supply. Similarly, lower settings of RPXFR decrease IEN, which
+decreases the average power consumed from the EN pin and decreases the amount of power transferred to the
+secondary side.
+Table 8-2 summarizes the two-wire mode power selection.
+                                           Table 8-2. Two-Wire Mode Power Selection
+     RPXFR (1) (2)     IEN (Two-Wire Mode, Nominal)                                          Description
+       7.32 kΩ                    1.9 mA
+       9.09 kΩ                    2.8 mA
+        11 kΩ                     3.7 mA                   The device supports seven, fixed EN input current limit options selected by
+                                                           the corresponding RPXFR specified value. Higher current limit selections lead to
+       12.7 kΩ                    4.5 mA
+                                                           increased power transfer and consumption. During power up, the EN input current
+       14.7 kΩ                    5.2 mA                   limit is determined and remains fixed at that setting until VDDP power cycles.
+       16.5 kΩ                    6.0 mA
+        20 kΩ                     6.7 mA
+
+(1)     Standard resistor (EIA E96), 1% tolerance, nominal value.
+(2)     RPXFR ≥ 100 kΩ or RPXFR ≤ 1 kΩ sets the IEN to 1.9 mA.
+
+8.3.7 VDDP, VDDH, and VDDM Undervoltage Lockout (UVLO)
+TPSI3050 and TPSI3050S implement an internal UVLO protection feature for both input and output power
+supplies, VDDP, VDDH, and VDDM. When VDDP is lower than the UVLO threshold voltage, power ceases to
+be transferred to the VDDM and VDDH rails. Over time the VDDH and VDDM rails will begin to discharge.
+If enough charge is available on VDDP, the device will attempt to signal VDRV to assert low. If not enough
+charge is available on VDDP, a timeout mechanism will ensure VDRV asserts low after the timeout has been
+reached. When either VDDH or VDDM are lower than their respective UVLO thresholds, VDRV will be asserted
+low regardless of the EN state. The UVLO protection blocks feature hysteresis, which helps to improve the
+noise immunity of the power supply. During turn-on and turn-off, the driver sources and sinks a peak transient
+
+20       Submit Document Feedback                                                                 Copyright © 2023 Texas Instruments Incorporated
+
+                                                        Product Folder Links: TPSI3050
+                                                                                                                                TPSI3050
+www.ti.com                                                                                      SLVSGO9C – APRIL 2022 – REVISED AUGUST 2023
+
+current, which can result in voltage drop of the VDDH, VDDM power supplies. The internal UVLO protection
+block ignores the associated noise during these normal switching transients.
+8.3.8 Power Supply and EN Sequencing
+During power up, the device will automatically determine if two-wire or three-wire mode is to be entered. Once
+two-wire or three-wire mode is determined, the mode is maintained until another power cycle is performed.
+Therefore, it is important to understand different scenarios that may affect the device operation.
+In two-wire mode, the device is supplied power from a single external voltage source via EN, which charges the
+CVDDP capacitance on VDDP. The voltage supply is required to meet the power supply needs at the selected
+PXFR setting, as well as, meet the recommended minimum ramp time, |ΔVEN/Δt|. To ensure two-wire mode is
+entered properly, VEN must reach VIH_EN prior to VVDDP reaching VVDDP_UV_R. This is summarized in Figure 8-6.
+Similarly, it is recommend that VEN meet the minimum recommended ramp down time to V IL_EN. Too slow a ramp
+down time may cause insufficient power to be transferred while slowly transitioning between VIH_EN and VIL_EN
+leading to intermittent de-assertions and assertions of VDRV. This may continue until the power transfer reduces
+sufficiently to maintain VDRV low.
+
+                            VIH_EN
+
+
+
+
+                                                             VEN
+
+
+                             VIL_EN
+                                                     t
+                               VEN
+
+
+
+
+                        VVDDP_UV_R
+
+
+                                                                                Two-wire mode
+
+                             VVDDP
+
+
+                                                  Figure 8-6. Two-wire Mode Entry
+
+In most three-wire mode applications, EN and VDDP are supplied by the same voltage rail and source. It
+is recommended that VEN remain below VIL_EN until VVDDP reaches VVDDP_UV_R. It is also possible in some
+applications to connect EN directly to the VDDP supply. These two scenarios are shown in Figure 8-7.
+
+
+
+                        VVDDP_UV_R
+
+
+
+
+                             VVDDP
+
+
+
+
+                                                          VEN = VVDDP
+
+                             VIL_EN
+
+                               VEN
+
+
+
+                                           Figure 8-7. Three-wire Mode Power Sequences
+
+
+
+Copyright © 2023 Texas Instruments Incorporated                                                            Submit Document Feedback     21
+
+                                                         Product Folder Links: TPSI3050
+TPSI3050
+SLVSGO9C – APRIL 2022 – REVISED AUGUST 2023                                                                       www.ti.com
+
+In three-wire mode applications with separate voltage sources supplying EN and VDDP, it is recommended
+that VEN remain below VIL_EN until VVDDP reaches VVDDP_UV_R. If VEN reaches VIH_EN prior to VVDDP reaching
+VVDDP_UV_R, current from the supply that sources EN will attempt to power VDDP. Depending on the other
+supply's impedance residing on VDDP and the amount of power available from the EN pin, VVDDP may begin to
+rise and eventually exceed VVDDP_UV_R. At that point, the device will begin to transfer power to the secondary
+and start charging the VDDM and VDDH rails. If VDDP remains above VVDDP_UV_R, the device will continue to
+transfer power to the secondary eventually charging the VDDM and VDDH rails and VDRV may assert high.
+8.3.9 Thermal Shutdown
+The device contains an integrated temperature sensor to monitor its local temperature. When the sensor
+reaches its threshold, it automatically ceases power transfer from the primary side to the secondary side. In
+addition, if power is still present on VDDP, the driver is automatically asserted low. The power transfer is disabled
+until the local temperature reduces enough to re-engage.
+
+
+
+
+22    Submit Document Feedback                                                   Copyright © 2023 Texas Instruments Incorporated
+
+                                              Product Folder Links: TPSI3050
+                                                                                                                                 TPSI3050
+www.ti.com                                                                                 SLVSGO9C – APRIL 2022 – REVISED AUGUST 2023
+
+
+8.4 Device Functional Modes
+Table 8-3 summarizes the functional modes for the TPSI3050 and TPSI3050S.
+                                   Table 8-3. TPSI3050, TPSI3050S Device Functional Modes
+        VDDP(6)                 VDDH               EN(6)                VDRV                              COMMENTS
+                                                     L                       L        TPSI3050 normal operation:
+                                                                                      VDRV output state assumes logic state of EN logic
+                                                     H                       H        state.
+
+      Powered up(2)         Powered up(4)            L                       L        TPSI3050S normal operation (three-wire mode
+                                                                                      only):
+                                                                                      rising edge of EN causes VDRV to be singly pulsed
+                                                   L→H                L→H→L           high. EN must be asserted low first to assert
+                                                                                      another pulse.
+                                                                                      Disabled operation:
+   Powered down(3)         Powered down(5)          X(1)                     L
+                                                                                      VDRV output disabled, keep off circuitry applied.
+                                                                                      Disabled operation:
+      Powered up(2)        Powered down(5)          X(1)                     L
+                                                                                      VDRV output disabled, keep off circuitry applied.
+                                                                                      Disabled operation:
+                                                                                      when VDDP is powered down, output driver
+   Powered down(3)          Powered up(4)           X(1)                     L
+                                                                                      is disabled automatically after timeout, keep off
+                                                                                      circuitry applied.
+
+(1)    X: do not care.
+(2)    VVDDP ≥ VDDP undervoltage lockout rising threshold, VVDDP_UV_R.
+(3)    VVDDP < VDDP undervoltage lockout falling threshold, VVDDP_UV_F.
+(4)    VVDDH ≥ VDDH undervoltage lockout rising threshold, VVDDH_UV_R.
+(5)    VVDDH < VDDH undervoltage lockout falling threshold, VVDDH_UV_F.
+(6)    Refer to Power Supply and EN Sequencing for additional information.
+
+
+
+
+Copyright © 2023 Texas Instruments Incorporated                                                         Submit Document Feedback          23
+
+                                                     Product Folder Links: TPSI3050
+TPSI3050
+SLVSGO9C – APRIL 2022 – REVISED AUGUST 2023                                                                                      www.ti.com
+
+
+9 Application and Implementation
+                                                                       Note
+      Information in the following applications sections is not part of the TI component specification,
+      and TI does not warrant its accuracy or completeness. TI’s customers are responsible for
+      determining suitability of components for their purposes, as well as validating and testing their design
+      implementation to confirm system functionality.
+
+9.1 Application Information
+The TPSI3050 is a fully integrated, isolated switch driver with integrated bias, which when combined with an
+external power switch, forms a complete isolated solid state relay solution. With a nominal gate drive voltage
+of 10 V with 1.5/3.0-A peak source and sink current, a large variety of external power switches such as
+MOSFETs, IGBTs, or SCRs can be chosen to meet a wide range of applications. The TPSI3050 generates its
+own secondary bias supply from the power received from its primary side, so no isolated secondary supply bias
+is required.
+The TPSI3050 supports two modes of operation based on the number of input pins required. In two-wire
+mode, typically found in driving mechanical relays, controlling the switch requires only two pins and supports
+a wide voltage range of operation of 6.5 V to 48 V. In three-wire mode, the primary supply of 3 V to 5.5 V is
+supplied externally, and the switch is controlled through a separate enable. Available in three-wire mode only, the
+TPSI3050S features a one-shot enable for the switch control. This feature is useful for driving SCRs that typically
+require only one pulse of current to trigger.
+The secondary side provides a regulated, floating supply rail of 10 V for driving a large variety of power
+switches with no need for a secondary bias supply. The TPSI3050 can support driving single power switch, dual
+back-to-back, parallel power switches for a variety of AC or DC applications. The TPSI3050 integrated isolation
+protection is extremely robust with much higher reliability, lower power consumption, and increased temperature
+ranges than those found using traditional mechanical relays and optocouplers.
+The power dissipation of the TPSI3050 can be adjusted by an external resistor from the PXFR pin to VSSP.
+This feature allows for tradeoffs in power dissipation versus power provided on the secondary depending on the
+needs of the application.
+9.2 Typical Application
+The circuits in Figure 9-1 and Figure 9-2 show a typical application for driving silicon based MOSFETs in
+three-wire mode and two-wire mode, respectively.
+
+                                    VP                                                       RGSRC
+                                            EN                                VDRV
+                          VSSP                            PWR
+                                                                                             RGSNK
+                                    RPXFR
+                                            PXFR        SIGNAL
+                                                                              VDDH
+                                                           ISOLATION
+
+
+
+
+                                                                                     CDIV1
+                                            VDDP                              VDDM
+                                 CVDDP
+                      +
+                 VP                                                                  CDIV2
+                      –                                                       VSSS
+                                            VSSP
+
+
+
+                                  Figure 9-1. TPSI3050 Three-Wire Mode Driving MOSFETs
+
+
+
+
+24    Submit Document Feedback                                                                  Copyright © 2023 Texas Instruments Incorporated
+
+                                                   Product Folder Links: TPSI3050
+                                                                                                                             TPSI3050
+www.ti.com                                                                                   SLVSGO9C – APRIL 2022 – REVISED AUGUST 2023
+
+
+                             6.5–48 V                                                  RGSRC
+                                             EN                        VDRV
+                                                         PWR
+                                                                                       RGSNK
+                                 RPXFR
+                                             PXFR       SIGNAL
+                                                                       VDDH
+
+
+
+
+                                                          ISOLATION
+                                                                                   CDIV1
+                                             VDDP
+                                                                       VDDM
+                             CVDDP
+                                                                                   CDIV2
+                                                                       VSSS
+                                             VSSP
+
+
+
+                                     Figure 9-2. TPSI3050 Two-Wire Mode Driving MOSFETs
+
+9.2.1 Design Requirements
+Table 9-1 lists the design requirements of the TPSI3050 gate driver.
+                                              Table 9-1. TPSI3050 Design Requirements
+                                                         DESIGN PARAMETERS
+             Total gate capacitance                                                        100 nC
+                FET turn-on time                                                            1 µs
+                Propagation delay                                                          < 4 µs
+               Switching frequency                                                         10 kHz
+             Supply voltage (VDDP)                                                     5 V ± 5%
+
+
+9.2.2 Detailed Design Procedure
+9.2.2.1 Two-Wire or Three-Wire Mode Selection
+The first design decision is to determine if two-wire or three-wire mode can be used in the application. For this
+design, note that the overall propagation delay is less than 4 µs and only three-wire mode is able to meet this
+requirement. In this case, two-wire mode is not applicable. Two-wire mode, due to its limited power transfer, is
+typically limited to very low frequency applications of less than a few kHz or when enable times are not critical.
+9.2.2.2 Standard Enable, One-Shot Enable
+Next, based on the application a decision must be if standard enable or one-shot enable mode is required. In this
+design, assume that after the switch is enabled, it is desired that the switch remain enabled until commanded
+to be disabled. Therefore, standard enable mode is assumed. In most applications that involve driving FETs,
+standard enable is appropriate. If driving SCRs or TRIACS, one-shot mode can be beneficial.
+9.2.2.3 CDIV1, CDIV2 Capacitance
+The CDIV1 and CDIV2 capacitances required depends on the amount of drop that can be tolerated on the VDDH
+rail during switching of the external load. The charge stored on the CDIV1 and CDIV2 capacitances is used to
+provide the current to the load during switching. During switching, charge sharing occurs and the voltage on
+VDDH drops. At a minimum, TI recommends that the total capacitance formed by the series combination of
+CDIV1 and CDIV2 be sized to be at least 20 times the total gate capacitance to be switched. This sizing results in
+an approximate 0.5-V drop of the VDDH supply rail that is used to supply power to the VDRV signal. Equation 1
+and Equation 2 can be to used to calculate the amount of capacitance required for a specified voltage drop.
+CDIV1 and CDIV2 must be of the same type and tolerance.
+                          Q
+           CDIV1 = n +
+                     n
+                       1
+                         × LOAD
+                            ∆ V , n ≥ 1.0                                                                                      (1)
+
+           CDIV2 = n × CDIV1, n ≥ 1.0                                                                                          (2)
+
+where
+•    n is a real number greater than or equal to 1.0.
+
+
+Copyright © 2023 Texas Instruments Incorporated                                                         Submit Document Feedback     25
+
+                                                      Product Folder Links: TPSI3050
+TPSI3050
+SLVSGO9C – APRIL 2022 – REVISED AUGUST 2023                                                                                         www.ti.com
+
+•     CDIV1 is the external capacitance from VDDH to VDDM.
+•     CDIV2 is the external capacitance from VDDM to VSSS.
+•     QLOAD is the total charge of the load from VDRV to VSSS.
+•     ΔV is the voltage drop on VDDH when switching the load.
+
+                                                       Note
+        CDIV1 and CDIV2 represent absolute capacitances and components selected must be adjusted for
+        tolerances and any derating necessary to achieve the required capacitances.
+
+Larger values of ΔV can be used in the application, but excessive droop can cause the VDDH undervoltage
+lockout falling threshold (VVDDH_UVLO_F) to be reached and cause VDRV to be asserted low. Note that as the
+series combination of CDIV1 and CDIV2 capacitances increases relative to QLOAD, the VDDH supply voltage drop
+decreases, but the initial charging of the VDDH supply voltage during power up increases.
+For this design, assuming n = 1 and ΔV ≅ 0.5 V, then
+
+            CDIV1 = 1 +
+                      1
+                        1
+                          × 100  nC
+                             0.5 V = 400 nF                                                                                             (3)
+
+            CDIV2 = 1 × 400 nF = 400 nF                                                                                                 (4)
+
+For this design, CDIV1 = CDIV2 = 470 nF standard capacitor values were selected.
+9.2.2.4 RPXFR Selection
+The selection of RPXFR allows for a tradeoff between power consumed and power delivered, as described in the
+Three-wire Mode section. For this design, one must choose an appropriate RPXFR selection that ensures enough
+power is transferred to support the amount of load being driven at the specified switching frequency.
+During switching of the load, QLOAD of charge on VDDH is transferred to the load and VDDH supply voltage
+droops. After each switching cycle, this charge must be replenished before the next switching cycle occurs. This
+action ensures that the charge residing on VDDH does not deplete over time due to subsequent switching cycles
+of the load. The time it takes to recover this charge, tRECOVER, can be estimated as follows:
+
+                                    Q
+            tRECOVER = f 1        ≅ ILOAD                                                                                               (5)
+                           MAX       OUT
+
+where
+• QLOAD is the load charge in Coulombs.
+• IOUT is the average current available from VDDH supply in Amperes (A).
+• fMAX is maximum switching frequency in Hertz (Hz).
+For this design, QLOAD = 100 nC and fMAX = 10 kHz are known, so IOUT required can be estimated as
+
+            IOUT ≅ 100 nC × 10 kHz = 1.0 mA                                                                                             (6)
+
+IOUT represents the minimum average current required to meet the design requirements. Using the TPSI3050
+calculator tool, one can easily find the RPXFR necessary by referring to the IOUT or fMAX columns directly. Table
+9-2 shows the results from the tool, assuming VDDP = 4.75 V, to account for the supply tolerance specified in
+the design requirements. The TPSI3050 Calculator tool can be found at Design Calculator.
+                  Table 9-2. Results from the TPSI3050 Calculator Tool, TA = 25°C, Three-Wire Mode
+                     Power
+                                                                                                                       fEN_MAX,      IAUX_MAX,
+     RPXFR, kΩ     Converter      IVDDP, mA     PIN, mW    POUT, mW    IOUT, mA       tSTART, µs     tRECOVER, µs
+                                                                                                                         kHz            mA
+                  Duty Cycle, %
+           9.09            21.1          6.82       32.0        10.8        1.05          1944.3              93.13         10.74             0.15
+             11            40.0         14.09       66.6        23.7        2.32           976.0              42.68         23.43             2.66
+           12.7            53.3         19.22       90.9        32.5        3.19           754.1               31.11        32.14             4.38
+           14.7            66.7         24.38      115.4        41.3        4.07           626.1              24.44         40.91             6.12
+
+
+
+26      Submit Document Feedback                                                                   Copyright © 2023 Texas Instruments Incorporated
+
+                                                     Product Folder Links: TPSI3050
+                                                                                                                                        TPSI3050
+www.ti.com                                                                                        SLVSGO9C – APRIL 2022 – REVISED AUGUST 2023
+
+         Table 9-2. Results from the TPSI3050 Calculator Tool, TA = 25°C, Three-Wire Mode (continued)
+                     Power
+                                                                                                                          fEN_MAX,     IAUX_MAX,
+    RPXFR, kΩ      Converter        IVDDP, mA     PIN, mW      POUT, mW      IOUT, mA     tSTART, µs     tRECOVER, µs
+                                                                                                                            kHz           mA
+                  Duty Cycle, %
+          16.5              80.0          29.50        139.8          50.7         4.99         539.5             19.93        50.17            7.96
+            20              93.3          34.62        164.1          59.6         5.87         482.4             16.96        58.98            9.70
+
+
+Table 9-3 summarizes the various output parameters of the calculator tool.
+                                   Table 9-3. TPSI3050 Calculator Tool Parameter Descriptions
+            Parameter                                                               Description
+                                    External resistor setting that controls the amount of power transferred to the load by adjusting the duty
+                RPXFR
+                                    cycle. Higher RPXFR settings lead to increased power transfer and power consumption.
+                                    Nominal duty cycle of the power converter. Higher RPXFR settings leads to higher duty cycles of the power
+    Power Converter Duty Cycle
+                                    converter and higher power transfer.
+                IVDDP               Average current consumed from the VDDP supply
+                 PIN                Average power consumed from the VDDP supply
+                POUT                Average power delivered to the VDDH supply
+                 IOUT               Average current delivered to the VDDH supply
+                                    Start-up time from VDDP rising until VDDH supply rail is fully charged. This parameter assumes VDDH and
+                tSTART
+                                    VDDM supply rails are fully discharged initially.
+             tRECOVER               Represents the time for the VDDH rail to recover after switching the load present on VDRV
+                 fMAX               Maximum switching frequency possible for a given RPXFR setting for the applied loading conditions
+                                    Maximum auxiliary current available at current user input settings. There is an inverse relationship between
+             IAUX_MAX
+                                    fMAX and IAUX_MAX.
+
+
+For this design example, RPXFR must be configured to the 9.09-kΩ setting or higher to transfer enough power to
+support switching the specified load at the required 10-kHz frequency.
+9.2.2.5 CVDDP Capacitance
+For two-wire mode, the recommended capacitance CVDDP from VDDP to VSSP is 220 nF.
+For this design, three-wire mode is required to meet the design requirements. For three-wire mode, increasing
+the amount of capacitance, CVDDP, improves the ripple on the VDDP supply. For this design, 1 μF in parallel with
+100 nF is used.
+9.2.2.6 Gate Driver Output Resistor
+The optional external gate driver resistors, RGSRC and RGSNK, along with the diode are used to:
+1. Limit ringing caused by parasitic inductances and capacitances
+2. Limit ringing caused by high voltage switching dv/dt, high current switching di/dt, and body-diode reverse
+   recovery
+3. Fine-tune gate drive strength for sourcing and sinking
+4. Reduce electromagnetic interference (EMI)
+The TPSI3050 has a pullup structure with a P-channel MOSFET with a peak source current of 1.5 A. Therefore,
+the peak source current can be predicted with:
+
+                                              VVDDH
+           IO + ≅ min 1.5 A, R                                                                                                            (7)
+                                    DSON_VDRV + RGSRC + RGFET_INT
+
+where
+•    RGSRC: external turn-on resistance.
+•    RDSON_VDRV: TPSI3050 driver on resistance in high state. See Electrical Characteristics.
+•    VVDDH: VDDH voltage. Assumed 10.2 V in this example.
+
+
+Copyright © 2023 Texas Instruments Incorporated                                                                Submit Document Feedback           27
+
+                                                         Product Folder Links: TPSI3050
+TPSI3050
+SLVSGO9C – APRIL 2022 – REVISED AUGUST 2023                                                                                                            www.ti.com
+
+•    RGFET_INT: external power transistor internal gate resistance, found in the power transistor data sheet.
+     Assume 0 Ω for this example.
+•    IO+: peak source current. The minimum value between 1.5 A, the gate driver peak source current, and the
+     calculated value based on the gate drive loop resistance.
+For this example, RDSON_VDRV = 2.5Ω, RGSRC = 8 Ω, and RGFET_INT = 0 Ω results in:
+
+         IO + ≅ min 1.5 A, 2.5 Ω 10.2 V
+                                 + 8 Ω + 0 Ω = 0.97 A                                                                                                      (8)
+
+
+Similarly, the TPSI3050 has a pulldown structure with an N-channel MOSFET with a peak sink current of 3.0 A.
+Therefore, assuming RGFET_INT = 0 Ω, the peak sink current can be predicted with:
+                                                                                                               1
+         IO − ≅ min 3.0 A, VVDDH × RGSRC + RGSNK − RGSRC × VF ×                                                                                                         (9)
+                                                                                          RGSRC × RGSNK + RDSON_VDRV × RGSRC + RGSNK
+
+
+where
+•    RGSRC: external turn-on resistance.
+•    RGSNK: external turn-off resistance.
+•    RDSON_VDRV: TPSI3050 driver on resistance in low state. See Electrical Characteristics.
+•    VVDDH: VDDH voltage. Assumed 10.2 V in this example.
+•    VF: diode forward voltage drop. Assumed 0.7 V in this example.
+•    IO-: peak sink current. The minimum value between 3.0 A, the gate driver peak sink current, and the
+     calculated value based on the gate drive loop resistance.
+For this example, assuming RDSON_VDRV = 1.7 Ω, RGSRC = 8 Ω, RGSNK = 4.5 Ω, and RGFET_INT = 0 Ω, results in:
+                                                                                                     1
+         IO − ≅ min 3.0 A, 10.2 V × 8 Ω + 4.5 Ω − 3.5 Ω × 0.7 V ×                                                                     = 2.18 A           (10)
+                                                                                    8 Ω × 4.5 Ω + 1.7 Ω × 8 Ω + 4.5 Ω
+
+Importantly, the estimated peak current is also influenced by PCB layout and load capacitance. Parasitic
+inductance in the gate driver loop can slow down the peak gate drive current and introduce overshoot and
+undershoot. Therefore, TI strongly recommends to minimize the gate driver loop.
+9.2.2.7 Start-up Time and Recovery Time
+As described in the CDIV1, CDIV2 Capacitance section, the start-up time of the fully discharged VDDH rail
+depends on the amount of capacitance present on the VDDH supply. The rate at which this capacitance is
+charged depends on the amount of power transferred from the primary side to the secondary side. The amount
+of power transferred can be adjusted by choosing RPXFR. Increasing the resistor settings for RPXFR transfers
+more power from the primary supply (VDDP) to the secondary supply (VDDH), thereby reducing the overall
+start-up and recovery times.
+9.2.2.8 Supplying Auxiliary Current, IAUX From VDDM
+The TPSI3050 is capable of providing power from VDDM to support external auxiliary circuitry as shown in
+Figure 9-3. In this case, the required transfer power must include the additional power consumed by the auxiliary
+circuitry on the VDDM rail. The RPXFR value must be set to meet the overall power requirements.
+
+                                                VP                                                  RGSRC
+                                                        EN                         VDRV
+                                      VSSP                            PWR
+                                                                                                    RGSNK
+                                                RPXFR
+                                                        PXFR         SIGNAL
+                                                                                   VDDH
+                                                                       ISOLATION
+
+
+
+
+                                                                                            CDIV1
+                                                                                                            IAUX
+                                                        VDDP                       VDDM
+                                             CVDDP                                                                 Auxiliary
+                                  +
+                             VP                                                             CDIV2                   Circuit
+                                  –                                                VSSS
+                                                        VSSP
+
+
+
+
+                                      Figure 9-3. Supplying Auxiliary Power From VDDM
+
+As an example, assume that the auxiliary circuitry requires an average current of 4 mA. Table 9-4 summarizes
+the results from the TPSI3050 calculator tool. The Calculator tool can be found at Design Calculator.
+
+28    Submit Document Feedback                                                                                        Copyright © 2023 Texas Instruments Incorporated
+
+                                                             Product Folder Links: TPSI3050
+                                                                                                                                TPSI3050
+www.ti.com                                                                                     SLVSGO9C – APRIL 2022 – REVISED AUGUST 2023
+
+      Table 9-4. Results from the TPSI3050 Calculator Tool, TA = 25°C, Three-Wire Mode with IAUX = 4 mA
+                     Power
+                                                                                                                    fEN_MAX,    IAUX_MAX,
+    RPXFR, kΩ      Converter        IVDDP, mA     PIN, mW    POUT, mW    IOUT, mA       tSTART, µs   tRECOVER, µs
+                                                                                                                      kHz          mA
+                  Duty Cycle, %
+          7.32              13.3           3.81       17.7         5.8        0.58             N/A            N/A        N/A          N/A
+          9.09              21.1           6.82       32.0        10.8        1.07             N/A            N/A        N/A          N/A
+             11             40.0          14.09       66.6        23.7        2.34             N/A            N/A        N/A          N/A
+          12.7              53.3          19.22       90.9        32.5        3.21          1933.2          83.74       11.94        4.38
+          14.7              66.7          24.38      115.4        41.3        4.09          1180.9          48.28       20.71        6.12
+          16.5              80.0          29.50      139.8        50.7        5.02           864.6          33.36       29.97        7.96
+            20              93.3          34.62      164.1        59.6        5.90           704.0           2579       38.78        9.70
+
+
+Based on the results in Table 9-4, several observations can be made:
+•    With RPXFR = 7.32 kΩ , RPXFR = 9.09 kΩ, and RPXFR = 11 kΩ, insufficient power is available to meet the
+     application power needs specified in the design requirements in Table 9-1.
+•    With RPXFR = 12.7 kΩ and higher, sufficient power is transferred to meet the specified design requirements.
+•    For a given RPXFR, because a significant amount of the transferred power is being provided to the auxiliary
+     circuitry, tSTART is longer, and fMAX reduced when compared to the results shown in Table 9-4 with IAUX = 0
+     mA.
+9.2.2.9 VDDM Ripple Voltage
+Note that when supplying power from VDDM, that is when IAUX > 0 mA, additional voltage ripple is present on
+the VDDM rail. For a given RPXFR setting, this ripple can be reduced by applying additional capacitance from
+VDDM to VSSS. For this design example, the ripple on VDDM, VDDMripple, computed in the calculator tool is 75
+mV.
+It is possible to reduce the VDDMripple with the addition of capacitance while still maintaining the original
+VDDHdroop = 0.5 V. For example, applying CDIV1 = 330 nF and CDIV2 = 680 nF in the calculator tool, reduces
+VDDMripple to 52 mV, while still maintaining VDDHdroop < 0.5 V. Of course, this additional capacitance leads to
+increased tSTART times.
+
+
+
+
+Copyright © 2023 Texas Instruments Incorporated                                                           Submit Document Feedback      29
+
+                                                       Product Folder Links: TPSI3050
+TPSI3050
+SLVSGO9C – APRIL 2022 – REVISED AUGUST 2023                                                                               www.ti.com
+
+9.2.3 Application Curves
+
+
+
+
+       Three-wire mode     VDDP = 5.0 V       RPXFR = 9.09 kΩ          Three-wire mode     VDDP = 5.0 V          RPXFR = 9.09 kΩ
+        CDIV1 = 470 nF     CDIV2 = 470 nF                               CDIV1 = 470 nF     CDIV2 = 470 nF
+         IAUX = 0 mA       CVDRV = 10 nF         TA = 25°C               IAUX = 0 mA       CVDRV = 10 nF             TA = 25°C
+  Figure 9-4. Power Up, VEN = VVDDP, Three-Wire Mode, TPSI3050          Figure 9-5. tLH_VDRV, Three-Wire Mode, TPSI3050
+
+
+
+
+       Three-wire mode     VDDP = 5.0 V       RPXFR = 9.09 kΩ          Three-wire mode     VDDP = 5.0 V          RPXFR = 9.09 kΩ
+        CDIV1 = 470 nF     CDIV2 = 470 nF                               CDIV1 = 470 nF     CDIV2 = 470 nF
+         IAUX = 0 mA       CVDRV = 10 nF         TA = 25°C               IAUX = 0 mA       CVDRV = 10 nF             TA = 25°C
+         Figure 9-6. tHL_VDRV, Three-Wire Mode, TPSI3050              Figure 9-7. Three-Wire Mode, fEN = 10 kHz, TPSI3050
+
+
+
+
+       Three-wire mode     VDDP = 5.0 V       RPXFR = 12.7 kΩ          Three-wire mode     VDDP = 5.0 V          RPXFR = 12.7 kΩ
+        CDIV1 = 330 nF     CDIV2 = 680 nF                               CDIV1 = 330 nF     CDIV2 = 680 nF
+         IAUX = 4 mA       CVDRV = 10 nF         TA = 25°C               IAUX = 4 mA       CVDRV = 10 nF             TA = 25°C
+      Figure 9-8. Power Up, VEN = VVDDP, Three-Wire Mode,               Figure 9-9. tLH_VDRV, Three-Wire Mode, TPSI3050
+                           TPSI3050
+
+
+
+
+30    Submit Document Feedback                                                           Copyright © 2023 Texas Instruments Incorporated
+
+                                                 Product Folder Links: TPSI3050
+                                                                                                                          TPSI3050
+www.ti.com                                                                               SLVSGO9C – APRIL 2022 – REVISED AUGUST 2023
+
+
+9.2.3 Application Curves (continued)
+
+
+
+
+         Three-wire mode         VDDP = 5.0 V     RPXFR = 12.7 kΩ          Three-wire mode     VDDP = 5.0 V       RPXFR = 12.7 kΩ
+          CDIV1 = 330 nF         CDIV2 = 680 nF                             CDIV1 = 330 nF     CDIV2 = 680 nF
+           IAUX = 4 mA           CVDRV = 10 nF      TA = 25°C                IAUX = 4 mA       CVDRV = 10 nF         TA = 25°C
+          Figure 9-10. tHL_VDRV, Three-Wire Mode, TPSI3050                Figure 9-11. Three-Wire Mode, fEN = 10 kHz, TPSI3050
+
+
+9.3 Power Supply Recommendations
+In three-wire mode, to help ensure a reliable supply voltage, TI recommends that the CVDDP capacitance from
+VDDP to VSSP consists of a 0.1-μF bypass capacitor for high frequency decoupling in parallel with a 1 μF for
+low frequency decoupling.
+In two-wire mode, TI recommends that the CVDDP capacitance placed from VDDP to VSSP consists of a
+220-nF capacitor connected close to the device between the VDDP and VSSP pins. The recommended absolute
+capacitance must be 220 nF, so if derating is required, a higher component value can be needed.
+Low-ESR and low-ESL capacitors must be connected close to the device between the VDDP and VSSP pins.
+9.4 Layout
+9.4.1 Layout Guidelines
+Designers must pay close attention to PCB layout to achieve optimum performance for the TPSI3050. Some key
+guidelines are:
+•    Component placement:
+     – Place the driver as close as possible to the power semiconductor to reduce the parasitic inductance of the
+        gate loop on the PCB traces.
+     – Connect low-ESR and low-ESL capacitors close to the device between the VDDH and VDDM pins and the
+        VDDM and VSSS pins to bypass noise and to support high peak currents when turning on the external
+        power transistor.
+     – Connect low-ESR and low-ESL capacitors close to the device between the VDDP and VSSP pins.
+     – Minimize parasitic capacitances on the RPXFR pin.
+•    Grounding considerations:
+     – Limit the high peak currents that charge and discharge the transistor gates to a minimal physical area.
+        This limitation decreases the loop inductance and minimizes noise on the gate terminals of the transistors.
+        Place the gate driver as close as possible to the transistors.
+     – Connect the driver VSSS to the Kelvin connection of MOSFET source or IGBT emitter. If the power device
+        does not have a split Kelvin source or emitter, connect the VSSS pin as close as possible to the source
+        or emitter terminal of the power device package to separate the gate loop from the high power switching
+        loop.
+•    High-voltage considerations:
+     – To ensure isolation performance between the primary and secondary side, avoid placing any PCB traces
+        or copper below the driver device. TI recommends a PCB cutout or groove to prevent contamination that
+        can compromise the isolation performance.
+
+Copyright © 2023 Texas Instruments Incorporated                                                     Submit Document Feedback        31
+
+                                                     Product Folder Links: TPSI3050
+TPSI3050
+SLVSGO9C – APRIL 2022 – REVISED AUGUST 2023                                                                      www.ti.com
+
+•    Thermal considerations:
+     – Proper PCB layout can help dissipate heat from the device to the PCB and minimize junction-to-board
+       thermal impedance (θJB).
+     – If the system has multiple layers, TI also recommends connecting the VDDH and VSSS pins to internal
+       ground or power planes through multiple vias of adequate size. These vias must be located close to the IC
+       pins to maximize thermal conductivity. However, keep in mind that no traces or coppers from different high
+       voltage planes are overlapping.
+9.4.2 Layout Example
+Figure 9-12 shows a PCB layout example with the signals and key components labeled.
+
+
+
+
+                                              Figure 9-12. 3-D PCB View
+
+Figure 9-13 and Figure 9-14 show the top and bottom layer traces and copper.
+
+
+
+
+                                               Figure 9-13. Top Layer
+
+
+
+
+32    Submit Document Feedback                                                  Copyright © 2023 Texas Instruments Incorporated
+
+                                               Product Folder Links: TPSI3050
+                                                                                                                    TPSI3050
+www.ti.com                                                                          SLVSGO9C – APRIL 2022 – REVISED AUGUST 2023
+
+
+
+
+                                                  Figure 9-14. Bottom Layer
+
+
+
+
+Copyright © 2023 Texas Instruments Incorporated                                                Submit Document Feedback     33
+
+                                                   Product Folder Links: TPSI3050
+TPSI3050
+SLVSGO9C – APRIL 2022 – REVISED AUGUST 2023                                                                                     www.ti.com
+
+
+10 Device and Documentation Support
+10.1 Related Links
+The table below lists quick access links. Categories include technical documents, support and community
+resources, tools and software, and quick access to order now.
+                                                    Table 10-1. Related Links
+                                                                         TECHNICAL                TOOLS &                SUPPORT &
+       PARTS            PRODUCT FOLDER            ORDER NOW
+                                                                         DOCUMENTS               SOFTWARE                COMMUNITY
+      TPSI3050               Click here             Click here             Click here             Click here               Click here
+      TPSI3050S              Click here             Click here             Click here             Click here               Click here
+
+
+10.2 Receiving Notification of Documentation Updates
+To receive notification of documentation updates, navigate to the device product folder on ti.com. Click on
+Subscribe to updates to register and receive a weekly digest of any product information that has changed. For
+change details, review the revision history included in any revised document.
+10.3 Support Resources
+TI E2E™ support forums are an engineer's go-to source for fast, verified answers and design help — straight
+from the experts. Search existing answers or ask your own question to get the quick design help you need.
+Linked content is provided "AS IS" by the respective contributors. They do not constitute TI specifications and do
+not necessarily reflect TI's views; see TI's Terms of Use.
+10.4 Trademarks
+TI E2E™ is a trademark of Texas Instruments.
+All trademarks are the property of their respective owners.
+10.5 Electrostatic Discharge Caution
+                  This integrated circuit can be damaged by ESD. Texas Instruments recommends that all integrated circuits be handled
+                  with appropriate precautions. Failure to observe proper handling and installation procedures can cause damage.
+                  ESD damage can range from subtle performance degradation to complete device failure. Precision integrated circuits may
+                  be more susceptible to damage because very small parametric changes could cause the device not to meet its published
+                  specifications.
+
+
+10.6 Glossary
+ TI Glossary          This glossary lists and explains terms, acronyms, and definitions.
+
+11 Mechanical, Packaging, and Orderable Information
+The following pages include mechanical, packaging, and orderable information. This information is the most
+current data available for the designated devices. This data is subject to change without notice and revision of
+this document. For browser-based versions of this data sheet, refer to the left-hand navigation.
+
+
+
+
+34    Submit Document Feedback                                                                 Copyright © 2023 Texas Instruments Incorporated
+
+                                                     Product Folder Links: TPSI3050
+                                                                                                                                                                      PACKAGE OPTION ADDENDUM
+
+       www.ti.com                                                                                                                                                                                                    6-Feb-2026
+
+
+
+
+PACKAGING INFORMATION
+
+       Orderable part number          Status     Material type      Package | Pins      Package qty | Carrier        RoHS             Lead finish/              MSL rating/               Op temp (°C)          Part marking
+                                        (1)            (2)                                                             (3)            Ball material             Peak reflow                                           (6)
+                                                                                                                                            (4)                      (5)
+
+           TPSI3050DWZR               Active      Production      SO-MOD (DWZ) | 8       1000 | LARGE T&R             Yes                NIPDAU            Level-3-260C-168 HR             -40 to 125               I3050
+         TPSI3050DWZR.A               Active      Production      SO-MOD (DWZ) | 8       1000 | LARGE T&R             Yes                NIPDAU            Level-3-260C-168 HR             -40 to 125               I3050
+          TPSI3050SDWZR               Active      Production      SO-MOD (DWZ) | 8       1000 | LARGE T&R             Yes                NIPDAU            Level-3-260C-168 HR             -40 to 125              I3050S
+         TPSI3050SDWZR.A              Active      Production      SO-MOD (DWZ) | 8       1000 | LARGE T&R             Yes                NIPDAU            Level-3-260C-168 HR             -40 to 125              I3050S
+
+(1)
+      Status: For more details on status, see our product life cycle.
+
+(2)
+   Material type: When designated, preproduction parts are prototypes/experimental devices, and are not yet approved or released for full production. Testing and final process, including without limitation quality assurance,
+reliability performance testing, and/or process qualification, may not yet be complete, and this item is subject to further changes or possible discontinuation. If available for ordering, purchases will be subject to an additional
+waiver at checkout, and are intended for early internal evaluation purposes only. These items are sold without warranties of any kind.
+
+(3)
+      RoHS values: Yes, No, RoHS Exempt. See the TI RoHS Statement for additional information and value definition.
+
+(4)
+   Lead finish/Ball material: Parts may have multiple material finish options. Finish options are separated by a vertical ruled line. Lead finish/Ball material values may wrap to two lines if the finish value exceeds the maximum
+column width.
+
+(5)
+  MSL rating/Peak reflow: The moisture sensitivity level ratings and peak solder (reflow) temperatures. In the event that a part has multiple moisture sensitivity ratings, only the lowest level per JEDEC standards is shown.
+Refer to the shipping label for the actual reflow temperature that will be used to mount the part to the printed circuit board.
+
+(6)
+      Part marking: There may be an additional marking, which relates to the logo, the lot trace code information, or the environmental category of the part.
+
+Multiple part markings will be inside parentheses. Only one part marking contained in parentheses and separated by a "~" will appear on a part. If a line is indented then it is a continuation of the previous line and the two
+combined represent the entire part marking for that device.
+
+Important Information and Disclaimer:The information provided on this page represents TI's knowledge and belief as of the date that it is provided. TI bases its knowledge and belief on information provided by third parties, and
+makes no representation or warranty as to the accuracy of such information. Efforts are underway to better integrate information from third parties. TI has taken and continues to take reasonable steps to provide representative
+and accurate information but may not have conducted destructive testing or chemical analysis on incoming materials and chemicals. TI and TI suppliers consider certain information to be proprietary, and thus CAS numbers
+and other limited information may not be available for release.
+
+In no event shall TI's liability arising out of such information exceed the total purchase price of the TI part(s) at issue in this document sold by TI to Customer on an annual basis.
+
+OTHER QUALIFIED VERSIONS OF TPSI3050 :
+
+
+
+
+                                                                                                          Addendum-Page 1
+                                                                                                                          PACKAGE OPTION ADDENDUM
+
+   www.ti.com                                                                                                                               6-Feb-2026
+
+
+
+
+• Automotive : TPSI3050-Q1
+
+NOTE: Qualified Version Definitions:
+
+       • Automotive - Q100 devices qualified for high-reliability automotive applications targeting zero defects
+
+
+
+
+                                                                                                        Addendum-Page 2
+                                                                               PACKAGE MATERIALS INFORMATION
+
+www.ti.com                                                                                                                                        5-Dec-2023
+
+
+
+TAPE AND REEL INFORMATION
+
+       REEL DIMENSIONS                                                                      TAPE DIMENSIONS
+                                                                                       K0       P1
+
+
+
+                                                                                                                       B0 W
+                                         Reel
+                                       Diameter
+                                                                                    Cavity            A0
+                                                                A0   Dimension designed to accommodate the component width
+                                                                B0   Dimension designed to accommodate the component length
+                                                                K0   Dimension designed to accommodate the component thickness
+                                                                W    Overall width of the carrier tape
+                                                                P1   Pitch between successive cavity centers
+
+
+                                        Reel Width (W1)
+                              QUADRANT ASSIGNMENTS FOR PIN 1 ORIENTATION IN TAPE
+
+                                                                                                      Sprocket Holes
+
+
+                                                  Q1       Q2          Q1    Q2
+
+                                                  Q3       Q4          Q3    Q4                  User Direction of Feed
+
+
+
+                                                            Pocket Quadrants
+
+
+*All dimensions are nominal
+             Device           Package Package Pins              SPQ       Reel   Reel   A0                    B0        K0     P1     W     Pin1
+                               Type Drawing                             Diameter Width (mm)                  (mm)      (mm)   (mm)   (mm) Quadrant
+                                                                          (mm) W1 (mm)
+     TPSI3050DWZR             SO-MOD     DWZ           8        1000        330.0        16.4        12.05   6.15      3.3    16.0   16.0    Q1
+    TPSI3050SDWZR             SO-MOD     DWZ           8        1000        330.0        16.4        12.05   6.15      3.3    16.0   16.0    Q1
+
+
+
+
+                                                                      Pack Materials-Page 1
+                                                                PACKAGE MATERIALS INFORMATION
+
+www.ti.com                                                                                                              5-Dec-2023
+
+
+
+ TAPE AND REEL BOX DIMENSIONS
+
+
+
+
+                                                               Width (mm)
+                                                                              H
+                      W
+
+
+
+
+                                                          L
+
+
+
+
+*All dimensions are nominal
+             Device           Package Type   Package Drawing   Pins         SPQ    Length (mm)   Width (mm)   Height (mm)
+     TPSI3050DWZR               SO-MOD            DWZ           8           1000      350.0        350.0         43.0
+     TPSI3050SDWZR              SO-MOD            DWZ           8           1000      350.0        350.0         43.0
+
+
+
+
+                                                        Pack Materials-Page 2
+                                                                                                                     PACKAGE OUTLINE
+DWZ0008A                                                       SCALE 1.250
+                                                                                                               SOIC - 2.8 mm max height
+                                                                                                                           SMALL OUTLINE PACKAGE
+
+
+
+
+                                                                                                                                       C
+
+                                                                                                                      SEATING PLANE
+                                           11.75
+      PIN 1 ID                             11.25
+                                            TYP                                                                                0.1 C
+        AREA
+                                                                                                   6X 1.27
+                                                                                        8
+                 1
+
+
+       5.95                                                                                        2X
+       5.75                                                                                       3.81
+      NOTE3
+
+
+                 4
+                                                                                        5
+                                                                                                  8X 0.51
+                                                                                                     0.31
+                                           7.6                                                    0.25      C A
+         A                                 7.4                                      B                                             2.8 MAX
+                                          NOTE4
+
+
+
+
+                                                                                                   0.33 TYP
+                                                                                                   0.13
+
+
+
+
+                                  SEE DETAIL A
+
+                                                                                                                                 (2.286)
+                                                          0.25
+                                                   GAGE PLANE
+
+
+
+                                                                                                                                           0.46
+                                                                                                                                           0.36
+                                                                             0 -8
+                                                                                            1
+                                                                                            0.5                            DETAIL A
+                                                                                                              2.1)
+                                                                                                             (1.9          TYPICAL
+
+
+
+
+                                                                                                                                   4226306/A 09/2020
+
+NOTES:
+
+1. All linear dimensions are in millimeters. Any dimensions in parenthesis are for reference only. Dimensioning and tolerancing
+   per ASME Y14.5M.
+2. This drawing is subject to change without notice.
+3. This dimension does not include mold flash, protrusions, or gate burrs. Mold flash, protrusions, or gate burrs shall not
+   exceed 0.15 mm per side.
+4. This dimension does not include interlead flash. Interlead flash shall not exceed 0.25 mm per side.
+5. Ref. JEDEC registration MS-013
+
+
+
+
+                                                                              www.ti.com
+                                                                               EXAMPLE BOARD LAYOUT
+DWZ0008A                                                                                  SOIC - 2.8 mm max height
+                                                                                                       SMALL OUTLINE PACKAGE
+
+
+
+
+                           8X (1.8)                                                              SEE DETAILS
+                                                              SYMM
+
+
+
+                   8X (0.6)                                                                          SYMM
+
+
+
+
+               6X (1.27)
+                                                              (10.9)
+
+
+                                                 LAND PATTERN EXAMPLE
+                                          9.1 mm NOMINAL CLEARANCE/CREEPAGE
+                                                        SCALE: 6X
+
+
+
+
+                                               SOLDER MASK
+                                               OPENING
+
+                   METAL                                        SOLDER MASK                             METAL
+                                                                    OPENING
+
+
+
+
+                                      0.07 MAX                                             0.07 MIN
+                                      ALL AROUND                                           ALL AROUND
+
+
+                            NON SOLDER MASK                                            SOLDER MASK
+                                DEFINED                                                  DEFINED
+
+                                                     SOLDER MASK DETAILS
+                                                                                                             4226306/A 09/2020
+NOTES: (continued)
+
+5. Publication IPC-7351 may have alternate designs.
+6. Solder mask tolerances between and around signal pads can vary based on board fabrication site.
+
+
+
+
+                                                                www.ti.com
+                                                                              EXAMPLE STENCIL DESIGN
+DWZ0008A                                                                                   SOIC - 2.8 mm max height
+                                                                                                         SMALL OUTLINE PACKAGE
+
+
+
+
+                        8X (1.8)                                SYMM
+
+
+
+
+                      8X (0.6)
+                                                                                                   SYMM
+
+
+
+
+                6X (1.27)
+
+                                                                (10.9)
+
+
+                                                 SOLDER PASTE EXAMPLE
+                                             BASED ON 0.125 mm THICK STENCIL
+                                                         SCALE: 6X
+
+
+
+
+                                                                                                                  4226306/A 09/2020
+NOTES: (continued)
+
+7. Laser cutting apertures with trapezoidal walls and rounded corners may offer better paste release. IPC-7525 may have alternate
+   design recommendations.
+8. Board assembly site may have different recommendations for stencil design.
+
+
+
+
+                                                                 www.ti.com
+                                         IMPORTANT NOTICE AND DISCLAIMER
+TI PROVIDES TECHNICAL AND RELIABILITY DATA (INCLUDING DATASHEETS), DESIGN RESOURCES (INCLUDING REFERENCE
+DESIGNS), APPLICATION OR OTHER DESIGN ADVICE, WEB TOOLS, SAFETY INFORMATION, AND OTHER RESOURCES “AS IS”
+AND WITH ALL FAULTS, AND DISCLAIMS ALL WARRANTIES, EXPRESS AND IMPLIED, INCLUDING WITHOUT LIMITATION ANY
+IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE OR NON-INFRINGEMENT OF THIRD
+PARTY INTELLECTUAL PROPERTY RIGHTS.
+These resources are intended for skilled developers designing with TI products. You are solely responsible for (1) selecting the appropriate
+TI products for your application, (2) designing, validating and testing your application, and (3) ensuring your application meets applicable
+standards, and any other safety, security, regulatory or other requirements.
+These resources are subject to change without notice. TI grants you permission to use these resources only for development of an
+application that uses the TI products described in the resource. Other reproduction and display of these resources is prohibited. No license
+is granted to any other TI intellectual property right or to any third party intellectual property right. TI disclaims responsibility for, and you fully
+indemnify TI and its representatives against any claims, damages, costs, losses, and liabilities arising out of your use of these resources.
+TI’s products are provided subject to TI’s Terms of Sale, TI’s General Quality Guidelines, or other applicable terms available either on
+ti.com or provided in conjunction with such TI products. TI’s provision of these resources does not expand or otherwise alter TI’s applicable
+warranties or warranty disclaimers for TI products. Unless TI explicitly designates a product as custom or customer-specified, TI products
+are standard, catalog, general purpose devices.
+TI objects to and rejects any additional or different terms you may propose.
+IMPORTANT NOTICE
+
+                                                Copyright © 2026, Texas Instruments Incorporated
+                                                                Last updated 10/2025
+

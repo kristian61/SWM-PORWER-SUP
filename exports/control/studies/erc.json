@@ -1,0 +1,14 @@
+{
+    "$schema": "https://schemas.kicad.org/erc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-10-10T06:45:03+0000",
+    "kicad_version": "9.0.2",
+    "sheets": [
+        {
+            "path": "/",
+            "uuid_path": "/f06960aa-0392-43eb-b980-a6a37a4fc004",
+            "violations": []
+        }
+    ],
+    "source": "phase_sensor_study.kicad_sch"
+}

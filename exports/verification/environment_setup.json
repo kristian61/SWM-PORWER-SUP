@@ -1,0 +1,23 @@
+{
+  "status": "DRAFT SAVE CONFIRMED",
+  "draft_id": "b57980a9-45ec-4821-86d1-067d75d9ab74~cecfgdraft_6ac7bc4920f081918739420d437b975d",
+  "revision": 6,
+  "requires_publish": true,
+  "installed_kicad_version": "9.0.2",
+  "repository_path": "/workspace/SWM-PORWER-SUP",
+  "install_script": null,
+  "custom_allowed_domains": [
+    "analog.com",
+    "meanwell.com",
+    "ti.com",
+    "www.analog.com",
+    "www.diodes.com",
+    "www.infineon.com",
+    "www.meanwell.com",
+    "www.ti.com"
+  ],
+  "published": false,
+  "fresh_cloud_task_tested": false,
+  "git_published": false,
+  "note": "Saving preserves a draft only. Review/save then Publish in environment settings activate the reusable snapshot."
+}

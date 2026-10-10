@@ -1,0 +1,29 @@
+{
+  "time_utc": "2026-10-10T06:22:12.025950+00:00",
+  "ERC_all_severities": "PASS",
+  "DRC_all_severities_with_schematic_parity": "PASS",
+  "inventory": {
+    "project": "Styrekort",
+    "inventory": "PASS",
+    "schematic_components": 86,
+    "offboard_requirements": 1,
+    "PCB_pin_net_comparison": "PASS",
+    "logical_pads": 211,
+    "physical_numbered_pads": 211,
+    "track_objects": 2516
+  },
+  "HV_rule_negative_control": {
+    "status": "PASS",
+    "changed_rule_mm": 100,
+    "exit_code": 5,
+    "clearance_violations": 499
+  },
+  "original_source_hashes": {
+    "design/control/control.kicad_pcb": "1b884ffd19b99a36e2399367586162a08945820e684e19225bf83025aaa46d50",
+    "design/control/control.kicad_pro": "4d05751370c66f068dd91eecc8696a9507d883558b798af903707bb0d435d6ff",
+    "design/control/control.kicad_dru": "9f2255a53f8d77fef4fbab3ac385d27a8478d2721ccdddcaf8f1b5d47d57cda7"
+  },
+  "original_sources_unchanged": true,
+  "hardware_tests": "NOT PERFORMED",
+  "fabrication_release": false
+}

@@ -1,0 +1,8 @@
+#!/bin/bash
+set -euo pipefail
+runtime_dir="${KICAD_PSU_RUNTIME_DIR:-/workspace/scratch/kicad-psu-runtime}"
+export XDG_CONFIG_HOME="$runtime_dir/config"
+export XDG_CACHE_HOME="$runtime_dir/cache"
+export XDG_DATA_HOME="$runtime_dir/data"
+mkdir -p "$XDG_CONFIG_HOME" "$XDG_CACHE_HOME" "$XDG_DATA_HOME"
+exec "$@"

@@ -1,0 +1,28 @@
+{
+  "status": "CAD ROUTING COMPLETE - DRC PASS; HARDWARE UNVALIDATED",
+  "hardware_validated": false,
+  "fabrication_released": false,
+  "board_size_mm": [
+    135,
+    90
+  ],
+  "copper_layers": 4,
+  "copper_thickness_um": [
+    70,
+    35,
+    35,
+    70
+  ],
+  "track_segments": 1551,
+  "vias": 111,
+  "track_objects": 1662,
+  "components": 75,
+  "erc_violations": 0,
+  "drc_geometry_violations": 0,
+  "drc_geometry_types": {},
+  "unconnected_items": 0,
+  "schematic_parity_issues": 0,
+  "drc_exit_code": 0,
+  "unconnected_detail": "remaining_connections.json",
+  "note": "CAD connectivity/geometry checks do not qualify switching, current, thermal or isolation performance."
+}

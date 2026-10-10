@@ -1,0 +1,26 @@
+[
+  {
+    "file": "MEANWELL_RSP-3000_SPEC.pdf",
+    "official_url": "https://meanwell.com/Upload/PDF/RSP-3000/RSP-3000-SPEC.PDF",
+    "download_date": "2026-10-09",
+    "http_status": 200,
+    "bytes": 1300856,
+    "sha256": "1dd3a8d722ecb0de772aac083baca471db785b7f5e90079450b290bc0e7fc7a9"
+  },
+  {
+    "file": "MEANWELL_Enclosed_Type_EN.pdf",
+    "official_url": "https://meanwell.com/Upload/PDF/Enclosed_Type_EN.pdf",
+    "download_date": "2026-10-09",
+    "http_status": 200,
+    "bytes": 1032314,
+    "sha256": "3e40e59123e5c23d498a468e851f89e5a9d89d99fdbdc82fe8c19348294e4940"
+  },
+  {
+    "file": "MEANWELL_FAQ.html",
+    "official_url": "https://meanwell.com/qa.aspx",
+    "download_date": "2026-10-09",
+    "http_status": 200,
+    "bytes": 2841968,
+    "sha256": "d51fe7c94abcf1bc5e79f84d2a4b2a3dfe12851cdfd7c388ddb58ce1ae916c8a"
+  }
+]
